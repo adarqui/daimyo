@@ -1,0 +1,13 @@
+*.swp
+*.o
+*.hi
+*.cmi
+*.cmo
+*.cmx
+.cabal-sandbox
+bin
+cabal.sandbox.config
+dist
+vendor
+dev
+core
