@@ -1,0 +1,53 @@
+Info:
+array of N integers, a={a1,a2,…,aN}
+subarray = contiguous segment
+Subarray is a contiguous segment of array. For example a[l,r]={al,al+1,…,ar} is a subarray, where 1≤l≤r≤N
+We say that a sum of a subarray is a sum of elements in this subarray
+
+We say that subarray X(=a[xl,xr]={axl,axl+1,…,axr}) is greater than subarray Y(=a[yl,yr]={ayl,ayl+1,…,ayr}) if and only if:
+
+X has a greater sum than Y
+X and Y has the same sum and X begins earlier
+X and Y has the same sum, they start in the same place and the length of X is smaller than the length of Y
+Since the teacher doesn't like number 0, there is no 0 in the array a. Other than array a, the teacher also gave an integer K. The task is to lists as many as possible, but not more than K, subarrays with a positive sum in the following order.
+
+The first subarray is the greatest subarray in the array according to above definition.
+
+The ith subarray is the greatest subarray disjoint to any of the jth subarray, where j<i (disjoint means that they have no common elements).
+
+Of course in order to win with others, you have to solve the problem first.
+
+Input 
+In the first line there are two integers N and K separated by a single space. 
+In the second line there are N integers separated by single space denoting the array arr.
+
+Output 
+Print no more than K lines. In the ith line print the value of the ith sequence in the above order.
+
+Constraints 
+1≤N≤105 
+1≤K≤N 
+0<|ai|≤104,where i∈[1,N]
+
+Sample Input 00
+
+5 3
+2 4 -10 2 -2
+Sample Output 00
+
+6
+2
+Explanation
+
+Subarray a[1,2]={a1,a2} has sum 6 and this is the greatest value in the whole array. Next disjoint greatest subarray is a[4,4]=a4 with sum = 2. There are no more subsequences with a positive value disjoint with the first and the second subsequence.
+
+Sample Input 01
+
+4 2
+-2 5 -1 -8
+Sample Output 01
+
+5    
+Explanation
+
+Subarray a[2,2]={a2} has sum 5 and this is the greatest value in the whole array. There are no more subsequences with a positive value disjoint with the first one, so even if K = 2, we print out just one value.

@@ -1,0 +1,53 @@
+full set = 
+ # red == # green
+ # yellow == # blue
+ for every prefix sequence: (red - green) <= 1
+ for every prefix sequence: (yellow - blue) <= 1
+
+prefix t = (t1...tm where 0 <= m <= n) in t1..tn
+
+
+Given:
+ sequence of N balls in 4 colors: r,g,y,b
+
+Sequence is full of colors iff:
+ a) red == green
+ b) yellow == blue
+ c) for every prefix of the sequence: (red - green) <= 1
+ d) for every prefix of the sequence: (yellow - blue) <= 1
+
+Task:
+ 1) print True if full of colors
+ 2) otherwise print False
+
+Input:
+ line 1: T test cases
+ line 2-T: sequence of letters RGYB etc
+
+Output 
+ for each test case, print True if full, otherwise False
+
+Constraints 
+1≤T≤10 
+Sequence will only consists of letters {R,G,Y,B}. 
+Sum of length of all sequences will not exceed 10^6.
+
+Notes 
+A prefix of a string T=t1…tn is a string Tˆ=t1…tm, where 0≤m≤n.
+
+Sample Input
+4
+RGGR
+RYBG
+RYRB
+YGYGRBRB
+
+Sample Output
+True
+True
+False
+False
+
+Explanation 
+In the first two test cases, all four conditions are satisfied. 
+In the third test case, condition #1 fails as there are more red balls than green balls and condition #3 also fails for prefix "RYR" as the difference between the number of red and green balls is more than 1. In the fourth test, for a prefix "YGYG" condition 4th fails

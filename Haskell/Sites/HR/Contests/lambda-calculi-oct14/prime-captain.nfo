@@ -1,0 +1,66 @@
+Ship divided into three part:
+ LEFT
+ RIGHT
+ CENTRAL
+
+People on ship assigned id: according to id
+ - work in one part of ship
+ - get thrown out of ship
+
+Person's fate:
+ CENTRAL:
+  a) id is prime
+  b) doesn't contain 0 as one of the digits
+  c) when left digits successively taken off -> all resulting numbers are prime
+  d) same for right side
+ LEFT:
+  a) id is prime
+  b) doesn't contain 0 as one of the digits
+  c) when left digits successively taken off -> all resulting numbers are prime
+  d) not same for right side
+ RIGHT:
+  a) id is prime
+  b) doesn't contain 0 as one of the digits
+  c) not same for left side
+  d) when right digits successively taken off -> all resulting numbers are prime
+ DEAD
+  a) if none of the above cases match, dead
+
+INPUT:
+ line 1: contains T -> number of persons on the ship
+ line 2-T: id numbers of people
+
+OUTPUT:
+ Print LEFT, RIGHT, CENTRAL, or DEAD according to the fate of the person on the ship.
+
+Constraints: 
+1≤T≤50 
+1≤id≤106
+
+Sample Input #00
+5
+3137
+1367
+2333
+101
+12
+
+Sample Output #00
+CENTRAL
+LEFT
+RIGHT
+DEAD
+DEAD
+
+Sample input #01
+4
+43
+23
+66
+29
+
+Sample Output #01
+LEFT
+CENTRAL
+DEAD
+RIGHT

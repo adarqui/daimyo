@@ -1,0 +1,14 @@
+Input:
+ line 1: N, represents number of elements in the list
+ line 2: N space separated integers representing the list
+
+Result:
+ - Must be divisible by 101
+
+Output:
+ - print the resultant expression, 0 or more spaces between operators/operands
+
+Constraint:
+ a) 2 <= N <= 10^4
+ b) 1 <= element of list <= 100
+ c) length of output expression should not exceed 10 x N

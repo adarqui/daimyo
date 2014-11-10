@@ -1,0 +1,6 @@
+.cabal-sandbox
+dist
+vendor
+dev
+ext
+test-cases

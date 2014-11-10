@@ -1,0 +1,93 @@
+todo:
+- graph
+- array memo
+- dfs traversal tree
+
+nice:
+- http://en.wikipedia.org/wiki/List_of_terms_relating_to_algorithms_and_data_structures
+- http://xlinux.nist.gov/dads//
+
+todo:
+- http://en.wikipedia.org/wiki/Lowest_common_ancestor
+- http://en.wikipedia.org/wiki/Nearest_neighbour_algorithm
+- BINARY DECISION DIAGRAM!!! 
+11/02/2014: Binary Decision Diagrams: http://www.doc.ic.ac.uk/~ajf/haskelltests/bdd/spec.pdf
+
+
+Ghc-Vis:
+- http://hackage.haskell.org/package/base-4.7.0.1/docs/Control-Monad-ST.html
+
+-------------
+
+Linked Lists
+[x] Single
+[-] Circular
+
+Stack
+[x] Stack
+
+Queue
+[x] Queue
+
+Trees:
+[x] Binary search tree
+[-] Rose
+
+Trie:
+[-]
+
+Sorting:
+[x] Insert: 
+[x] OddEven: http://en.wikipedia.org/wiki/Odd%E2%80%93even_sort
+[-] Bubble: http://en.wikipedia.org/wiki/Bubble_sort
+[-] Quick:
+
+Math:
+[/] Powers
+
+
+Haskell:
+- Eq: http://hackage.haskell.org/package/base-4.7.0.1/docs/Prelude.html
+- Ord: http://hackage.haskell.org/package/base-4.7.0.1/docs/Data-Ord.html
+- Monoid: https://hackage.haskell.org/package/base-4.7.0.0/docs/Data-Functor.html
+- Foldable: http://hackage.haskell.org/package/base-4.7.0.1/docs/Data-Foldable.html
+- Traversable: http://hackage.haskell.org/package/base-4.7.0.1/docs/Data-Traversable.html
+- Applicative: http://hackage.haskell.org/package/base-4.7.0.0/docs/Control-Applicative.html
+
+Linked Lists:
+
+Trees:
+- Binary Search Tree: http://en.wikipedia.org/wiki/Binary_search_tree
+
+Range Tree:
+ - http://en.wikipedia.org/wiki/Range_tree
+
+Segment Tree:
+ - http://www.cse.iitk.ac.in/users/aca/lop12/slides/06.pdf
+ - http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
+ - http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/
+ - examples:
+   - http://codeforces.com/blog/entry/8348
+   - https://github.com/JulianBayardo/functional-structures/blob/master/src/Data/Tree/Segment.hs
+ - for sums, min, max, etc, any op
+
+Graph:
+ - http://interactivepython.org/courselib/static/pythonds/Graphs/graphintro.html
+ - http://en.wikipedia.org/wiki/Graph_(abstract_data_type)
+ - adjacency matrix, adjacency list
+ - weighted graph
+
+
+Array:
+ - ST Array : mutable
+ - http://www.haskell.org/haskellwiki/Arrays#Mutable_arrays_in_ST_monad_.28module_Data.Array.ST.29
+ - [: parallel arrays :] -> http://www.haskell.org/ghc/docs/7.0.4/html/libraries/base/GHC-PArr.html
+ 
+ - http://stackoverflow.com/questions/8197032/starray-documentation-for-newbies-and-state-st-related-questions
+
+
+Sorting:
+- Insert: 
+- OddEven: http://en.wikipedia.org/wiki/Odd%E2%80%93even_sort
+- Bubble: http://en.wikipedia.org/wiki/Bubble_sort
+- Quick:

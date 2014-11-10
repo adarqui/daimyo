@@ -1,0 +1,46 @@
+Name:       Daimyo
+Version:    0.1
+Author:     andrew.darqui@gmail.com
+Maintainer:     andrew.darqui@gmail.com
+Synopsis:   Daimyo
+Description:    Daimyo
+Category:   Daimyo
+Build-Type: Simple
+Cabal-Version:  >= 1.8
+tested-with:    GHC == 7.6.2
+extra-source-files: README.md
+
+Source-Repository head
+ Type:               git
+ Location:           https://github.com/adarqui/Daimyo
+
+Library
+ HS-Source-Dirs:     src
+ Exposed-Modules:    Daimyo
+                     Daimyo.Lib.Input
+                     Daimyo.Lib.List.Single
+                     Daimyo.Lib.List.Misc
+                     Daimyo.Lib.Stack
+                     Daimyo.Lib.Queue,
+                     Daimyo.Lib.Tree.Node
+                     Daimyo.Lib.Tree.BST
+                     Daimyo.Lib.Tree.Interval
+                     Daimyo.Lib.Tree.Segment
+                     Daimyo.Lib.Tree.Rose
+                     Daimyo.Lib.Tree.Misc
+                     Daimyo.Lib.Tree.Instances.Node
+                     Daimyo.Lib.Tree.Instances.BST
+                     Daimyo.Lib.Set
+                     Daimyo.Lib.Bits
+                     Daimyo.Lib.Math.Primes
+                     Daimyo.Lib.Math.Powers
+                     Daimyo.Lib.Sorting.Insert
+                     Daimyo.Lib.Sorting.OddEven
+                     Daimyo.Lib.Encryption.Transposition
+                     Daimyo.Lib.Permutation.Heaps
+                     Daimyo.Lib.Fun.Binary
+                     Daimyo.Lib.Fun.Alphabet
+                     Daimyo.Lib.Patterns.Palindrome
+                     Daimyo.Lib.Expressions.BoolTree
+ Build-Depends:      base == 4.*, matrix, vector
+ GHC-Options:        -Wall

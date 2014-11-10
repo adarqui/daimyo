@@ -1,0 +1,23 @@
+name:                Math-Simple
+version:             0.1.0.0
+synopsis:            Simple math functions
+homepage:            https://github.com/adarqui/Daimyo-PE-Misc
+author:              adarqui
+maintainer:          andrew.darqui@gmail.com
+category:            Daimyo
+build-type:          Simple
+cabal-version:       >=1.8
+
+library
+ exposed-modules:
+  Misc.Math
+ build-depends:
+  base
+ GHC-Options:         -Wall -rtsopts
+ hs-source-dirs:      src
+
+test-suite test-math
+ main-is:             test-math.hs
+ type:                exitcode-stdio-1.0
+ build-depends:       base
+ hs-source-dirs:      tests, src
