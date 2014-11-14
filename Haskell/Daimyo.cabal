@@ -42,5 +42,7 @@ Library
                      Daimyo.Lib.Fun.Alphabet
                      Daimyo.Lib.Patterns.Palindrome
                      Daimyo.Lib.Expressions.BoolTree
+                     Daimyo.Lib.Expressions.IncDec
+                     Daimyo.Lib.State
  Build-Depends:      base == 4.*, matrix, vector
  GHC-Options:        -Wall
