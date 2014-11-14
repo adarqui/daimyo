@@ -4,11 +4,13 @@
 *.cmi
 *.cmo
 *.cmx
+*.cmm
 *.glob
 *.vo
 *.ibc
 *.idr
 *.class
+*.bak
 .cabal-sandbox/
 bin/
 dist/
