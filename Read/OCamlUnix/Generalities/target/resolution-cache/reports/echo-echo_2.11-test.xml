@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="echo"
+		module="echo_2.11"
+		revision="0.1-SNAPSHOT"
+		conf="test"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20141116115241"/>
+	<dependencies>
+		<module organisation="org.scalaz" name="scalaz-scalacheck-binding_2.11">
+			<revision name="7.1.0" status="release" pubdate="20140801121545" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="6">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="3408" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-scalacheck-binding_2.11/ivy-7.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalaz/scalaz-scalacheck-binding_2.11/7.1.0/scalaz-scalacheck-binding_2.11-7.1.0.pom"/>
+				<caller organisation="echo" name="echo_2.11" conf="test, compile, runtime" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalaz-scalacheck-binding_2.11" type="bundle" ext="jar" status="no" details="" size="565842" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-scalacheck-binding_2.11/bundles/scalaz-scalacheck-binding_2.11-7.1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalaz/scalaz-scalacheck-binding_2.11/7.1.0/scalaz-scalacheck-binding_2.11-7.1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalacheck" name="scalacheck_2.11">
+			<revision name="1.11.4" status="release" pubdate="20140508165957" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalacheck.org" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="10">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2823" time="0" location="/root/.ivy2/cache/org.scalacheck/scalacheck_2.11/ivy-1.11.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalacheck/scalacheck_2.11/1.11.4/scalacheck_2.11-1.11.4.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-scalacheck-binding_2.11" conf="default, compile, runtime, master" rev="1.11.4" rev-constraint-default="1.11.4" rev-constraint-dynamic="1.11.4" callerrev="7.1.0"/>
+				<artifacts>
+					<artifact name="scalacheck_2.11" type="jar" ext="jar" status="no" details="" size="863107" time="0" location="/root/.ivy2/cache/org.scalacheck/scalacheck_2.11/jars/scalacheck_2.11-1.11.4.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalacheck/scalacheck_2.11/1.11.4/scalacheck_2.11-1.11.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-sbt" name="test-interface">
+			<revision name="1.0" status="release" pubdate="20130628184435" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-sbt.org" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="11">
+				<license name="BSD" url="https://github.com/sbt/test-interface/blob/master/LICENSE"/>
+				<metadata-artifact status="no" details="" size="2589" time="0" location="/root/.ivy2/cache/org.scala-sbt/test-interface/ivy-1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.pom"/>
+				<caller organisation="org.scalacheck" name="scalacheck_2.11" conf="compile, runtime" rev="1.0" rev-constraint-default="1.0" rev-constraint-dynamic="1.0" callerrev="1.11.4"/>
+				<artifacts>
+					<artifact name="test-interface" type="jar" ext="jar" status="no" details="" size="14755" time="0" location="/root/.ivy2/cache/org.scala-sbt/test-interface/jars/test-interface-1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-iteratee_2.11">
+			<revision name="7.1.0" status="release" pubdate="20140801121514" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="9">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2667" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-iteratee_2.11/ivy-7.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalaz/scalaz-iteratee_2.11/7.1.0/scalaz-iteratee_2.11-7.1.0.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-scalacheck-binding_2.11" conf="default, compile, runtime, master" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<artifacts>
+					<artifact name="scalaz-iteratee_2.11" type="bundle" ext="jar" status="no" details="" size="685008" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-iteratee_2.11/bundles/scalaz-iteratee_2.11-7.1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalaz/scalaz-iteratee_2.11/7.1.0/scalaz-iteratee_2.11-7.1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-xml_2.11">
+			<revision name="7.1.0" status="release" pubdate="20140801121542" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="8">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2650" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-xml_2.11/ivy-7.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalaz/scalaz-xml_2.11/7.1.0/scalaz-xml_2.11-7.1.0.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-scalacheck-binding_2.11" conf="default, compile, runtime, master" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<artifacts>
+					<artifact name="scalaz-xml_2.11" type="bundle" ext="jar" status="no" details="" size="694804" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-xml_2.11/bundles/scalaz-xml_2.11-7.1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalaz/scalaz-xml_2.11/7.1.0/scalaz-xml_2.11-7.1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-concurrent_2.11">
+			<revision name="7.1.0" status="release" pubdate="20140801121531" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="7">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2812" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-concurrent_2.11/ivy-7.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalaz/scalaz-concurrent_2.11/7.1.0/scalaz-concurrent_2.11-7.1.0.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-scalacheck-binding_2.11" conf="default, compile, runtime, master" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<artifacts>
+					<artifact name="scalaz-concurrent_2.11" type="bundle" ext="jar" status="no" details="" size="337991" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-concurrent_2.11/bundles/scalaz-concurrent_2.11-7.1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalaz/scalaz-concurrent_2.11/7.1.0/scalaz-concurrent_2.11-7.1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-typelevel_2.11">
+			<revision name="7.1.0" status="release" pubdate="20140801121525" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="5">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2668" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-typelevel_2.11/ivy-7.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalaz/scalaz-typelevel_2.11/7.1.0/scalaz-typelevel_2.11-7.1.0.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-scalacheck-binding_2.11" conf="default, compile, runtime, master" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<caller organisation="echo" name="echo_2.11" conf="test, compile, runtime" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="0.1-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalaz-typelevel_2.11" type="bundle" ext="jar" status="no" details="" size="370122" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-typelevel_2.11/bundles/scalaz-typelevel_2.11-7.1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalaz/scalaz-typelevel_2.11/7.1.0/scalaz-typelevel_2.11-7.1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-effect_2.11">
+			<revision name="7.1.0" status="release" pubdate="20140801121522" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="4">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2659" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-effect_2.11/ivy-7.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalaz/scalaz-effect_2.11/7.1.0/scalaz-effect_2.11-7.1.0.pom"/>
+				<caller organisation="echo" name="echo_2.11" conf="test, compile, runtime" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="org.scalaz" name="scalaz-iteratee_2.11" conf="compile, runtime" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<caller organisation="org.scalaz" name="scalaz-concurrent_2.11" conf="compile, runtime" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<artifacts>
+					<artifact name="scalaz-effect_2.11" type="bundle" ext="jar" status="no" details="" size="418857" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-effect_2.11/bundles/scalaz-effect_2.11-7.1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalaz/scalaz-effect_2.11/7.1.0/scalaz-effect_2.11-7.1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalaz" name="scalaz-core_2.11">
+			<revision name="7.1.0" status="release" pubdate="20140801121551" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalaz.org" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="1">
+				<license name="BSD-style" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2827" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-core_2.11/ivy-7.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.11/7.1.0/scalaz-core_2.11-7.1.0.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-effect_2.11" conf="default, compile, runtime, master" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<caller organisation="org.scalaz" name="scalaz-scalacheck-binding_2.11" conf="default, compile, runtime, master" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<caller organisation="echo" name="echo_2.11" conf="test, compile, runtime" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="org.scalaz" name="scalaz-typelevel_2.11" conf="default, compile, runtime, master" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<caller organisation="org.scalaz" name="scalaz-xml_2.11" conf="compile, runtime" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<caller organisation="org.scalaz" name="scalaz-concurrent_2.11" conf="compile, runtime" rev="7.1.0" rev-constraint-default="7.1.0" rev-constraint-dynamic="7.1.0" callerrev="7.1.0"/>
+				<artifacts>
+					<artifact name="scalaz-core_2.11" type="bundle" ext="jar" status="no" details="" size="9124238" time="0" location="/root/.ivy2/cache/org.scalaz/scalaz-core_2.11/bundles/scalaz-core_2.11-7.1.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.11/7.1.0/scalaz-core_2.11-7.1.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-xml_2.11">
+			<revision name="1.0.2" status="release" pubdate="20140520041040" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="3">
+				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="2987" time="0" location="/root/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/ivy-1.0.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.2/scala-xml_2.11-1.0.2.pom"/>
+				<caller organisation="org.scalaz" name="scalaz-core_2.11" conf="default, compile, runtime, master" rev="1.0.2" rev-constraint-default="1.0.2" rev-constraint-dynamic="1.0.2" callerrev="7.1.0"/>
+				<artifacts>
+					<artifact name="scala-xml_2.11" type="bundle" ext="jar" status="no" details="" size="648678" time="0" location="/root/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.11/1.0.2/scala-xml_2.11-1.0.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-parser-combinators_2.11">
+			<revision name="1.0.2" status="release" pubdate="20140723024535" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="2">
+				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="2785" time="0" location="/root/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/ivy-1.0.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.2/scala-parser-combinators_2.11-1.0.2.pom"/>
+				<caller organisation="org.scalacheck" name="scalacheck_2.11" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="1.11.4"/>
+				<caller organisation="org.scalaz" name="scalaz-core_2.11" conf="default, compile, runtime, master" rev="1.0.2" rev-constraint-default="1.0.2" rev-constraint-dynamic="1.0.2" callerrev="7.1.0"/>
+				<artifacts>
+					<artifact name="scala-parser-combinators_2.11" type="bundle" ext="jar" status="no" details="" size="416065" time="0" location="/root/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.2/scala-parser-combinators_2.11-1.0.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="1.0.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
+				<evicted-by rev="1.0.2"/>
+				<caller organisation="org.scalacheck" name="scalacheck_2.11" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="1.11.4"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.11.2" status="release" pubdate="20140723023853" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.11.2/" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="0">
+				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
+				<metadata-artifact status="no" details="" size="2653" time="0" location="/root/.ivy2/cache/org.scala-lang/scala-library/ivy-2.11.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.2/scala-library-2.11.2.pom"/>
+				<caller organisation="org.scalacheck" name="scalacheck_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="1.11.4"/>
+				<caller organisation="org.scalaz" name="scalaz-effect_2.11" conf="default, compile, runtime, master" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="7.1.0"/>
+				<caller organisation="org.scalaz" name="scalaz-scalacheck-binding_2.11" conf="default, compile, runtime, master" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="7.1.0"/>
+				<caller organisation="echo" name="echo_2.11" conf="test, compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="org.scalaz" name="scalaz-typelevel_2.11" conf="default, compile, runtime, master" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="7.1.0"/>
+				<caller organisation="org.scalaz" name="scalaz-xml_2.11" conf="compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="7.1.0"/>
+				<caller organisation="org.scalaz" name="scalaz-core_2.11" conf="default, compile, runtime, master" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="7.1.0"/>
+				<caller organisation="org.scala-lang.modules" name="scala-parser-combinators_2.11" conf="compile, runtime" rev="2.11.1" rev-constraint-default="2.11.1" rev-constraint-dynamic="2.11.1" callerrev="1.0.2"/>
+				<caller organisation="org.scalaz" name="scalaz-iteratee_2.11" conf="compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="7.1.0"/>
+				<caller organisation="org.scalaz" name="scalaz-concurrent_2.11" conf="compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="7.1.0"/>
+				<caller organisation="org.scala-lang.modules" name="scala-xml_2.11" conf="compile, runtime" rev="2.11.1" rev-constraint-default="2.11.1" rev-constraint-dynamic="2.11.1" callerrev="1.0.2"/>
+				<artifacts>
+					<artifact name="scala-library" type="jar" ext="jar" status="no" details="" size="5545300" time="0" location="/root/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.2/scala-library-2.11.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="2.11.0" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
+				<evicted-by rev="2.11.2"/>
+				<caller organisation="org.scalacheck" name="scalacheck_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="1.11.4"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+			<revision name="2.11.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
+				<evicted-by rev="2.11.2"/>
+				<caller organisation="org.scala-lang.modules" name="scala-parser-combinators_2.11" conf="compile, runtime" rev="2.11.1" rev-constraint-default="2.11.1" rev-constraint-dynamic="2.11.1" callerrev="1.0.2"/>
+				<caller organisation="org.scala-lang.modules" name="scala-xml_2.11" conf="compile, runtime" rev="2.11.1" rev-constraint-default="2.11.1" rev-constraint-dynamic="2.11.1" callerrev="1.0.2"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

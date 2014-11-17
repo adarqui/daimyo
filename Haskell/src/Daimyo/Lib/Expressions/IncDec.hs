@@ -42,3 +42,4 @@ evaluateL n (x:xs) = 0
 t1 = (Exp Inc (Exp Dec (Exp IncBy (Val 1))))
 t2 = tokenize "iiidd"
 t3 = tokenize "iii+97d"
+t4 = tokenize "i(i(i(+100)d)d)dddd"

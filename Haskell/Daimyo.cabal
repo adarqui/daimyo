@@ -41,6 +41,7 @@ Library
                      Daimyo.Lib.Fun.Binary
                      Daimyo.Lib.Fun.Alphabet
                      Daimyo.Lib.Patterns.Palindrome
+                     Daimyo.Lib.Expressions.ShuntingYard
                      Daimyo.Lib.Expressions.BoolTree
                      Daimyo.Lib.Expressions.IncDec
                      Daimyo.Lib.State
