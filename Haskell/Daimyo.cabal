@@ -40,6 +40,7 @@ Library
                      Daimyo.Lib.Permutation.Heaps
                      Daimyo.Lib.Fun.Binary
                      Daimyo.Lib.Fun.Alphabet
+                     Daimyo.Lib.Desugar
                      Daimyo.Lib.Patterns.Palindrome
                      Daimyo.Lib.Expressions.ShuntingYard
                      Daimyo.Lib.Expressions.BoolTree
