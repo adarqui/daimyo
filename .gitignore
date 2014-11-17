@@ -18,4 +18,6 @@ vendor/
 dev/
 tmp/
 cabal.sandbox.config
+streams
+target
 core
