@@ -20,5 +20,7 @@ Library
                     Wiki.E.Haskell
                     Wiki.Bernoulli.Haskell
                     Wiki.Binomial.Haskell
+                    WChen.Algebra.BasicAlgebra
+                    LambdaCalculus.Misc.Haskell
  Build-Depends:      base == 4.*
  GHC-Options:        -Wall
