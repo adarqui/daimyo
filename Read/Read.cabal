@@ -22,5 +22,7 @@ Library
                     Wiki.Binomial.Haskell
                     WChen.Algebra.BasicAlgebra
                     LambdaCalculus.Misc.Haskell
+                    PropLog.Haskell
+                    PropLog.Min.Haskell
  Build-Depends:      base == 4.*
  GHC-Options:        -Wall

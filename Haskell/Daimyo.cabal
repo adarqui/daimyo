@@ -34,6 +34,7 @@ Library
                      Daimyo.Lib.Bits
                      Daimyo.Lib.Math.Primes
                      Daimyo.Lib.Math.Powers
+                     Daimyo.Lib.Math.Tables
                      Daimyo.Lib.Sorting.Insert
                      Daimyo.Lib.Sorting.OddEven
                      Daimyo.Lib.Encryption.Transposition
