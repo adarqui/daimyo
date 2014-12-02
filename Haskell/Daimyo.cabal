@@ -47,5 +47,6 @@ Library
                      Daimyo.Lib.Expressions.BoolTree
                      Daimyo.Lib.Expressions.IncDec
                      Daimyo.Lib.State
+                     Daimyo.Lib.DMoz
  Build-Depends:      base == 4.*, matrix, vector
  GHC-Options:        -Wall
