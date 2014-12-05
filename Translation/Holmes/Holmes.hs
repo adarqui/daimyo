@@ -24,8 +24,23 @@ axiom_of_extensionality _A _B
     | size _A == size _B =
         let _A'elements = elems _A in
         let _B'elements = elems _B in
-        and [ member x' _A && member x' _B | x <- _A'elements , x' <- _B'elements]
+        and [ member x'b _A && member x'a _B | x'a <- _A'elements , x'b <- _B'elements]
     | otherwise = False
+
+
+axiom_of_extensionality' :: (Eq a, Ord a) => Set a -> Set a -> Bool
+axiom_of_extensionality' _A _B =
+    elems _A == elems _B
+
+
+-- axiom_of_atoms
+
+{-
+    Theorem: if A and B are sets, and for all x, x is not an element of A and x is not an element of B, then A = B
+-}
+
+-- theorem_1 _A _B =
+
 
 
 t_setNat n = fromList [0..n]
