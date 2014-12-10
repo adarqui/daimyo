@@ -5,6 +5,7 @@
 - haskell: http://hackage.haskell.org/package/hatt
 - sagemath: http://www.sagemath.org/pdf/en/reference/logic/logic.pdf , http://www.sagemath.org/doc/reference/logic/sage/logic/propcalc.html
 - history:
+- 12/10/2014: Preface
 
 
 **Concrete Mathematics**
@@ -56,6 +57,7 @@
 
 **Problem Solving Strategies**
 - source: http://micheleandreoli.org/public/Didattica/olimat/Libri/Engel_A._Problem-solving_strategies_for_math_olympiads__1998.pdf
+- history:
 
 
 **Intro to Abstract Algebra**
@@ -147,6 +149,13 @@
 - history:
 - 12/08/2014: Intro, C1
 - 12/09/2014: C2 (leftoff: C2.4)
+
+
+**Advanced Data Analysis from an elementary point of view (Quantitative analysis)**
+- source: http://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/ADAfaEPoV.pdf
+- haskell:
+- sage:
+- history:
 
 
 **An Eternal Golden Braid**

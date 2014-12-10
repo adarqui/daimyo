@@ -74,6 +74,7 @@ PEX= Partial exercises. Means I need to finish the exercises.
 12/03/2014: Scrap your type classes: http://www.haskellforall.com/2012/05/scrap-your-type-classes.html
 12/05/2014: Diagrams haskell math post: http://mathlesstraveled.com/2012/10/05/factorization-diagrams/
 12/09/2014: REREAD: Logarithms by hand: http://fiziko.bureau42.com/teaching_tidbits/manual_logarithms.pdf
+12/10/2014: Hofstatdr interview: http://tal.forum2.org/hofstadter_interview
 
 todo:
 http://plato.stanford.edu/entries/quine-nf/
@@ -339,6 +340,12 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 - Modern crypto: Theory and practice: http://www.orianhealth.com/files/public-docs/Books/Math/Modern%20Cryptography%20%20Theory%20And%20Practice%20-%20Wenbo%20Mao.pdf
 - An introduction to mathematical cryptography: http://www.orianhealth.com/files/public-docs/Books/Math/UTM%20An%20Introduction%20to%20Mathematical%20Cryptography%20(Undergraduate%20Texts%20in%20Mathematics)%20(Jeffrey%20Hoffstein_%20et%20al)%200387779930.pdf
 
+**Hofstatdter**
+- GEB
+- I am a strange loop:
+- The Mind's I: http://www.federaljack.com/ebooks/Consciousness%20Books%20Collection/Hofstadter,%20Dennett%20-%20The%20Mind%27s%20I.pdf
+- On Surfaces and Essences: http://surfacesandessences.com/
+
 **Inria**
 - http://pauillac.inria.fr/~levy/courses/
 
@@ -357,7 +364,6 @@ Programming:
 - Principles of Programming Languages: http://www.cs.jhu.edu/~scott/pl/book/dist/book/book.pdf
 - 2nd Ed ^^: http://www.cs.cmu.edu/~rwh/plbook/2nded.pdf
 - Can programming be liberated from the von neumann style? http://web.stanford.edu/class/cs242/readings/backus.pdf
-
 
 **Pearls**
 - Haskell/Functional: https://www.haskell.org/haskellwiki/Research_papers/Functional_pearls
