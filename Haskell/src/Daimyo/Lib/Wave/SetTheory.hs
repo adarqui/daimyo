@@ -7,7 +7,7 @@
     symbols: http://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode
 -} 
 
-module Holmes (
+module Daimyo.Lib.Wave.SetTheory (
 ) where
 
 {- todo

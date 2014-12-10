@@ -17,6 +17,8 @@ Source-Repository head
 Library
  HS-Source-Dirs:     src
  Exposed-Modules:    Daimyo
+                     Daimyo.Lib.Time
+                     Daimyo.Lib.Knowledge.Time
                      Daimyo.Lib.Input
                      Daimyo.Lib.List.Single
                      Daimyo.Lib.List.Misc
@@ -35,6 +37,7 @@ Library
                      Daimyo.Lib.Math.Primes
                      Daimyo.Lib.Math.Powers
                      Daimyo.Lib.Math.Tables
+                     Daimyo.Lib.Math.Factorial
                      Daimyo.Lib.Sorting.Insert
                      Daimyo.Lib.Sorting.OddEven
                      Daimyo.Lib.Encryption.Transposition
@@ -48,5 +51,17 @@ Library
                      Daimyo.Lib.Expressions.IncDec
                      Daimyo.Lib.State
                      Daimyo.Lib.DMoz
- Build-Depends:      base == 4.*, matrix, vector
+                     Daimyo.Lib.Wave.Algebra
+                     Daimyo.Lib.Wave.Algebra.Logarithms
+                     Daimyo.Lib.Wave.Geometry
+                     Daimyo.Lib.Wave.SetTheory
+                     Daimyo.Lib.Wave.CategoryTheory
+                     Daimyo.Lib.Wave.ProbabilityTheory
+                     Daimyo.Lib.Wave.NumberTheory
+                     Daimyo.Lib.Wave.Combinatorics
+                     Daimyo.Lib.Wave.Combinatorics.Examples
+                     Daimyo.Lib.Wave.Combinatorics.Permutation
+                     Daimyo.Lib.Wave.Combinatorics.Combination
+                     Daimyo.Lib.Wave.AbstractAlgebra.Polynomial
+ Build-Depends:      base == 4.*, matrix, vector, containers
  GHC-Options:        -Wall
