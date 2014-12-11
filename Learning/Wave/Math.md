@@ -151,8 +151,8 @@
 - 12/09/2014: C2 (leftoff: C2.4)
 
 
-**Advanced Data Analysis from an elementary point of view (Quantitative analysis)**
-- source: http://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/ADAfaEPoV.pdf
+**Mathematics for Finance: An introduction to financial engineering**
+- source: http://poincare.matf.bg.ac.rs/~kmiljan/UFM.pdf
 - haskell:
 - sage:
 - history:
