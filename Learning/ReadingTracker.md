@@ -320,6 +320,11 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 - An Introduction to Statistics: https://www.artofproblemsolving.com/LaTeX/Examples/statistics_firstfive.pdf
 - An Introduction to Statistical Data Analysis Using R: http://www.ling.uni-potsdam.de/~vasishth/StatisticsNotesVasishth.pdf
 
+**Quantitative Analysis / Finance**
+- Quantitative Data Analysis: An Introduction: http://www.gao.gov/special.pubs/pe10111.pdf
+- Advanced Data Analysis from an elementary point of view (Quantitative analysis): http://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/ADAfaEPoV.pdf
+- Mathematics for Finance: An introduction to financial engineering: http://poincare.matf.bg.ac.rs/~kmiljan/UFM.pdf
+
 **Questions and Answers**
 - High Order Logic: http://feature-space.com/en/document41.pdf
 - Logic: http://logicmanual.philosophy.ox.ac.uk/samplepaper/samplepapersol.pdf
