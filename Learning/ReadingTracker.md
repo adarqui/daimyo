@@ -188,6 +188,18 @@ consensus:
 **Ring Theory**
 - Theory of Rings and Modules: http://www.math.uni-duesseldorf.de/~wisbauer/book.pdf
 
+**Group, Ring, Field, etc**
+- Group, Rings, Fields: http://www2.math.uu.se/~khf/dachs.pdf
+
+**Galois**
+- Galois: http://www.maths.gla.ac.uk/~ajb/dvi-ps/Galois.pdf
+
+**Model Theory**
+- Model Theory: http://u.math.biu.ac.il/~dahari/download/Mathematical%20Logic/Elad%2022.pdf
+
+**Knot Theory**
+- Introduction to Knot Theory: http://www.maths.ed.ac.uk/~aar/papers/crowfox.pdf
+
 **Category Theory**
 - Category theory for comp sci: http://pages.cpsc.ucalgary.ca/~robin/class/617/notes.pdf
 - Cat theory for comp sci, various links: http://pages.cpsc.ucalgary.ca/~robin/class/617/webnotes.html
