@@ -80,6 +80,7 @@ RR = Re-Read
 - sage: http://abstract.ups.edu/download/aata-20111223-sage-4.8.pdf , http://www.sagemath.org/doc/prep/Quickstarts/Abstract-Algebra.html
 - history:
 - 12/09/2014: C1
+- 12/11/2014: C2
 
 
 **Linear Algebra: Theory and Applications**
