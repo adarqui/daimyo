@@ -57,7 +57,8 @@ Library
                      Daimyo.Lib.Wave.SetTheory
                      Daimyo.Lib.Wave.CategoryTheory
                      Daimyo.Lib.Wave.ProbabilityTheory
-                     Daimyo.Lib.Wave.NumberTheory
+                     Daimyo.Lib.Wave.NumberTheory.Prime
+                     Daimyo.Lib.Wave.NumberTheory.GCD
                      Daimyo.Lib.Wave.Combinatorics
                      Daimyo.Lib.Wave.Combinatorics.Examples
                      Daimyo.Lib.Wave.Combinatorics.Permutation

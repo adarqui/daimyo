@@ -1,5 +1,11 @@
 ***Math Wave***
 
+NO = Notes only
+EO = Exercises only
+NN = No Notes
+RR = Re-Read
+
+
 **Logic**
 - source: http://emilkirkegaard.dk/en/wp-content/uploads/Paul-Tomassi-Logic.pdf
 - haskell: http://hackage.haskell.org/package/hatt
@@ -131,7 +137,8 @@
 - haskell:
 - sage:
 - history:
-- 12/09/2014: C0.1x
+- 12/09/2014: NO, C0.1x
+- 12/11/2014: NO, C0.2,C0.3,C0.4,C0.5,C0.6
 
 
 **Understanding Basic Calculus**
