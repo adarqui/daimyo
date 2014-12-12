@@ -8,6 +8,14 @@
 - 12/10/2014: Preface
 
 
+**Basic Algebra**
+- source: http://www.orianhealth.com/files/public-docs/Books/Math/Knapp.A..W.,.Basic.Algebra.(2006).Birkhauser.pdf
+- haskell:
+- sagemath:
+- history:
+- 12/10/2014: Preface
+
+
 **Concrete Mathematics**
 - source: http://www.matematica.net/portal/e-books/Graham%20-%20Knuth%20-%20Patashnik%20-%20%20Concrete%20Mathematics.pdf
 - history:
@@ -149,6 +157,7 @@
 - history:
 - 12/08/2014: Intro, C1
 - 12/09/2014: C2 (leftoff: C2.4)
+- 12/10/2014: C2.4 (reread)
 
 
 **Mathematics for Finance: An introduction to financial engineering**
@@ -156,6 +165,7 @@
 - haskell:
 - sage:
 - history:
+- 12/10/2014: C1 (leftoff: 1.3)
 
 
 **An Eternal Golden Braid**
