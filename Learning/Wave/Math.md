@@ -148,6 +148,8 @@ RR = Re-Read
 - sage: http://www.uwosh.edu/facstaff/gutow/biophysical_chemistry/sage-summary-quick-reference-sheets/quickref-calc.pdf , http://www.sagemath.org/doc/constructions/calculus.html
 - history:
 - 12/07/2014: Notes, C0 (revision)
+- 12/11/2014: Quick, C1
+- 12/12/2014: C2
 
 
 **An Introduction to Statistics**

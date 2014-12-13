@@ -18,6 +18,7 @@ Library
  HS-Source-Dirs:     src
  Exposed-Modules:    Daimyo
                      Daimyo.Lib.Time
+                     Daimyo.Lib.Random
                      Daimyo.Lib.Knowledge.Time
                      Daimyo.Lib.Input
                      Daimyo.Lib.List.Single
@@ -53,8 +54,11 @@ Library
                      Daimyo.Lib.DMoz
                      Daimyo.Lib.Wave.Algebra
                      Daimyo.Lib.Wave.Algebra.Logarithms
+                     Daimyo.Lib.Wave.Algebra.Graphs
                      Daimyo.Lib.Wave.Geometry
                      Daimyo.Lib.Wave.SetTheory
+                     Daimyo.Lib.Wave.GroupTheory
+                     Daimyo.Lib.Wave.GroupTheory.Tables
                      Daimyo.Lib.Wave.CategoryTheory
                      Daimyo.Lib.Wave.ProbabilityTheory
                      Daimyo.Lib.Wave.NumberTheory.Prime
@@ -64,5 +68,7 @@ Library
                      Daimyo.Lib.Wave.Combinatorics.Permutation
                      Daimyo.Lib.Wave.Combinatorics.Combination
                      Daimyo.Lib.Wave.AbstractAlgebra.Polynomial
- Build-Depends:      base == 4.*, matrix, vector, containers
+                     Daimyo.Lib.Wave.Graphs.Circles
+                     Daimyo.Lib.Wave.Graphs.T1
+ Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random
  GHC-Options:        -Wall
