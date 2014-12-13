@@ -4,8 +4,8 @@
 - Algebraic data structures for logarithms and base/exponents, and instances of classes to add/mul/div/etc.
 
 **Abstract Algebra**
-+ Binomial coefficients function
-+ Pascal triangle data
++ Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/AbstractAlgebra/Polynomial.hs
++ Pascal triangle data: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/AbstractAlgebra/Polynomial.hs
 
 **Combinatorics**
 - Random data to form graph structures
@@ -17,8 +17,8 @@
 - Generate normal form from various patterns of data
 
 **Number Theory**
-+ gcd, Primes, Prime sieve, Primes trial by division, Composites
-- Prime factors
++ Primes, Prime sieve, Primes trial by division, Composites, Prime Factors: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/NumberTheory/Prime.hs
++ GCD: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/NumberTheory/GCD.hs
 - Express the fundamental axiom of mathematrics (every positive integer is a product of two primes) 
 
 **Geometry**
@@ -35,7 +35,7 @@
 - Collecting data via /dev/<...> and generating descriptive statistics
 
 **Group Theory**
-- Multiplication tables for finite sets with binary ops & identity elements
+- Caylay tables for multiplicative/additive groups: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/GroupTheory/Tables.hs
 - Examples of semigroups
 - Examples of monoids
 - Examples of p-groups
