@@ -184,6 +184,7 @@ consensus:
 **Group Theory**
 - Group Theory: http://www.jmilne.org/math/CourseNotes/GT.pdf
 - Theories and problems of group theory: http://poincare.matf.bg.ac.rs/~zarkom/Book_Shaums_Group_theory.pdf
+- Quick: http://www.usciences.edu/~lvas/mathmethods/groups.pdf
 
 **Ring Theory**
 - Theory of Rings and Modules: http://www.math.uni-duesseldorf.de/~wisbauer/book.pdf
