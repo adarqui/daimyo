@@ -1,6 +1,7 @@
 module Daimyo.Lib.Bits (
- IntB,
- new
+    IntB,
+    new,
+    char2bits
 ) where
 
 import Data.List
@@ -30,3 +31,7 @@ splits l =foldl' (\(odds,evens) (v,i) -> if (odd i) then (odds ++ [v], evens) el
 intersperseL xs [] = xs
 intersperseL [] ys = ys
 intersperseL (x:xs) (y:ys) = x : y : intersperseL xs ys
+
+char2bits :: Int -> [Int]
+char2bits c =
+    map (\b -> if (Bits.testBit c b) then 1 else 0) [0..7]
