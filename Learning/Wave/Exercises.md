@@ -7,6 +7,9 @@
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/AbstractAlgebra/Polynomial.hs
 + Pascal triangle data: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/AbstractAlgebra/Polynomial.hs
 
+**Calculus**
++ Experiment with limits: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/Calculus/Exercises.hs
+
 **Combinatorics**
 - Random data to form graph structures
 - Puzzle: How many regions of N intersecting lines form (with no points of the lines intersecting twice).
@@ -32,7 +35,8 @@
 - Identify various fields
 
 **Statistics**
-- Collecting data via /dev/<...> and generating descriptive statistics
++ Collecting data via /dev/<...>: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Random.hs
+- Generating statistics on random data/strings/etc (sample, mean, variance, correlation stddev etc)
 
 **Group Theory**
 - Caylay tables for multiplicative/additive groups: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Lib/Wave/GroupTheory/Tables.hs
