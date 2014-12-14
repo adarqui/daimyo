@@ -6,26 +6,40 @@ module Daimyo.Lib.Wave.Calculus.Exercises (
 
 import Data.List
 
+lim_max = 100000000000000000
+lim_step = 1000
+lim_range = [0,lim_step..lim_max]
+
 lim f = lim' f 0 0
 
-lim' f v 10000000 = error "lim max limit"
+lim' f v 100000000000000000 = (v, lim_max)
 lim' f v i =
     let r = f i in
     if (r == v)
         then (r, i) 
-        else lim' f r (i+1)
+        else lim' f r (i+lim_step)
 
 lim'naive f =
-    foldl' (\acc i -> f i) 0 [1..10000000]
+    foldl' (\acc i -> f i) 0 lim_range
 
 lim'map f =
-    map f [1..10000000]
+    map f lim_range
+
+lim'dist :: (Double -> Double) -> [Double]
+lim'dist f =
+    dist $ lim'map f
+
+dist :: [Double] -> [Double]
+dist [] = [0.0]
+dist (x:y:rest) = abs (x-y) : dist rest
 
 t_lim_ex1 =
     lim (\x -> (x**2 + 1) / (3*(x**3) - (4*x) + 5))
 
 t_lim_ex1' =
     lim (\x -> (x**2) / (3*(x**3)))
+
+t_lim_dist_ex1 = take 200 $ lim'dist (\x -> (x**2 + 1) / (3*(x**3) - (4*x) + 5))
 
 t_lim_ex2 =
     lim (\x -> (x**3 + 1) / (3*(x**3) - (4*x) + 5))
