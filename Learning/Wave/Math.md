@@ -150,6 +150,7 @@ RR = Re-Read
 - 12/07/2014: Notes, C0 (revision)
 - 12/11/2014: Quick, C1
 - 12/12/2014: C2
+- 12/13/2014: C3 (leftoff: C3.4)
 
 
 **An Introduction to Statistics**

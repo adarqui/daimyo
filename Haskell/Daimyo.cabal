@@ -60,6 +60,8 @@ Library
                      Daimyo.Lib.Wave.GroupTheory
                      Daimyo.Lib.Wave.GroupTheory.Tables
                      Daimyo.Lib.Wave.CategoryTheory
+                     Daimyo.Lib.Wave.Statistics
+                     Daimyo.Lib.Wave.Statistics.Exercises
                      Daimyo.Lib.Wave.ProbabilityTheory
                      Daimyo.Lib.Wave.NumberTheory.Prime
                      Daimyo.Lib.Wave.NumberTheory.GCD
@@ -68,6 +70,8 @@ Library
                      Daimyo.Lib.Wave.Combinatorics.Permutation
                      Daimyo.Lib.Wave.Combinatorics.Combination
                      Daimyo.Lib.Wave.AbstractAlgebra.Polynomial
+                     Daimyo.Lib.Wave.Calculus
+                     Daimyo.Lib.Wave.Calculus.Exercises
                      Daimyo.Lib.Wave.Graphs.Circles
                      Daimyo.Lib.Wave.Graphs.T1
  Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random

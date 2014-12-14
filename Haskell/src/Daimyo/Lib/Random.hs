@@ -55,6 +55,15 @@ listOfWord64 = do
             rest <- listOfWord64
             return (v : rest)
 
+listOfWord gw = do
+    empty <- Bin.isEmpty
+    if empty
+        then return []
+        else do
+            v <- gw
+            rest <- listOfWord gw
+            return (v : rest)
+
 getWords n =
     unsafePerformIO $ do
         v' <- withFile "/dev/urandom" ReadMode $
