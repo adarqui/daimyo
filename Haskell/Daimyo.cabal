@@ -52,6 +52,7 @@ Library
                      Daimyo.Expressions.IncDec
                      Daimyo.State
                      Daimyo.DMoz
+                     Daimyo.Print
                      Daimyo.Algebra
                      Daimyo.Algebra.Logarithms
                      Daimyo.Algebra.Graphs
@@ -77,5 +78,5 @@ Library
                      Daimyo.Graphs.Circles
                      Daimyo.Graphs.T1
                      Daimyo.Pearls.SmallestFreeNumber
- Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl
+ Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text
  GHC-Options:        -Wall
