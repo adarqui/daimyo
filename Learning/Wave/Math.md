@@ -81,6 +81,8 @@ RR = Re-Read
 - history:
 - 12/09/2014: C1
 - 12/11/2014: C2
+- 12/14/2014: C3
+- 12/14/2014: C4
 
 
 **Linear Algebra: Theory and Applications**
@@ -151,6 +153,9 @@ RR = Re-Read
 - 12/11/2014: Quick, C1
 - 12/12/2014: C2
 - 12/13/2014: C3 (leftoff: C3.4)
+- 12/14/2014: C3.4, C3.5
+- MM:
+- 12/14/2014: C0.1-C0.5
 
 
 **An Introduction to Statistics**
