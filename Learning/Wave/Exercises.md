@@ -6,6 +6,7 @@
 - "use the blank venn diagram for A, B, C ... shade in the following sets" of randomly generated sets and operations among them
 
 **Algebra**
++ Fractions: Classes for addition, subtraction, multiplication, division of fractions (of char, int, etc): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Fraction.hs
 - Algebraic data structures for logarithms and base/exponents, and instances of classes to add/mul/div/etc.
 - "simplify" : fractions, order of operations, based on various laws of arithmetic. Should be able to show which law at each step: distribute the negative, equivalent fractions, multiplication of fractions, addition and subtraction of fractions etc.
 - "matrix generation" : generate matrices

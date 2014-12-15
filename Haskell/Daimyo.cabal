@@ -57,6 +57,7 @@ Library
                      Daimyo.Algebra.Logarithms
                      Daimyo.Algebra.Graphs
                      Daimyo.Algebra.Expression
+                     Daimyo.Algebra.Fraction
                      Daimyo.Geometry
                      Daimyo.SetTheory
                      Daimyo.GroupTheory
