@@ -31,6 +31,9 @@
 + Primes, Prime sieve, Primes trial by division, Composites, Prime Factors: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime.hs
 + GCD: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GCD.hs
 - Express the fundamental axiom of mathematrics (every positive integer is a product of two primes): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/TheoremOfMathematics.hs
++ Euclid (GCD using subtraction) explain via WriterT: "gcd'Explain" @ https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GCD.hs
++ Euclid (GCD using modulus) explain via WriterT: "gcd'Explain" @ https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GCD.hs
++ Prime Factors explain via WriterT: "primeFactors'Explain" @ https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime.hs
 
 **Geometry**
 - Express propositions/axioms from C1
