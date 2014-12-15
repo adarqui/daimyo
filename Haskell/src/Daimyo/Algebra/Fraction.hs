@@ -5,6 +5,8 @@ module Daimyo.Algebra.Fraction (
     fraction
 ) where
 
+import Daimyo.NumberTheory.GCD
+
 data Fraction a = Fraction {
     numerator :: a,
     denominator :: a
@@ -30,10 +32,14 @@ instance Num (Fraction Integer) where
     abs fa = fraction (abs (n fa)) (abs (d fa))
     negate fa = fraction ((n fa) * (-1)) ((d fa) * (-1))
 
-{-
+instance Enum (Fraction Integer) where
+
+instance Ord (Fraction Integer) where
+
+instance Real (Fraction Integer) where
+
 instance Integral (Fraction Integer) where
     fa `div` fb = fa * (fraction (d fb) (n fb))
--}
 
 d = denominator
 n = numerator
@@ -48,6 +54,10 @@ simplify'string f =
 
 show'string f =
     "(("++(n f)++")/("++(d f)++"))"
+
+simplify'integer f =
+    let gcdOf = gcd (n f) (d f) in
+    fraction ((n f) `div` gcdOf) ((d f) `div` gcdOf)
 
 t_frac_str_add1 = fraction "a" "b" + fraction "c" "d"
 t_frac_str_add2 = t_frac_str_add1 + fraction "x" "y"
@@ -113,10 +123,16 @@ t_frac_int_mul3 = fraction 9 5 * fraction (-3) 1
     division
 -}
 
-{-
 t_frac_int_div1 :: Fraction Integer
-t_frac_int_div1 = fraction 3 10 / fraction 4 7
--}
+t_frac_int_div1 = fraction 3 10 `div` fraction 4 7
+
+t_frac_int_div2 :: Fraction Integer
+t_frac_int_div2 = fraction 2 3`div` fraction 6 1
+t_frac_int_div2' = simplify'integer t_frac_int_div2
+
+t_frac_int_div3 :: Fraction Integer
+t_frac_int_div3 = fraction 2 1 `div` fraction 7 4
+t_frac_int_div3' = simplify'integer t_frac_int_div3
 
 {-
     absolute value
