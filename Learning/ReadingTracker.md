@@ -297,6 +297,14 @@ consensus:
 **Linear Algebra**
 - Linear Algebra: Theory and Applications: http://www.math.byu.edu/klkuttle/linearalgebra.pdf
 
+**Matrix Theory**
+- Matrics: Theory and Application: http://www-fourier.ujf-grenoble.fr/~marin/une_autre_crypto/Livres/Serre%20D.%20Matrices..%20Theory%20and%20Applications%20%28Springer,%202002%29%28219s%29_MAl_.pdf
+- "What's this from?" http://www.umpa.ens-lyon.fr/~serre/DPF/exobis.pdf
+- An Introduction to Random Matrices: http://www.math.umn.edu/~zeitouni/technion/cupbook.pdf
+- Numerical Matrix Analysis: http://www4.ncsu.edu/~ipsen/ps/OT113_Ipsen.pdf
+- Linear Algebra and Matrices: http://mathstat.helsinki.fi/~fluch/linear_algebra_1-sp07/la1.pdf
+- Introduction to Matrix Algebra: http://www.just.edu.jo/~aobeidat/PDF/Summer%202007/matrixalgebra.pdf
+
 **Differential Equations**
 - Introduction to Differential Equations: http://www.math.ust.hk/~machas/differential-equations.pdf
 
@@ -311,7 +319,9 @@ consensus:
 - Calculus: http://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf , also: http://ocw.mit.edu/resources/res-18-001-calculus-online-textbook-spring-2005/textbook/
 - Understanding Basic Calculus: http://www.mathdb.org/basic_calculus/BasicCalculus.pdf
 
-- 
+**Game Math**
+- Algorithmic Game Theory: pdf, cambridge
+ 
 **Proofs**
 - Proofs from the book: http://www.slideshare.net/YoshimarSantana/proofs-from-the-book-martin-aigner
 - Book Of Proof: http://www.people.vcu.edu/~rhammack/BookOfProof/
@@ -321,7 +331,6 @@ consensus:
 - Philosophy of Mathematics: http://www.iep.utm.edu/category/s-l-m/math/
 - Possible Worlds: http://www.sfu.ca/~swartz/pw/text/pw_all.pdf
 - Proof CheatSheet: http://www.csee.umbc.edu/~artola/fall04/cheatsheet.pdf
-
 
 **Bertrand Russel**
 - Philosophy of Mathematics: 

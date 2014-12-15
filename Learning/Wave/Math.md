@@ -93,6 +93,10 @@ RR = Re-Read
 - 12/07/2014: Notes, C1 (leftoff: Well Ordered Principle)
 
 
+**Introduction to Matrix Algebra**
+- source: http://www.just.edu.jo/~aobeidat/PDF/Summer%202007/matrixalgebra.pdf
+
+
 **Introduction to Differential Equations**
 - source: http://www.math.ust.hk/~machas/differential-equations.pdf
 - haskell:
@@ -174,6 +178,16 @@ RR = Re-Read
 - 12/08/2014: Intro, C1
 - 12/09/2014: C2 (leftoff: C2.4)
 - 12/10/2014: C2.4 (reread)
+
+
+**Algorithmic Game Theory**
+-- todo
+
+
+**Matrices: Theory and Applications**
+- source: http://www-fourier.ujf-grenoble.fr/~marin/une_autre_crypto/Livres/Serre%20D.%20Matrices..%20Theory%20and%20Applications%20%28Springer,%202002%29%28219s%29_MAl_.pdf
+-- todo
+
 
 
 **Mathematics for Finance: An introduction to financial engineering**
