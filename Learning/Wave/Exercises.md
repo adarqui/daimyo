@@ -30,7 +30,7 @@
 **Number Theory**
 + Primes, Prime sieve, Primes trial by division, Composites, Prime Factors: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime.hs
 + GCD: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GCD.hs
-- Express the fundamental axiom of mathematrics (every positive integer is a product of two primes) 
+- Express the fundamental axiom of mathematrics (every positive integer is a product of two primes): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/TheoremOfMathematics.hs
 
 **Geometry**
 - Express propositions/axioms from C1
