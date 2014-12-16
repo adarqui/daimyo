@@ -14,6 +14,11 @@ RR = Re-Read
 - 12/10/2014: Preface
 
 
+**Algebra - A Computational Approach**
+- source: http://www.math.toronto.edu/scherk/book.pdf
+- might be better intro than Basic Algebra
+
+
 **Basic Algebra**
 - source: http://www.orianhealth.com/files/public-docs/Books/Math/Knapp.A..W.,.Basic.Algebra.(2006).Birkhauser.pdf
 - haskell:
@@ -72,6 +77,14 @@ RR = Re-Read
 **Problem Solving Strategies**
 - source: http://micheleandreoli.org/public/Didattica/olimat/Libri/Engel_A._Problem-solving_strategies_for_math_olympiads__1998.pdf
 - history:
+
+
+**A Gentle Introduction to Abstract Algebra**
+- source: http://www.csun.edu/~asethura/giaa/giaa.pdf
+
+
+**Elementary Abstract Algebra**
+- source: http://shell.cas.usf.edu/~wclark/Elem_abs_alg.pdf
 
 
 **Intro to Abstract Algebra**
@@ -216,6 +229,20 @@ RR = Re-Read
 **I am a Strange Loop**
 - PRE-REQ: GEB
 - source: http://occupytampa.org/files/tristan/i.am.a.strange.loop.pdf
+
+
+FAU:
+- Calculus 1,2,3
+- Discrete Mathematics
+- Differential Equations
+- Introduction to Computational Math
+- Matrix Theory or Linear Algebra
+- Mathematical Problem Solving
+- Modern Analysis
+- Introduction to Complex Analysis
+- Linear Algebra 2
+- Modern Algebra
+- Probability & Statistics
 
 
 **Completed**

@@ -228,6 +228,14 @@ consensus:
 
 **Abstract Algebra**
 - Introduction to Abstract Algebra: http://www.math.umn.edu/~garrett/m/intro_algebra/notes.pdf
+- A Gentle Introduction to Abstract Algebra: http://www.csun.edu/~asethura/giaa/giaa.pdf
+- Elementary Abstract Algebra: http://shell.cas.usf.edu/~wclark/Elem_abs_alg.pdf
+
+**Modern Algebra**
+- Introduction to Modern Algebra: http://aleph0.clarku.edu/~djoyce/ma225/algebra.pdf
+- Modern Algebra: http://www.math.binghamton.edu/matt/m402/pack402.pdf
+- Advanced Modern Algebra: http://www.math.hcmuns.edu.vn/~nvdong/DaiSoDaiCuong/Advanced%20Modern%20Algebra%20-%20Joseph%20J.%20Rotman.pdf
+- Abstract Algebra: Theory and Applications: http://abstract.ups.edu/download/aata-20130816.pdf
 
 **Visualization**
 - http://visualizingmath.tumblr.com/
@@ -280,6 +288,7 @@ consensus:
 **Number Theory**
 - An Introduction to Elementary Number Theory: http://www.saylor.org/site/wp-content/uploads/2013/05/An-Introductory-in-Elementary-Number-Theory.pdf
 - Elementary number theory using Sage: http://wstein.org/ent/ent.pdf
+- Number Theory: A Computational Approach: http://wstein.org/books/ant/ant.pdf
 - elem: http://shell.cas.usf.edu/~wclark/elem_num_th_book.pdf
 - A computational introduction to number theory: http://shoup.net/ntb/ntb-v2.pdf
 - Number Theory: http://web.mit.edu/~holden1/www/math/number-theory.pdf
@@ -319,6 +328,12 @@ consensus:
 - Calculus: http://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf , also: http://ocw.mit.edu/resources/res-18-001-calculus-online-textbook-spring-2005/textbook/
 - Understanding Basic Calculus: http://www.mathdb.org/basic_calculus/BasicCalculus.pdf
 
+**Computational Math**
+- Algebra: A Computational Introduction: http://www.math.toronto.edu/scherk/book.pdf
+- Introduction to Computational Math: http://www-personal.umich.edu/~paullric/AM341.pdf
+- Computational Mathematics: http://www.mat.uc.pt/~ferreira/CompMathematics.pdf
+- Springer Series in Computational Mathematics: http://math.univ-lille1.fr/~calgaro/ENS/biblio-m2ma/QV.pdf
+
 **Game Math**
 - Algorithmic Game Theory: pdf, cambridge
  
@@ -346,6 +361,19 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 - Quantitative Data Analysis: An Introduction: http://www.gao.gov/special.pubs/pe10111.pdf
 - Advanced Data Analysis from an elementary point of view (Quantitative analysis): http://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/ADAfaEPoV.pdf
 - Mathematics for Finance: An introduction to financial engineering: http://poincare.matf.bg.ac.rs/~kmiljan/UFM.pdf
+
+**Modern Analysis**
+- A Course in Modern Analysis and its Applications: http://ebooks.cambridge.org/ebook.jsf?bid=CBO9780511755125
+- Mathematical Analysis: http://math.univ-lyon1.fr/~okra/2011-MathIV/Zorich1.pdf
+
+**Complex Analysis**
+- A First Course in Complex Analysis: http://math.sfsu.edu/beck/papers/complex.pdf
+- Introduction to Complex Analysis: http://www.unc.edu/math/Faculty/met/complex.pdf
+- An Introduction to Complex Analysis and Geometry: http://www.math.uiuc.edu/~jpda/jpd-complex-geometry-book-5-refs-bip.pdf
+
+**Mathematical Problem Solving**
+- Teaching Problem-Solving in Undergraduate Mathematics: http://mathstore.ac.uk/headocs/Problem-solving_0.pdf
+- Problem Solving in Mathematics: https://math.la.asu.edu/~ifulman/mat194/problem-solving.pdf
 
 **Questions and Answers**
 - High Order Logic: http://feature-space.com/en/document41.pdf
