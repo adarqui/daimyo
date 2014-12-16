@@ -293,9 +293,9 @@ consensus:
 - Probability and Mathematical Statistics: http://www.math.csusb.edu/faculty/mcmurran/Sahoo_ProbMathStats.pdf
 - (TOC only): Lectures on probability theory and mathematical statistics: http://www.statlect.com/book_table_of_contents.pdf
 
-
 **Linear Algebra**
 - Linear Algebra: Theory and Applications: http://www.math.byu.edu/klkuttle/linearalgebra.pdf
+- Handbook of Linear Algebra: http://www2.fiit.stuba.sk/~kvasnicka/QuantumComputing/Hogben-Handbook%20of%20Linear%20Algebra-%28CRC%20press,%202007%29.pdf
 
 **Matrix Theory**
 - Matrics: Theory and Application: http://www-fourier.ujf-grenoble.fr/~marin/une_autre_crypto/Livres/Serre%20D.%20Matrices..%20Theory%20and%20Applications%20%28Springer,%202002%29%28219s%29_MAl_.pdf

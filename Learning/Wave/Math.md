@@ -93,8 +93,17 @@ RR = Re-Read
 - 12/07/2014: Notes, C1 (leftoff: Well Ordered Principle)
 
 
+**The Handbook of Linear Algebra**
+- source: http://www2.fiit.stuba.sk/~kvasnicka/QuantumComputing/Hogben-Handbook%20of%20Linear%20Algebra-%28CRC%20press,%202007%29.pdf
+- may be a more effective book than above
+
+
 **Introduction to Matrix Algebra**
 - source: http://www.just.edu.jo/~aobeidat/PDF/Summer%202007/matrixalgebra.pdf
+- haskell:
+- sage:
+- history:
+- 12/15/2014: C1, C2, C3
 
 
 **Introduction to Differential Equations**
