@@ -58,6 +58,8 @@ Library
                      Daimyo.Algebra.Graphs
                      Daimyo.Algebra.Expression
                      Daimyo.Algebra.Fraction
+                     Daimyo.Algebra.Congruence
+                     Daimyo.Algebra.Congruence.Clock
                      Daimyo.Geometry
                      Daimyo.SetTheory
                      Daimyo.GroupTheory

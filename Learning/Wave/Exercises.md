@@ -8,9 +8,11 @@
 **Algebra**
 + Fractions: Classes for addition, subtraction, multiplication, division of fractions (of char, int, etc): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Fraction.hs
 - Algebraic data structures for logarithms and base/exponents, and instances of classes to add/mul/div/etc.
-- "simplify" : fractions, order of operations, based on various laws of arithmetic. Should be able to show which law at each step: distribute the negative, equivalent fractions, multiplication of fractions, addition and subtraction of fractions etc.
-- "matrix generation" : generate matrices
-- "matrix operations" : generate matrics and then generate operations on matrices
+- "simplify": fractions, order of operations, based on various laws of arithmetic. Should be able to show which law at each step: distribute the negative, equivalent fractions, multiplication of fractions, addition and subtraction of fractions etc.
+- "matrix generation": generate matrices
+- "matrix operations": generate matrics and then generate operations on matrices
++ Congruence Examples: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Congruence.hs
++ Congruent Clock arithmetic: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Congruence/Clock.hs
 
 **Abstract Algebra**
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs

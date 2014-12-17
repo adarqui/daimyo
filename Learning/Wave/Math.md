@@ -16,7 +16,9 @@ RR = Re-Read
 
 **Algebra - A Computational Approach**
 - source: http://www.math.toronto.edu/scherk/book.pdf
-- might be better intro than Basic Algebra
+- haskell: https://hackage.haskell.org/package/algebra
+- history:
+- 12/16/2014: C1.1 (Daimyo.Algebra.Congruence, Daimyo.Algebra.Congruence.Clock)
 
 
 **Basic Algebra**
@@ -117,6 +119,7 @@ RR = Re-Read
 - sage:
 - history:
 - 12/15/2014: C1, C2, C3
+- 12/16/2014: C4 (do code/exercises for C1-C4 before moving on to C5)
 
 
 **Introduction to Differential Equations**
