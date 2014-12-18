@@ -19,6 +19,7 @@ RR = Re-Read
 - haskell: https://hackage.haskell.org/package/algebra
 - history:
 - 12/16/2014: C1.1 (Daimyo.Algebra.Congruence, Daimyo.Algebra.Congruence.Clock)
+- 12/18/2014: C1.2 (Daimyo.Algebra.Divisibility), C1.3 (Daimyo.Algebra.LCM)
 
 
 **Basic Algebra**

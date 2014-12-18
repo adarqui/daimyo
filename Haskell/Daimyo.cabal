@@ -19,6 +19,7 @@ Library
  Exposed-Modules:    Daimyo
                      Daimyo.Time
                      Daimyo.Random
+                     Daimyo.String
                      Daimyo.Knowledge.Time
                      Daimyo.Input
                      Daimyo.List.Single
@@ -60,6 +61,9 @@ Library
                      Daimyo.Algebra.Fraction
                      Daimyo.Algebra.Congruence
                      Daimyo.Algebra.Congruence.Clock
+                     Daimyo.Algebra.Divisibility
+                     Daimyo.Algebra.Divisibility.Common
+                     Daimyo.Algebra.LCM
                      Daimyo.Geometry
                      Daimyo.SetTheory
                      Daimyo.GroupTheory
