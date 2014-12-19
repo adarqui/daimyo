@@ -1,6 +1,6 @@
 {-# LANGUAGE RecordWildCards #-}
 
-module Daimyo.Time (
+module Daimyo.Measure.Time (
     Per (..),
     hours,
     days
