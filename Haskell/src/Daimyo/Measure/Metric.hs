@@ -195,3 +195,4 @@ t_binop'2 = (Million 1) + (One 5)
 t_binop'3 = (One 5) + (Million 1) 
 t_binop'4 = (One 1) - (One 1)
 t_binop'5 = (Giga 5) + (Mega 5)
+t_binop'6 = (One 1) + (Million 1) + (One 1) + (One 1) -- losing precision
