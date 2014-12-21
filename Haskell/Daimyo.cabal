@@ -19,6 +19,7 @@ Library
  Exposed-Modules:    Daimyo
                      Daimyo.Random
                      Daimyo.String
+                     Daimyo.Number
                      Daimyo.Knowledge.Time
                      Daimyo.Input
                      Daimyo.List.Single

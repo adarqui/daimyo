@@ -6,7 +6,10 @@ module Daimyo.Algebra.Congruence.Solving (
     eq
 ) where
 
+import Daimyo.Number
+
 import Data.Maybe
+import Data.List
 
 solution'is'unique'modn a n = gcd a n == 1
 
@@ -31,7 +34,7 @@ eq a n t =
             then Just (s, t)
             else Nothing
 
-find'eq'Integers a n = filter (\(x,y) -> floor x == ceiling x) $ find'eq a n
+find'eq'Integers a n = filter (\(x,y) -> isInteger x) $ find'eq a n
 
 find'eq a n = catMaybes $ map (eq a n) [1..]
 
