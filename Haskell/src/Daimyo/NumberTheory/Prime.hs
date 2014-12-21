@@ -18,6 +18,10 @@ module Daimyo.NumberTheory.Prime (
     primes',
     isFactor,
     nth'sieve,
+    prime'number'theorem,
+    t_prime'number'theorem,
+    prime'number'theorem'approx,
+    t_prime'number'theorem'approx,
     primeFactors',
     primeFactors'Explain,
     t_primeFactors'Explain
@@ -33,7 +37,7 @@ import Text.Printf
     sieve
 -}
 
-primes = 2 : 3 : sieve 5 [5,7..]
+primes = 2 : sieve 3 [5,7..]
 
 sieve p (x:xs) =
     let
@@ -46,7 +50,7 @@ sieve p (x:xs) =
     trial division
 -}
 
-primes'trial = 2 : 3 : primes'trial' 5 [5,7..]
+primes'trial = 2 : primes'trial' 3 [5,7..]
     where
         primes'trial' p rest =
             let
@@ -96,6 +100,13 @@ sieve' = sieve' [2..]
 
 nth'sieve n = sieve' !! n
 
+prime'number'theorem x = length $ takeWhile (<= x) primes
+
+t_prime'number'theorem = map prime'number'theorem [100,200..1000]
+
+prime'number'theorem'approx x = x / (log x - 1)
+
+t_prime'number'theorem'approx = map prime'number'theorem'approx [100,200..1000]
 
 {-
     primeFactors explain via writerT
