@@ -6,6 +6,8 @@ module Daimyo.Combinatorics.Permutation (
 
 import Daimyo.Math.Factorial
 
+import Data.List
+
 {-
 If X is an m-element set and n is a positive integer with m ≥ n, then the
 number of X-strings of length n that are permutations is P(m, n).

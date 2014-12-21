@@ -57,6 +57,9 @@ Library
                      Daimyo.State
                      Daimyo.DMoz
                      Daimyo.Print
+                     Daimyo.Logic.Proposition
+                     Daimyo.Logic.Table
+                     Daimyo.Logic.Examples
                      Daimyo.Algebra
                      Daimyo.Algebra.Logarithms
                      Daimyo.Algebra.Graphs
@@ -87,8 +90,10 @@ Library
                      Daimyo.AbstractAlgebra.Polynomial
                      Daimyo.Calculus
                      Daimyo.Calculus.Exercises
+                     Daimyo.ConcreteMathematics.Sums
+                     Daimyo.ConcreteMathematics.Recurrences
                      Daimyo.Graphs.Circles
                      Daimyo.Graphs.T1
                      Daimyo.Pearls.SmallestFreeNumber
- Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time
+ Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt
  GHC-Options:        -Wall

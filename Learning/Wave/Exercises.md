@@ -62,6 +62,12 @@
 - Examples of p-groups
 - Examples of albelian groups
 
+**Mathematics for Computer Science**
+- Logic tables via combinations: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Logic/Table.hs
+- Propositional Logic Examples: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Logic/Examples.hs
+- Well Ordered Principle examples
+- Induction Examples
+
 **Translation**
 - Number Theory Using Sage. This would be a great book to translate from sage to haskell.
 

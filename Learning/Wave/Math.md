@@ -30,12 +30,14 @@ RR = Re-Read
 - sagemath:
 - history:
 - 12/10/2014: Preface
+- 12/20/2014: C1.1
 
 
 **Concrete Mathematics**
 - source: http://www.matematica.net/portal/e-books/Graham%20-%20Knuth%20-%20Patashnik%20-%20%20Concrete%20Mathematics.pdf
 - history:
 - 11/30/2014: (PEX, NN) C1 (Recurrent Problems)
+- 12/20/2014: C2.1 (Daimyo.ConcreteMathematics.Sums), C2.2 (Daimyo.ConcreteMathematics.Recurrences) - didnt finish
 
 
 **Conceptual Mathematics: A first introduction to Categories**
@@ -51,6 +53,7 @@ RR = Re-Read
 - source: http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2010/readings/MIT6_042JS10_notes.pdf
 - history:
 - 12/08/2014: C1
+- 12/20/2014: C2, C3 (Daimyo.Logic.Table, Daimyo.Logic.Exercises)
 
 
 **Holmes - Introduction to Set Theory**
