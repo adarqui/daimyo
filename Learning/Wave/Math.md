@@ -12,6 +12,7 @@ RR = Re-Read
 - sagemath: http://www.sagemath.org/pdf/en/reference/logic/logic.pdf , http://www.sagemath.org/doc/reference/logic/sage/logic/propcalc.html
 - history:
 - 12/10/2014: Preface
+- 12/20/2014: C1.1, C1.2, C1.3, C1.4 
 
 
 **Algebra - A Computational Approach**
@@ -20,6 +21,7 @@ RR = Re-Read
 - history:
 - 12/16/2014: C1.1 (Daimyo.Algebra.Congruence, Daimyo.Algebra.Congruence.Clock)
 - 12/18/2014: C1.2 (Daimyo.Algebra.Divisibility), C1.3 (Daimyo.Algebra.LCM)
+- 12/20/2014: C1.4 (Daimyo.Algebra.Congruence.Solving)
 
 
 **Basic Algebra**

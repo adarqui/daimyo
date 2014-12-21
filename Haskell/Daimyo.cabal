@@ -63,9 +63,11 @@ Library
                      Daimyo.Algebra.Fraction
                      Daimyo.Algebra.Congruence
                      Daimyo.Algebra.Congruence.Clock
+                     Daimyo.Algebra.Congruence.Solving
                      Daimyo.Algebra.Divisibility
                      Daimyo.Algebra.Divisibility.Common
                      Daimyo.Algebra.LCM
+                     Daimyo.Algebra.GCD
                      Daimyo.Geometry
                      Daimyo.SetTheory
                      Daimyo.GroupTheory
