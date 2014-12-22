@@ -235,7 +235,7 @@ RR = Re-Read
 **Mathematics for The Practical Man**
 - source: http://www.aproged.pt/biblioteca/mathematicsforthehowe.pdf
 - history:
-- 12/21/2014: Preface
+- 12/21/2014: Preface, C1, C2, C3
 
 
 **Real-World Problems for Secondary School Mathematics Students**
