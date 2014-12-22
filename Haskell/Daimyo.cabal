@@ -94,6 +94,7 @@ Library
                      Daimyo.ConcreteMathematics.Recurrences
                      Daimyo.Graphs.Circles
                      Daimyo.Graphs.T1
+                     Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
  Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt
  GHC-Options:        -Wall

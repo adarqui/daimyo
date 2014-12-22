@@ -58,15 +58,15 @@
 - Generating statistics on random data/strings/etc (sample, mean, variance, correlation stddev etc)
 
 **Group Theory**
-- Caylay tables for multiplicative/additive groups: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/GroupTheory/Tables.hs
++ Caylay tables for multiplicative/additive groups: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/GroupTheory/Tables.hs
 - Examples of semigroups
 - Examples of monoids
 - Examples of p-groups
 - Examples of albelian groups
 
 **Mathematics for Computer Science**
-- Logic tables via combinations: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Logic/Table.hs
-- Propositional Logic Examples: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Logic/Examples.hs
++ Logic tables via combinations: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Logic/Table.hs
++ Propositional Logic Examples: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Logic/Examples.hs
 - Well Ordered Principle examples
 - Induction Examples
 
@@ -75,6 +75,7 @@
 
 **Crypto**
 - Create a visual cipher wheel function (because they look cool)
++ Create a frequency list: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Crypto/Frequency.hs (this is weak)
 
 **Pearls**
 - "tell" version of SmallestFreeInteger: list, array, divide & conquer,
