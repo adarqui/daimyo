@@ -1,4 +1,4 @@
-module Daimyo.Calculus.Exercises (
+module Daimyo.Calculus.Limit (
     lim,
     lim'naive,
     lim'map

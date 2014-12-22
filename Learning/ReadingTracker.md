@@ -115,6 +115,11 @@ http://comonad.com/reader/
 
 **Sec:**
 - taossp: https://leaksource.files.wordpress.com/2014/08/the-art-of-software-security-assessment.pdf
+- Engineering Security: https://www.cs.auckland.ac.nz/~pgut001/pubs/book.pdf
+- Security Engineering: http://www.cl.cam.ac.uk/~rja14/book.html
+- Security Architecture for Space Data Systems: http://public.ccsds.org/publications/archive/351x0m1.pdf
+- IBM Security Solutions Architecture for Network Server and Endpoint: http://www.redbooks.ibm.com/redbooks/pdfs/sg247581.pdf
+- NIST Cloud Computing Standards Roadmap: http://www.nist.gov/itl/cloud/upload/NIST_SP-500-291_Version-2_2013_June18_FINAL.pdf
 
 - Applied Crypto: http://www.cse.hcmut.edu.vn/~tuananh/courses/Grid/Schneier%20-%20Applied%20Cryptography%202ed%20-%20Wiley.pdf
 https://notendur.hi.is/pgg/Handbook%20of%20Applied%20Cryptography.pdf
@@ -174,6 +179,8 @@ consensus:
 **Propositional Logic**
 - Introduction to Propositional Logic: http://www.cs.uni-paderborn.de/fileadmin/Informatik/AG-Kleine-Buening/files/ss11/pps/bookpart1.pdf
 - Logic: http://emilkirkegaard.dk/en/wp-content/uploads/Paul-Tomassi-Logic.pdf
+- Logic in Action: http://www.logicinaction.org/docs/ch2.pdf
+- Logic Self-Taught: A Workbook: http://www.kpaprzycka.filozofia.uw.edu.pl/Publ/xLogicSelfTaught.html
 
 **Set Theory**
 - Naive Set Theory: http://sistemas.fciencias.unam.mx/~lokylog/images/stories/Alexandria/Logica%20y%20Conjuntos/Paul%20R.Halmos%20-%20Naive%20Set%20Theory.pdf
@@ -374,6 +381,9 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 **Mathematical Problem Solving**
 - Teaching Problem-Solving in Undergraduate Mathematics: http://mathstore.ac.uk/headocs/Problem-solving_0.pdf
 - Problem Solving in Mathematics: https://math.la.asu.edu/~ifulman/mat194/problem-solving.pdf
+
+**Wtf**
+- Teaching Mathematics with Foldables: https://blogs.edutech.nodak.edu/badlandsreadingcouncil/files/2012/03/math-foldables.pdf
 
 **Questions and Answers**
 - High Order Logic: http://feature-space.com/en/document41.pdf

@@ -15,6 +15,11 @@ RR = Re-Read
 - 12/20/2014: C1.1, C1.2, C1.3, C1.4 
 
 
+**Logic in Computer Science**
+- source: http://www.eserna.com/Logica/5%20Lectura%202.pdf
+- after Logic
+
+
 **Algebra - A Computational Approach**
 - source: http://www.math.toronto.edu/scherk/book.pdf
 - haskell: https://hackage.haskell.org/package/algebra
@@ -64,6 +69,7 @@ RR = Re-Read
 - history:
 - 12/05/2014: C1, C2, C3
 - 12/06/2014: C4
+- 12/21/2014: C5
 
 
 **Elementary Number Theory (Using Sage)**
@@ -71,7 +77,8 @@ RR = Re-Read
 - haskell: https://hackage.haskell.org/package/arithmoi
 - sage: http://www.sagemath.org/doc/tutorial/tour_numtheory.html
 - history:
-- 12/07/2014: Notes, C1 (leftoff: 1.1.3)
+- 12/07/2014: Notes, C1.1.1, C1.1.2
+- 12/20/2014: C1.1.3, C1.1.4, C2.1.1, C2.1.2, C2.1.3, C2.1.4, C2.1.5
 
 
 **Elementary Probability Theory**
@@ -93,6 +100,7 @@ RR = Re-Read
 
 **Elementary Abstract Algebra**
 - source: http://shell.cas.usf.edu/~wclark/Elem_abs_alg.pdf
+- 12/21/2014: Preface, C1
 
 
 **Intro to Abstract Algebra**
@@ -111,12 +119,15 @@ RR = Re-Read
 - haskell: https://hackage.haskell.org/package/linear
 - sage: http://linear.ups.edu/download/fcla-2.22-sage-4.7.1-preview.pdf , http://www.sagemath.org/doc/constructions/linear_algebra.html
 - history:
-- 12/07/2014: Notes, C1 (leftoff: Well Ordered Principle)
+- 12/07/2014: Notes, C1.1, C1.2, C1.3, C1.4, C1.5, C1.6, C1.7
+- 12/20/2014: C1.8 (reread)
 
 
 **The Handbook of Linear Algebra**
 - source: http://www2.fiit.stuba.sk/~kvasnicka/QuantumComputing/Hogben-Handbook%20of%20Linear%20Algebra-%28CRC%20press,%202007%29.pdf
 - may be a more effective book than above
+- history:
+- 12/21/2014: Preface, Preliminaries, C1.1 (reread)
 
 
 **Introduction to Matrix Algebra**
@@ -209,6 +220,27 @@ RR = Re-Read
 - 12/08/2014: Intro, C1
 - 12/09/2014: C2 (leftoff: C2.4)
 - 12/10/2014: C2.4 (reread)
+
+
+**Mathematical Reasoning: Writing and Proof**
+- source:
+- history:
+- 12/21/2014: Preface, Introduction
+
+
+**The Art of Proof**
+- source: http://math.sfsu.edu/federico/Clase/Math301.S10/book.pdf
+
+
+**Mathematics for The Practical Man**
+- source: http://www.aproged.pt/biblioteca/mathematicsforthehowe.pdf
+- history:
+- 12/21/2014: Preface
+
+
+**Real-World Problems for Secondary School Mathematics Students**
+- source: https://www.sensepublishers.com/media/857-real-world-problems-for-secondary-school-mathematics-students.pdf
+- history:
 
 
 **Algorithmic Game Theory**

@@ -4,6 +4,7 @@
 - "find the indicated intersection, union, difference, etc if possible" of randomly generated sets
 - "express the following sets of numbers using interval notation" , "write the set using interval notation" of randomly generated set notations
 - "use the blank venn diagram for A, B, C ... shade in the following sets" of randomly generated sets and operations among them
+- venn diagram generator library
 
 **Algebra**
 + Fractions: Classes for addition, subtraction, multiplication, division of fractions (of char, int, etc): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Fraction.hs
@@ -17,6 +18,7 @@
 **Abstract Algebra**
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
 + Pascal triangle data: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
+- Addition modulo 2 for binary sequences of length n
 
 **Calculus**
 + Experiment with limits: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Calculus/Exercises.hs
@@ -70,6 +72,9 @@
 
 **Translation**
 - Number Theory Using Sage. This would be a great book to translate from sage to haskell.
+
+**Crypto**
+- Create a visual cipher wheel function (because they look cool)
 
 **Pearls**
 - "tell" version of SmallestFreeInteger: list, array, divide & conquer,

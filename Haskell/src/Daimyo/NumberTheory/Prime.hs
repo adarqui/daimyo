@@ -22,12 +22,15 @@ module Daimyo.NumberTheory.Prime (
     t_prime'number'theorem,
     prime'number'theorem'approx,
     t_prime'number'theorem'approx,
+    limit'prime'number'theorem,
     primeFactors',
     primeFactors'Explain,
     t_primeFactors'Explain
 ) where
 
 import Daimyo.Print
+import Daimyo.Calculus.Limit
+
 import Data.List
 import Control.Monad
 import Control.Monad.Writer
@@ -100,13 +103,24 @@ sieve' = sieve' [2..]
 
 nth'sieve n = sieve' !! n
 
+prime'number'theorem :: Integer -> Int
 prime'number'theorem x = length $ takeWhile (<= x) primes
 
 t_prime'number'theorem = map prime'number'theorem [100,200..1000]
 
-prime'number'theorem'approx x = x / (log x - 1)
+prime'number'theorem'approx :: Integer -> Double
+prime'number'theorem'approx x =
+    let
+        x' = fromIntegral x :: Double
+    in
+        x' / (log x' - 1)
 
 t_prime'number'theorem'approx = map prime'number'theorem'approx [100,200..1000]
+
+limit'prime'number'theorem =
+    lim
+        (\x ->
+            (fromIntegral (prime'number'theorem (truncate x)) :: Double) / prime'number'theorem'approx (truncate x))
 
 {-
     primeFactors explain via writerT

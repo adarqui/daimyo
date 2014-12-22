@@ -89,7 +89,7 @@ Library
                      Daimyo.Combinatorics.Combination
                      Daimyo.AbstractAlgebra.Polynomial
                      Daimyo.Calculus
-                     Daimyo.Calculus.Exercises
+                     Daimyo.Calculus.Limit
                      Daimyo.ConcreteMathematics.Sums
                      Daimyo.ConcreteMathematics.Recurrences
                      Daimyo.Graphs.Circles
