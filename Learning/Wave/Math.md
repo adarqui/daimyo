@@ -223,7 +223,7 @@ RR = Re-Read
 
 
 **Mathematical Reasoning: Writing and Proof**
-- source:
+- source: http://scholarworks.gvsu.edu/cgi/viewcontent.cgi?article=1007&context=books
 - history:
 - 12/21/2014: Preface, Introduction
 
