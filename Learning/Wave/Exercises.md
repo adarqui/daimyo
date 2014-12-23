@@ -14,6 +14,11 @@
 - "matrix operations": generate matrics and then generate operations on matrices
 + Congruence Examples: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Congruence.hs
 + Congruent Clock arithmetic: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Congruence/Clock.hs
+- Addition, Subtraction, Multiplication, Division generator
++ LCM Generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Quiz/LCM.hs
++ GCD Generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Quiz/GCD.hs
+- Linear equation generator
+- System of equations generator
 
 **Abstract Algebra**
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
@@ -76,6 +81,7 @@
 **Crypto**
 - Create a visual cipher wheel function (because they look cool)
 + Create a frequency list: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Crypto/Frequency.hs (this is weak)
+- Simple Substitution Cipher solver (experimental)
 
 **Pearls**
 - "tell" version of SmallestFreeInteger: list, array, divide & conquer,

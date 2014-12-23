@@ -72,6 +72,9 @@ Library
                      Daimyo.Algebra.Divisibility.Common
                      Daimyo.Algebra.LCM
                      Daimyo.Algebra.GCD
+                     Daimyo.Algebra.Quiz.GCD
+                     Daimyo.Algebra.Quiz.LCM
+                     Daimyo.Algebra.Quiz.ASMD
                      Daimyo.Geometry
                      Daimyo.SetTheory
                      Daimyo.GroupTheory
@@ -96,5 +99,6 @@ Library
                      Daimyo.Graphs.T1
                      Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
+                     Daimyo.Quiz
  Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt
  GHC-Options:        -Wall

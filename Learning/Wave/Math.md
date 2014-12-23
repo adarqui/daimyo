@@ -236,6 +236,8 @@ RR = Re-Read
 - source: http://www.aproged.pt/biblioteca/mathematicsforthehowe.pdf
 - history:
 - 12/21/2014: Preface, C1, C2, C3
+- 12/22/2014: C4, C5, C6, C7
+- --- do exercises C1 through C7 before continuing
 
 
 **Real-World Problems for Secondary School Mathematics Students**
