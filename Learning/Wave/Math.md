@@ -242,7 +242,8 @@ RR = Re-Read
 
 **An Episodic History of Mathematics**
 - source: http://www.math.wustl.edu/~sk/books/newhist.pdf
-- 12/23/2014: Preface, 1.1.2 (Daimyo.Geometry.Pythagorean, Daimyo.Geometry.Quiz.Pythagorean, Daimyo.Math.Table.NthRoot)
+- 12/23/2014: Preface, 1.1.1 (Daimyo.Geometry.Pythagorean, Daimyo.Geometry.Quiz.Pythagorean, Daimyo.Math.Table.NthRoot)
+- 12/24/2014: 1.1.2 (Daimyo.Geometry.Pythagorean)
 
 
 **Real-World Problems for Secondary School Mathematics Students**
