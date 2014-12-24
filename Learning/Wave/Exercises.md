@@ -5,6 +5,7 @@
 - "express the following sets of numbers using interval notation" , "write the set using interval notation" of randomly generated set notations
 - "use the blank venn diagram for A, B, C ... shade in the following sets" of randomly generated sets and operations among them
 - venn diagram generator library
+- Simple set operation generator
 
 **Algebra**
 + Fractions: Classes for addition, subtraction, multiplication, division of fractions (of char, int, etc): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Fraction.hs
@@ -14,11 +15,13 @@
 - "matrix operations": generate matrics and then generate operations on matrices
 + Congruence Examples: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Congruence.hs
 + Congruent Clock arithmetic: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Congruence/Clock.hs
-- Addition, Subtraction, Multiplication, Division generator
-+ LCM Generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Quiz/LCM.hs
-+ GCD Generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Quiz/GCD.hs
-- Linear equation generator
-- System of equations generator
+- Simple Addition, Subtraction, Multiplication, Division generator
+- Simple fraction generator
++ Simple LCM Generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Quiz/LCM.hs
++ Simple GCD Generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Quiz/GCD.hs
+- Simple Linear equation generator
+- Simple System of equations generator
+- Simple logarithm, exponents generator
 
 **Abstract Algebra**
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
@@ -36,6 +39,7 @@
 **Concrete Mathematics**
 - Recurrence examples
 - Generate normal form from various patterns of data
+- Simple Sums generator
 
 **Number Theory**
 + Primes, Prime sieve, Primes trial by division, Composites, Prime Factors: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime.hs
@@ -44,10 +48,13 @@
 + Euclid (GCD using subtraction) explain via WriterT: "gcd'Explain" @ https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GCD.hs
 + Euclid (GCD using modulus) explain via WriterT: "gcd'Explain" @ https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GCD.hs
 + Prime Factors explain via WriterT: "primeFactors'Explain" @ https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime.hs
+- Simple Prime / isPrime generator
+- Simple divisibility test generator: is divisible by 2, 3, 5, 7, 11, ..?
 
 **Geometry**
 - Express propositions/axioms from C1
 - Generate diagrams of triangles using sage/haskell
++ Simple pythagorean theorem generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Quiz/Pythagorean.hs
 
 **Topology**
 - Define a metric space
@@ -57,6 +64,7 @@
 
 **Matrix**
 - Various objects (strings, lists of numbers etc) stored in matrices and operations on them.
+- Simple matrix generator
 
 **Statistics**
 + Collecting data via /dev/<...>: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Random.hs
@@ -75,8 +83,15 @@
 - Well Ordered Principle examples
 - Induction Examples
 
+**Logic**
+- Simple Propositional Logic generator
+
 **Translation**
 - Number Theory Using Sage. This would be a great book to translate from sage to haskell.
+
+**Data Structures**
+- Simple sort generator
+- Simple pre/in/post order tree generator
 
 **Crypto**
 - Create a visual cipher wheel function (because they look cool)

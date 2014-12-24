@@ -240,6 +240,10 @@ RR = Re-Read
 - --- do exercises C1 through C7 before continuing
 
 
+**An Episodic History of Mathematics**
+- source: http://www.math.wustl.edu/~sk/books/newhist.pdf
+
+
 **Real-World Problems for Secondary School Mathematics Students**
 - source: https://www.sensepublishers.com/media/857-real-world-problems-for-secondary-school-mathematics-students.pdf
 - history:

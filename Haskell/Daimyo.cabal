@@ -76,6 +76,7 @@ Library
                      Daimyo.Algebra.Quiz.LCM
                      Daimyo.Algebra.Quiz.ASMD
                      Daimyo.Geometry
+                     Daimyo.Geometry.Quiz.Pythagorean
                      Daimyo.SetTheory
                      Daimyo.GroupTheory
                      Daimyo.GroupTheory.Tables
