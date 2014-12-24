@@ -50,12 +50,14 @@
 + Prime Factors explain via WriterT: "primeFactors'Explain" @ https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime.hs
 - Simple Prime / isPrime generator
 - Simple divisibility test generator: is divisible by 2, 3, 5, 7, 11, ..?
+- Prime/CoPrime Matrix
 
 **Geometry**
 - Express propositions/axioms from C1
 - Generate diagrams of triangles using sage/haskell
 + Simple pythagorean theorem generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Quiz/Pythagorean.hs
 + Pythagorean Theorem 'solver': https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Pythagorean.hs
++ Pythagorean Triple Generator (triples): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Pythagorean.hs
 
 **Topology**
 - Define a metric space

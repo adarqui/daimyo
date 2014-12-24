@@ -77,6 +77,8 @@ PEX= Partial exercises. Means I need to finish the exercises.
 12/10/2014: Hofstatdr interview: http://tal.forum2.org/hofstadter_interview
 
 todo:
+Exploring the Cloud From Passive Measurements: http://www.retitlc.polito.it/traverso/papers/amazon_mini.pdf
+Large scale observation and analysis of Amazon AWS traffic: http://homes.di.unimi.it/~pagae/BORMIO2013/PAPERI/bermudez-polito.pdf
 http://plato.stanford.edu/entries/quine-nf/
 fp from oo: http://www.slideshare.net/ScottWlaschin/fp-patterns-buildstufflt
 notes on algebra of programming: https://www.scss.tcd.ie/publications/tech-reports/reports.99/TCD-CS-1999-74.pdf
@@ -348,6 +350,7 @@ consensus:
 - Proofs from the book: http://www.slideshare.net/YoshimarSantana/proofs-from-the-book-martin-aigner
 - Book Of Proof: http://www.people.vcu.edu/~rhammack/BookOfProof/
 - List of paradoxes: http://en.wikipedia.org/wiki/List_of_paradoxes
+- Journey Through Genius Theorems: http://www.ms.uky.edu/~sohum/ma330/files/william-dunham-journey-through-genius-the-great-theorems-of-mathematics-penguin-non-classics1991014014739x.pdf 
 
 **Philosophy**
 - Philosophy of Mathematics: http://www.iep.utm.edu/category/s-l-m/math/
@@ -459,3 +462,5 @@ Programming:
 - An introduction to elementary Number Theory
 - Elementary Set Theory
 - Logic
+
+**Net**

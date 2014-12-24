@@ -1,6 +1,8 @@
 module Daimyo.List.Misc (
     subseqs,
-    subsequences'
+    subsequences',
+    interleave,
+    rests
 ) where
 
 import Data.List
@@ -13,3 +15,19 @@ interleave [] ys = ys
 interleave (x:xs) ys = x : interleave ys xs
 
 subsequences' l = filter (not . null) $ subsequences l
+
+{-
+    rests
+    [2,2,2,3]
+    ([2],[2,2,3])
+    ([2,2],[2,3])
+    ([2,3],[2,2])
+    ([2,2,2],[3])
+    ..
+-}
+
+rests l =
+    let
+        perms = permutations l
+    in
+        nub $ concatMap (\p -> map (\n -> (take n p, drop n p)) [1..(length l)-1]) perms
