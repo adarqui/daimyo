@@ -40,7 +40,7 @@ triples'even =
     let
         evens = [ 2*n | n <- [1..] ]
     in
-    concatMap (\n ->
+    filter (\(x,_,_) -> x /= 0) $ concatMap (\n ->
         let
             b = n
             facs = factor'pairs' (b `div` 2)
@@ -50,9 +50,9 @@ triples'even =
 
 triples'odd =
     let
-        odds = [1,3..]
+        odds = [ 2*n-1 | n <- [0..] ]
     in
-    concatMap (\n ->
+    filter (\(x,_,_) -> x /= 0) $ concatMap (\n ->
         let
             b = n
             facs = factor'pairs' b
