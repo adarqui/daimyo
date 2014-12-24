@@ -41,7 +41,8 @@ Library
                      Daimyo.Bits
                      Daimyo.Math.Primes
                      Daimyo.Math.Powers
-                     Daimyo.Math.Tables
+                     Daimyo.Math.Table.Power
+                     Daimyo.Math.Table.NthRoot
                      Daimyo.Math.Factorial
                      Daimyo.Sorting.Insert
                      Daimyo.Sorting.OddEven
@@ -72,10 +73,13 @@ Library
                      Daimyo.Algebra.Divisibility.Common
                      Daimyo.Algebra.LCM
                      Daimyo.Algebra.GCD
+                     Daimyo.Algebra.NthRoot
                      Daimyo.Algebra.Quiz.GCD
                      Daimyo.Algebra.Quiz.LCM
                      Daimyo.Algebra.Quiz.ASMD
                      Daimyo.Geometry
+                     Daimyo.Geometry.Triangle
+                     Daimyo.Geometry.Pythagorean
                      Daimyo.Geometry.Quiz.Pythagorean
                      Daimyo.SetTheory
                      Daimyo.GroupTheory

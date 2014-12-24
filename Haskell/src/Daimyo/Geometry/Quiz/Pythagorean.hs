@@ -4,7 +4,6 @@
 
 module Daimyo.Geometry.Quiz.Pythagorean (
     Pythagorean (..),
-    Side (..),
     ask,
     new,
     solveFor
@@ -13,7 +12,7 @@ module Daimyo.Geometry.Quiz.Pythagorean (
 import System.Random
 import Text.Printf
 
-data Side = A | B | C deriving (Show, Eq, Enum, Read)
+data SideOnly = A | B | C deriving (Show, Eq, Enum, Read)
 
 data Pythagorean a = Pythagorean {
     min :: a,
@@ -29,7 +28,7 @@ ask v = do
 ask' g v@Pythagorean{..} = do
     let (a:b:[]) = take 2 $ randomRs (min, max) g
     let (c, _) = randomR ('A', 'C') g
-    let (s, r) = solveFor (read (c:[]) :: Side) (a^2) (b^2) (a^2 + b^2)
+    let (s, r) = solveFor (read (c:[]) :: SideOnly) (a^2) (b^2) (a^2 + b^2)
     putStrLn $ printf s
     recv r
     g <- newStdGen
@@ -43,7 +42,7 @@ recv ans = do
         else do
             putStrLn "Correct!"
 
-solveFor :: Side -> Int -> Int -> Int -> (String, Int)
+solveFor :: SideOnly -> Int -> Int -> Int -> (String, Int)
 solveFor A a b c = (printf "c^2=%d, b^2=%d, a^2=?" c b, a)
 solveFor B a b c = (printf "c^2=%d, a^2=%d, b^2=?" c a, b)
 solveFor C a b c = (printf "c^2=? a^2=%d, b^2=%d" a b, c)

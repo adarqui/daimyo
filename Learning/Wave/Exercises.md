@@ -55,6 +55,7 @@
 - Express propositions/axioms from C1
 - Generate diagrams of triangles using sage/haskell
 + Simple pythagorean theorem generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Quiz/Pythagorean.hs
++ Pythagorean Theorem 'solver': https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Pythagorean.hs
 
 **Topology**
 - Define a metric space
@@ -85,6 +86,10 @@
 
 **Logic**
 - Simple Propositional Logic generator
+
+**Tables**
+- Power Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Table/Power.hs
+- Nth Root Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Table/NthRoot.hs
 
 **Translation**
 - Number Theory Using Sage. This would be a great book to translate from sage to haskell.
