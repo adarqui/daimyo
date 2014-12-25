@@ -226,7 +226,7 @@ RR = Re-Read
 - source: http://scholarworks.gvsu.edu/cgi/viewcontent.cgi?article=1007&context=books
 - history:
 - 12/21/2014: Preface, Introduction
-- 12/24/2014: C1.1, C1.2
+- 12/24/2014: C1.1
 
 
 **The Art of Proof**
