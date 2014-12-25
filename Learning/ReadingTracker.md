@@ -385,6 +385,13 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 - Teaching Problem-Solving in Undergraduate Mathematics: http://mathstore.ac.uk/headocs/Problem-solving_0.pdf
 - Problem Solving in Mathematics: https://math.la.asu.edu/~ifulman/mat194/problem-solving.pdf
 
+**Mental Math**
+- Secrets of Mental Math: http://www.engineeringsurveyor.com/software/secrets%20of%20mental%20math.pdf
+- Secrets of Mental Math: http://porashonabd.com/wp-content/uploads/2014/10/Shortcut-Math-Technique-by-Akash.pdf
+
+**History**
+- Euclid: The Elements: http://www.wilbourhall.org/pdfs/heath_euclid_ii.pdf
+
 **Wtf**
 - Teaching Mathematics with Foldables: https://blogs.edutech.nodak.edu/badlandsreadingcouncil/files/2012/03/math-foldables.pdf
 

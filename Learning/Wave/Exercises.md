@@ -22,6 +22,7 @@
 - Simple Linear equation generator
 - Simple System of equations generator
 - Simple logarithm, exponents generator
+- Simple Long Division generator
 
 **Abstract Algebra**
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
@@ -58,6 +59,7 @@
 + Simple pythagorean theorem generator: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Quiz/Pythagorean.hs
 + Pythagorean Theorem 'solver': https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Pythagorean.hs
 + Pythagorean Triple Generator (triples): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Pythagorean.hs
+- Congruency tests for triangles (side-side-side), (side-angle-side), (angle-side-angle)
 
 **Topology**
 - Define a metric space
@@ -88,6 +90,10 @@
 
 **Logic**
 - Simple Propositional Logic generator
+
+**Mental Math**
+- Simple "multiply by 11" generator
+- Simple "square a number ending in 5" generator
 
 **Tables**
 - Power Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Table/Power.hs

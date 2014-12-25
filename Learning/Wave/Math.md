@@ -208,7 +208,7 @@ RR = Re-Read
 - source: https://www.artofproblemsolving.com/LaTeX/Examples/statistics_firstfive.pdf
 - haskell: https://hackage.haskell.org/package/statistics
 - sage: http://www.sagemath.org/doc/reference/stats/index.html
-- History:
+- history:
 - 12/07/2014: Notes, C1
 
 
@@ -226,6 +226,7 @@ RR = Re-Read
 - source: http://scholarworks.gvsu.edu/cgi/viewcontent.cgi?article=1007&context=books
 - history:
 - 12/21/2014: Preface, Introduction
+- 12/24/2014: C1.1, C1.2
 
 
 **The Art of Proof**
@@ -243,7 +244,13 @@ RR = Re-Read
 **An Episodic History of Mathematics**
 - source: http://www.math.wustl.edu/~sk/books/newhist.pdf
 - 12/23/2014: Preface, 1.1.1 (Daimyo.Geometry.Pythagorean, Daimyo.Geometry.Quiz.Pythagorean, Daimyo.Math.Table.NthRoot)
-- 12/24/2014: 1.1.2 (Daimyo.Geometry.Pythagorean)
+- 12/24/2014: 1.1.2 (Daimyo.Geometry.Pythagorean), 1.2.1
+
+
+**Secrets of Mental Math**
+- source: http://www.engineeringsurveyor.com/software/secrets%20of%20mental%20math.pdf
+- history:
+- 12/24/2014: Prologue, Introduction, C0
 
 
 **Real-World Problems for Secondary School Mathematics Students**
