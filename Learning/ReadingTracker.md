@@ -234,6 +234,7 @@ consensus:
 - Advanced Algebra: http://www.orianhealth.com/files/public-docs/Books/Math/Knapp.A.W..Advanced.Algebra.(2007).Birkhauser.pdf
 - College Algebra: http://www.math.missouri.edu/courses/math1100/CABook.pdf
 - College Algebra: http://www.stitz-zeager.com/szca07042013.pdf
+- Algebraic Reasoning: http://www.math.wisc.edu/~kwon/135.pdf
 
 **Abstract Algebra**
 - Introduction to Abstract Algebra: http://www.math.umn.edu/~garrett/m/intro_algebra/notes.pdf
@@ -391,6 +392,9 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 
 **History**
 - Euclid: The Elements: http://www.wilbourhall.org/pdfs/heath_euclid_ii.pdf
+
+**Research**
+- New mathematics education research and practice: http://uni-klu.ac.at/wiho/downloads/Materialization_and_Organization_DIVS-MaaszFinalInterior1.pdf
 
 **Wtf**
 - Teaching Mathematics with Foldables: https://blogs.edutech.nodak.edu/badlandsreadingcouncil/files/2012/03/math-foldables.pdf
