@@ -44,6 +44,9 @@ Library
                      Daimyo.Math.Table.Power
                      Daimyo.Math.Table.NthRoot
                      Daimyo.Math.Factorial
+                     Daimyo.Math.Mean.Arithmetic
+                     Daimyo.Math.Mean.Harmonic
+                     Daimyo.Math.Mean.Geometric
                      Daimyo.Sorting.Insert
                      Daimyo.Sorting.OddEven
                      Daimyo.Encryption.Transposition

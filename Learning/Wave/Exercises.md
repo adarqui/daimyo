@@ -23,6 +23,9 @@
 - Simple System of equations generator
 - Simple logarithm, exponents generator
 - Simple Long Division generator
++ Harmonic mean: (harmonic) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Mean/Harminic.hs
++ Geometric mean: (geometric) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Mean/Geometric.hs
++ Arithmetic mean: (arithmetic) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Mean/Arithmetic.hs
 
 **Abstract Algebra**
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
