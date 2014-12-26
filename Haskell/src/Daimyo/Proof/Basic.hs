@@ -5,8 +5,12 @@ module Daimyo.Proof.Basic (
     proof'isOdd,
     proof'multiply'odd'odd,
     proof'multiply'odd'odd',
-    proof'multiply'odd'odd'2
+    proof'multiply'odd'odd'2,
+    ks_proof'1,
+    ks_proof'2
 ) where
+
+import Daimyo.Proof.KnowShow
 
 {-
 Definition. An integer a is an even integer provided that there exists an
@@ -136,3 +140,49 @@ proof'multiply'odd'odd'2 m n
     = x/x
     = 1
 -}
+
+
+{-
+    Know Show table for a proof of:
+
+    Proposition. If x and y are odd integers, then x * y is an odd integer.
+-}
+
+ks_proof'1 =
+    printit $
+    knowShow
+        "if x and y are odd integers, then x * y is an odd integer"
+        [
+            ("x and y are odd integers.", "Hypothesis"),
+            ("There exists integers m and n such that x = 2m + 1 and y = 2n + 1", "Definition of an odd integer"),
+            ("xy = (2m + 1)(2n + 1)", "Substitution"),
+            ("xy = 4mn + 2m + 2n + 1", "Algebra"),
+            ("xy = 2(2mn + m + n) + 1", "Algebra"),
+            ("(2mn + m + n) is an integer.", "Closure properties of the integers")
+        ]
+        [
+            ("There exists an integer q such that xy = 2q + 1", "Use q = (2mn + m + n)"),
+            ("x * y is an odd integer.", "Definition of an odd integer")
+        ]
+
+{-
+    Know Show table for a proof of:
+
+    Proposition: If x is an even integer and y is an even integer, then x + y is an even integer
+-}
+
+ks_proof'2 =
+    printit $
+    knowShow
+        "if x and y are even integers, then x + y is an even integer"
+        [
+            ("x and y are even integers", "Hypothesis"),
+            ("There exists integers m and n such that x = 2m and y = 2n", "Definition of an even integer"),
+            ("x+y = 2m + 2n", "Substitution"),
+            ("x+y = 2(m + n)", "Algebra, Factorization"),
+            ("m+n is an integer", "Closure properties of integers")
+        ]
+        [
+            ("There exists an integer q such that x+y = 2q", "Use q = m + n"),
+            ("x and y are even integers", "x + y is an even integer")
+        ]

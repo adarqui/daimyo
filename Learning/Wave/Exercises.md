@@ -93,6 +93,7 @@
 
 **Proof**
 + KnowShow table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Proof/KnowShow.hs
++ Example KnowShow tables: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Proof/Basic.hs
 
 **Mental Math**
 - Simple "multiply by 11" generator
