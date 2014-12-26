@@ -7,7 +7,8 @@ module Daimyo.Proof.Basic (
     proof'multiply'odd'odd',
     proof'multiply'odd'odd'2,
     ks_proof'1,
-    ks_proof'2
+    ks_proof'2,
+    ks_proof'3
 ) where
 
 import Daimyo.Proof.KnowShow
@@ -184,5 +185,27 @@ ks_proof'2 =
         ]
         [
             ("There exists an integer q such that x+y = 2q", "Use q = m + n"),
-            ("x and y are even integers", "x + y is an even integer")
+            ("x + y is an even integer", "Definition of an even integer")
+        ]
+
+{-
+    Know Show table for a proof of:
+
+    Proposition: If x is an even integer and y is an odd integer, then x + y is an odd integer
+-}
+
+ks_proof'3 =
+    printit $
+    knowShow
+        "If x is an even integer and y is an odd integer, then x + y is an odd integer"
+        [
+            ("x is an even integer, y is an odd integer", "Hypothesis"),
+            ("There exists integers m and n such that x = 2m, y = 2n+1", "Definition of even and odd integers"),
+            ("x+y = 2m + 2n + 1", "Substitution"),
+            ("x+y = 2(m+n) + 1", "Algebra, Factorization"),
+            ("m+n is an integer", "Closure property of integers")
+        ]
+        [
+            ("There exists an integer q such that x+y = 2q + 1", "Use q = m + n"),
+            ("x + y is an odd integer", "Definition of an odd integer")
         ]

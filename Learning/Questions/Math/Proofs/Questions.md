@@ -40,3 +40,15 @@ exists an integer n such that a = 2n + 1.
 
 a) Explain why 28, -42, 24, and 0 are even integers.
 b) Explain why 51, -11, 1, and -1 are odd integers.
+
+
+Give at least one more answer to the backward question, “How can we prove that two real numbers are equal?”
+
+
+List as many answers as you can for the backward question, “How can we prove that a real number is equal to zero?”
+
+
+List as many answers as you can for the backward question, “How can we prove that two lines are parallel?”
+
+
+List as many answers as you can for the backward question, “How can we prove that a triangle is isosceles?”
