@@ -32,3 +32,11 @@ Determine whether each of the following conditional statements is true or false.
 (d) If 7 < 10, then 3 + 5 = 8.
 
 
+Definition. An integer a is an even integer provided that there exists an
+integer n such that a = 2n. An integer a is an odd integer provided there
+exists an integer n such that a = 2n + 1.
+
+1. Use the definitions given above to:
+
+a) Explain why 28, -42, 24, and 0 are even integers.
+b) Explain why 51, -11, 1, and -1 are odd integers.

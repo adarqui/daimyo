@@ -101,10 +101,13 @@ Library
                      Daimyo.Calculus.Limit
                      Daimyo.ConcreteMathematics.Sums
                      Daimyo.ConcreteMathematics.Recurrences
+                     Daimyo.Proof.Basic
+                     Daimyo.Proof.KnowShow
                      Daimyo.Graphs.Circles
                      Daimyo.Graphs.T1
                      Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
+                     Daimyo.Boxes
                      Daimyo.Quiz
- Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt
+ Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt, boxes
  GHC-Options:        -Wall

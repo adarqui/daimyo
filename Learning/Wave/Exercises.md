@@ -91,6 +91,9 @@
 **Logic**
 - Simple Propositional Logic generator
 
+**Proof**
++ KnowShow table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Proof/KnowShow.hs
+
 **Mental Math**
 - Simple "multiply by 11" generator
 - Simple "square a number ending in 5" generator
