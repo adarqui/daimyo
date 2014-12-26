@@ -4,6 +4,7 @@ NO = Notes only
 EO = Exercises only
 NN = No Notes
 RR = Re-Read
+RN = Rapid Notes
 
 
 **Logic**
@@ -182,6 +183,7 @@ RR = Re-Read
 - history:
 - 12/07/2014: Notes, 1.1
 - 12/25/2014: 1.2
+- 12/26/2014: RN: 1.3-rest, 2
 
 
 **College Algebra**
@@ -256,11 +258,6 @@ RR = Re-Read
 - source: http://www.engineeringsurveyor.com/software/secrets%20of%20mental%20math.pdf
 - history:
 - 12/24/2014: Prologue, Introduction, 0
-
-
-**Real-World Problems for Secondary School Mathematics Students**
-- source: https://www.sensepublishers.com/media/857-real-world-problems-for-secondary-school-mathematics-students.pdf
-- history:
 
 
 **Algorithmic Game Theory**
