@@ -52,6 +52,21 @@
 - Simple Prime / isPrime generator
 - Simple divisibility test generator: is divisible by 2, 3, 5, 7, 11, ..?
 - Prime/CoPrime Matrix
+- Waring Problem. Show that every positive integer can be written asthe sum of at most four perfect squares. One for cubes also. Waring/Hilbert decomposition.
++ Wilson Theorem: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Wilson.hs
+- Set of residues
+- Euler function: (phi) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
+- Euler Theorem: (euler) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
+- Cancellation
+- Reduction Map & Lift
+- Congruence: Units, Solvability, Order of an Element
+- Integers modulo n (The ring Z/nZ of integers modulo n): (znz) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
+- Group
+- Ring
+- Field
+- Group of units of the ring Z/nZ
+- Figure 2.1.24 in Sage/NumT: Table of triples: (n, n-1! mod n, -1 mod n)
+- Chinese Remainder Theorem
 
 **Geometry**
 - Express propositions/axioms from C1

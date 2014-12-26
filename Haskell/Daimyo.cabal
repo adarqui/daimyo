@@ -91,6 +91,8 @@ Library
                      Daimyo.Statistics.Exercises
                      Daimyo.ProbabilityTheory
                      Daimyo.NumberTheory.Prime
+                     Daimyo.NumberTheory.Prime.Wilson
+                     Daimyo.NumberTheory.Euler
                      Daimyo.NumberTheory.Factor
                      Daimyo.NumberTheory.GCD
                      Daimyo.NumberTheory.TheoremOfMathematics

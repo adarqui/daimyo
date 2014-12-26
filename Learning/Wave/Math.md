@@ -79,6 +79,8 @@ RR = Re-Read
 - history:
 - 12/07/2014: Notes, C1.1.1, C1.1.2
 - 12/20/2014: C1.1.3, C1.1.4, C2.1.1, C2.1.2, C2.1.3, C2.1.4, C2.1.5
+- 12/25/2014: C2.1.1, C2.1.2, C2.1.3, C2.1.4, C2.1.5, C2.2
+
 
 
 **Elementary Probability Theory**
@@ -227,6 +229,7 @@ RR = Re-Read
 - history:
 - 12/21/2014: Preface, Introduction
 - 12/24/2014: C1.1
+- 12/25/2014: C1.2, C1.3, C1 total
 
 
 **The Art of Proof**
@@ -245,6 +248,7 @@ RR = Re-Read
 - source: http://www.math.wustl.edu/~sk/books/newhist.pdf
 - 12/23/2014: Preface, 1.1.1 (Daimyo.Geometry.Pythagorean, Daimyo.Geometry.Quiz.Pythagorean, Daimyo.Math.Table.NthRoot)
 - 12/24/2014: 1.1.2 (Daimyo.Geometry.Pythagorean), 1.2.1
+- 12/25/2014: 1.2, 1.3
 
 
 **Secrets of Mental Math**

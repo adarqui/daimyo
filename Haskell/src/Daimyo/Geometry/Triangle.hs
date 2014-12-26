@@ -10,3 +10,11 @@ data Triangle = Triangle {
     b :: Double,
     c :: Double
 } deriving (Show, Eq)
+
+{-
+    Need a better triangle:
+    - cartesian points
+    - angles
+    - line segments
+    - operations on them
+-}
