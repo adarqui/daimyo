@@ -55,12 +55,12 @@
 - Waring Problem. Show that every positive integer can be written asthe sum of at most four perfect squares. One for cubes also. Waring/Hilbert decomposition.
 + Wilson Theorem: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Wilson.hs
 - Set of residues
-- Euler function: (phi) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
-- Euler Theorem: (euler) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
++ Euler function: (phi) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
++ Euler Theorem: (euler) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
 - Cancellation
 - Reduction Map & Lift
 - Congruence: Units, Solvability, Order of an Element
-- Integers modulo n (The ring Z/nZ of integers modulo n): (znz) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
++ Integers modulo n (The ring Z/nZ of integers modulo n): (znz) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Euler.hs
 - Group
 - Ring
 - Field
