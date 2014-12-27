@@ -289,6 +289,8 @@ RN = Rapid Notes
 - history:
 - 12/07/2014: Overview
 - 12/08/2014: Leftoff: 15, Ricercar
+- 12/26/2014: Leftoff: 27, Mathematical Logic: A Synopsis
+
 
 **I am a Strange Loop**
 - PRE-REQ: GEB

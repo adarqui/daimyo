@@ -1,6 +1,7 @@
 module Daimyo.PSS.C1.E2 (
     blackboard,
-    problem
+    problem,
+    solution
 ) where
 
 import Daimyo.Random
@@ -12,8 +13,10 @@ on the blackboard. Then he picks any two numbers a, b, erases them, and writes,
 instead, |a − b|. Prove that an odd number will remain at the end.
 -}
 
+solution n = abs $ 1 + 2*n
+
 {-
-    Still need to prove this mathematically.. hehe
+    Still need to prove this mathematically.. hehe.. see above perhaps?
 -}
 
 blackboard n

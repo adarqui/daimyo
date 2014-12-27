@@ -291,6 +291,9 @@ consensus:
 - An introduction to complex analysis and geometry: http://www.math.uiuc.edu/~jpda/jpd-complex-geometry-book-5-refs-bip.pdf
 - Foundations of algebraic geometry (cat theory based): http://math.stanford.edu/~vakil/216blog/FOAGjun1113public.pdf
 - An introduction to Geometry: http://www.math.nus.edu.sg/~matwyl/Notes_MA2219.pdf
+- Euclidean and Non-Euclidean Geometries: http://www.bibotu.com/books/Philosophy/History%20and%20Philosophy%20of%20Science/Greenberg%20-%20Euclidean%20and%20Non-Euclidean%20Geometries%20-%20Development%20and%20History%203e%20%28WHF,%201993%29.pdf
+- Elements of non-Euclidean Geometry: http://www.gutenberg.org/files/26373/26373-pdf.pdf
+- Non-Euclidean Geometry: https://library.umaine.edu/theses/pdf/RossSW2000.pdf
 
 **Trigonometry**
 - Trigonometry: http://mecmath.net/trig/trigbook.pdf
