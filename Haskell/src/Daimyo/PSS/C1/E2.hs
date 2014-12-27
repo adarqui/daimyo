@@ -14,8 +14,8 @@ instead, |a − b|. Prove that an odd number will remain at the end.
 -}
 
 solution n
-    | n <= 0 || even n = error "n must be >= 1 and odd"
-    | otherwise = abs $ 1 + 2*n
+    | n >= 1 && odd n = abs $ 1 - 2*n
+    | otherwise = error "n must be >= 1 and odd"
 
 {-
     Still need to prove this mathematically.. hehe.. see above perhaps?
