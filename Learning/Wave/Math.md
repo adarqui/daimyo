@@ -256,7 +256,8 @@ RN = Rapid Notes
 - source: http://www.math.wustl.edu/~sk/books/newhist.pdf
 - 12/23/2014: Preface, 1.1.1 (Daimyo.Geometry.Pythagorean, Daimyo.Geometry.Quiz.Pythagorean, Daimyo.Math.Table.NthRoot)
 - 12/24/2014: 1.1.2 (Daimyo.Geometry.Pythagorean), 1.2.1
-- 12/25/2014: 1.2, 1.3
+- 12/25/2014: 1.2, 1.3, 1-full
+- 12/26/2014: 2
 
 
 **Secrets of Mental Math**

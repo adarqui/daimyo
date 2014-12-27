@@ -12,6 +12,10 @@ on the blackboard. Then he picks any two numbers a, b, erases them, and writes,
 instead, |a − b|. Prove that an odd number will remain at the end.
 -}
 
+{-
+    Still need to prove this mathematically.. hehe
+-}
+
 blackboard n
     | even n = error "n must be odd"
     | otherwise = [1..2*n]

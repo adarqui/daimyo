@@ -78,6 +78,7 @@ Library
                      Daimyo.Algebra.LCM
                      Daimyo.Algebra.GCD
                      Daimyo.Algebra.NthRoot
+                     Daimyo.Algebra.RepeatedDecimal
                      Daimyo.Algebra.Quiz.GCD
                      Daimyo.Algebra.Quiz.LCM
                      Daimyo.Algebra.Quiz.ASMD
