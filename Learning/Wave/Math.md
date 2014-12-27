@@ -99,7 +99,7 @@ RN = Rapid Notes
 - 11/25/2014: 1 E1 (RR)
 - 12/01/2014: 1 E1 (RR)
 - 12/15/2014: 1 E1 (RR)
-- 12/15/2014: 1 E1
+- 12/15/2014: 1 E1 (RR), 1 E2 (Daimyo.PSS.C1.E2)
 
 
 **A Gentle Introduction to Abstract Algebra**

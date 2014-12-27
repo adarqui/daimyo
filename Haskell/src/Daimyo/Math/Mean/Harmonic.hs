@@ -15,4 +15,6 @@ harmonic'mean l =
 
 harmonic = harmonic'mean
 
-t_harmonic = harmonic [4,36,45,50,75]
+t_harmonic'1 = harmonic [4,36,45,50,75]
+t_harmonic'2 = harmonic [3,3,3]
+t_harmonic'3 = harmonic [1,2,3]

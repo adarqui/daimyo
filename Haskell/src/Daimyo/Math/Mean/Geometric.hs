@@ -14,4 +14,6 @@ geometric'mean l =
 
 geometric = geometric'mean
 
-t_geometric = geometric [4,36,45,50,75]
+t_geometric'1 = geometric [4,36,45,50,75]
+t_geometric'2 = geometric [3,3,3]
+t_geometric'3 = geometric [1,2,3]

@@ -13,7 +13,11 @@ module Daimyo.Random (
     get32,
     get64,
     getMix,
-    getX
+    getX,
+    getPair,
+    getPairNe,
+    w64ToInt,
+    intToW64
 ) where
 
 import Daimyo.Bits
@@ -21,6 +25,7 @@ import Daimyo.Bits
 import Data.Char
 import Data.Bits
 import Data.Word
+import GHC.Word
 
 import System.IO
 import System.IO.Unsafe
@@ -80,4 +85,23 @@ get64 = getX 63
 
 getMix n = concat $ [get8 n, get16 n, get32 n, get64 n]
 
-getX lim n = map (`mod` (2^lim :: Word64)) $ getWords n
+getX lim n = map (`mod` (lim :: Word64)) $ getWords n
+
+getPair lim =
+    let
+        (x:y:[]) = getX lim 2
+    in
+        (x,y)
+
+{- getPairne = get a pair of unequal integers -}
+getPairNe lim =
+    let
+        pair@(x,y) = getPair lim
+    in
+        if (x == y)
+            then getPairNe lim
+            else pair
+
+
+w64ToInt w = fromIntegral w :: Int
+intToW64 i = fromIntegral i :: GHC.Word.Word64

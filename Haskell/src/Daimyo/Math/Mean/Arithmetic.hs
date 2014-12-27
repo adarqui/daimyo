@@ -15,3 +15,5 @@ arithmetic'mean l =
 arithmetic = arithmetic'mean
 
 t_arithmetic'1 = arithmetic'mean [4,36,45,50,75]
+t_arithmetic'2 = arithmetic'mean [3,3,3]
+t_arithmetic'3 = arithmetic'mean [1,2,3]
