@@ -13,7 +13,9 @@ on the blackboard. Then he picks any two numbers a, b, erases them, and writes,
 instead, |a − b|. Prove that an odd number will remain at the end.
 -}
 
-solution n = abs $ 1 + 2*n
+solution n
+    | n <= 0 || even n = error "n must be >= 1 and odd"
+    | otherwise = abs $ 1 + 2*n
 
 {-
     Still need to prove this mathematically.. hehe.. see above perhaps?
