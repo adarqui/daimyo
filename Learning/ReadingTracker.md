@@ -203,6 +203,11 @@ consensus:
 
 **Galois**
 - Galois: http://www.maths.gla.ac.uk/~ajb/dvi-ps/Galois.pdf
+- Elementary Galois Theory: https://homepages.warwick.ac.uk/~masda/MA3D5/Galois.pdf
+- Symmetries and Equations: An introduction to Galois Theory: http://www-users.york.ac.uk/~bje1/galnotes.pdf
+- Topics in Galois Theory: http://www.msc.uky.edu/sohum/ma561/notes/workspace/books/serre_galois_theory.pdf
+- Galois Theory: http://shi.matmor.unam.mx/algebra/Galois%20Theory%20-%20Joseph%20Rotman.pdf
+- A Classical Introduction to Galois Theory: http://onlinelibrary.wiley.com/book/10.1002/9781118336816
 
 **Model Theory**
 - Model Theory: http://u.math.biu.ac.il/~dahari/download/Mathematical%20Logic/Elad%2022.pdf

@@ -101,6 +101,7 @@ Library
                      Daimyo.NumberTheory.Factor
                      Daimyo.NumberTheory.GCD
                      Daimyo.NumberTheory.TheoremOfMathematics
+                     Daimyo.NumberTheory.Nines
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation

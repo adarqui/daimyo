@@ -1,5 +1,9 @@
 **Wave Exercises**
 
+**Misc Math**
++ Misc Number operations: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Number.hs
++ Extract digits from a number: (digits) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Number.hs
+
 **Set Theory**
 - "find the indicated intersection, union, difference, etc if possible" of randomly generated sets
 - "express the following sets of numbers using interval notation" , "write the set using interval notation" of randomly generated set notations
@@ -28,6 +32,8 @@
 + Arithmetic mean: (arithmetic) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Mean/Arithmetic.hs
 + Generalized mean: (generalized, fmean) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Mean/Generalized.hs
 - RepeatedDecimal to ratio
+- Simple casting out nines generator
+- Simple quadratic equation generator
 
 **Abstract Algebra**
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
@@ -72,6 +78,7 @@
 - Group of units of the ring Z/nZ
 - Figure 2.1.24 in Sage/NumT: Table of triples: (n, n-1! mod n, -1 mod n)
 - Chinese Remainder Theorem
++ Casting out nines: (nines) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Nines.hs
 
 **Geometry**
 - Express propositions/axioms from C1

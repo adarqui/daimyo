@@ -5,8 +5,14 @@ module Daimyo.Number (
     isCounting,
     number,
     decimalPart,
-    decimalPart'to'Integer
+    decimalPart'to'Integer,
+    round',
+    by10,
+    digits
 ) where
+
+import Data.List
+import Data.Maybe
 
 data Number = Number {
     n :: Double,
@@ -37,3 +43,30 @@ decimalPart'to'Integer n = decimalPart'to'Integer' (decimalPart n)
 decimalPart'to'Integer' n
     | isInteger n = truncate n
     | otherwise = decimalPart'to'Integer' (n * 10)
+
+round' f n =  (fromInteger $ round $ f * (10^n)) / (10.0^^n)
+round'' f n =  (round $ f * (10^n)) / (10.0^^n)
+
+by10 = scanl (\acc y -> acc * 10) 10 [1..]
+
+{-
+    extracts the digits from an integer
+-}
+
+digits n =
+        map truncate $
+        reverse $
+        catMaybes $
+        takeWhile (/= Nothing) $
+        fst $
+        foldl (\(list, acc) _ ->
+            let
+                acc' = acc / 10.0
+                digit = round' (decimalPart acc') 1 * 10
+            in
+                if (acc == 0)
+                    then (list++[Nothing], 0)
+                    else (list++[Just digit], fromIntegral (truncate acc') :: Double)
+        ) ([],fromIntegral n :: Double) $ take 100 $ repeat 10.0
+
+t_digits = digits 1992132213246009

@@ -258,6 +258,7 @@ RN = Rapid Notes
 - 12/24/2014: 1.1.2 (Daimyo.Geometry.Pythagorean), 1.2.1
 - 12/25/2014: 1.2, 1.3, 1-full
 - 12/26/2014: 2
+- 12/27/2014: 3, 4, 5, 6, 7
 
 
 **Secrets of Mental Math**
