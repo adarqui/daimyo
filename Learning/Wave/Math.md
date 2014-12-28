@@ -37,6 +37,7 @@ RN = Rapid Notes
 - history:
 - 12/10/2014: Preface
 - 12/20/2014: 1.1
+- 12/28/2014: 1.1, 1.2
 
 
 **Concrete Mathematics**
@@ -193,6 +194,8 @@ RN = Rapid Notes
 
 **College Algebra**
 - source: http://www.math.missouri.edu/courses/math1100/CABook.pdf
+- source: http://www.stitz-zeager.com/ch_0_links.pdf
+- source: http://www.stitz-zeager.com/szca07042013.pdf
 - haskell:
 - sage:
 - history:

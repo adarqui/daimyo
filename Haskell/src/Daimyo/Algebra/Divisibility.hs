@@ -11,13 +11,19 @@ module Daimyo.Algebra.Divisibility (
     divisible'by'5,
     divisible'by'3,
     divisible'by'9,
-    fraction'to'de
+    fraction'to'de,
+    divides,
+    dividesF,
+    unit,
+    isNonTrivial,
+    division'algorithm,
+    division'algorithm'show,
+    euclidean'algorithm
 ) where
-
 
 import Daimyo.String
 import Daimyo.Algebra.Fraction
-
+import Text.Printf
 
 number'to'decimal'expansion :: (Show a, Num a) => a -> [Int]
 number'to'decimal'expansion n = map (\n' -> read (n':[]) :: Int) $ show n
@@ -117,3 +123,59 @@ t_div'1 n =
 t_div'7 = divisible'by'7 98
 
 t_fraction = fraction'to'de 1 7
+
+{-
+    k `divides` n
+-}
+
+k `divides` n = n `div` k
+
+k `dividesF` n = n / k
+
+{-
+    A unit in Z is a divisor of 1: -1 or +1
+-}
+
+unit = 1
+
+{-
+    non-trivial: n = kl, n /= 0, k nor l is a unit
+-}
+
+isNonTrivial n k l = (abs k /= unit && abs l /= unit)
+
+{-
+(division algorithm). If a and b are integers with b /= 0, then there exist unique integers q and r such that a = bq + r and 0 ≤ r < |b|
+-}
+
+division'algorithm a 0 = error "b /= 0"
+division'algorithm a b =
+    quotRem a b
+
+division'algorithm'show a 0 = error "b /= 0"
+division'algorithm'show a b =
+    let
+        (q, r) = quotRem a b
+    in
+        printf "(a=%d) = (b=%d)*(q=%d) + (r=%d)" a b q r
+
+{-
+    Let us suppose that b /= 0. The euclidean algorithm consists of iterated application of the division algorithm to a and b until the remainder term r disappears.
+
+    a = bq1 + r1    0 <= r1 < b
+    b = r1q2 + r2   0 <= r2 < r1
+    r1 = r2q3 + r3  0 <= r3 < r2
+    ...
+    rn-2 = r(n-1)qn + rn  0 <= rn < r(n-1)
+    rn-1 = rnq(n+1)
+-}
+
+euclidean'algorithm a b =
+    let
+        (q, r) = division'algorithm a b
+    in
+        case r of
+            0 -> q
+            _ -> euclidean'algorithm b r
+
+t_euclidean'algorithm = euclidean'algorithm 13 5

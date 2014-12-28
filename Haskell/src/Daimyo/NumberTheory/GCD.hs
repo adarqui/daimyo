@@ -8,6 +8,7 @@ module Daimyo.NumberTheory.GCD (
     gcd,
     gcd',
     gcd'',
+    gcds,
     gcd'Explain,
     t_gcd_explain,
     gcd'Mod'Explain,
@@ -15,6 +16,8 @@ module Daimyo.NumberTheory.GCD (
 ) where
 
 import Daimyo.Print
+
+import Data.List
 import Control.Monad
 import Control.Monad.Writer
 import Text.Printf
@@ -35,6 +38,12 @@ gcd'' a b
     | a == b = a
     | a > b = gcd (a-b) b
     | b > a = gcd a (b-a)
+
+{-
+    gcd of multiple integers
+-}
+
+gcds = foldl' gcd 0
 
 {-
     gcd using subtraction
