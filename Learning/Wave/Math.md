@@ -294,7 +294,7 @@ RN = Rapid Notes
 - 12/07/2014: Overview
 - 12/08/2014: Leftoff: 15, Ricercar
 - 12/26/2014: Leftoff: 27, Mathematical Logic: A Synopsis
-- 12/27/2014: Leftoff: 44, 2: Inside and Outside the System -- dont proceed until performing MI puzzle
+- 12/27/2014: Leftoff: 44, 2: Inside and Outside the System -- dont proceed until performing MU puzzle
 
 
 **I am a Strange Loop**
