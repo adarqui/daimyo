@@ -127,8 +127,8 @@
 - Simple "square a number ending in 5" generator
 
 **Tables**
-- Power Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Table/Power.hs
-- Nth Root Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Table/NthRoot.hs
++ Power Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Table/Power.hs
++ Nth Root Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Table/NthRoot.hs
 
 **Translation**
 - Number Theory Using Sage. This would be a great book to translate from sage to haskell.
@@ -144,6 +144,9 @@
 
 **Pearls**
 - "tell" version of SmallestFreeInteger: list, array, divide & conquer,
+
+**GEB**
+- MU puzzle using the MIU-system (C1)
 
 **Other**
 - Brain graph: tie components together via a graph structure, ie: gcd -> NumberTheory, gcd -> Algebra .. etc 

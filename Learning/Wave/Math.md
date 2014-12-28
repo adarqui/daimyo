@@ -37,7 +37,7 @@ RN = Rapid Notes
 - history:
 - 12/10/2014: Preface
 - 12/20/2014: 1.1
-- 12/28/2014: 1.1, 1.2
+- 12/27/2014: 1.1, 1.2
 
 
 **Concrete Mathematics**
@@ -294,6 +294,7 @@ RN = Rapid Notes
 - 12/07/2014: Overview
 - 12/08/2014: Leftoff: 15, Ricercar
 - 12/26/2014: Leftoff: 27, Mathematical Logic: A Synopsis
+- 12/27/2014: Leftoff: 44, 2: Inside and Outside the System -- dont proceed until performing MI puzzle
 
 
 **I am a Strange Loop**
