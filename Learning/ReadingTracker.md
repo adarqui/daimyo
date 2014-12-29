@@ -418,6 +418,11 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 **Math in Art**
 - http://www.math.nus.edu.sg/aslaksen/projects/kh2-urops.pdf
 
+**MathJax**
+- http://www.mathjax.org/
+- http://www.mathjax.org/demos/tex-samples/
+- http://www.luschny.de/math/tex/MathJaxStressTest.html
+
 **Great Links**
 - Several topics: http://rutherglen.science.mq.edu.au/~maths/notes/wchen/ln.html
 - Links to various topics: http://hbpms.blogspot.com/

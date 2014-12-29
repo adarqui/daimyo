@@ -121,6 +121,7 @@ Library
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.PSS.C1.E1
                      Daimyo.PSS.C1.E2
+                     Daimyo.GEB.MIU
                      Daimyo.Boxes
                      Daimyo.Quiz
  Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt, boxes
