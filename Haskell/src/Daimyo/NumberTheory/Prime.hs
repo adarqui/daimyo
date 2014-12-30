@@ -18,6 +18,7 @@ module Daimyo.NumberTheory.Prime (
     primes',
     isFactor,
     nth'sieve,
+    relatively'prime,
     prime'number'theorem,
     t_prime'number'theorem,
     prime'number'theorem'approx,
@@ -102,6 +103,14 @@ sieve' = sieve' [2..]
     sieve' (p:xs) = p : sieve' [x|x <- xs, x `mod` p > 0]
 
 nth'sieve n = sieve' !! n
+
+
+{-
+    two integers (a,b) are relatively prime if gcd (a, b) == 1
+-}
+
+relatively'prime a b = gcd a b == 1
+
 
 prime'number'theorem :: Integer -> Int
 prime'number'theorem x = length $ takeWhile (<= x) primes

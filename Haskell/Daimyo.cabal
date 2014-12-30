@@ -124,5 +124,5 @@ Library
                      Daimyo.GEB.MIU
                      Daimyo.Boxes
                      Daimyo.Quiz
- Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt, boxes
+ Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty
  GHC-Options:        -Wall

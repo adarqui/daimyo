@@ -28,6 +28,8 @@ RN = Rapid Notes
 - 12/16/2014: 1.1 (Daimyo.Algebra.Congruence, Daimyo.Algebra.Congruence.Clock)
 - 12/18/2014: 1.2 (Daimyo.Algebra.Divisibility), C1.3 (Daimyo.Algebra.LCM)
 - 12/20/2014: 1.4 (Daimyo.Algebra.Congruence.Solving)
+- MM:
+- 12/29/2014: 1.1, 1.2, 1.3, 1.4
 
 
 **Basic Algebra**
@@ -38,6 +40,8 @@ RN = Rapid Notes
 - 12/10/2014: Preface
 - 12/20/2014: 1.1
 - 12/27/2014: 1.1, 1.2
+- MM:
+- 12/29/2014: 1.1, 1.2
 
 
 **Concrete Mathematics**
@@ -201,6 +205,8 @@ RN = Rapid Notes
 - history:
 - 12/09/2014: NO, 0.1x
 - 12/11/2014: NO, 0.2,0.3,0.4,0.5,0.6
+- MM:
+- 12/29/2014: 0.2-0.5
 
 
 **Understanding Basic Calculus**
@@ -223,6 +229,8 @@ RN = Rapid Notes
 - sage: http://www.sagemath.org/doc/reference/stats/index.html
 - history:
 - 12/07/2014: Notes, 1
+- MM:
+- 12/29/2014: 1
 
 
 **Combinatorics**
@@ -233,6 +241,8 @@ RN = Rapid Notes
 - 12/08/2014: Intro, 1
 - 12/09/2014: 2 (leftoff: 2.4)
 - 12/10/2014: 2.4 (reread)
+- MM:
+- 12/29/2014: 2 (examples)
 
 
 **Mathematical Reasoning: Writing and Proof**
@@ -269,6 +279,8 @@ RN = Rapid Notes
 - source: http://www.engineeringsurveyor.com/software/secrets%20of%20mental%20math.pdf
 - history:
 - 12/24/2014: Prologue, Introduction, 0
+- MM:
+- 12/29/2014: 1
 
 
 **Algorithmic Game Theory**
