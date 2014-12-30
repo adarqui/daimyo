@@ -32,6 +32,6 @@ mxbn'' start by end = [ x | x <- [start,by..end], x < end ]
 
 euler'p1 multiples = sum $ nub $ concat multiples
 
-t_mxbn3'5'1000 = euler'p1 [mxbn 0 3 1000, mxbn 0 5 1000]
-t_mxbn'3'5'1000 = euler'p1 [mxbn' 0 3 1000, mxbn' 0 5 1000]
-t_mxbn''3'5'1000 = euler'p1 [mxbn'' 0 3 1000, mxbn'' 0 5 1000]
+t_mxbn3'5'1000   = euler'p1 [mxbn 0 3 1000   , mxbn 0 5 1000]
+t_mxbn'3'5'1000  = euler'p1 [mxbn' 0 3 1000  , mxbn' 0 5 1000]
+t_mxbn''3'5'1000 = euler'p1 [mxbn'' 0 3 1000 , mxbn'' 0 5 1000]
