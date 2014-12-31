@@ -29,7 +29,7 @@ mxbn' start x n = let
 
 mxbn''' start by end
     | start * by > end = []
-    | otherwise = (start * by) : mxbn''' (start + 1) by end
+    | otherwise = (start * by) : mxbn''' (succ start) by end
 
 
 mxbn'' :: Int -> Int -> Int -> [Int]
