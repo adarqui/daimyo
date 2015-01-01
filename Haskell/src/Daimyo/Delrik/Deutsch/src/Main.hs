@@ -9,13 +9,15 @@ import Data.List
 import Data.Complex
 
 (<*>) :: Num a => a -> Matrix a -> Matrix a
-c <*> m = let vp = map (c * ) in map vp m
+c <*> m = map vp m
+  where
+    vp = map (c * )
 
 type Vector a = [a]
 type Matrix a = [Vector a]
 
 v2c :: Integral a => Vector a -> Vector (Complex Double)
-v2c = map (\i -> fromIntegral i :+ 0.0) -- no imagniary component, yet still complex.
+v2c = map (\i -> fromIntegral i :+ 0.0)
 
 m2c :: Integral a => Matrix a -> Matrix (Complex Double)
 m2c = map v2c
