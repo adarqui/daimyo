@@ -462,6 +462,9 @@ Programming:
 - Pearls of functional algorithm design: http://www.clyce.net/wp-content/uploads/2013/02/Pearls-of-Functional-Algorithm-Design.pdf
 - http://www.cis.upenn.edu/~byorgey/pub/monoid-pearl.pdf
 
+**Distributed**
+- Beowulf Cluster: http://www.phy.duke.edu/~rgb/brahma/Resources/beowulf_book.pdf
+
 **Classes**
 - http://www.cs.uoregon.edu/research/summerschool/summer12/curriculum.html
 
