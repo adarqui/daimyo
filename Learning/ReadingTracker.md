@@ -398,6 +398,12 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 - Secrets of Mental Math: http://www.engineeringsurveyor.com/software/secrets%20of%20mental%20math.pdf
 - Secrets of Mental Math: http://porashonabd.com/wp-content/uploads/2014/10/Shortcut-Math-Technique-by-Akash.pdf
 
+**Math OOP**
+- Mathematics of OOP: http://www.iam.unibe.ch/~tstuder/papers/diss.pdf
+- Object Oriented Programming: http://math.hws.edu/eck/cs124/downloads/OOP2_from_Univ_KwaZulu-Natal.pdf
+- NOOP: A Mathematical Model of Object Oriented Programming: https://scholarship.rice.edu/bitstream/handle/1911/70199/Abdel-GawadM.pdf?sequence=1
+- Object Oriented Mathematics: http://www.diku.dk/~grue/papers/oom/oom.pdf
+
 **History**
 - Euclid: The Elements: http://www.wilbourhall.org/pdfs/heath_euclid_ii.pdf
 

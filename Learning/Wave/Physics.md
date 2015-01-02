@@ -1,10 +1,10 @@
-**Pre-requisites for Introductory to Physics I: Elementary Mechanics**
-- source: http://www.phy.duke.edu/~rgb/Class/math_for_intro_physics.php
+**Introduction to Physics I: Elementary Mechanics**
+- source: http://www.phy.duke.edu/~rgb/Class/intro_physics_1/intro_physics_1.pdf
 - history:
 
 
-**Pre-requisites for Introductory to Physics I: Elementary Mechanics**
-- source: http://www.phy.duke.edu/~rgb/Class/intro_physics_1/intro_physics_1.pdf
+**Pre-req: Vector Spaces**
+- source: http://www.math.vt.edu/people/dlr/nt4564vectr1.pdf
 - history:
 
 
@@ -14,6 +14,12 @@
 
 
 **Completed**
+
+**Pre-requisites for Introductory to Physics I: Elementary Mechanics**
+- source: http://www.phy.duke.edu/~rgb/Class/math_for_intro_physics.php
+- history:
+- 01/01/2105: full
+
 
 **Preparing for College Physics**
 - source: http://iweb.tntech.edu/murdock/books/PreSci.pdf
