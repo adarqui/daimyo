@@ -41,7 +41,7 @@ rootFactors n = primeFactors n
 
     sqrt (80) = sqrt (2*2*2*2*5) = sqrt (2*2*2*2) * sqrt (5) = 4 * sqrt 5
 
-    wrecked.
+    wrecked. edit: working a little better.
 -}
 
 simplify'radical r k =
@@ -49,24 +49,27 @@ simplify'radical r k =
         facs = rootFactors k
         (coeff', radicand') = findRoot (fromIntegral r) (map fromIntegral facs)
     in
-        NthRoot {
-            root = r,
-            coeff = fromJust $ coeff',
-            radicand = Just radicand'
-        }
+        case (coeff') of
+            Nothing -> NthRoot { root = r, coeff = 1, radicand = radicand' }
+            otherwise -> NthRoot { root = r, coeff = fromJust $ coeff', radicand = radicand' }
         
 simplifyRadical = simplify'radical
 
 
 findRoot r l = findRoot' r (reverse l) []
 
-findRoot' r [] accum = (Nothing, product accum)
+findRoot' r [] accum = (Nothing, accum')
+    where
+        accum' = if (accum == []) then Nothing else (Just $ product accum)
 findRoot' r all@(k:ks) accum
-    | isInteger $ nth = (Just nth, product accum)
+    | isInteger $ nth = (Just nth, accum')
     | otherwise = findRoot' r ks (k : accum)
     where
         nth = nthRoot r (product all)
+        accum' = if (accum == []) then Nothing else (Just $ product accum)
 
 
 t_findRoot'1 = findRoot 2 [2,2,2,2,5]
 t_simplify'radical'80 = simplify'radical 80
+t_simplify'radical'25 = simplify'radical 25
+t_simplify'radical'26 = simplify'radical 26
