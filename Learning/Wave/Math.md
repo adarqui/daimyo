@@ -62,6 +62,10 @@ RN = Rapid Notes
 - 12/01/2014: (NOEX) Intro, Session 1, Session 2, Session 3
 
 
+-- category theory for scientists: http://math.mit.edu/~dspivak/CT4S.pdf
+- http://ocw.mit.edu/courses/mathematics/18-s996-category-theory-for-scientists-spring-2013/textbook/
+
+
 **Mathematics For Computer Science**
 - source: http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2010/readings/MIT6_042JS10_notes.pdf
 - history:

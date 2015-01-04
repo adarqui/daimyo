@@ -291,6 +291,7 @@ consensus:
 - Concrete Mathematics: http://www.matematica.net/portal/e-books/Graham%20-%20Knuth%20-%20Patashnik%20-%20%20Concrete%20Mathematics.pdf
 - Dno: https://myslu.stlawu.edu/~svanderv/chapone.pdf
 - Probabilities etc: http://esminfo.prenhall.com/math/barnett/closerlook/pdf/BARNETT.PDF
+- Notes: http://www.b-u.ac.in/sde_book/bbm_maths.pdf
 
 **Geometry**
 - An introduction to complex analysis and geometry: http://www.math.uiuc.edu/~jpda/jpd-complex-geometry-book-5-refs-bip.pdf
