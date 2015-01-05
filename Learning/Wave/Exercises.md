@@ -1,8 +1,10 @@
 **Wave Exercises**
 
+
 **Misc Math**
 + Misc Number operations: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Number.hs
 + Extract digits from a number: (digits) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Number.hs
+
 
 **Set Theory**
 - "find the indicated intersection, union, difference, etc if possible" of randomly generated sets
@@ -10,6 +12,7 @@
 - "use the blank venn diagram for A, B, C ... shade in the following sets" of randomly generated sets and operations among them
 - venn diagram generator library
 - Simple set operation generator
+
 
 **Algebra**
 + Fractions: Classes for addition, subtraction, multiplication, division of fractions (of char, int, etc): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Fraction.hs
@@ -34,24 +37,32 @@
 - RepeatedDecimal to ratio
 - Simple casting out nines generator
 - Simple quadratic equation generator
++ NthRoot: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/NthRoot.hs
++ NthRoot Simplifier: (simplify radical) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/NthRoot.hs
+- Fraction simplifier
+
 
 **Abstract Algebra**
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
 + Pascal triangle data: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
 - Addition modulo 2 for binary sequences of length n
 
+
 **Calculus**
 + Experiment with limits: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Calculus/Exercises.hs
+
 
 **Combinatorics**
 - Random data to form graph structures
 - Puzzle: How many regions of N intersecting lines form (with no points of the lines intersecting twice).
 - Use cases of permutations & combinations
 
+
 **Concrete Mathematics**
 - Recurrence examples
 - Generate normal form from various patterns of data
 - Simple Sums generator
+
 
 **Number Theory**
 + Primes, Prime sieve, Primes trial by division, Composites, Prime Factors: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime.hs
@@ -80,6 +91,7 @@
 - Chinese Remainder Theorem
 + Casting out nines: (nines) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Nines.hs
 
+
 **Geometry**
 - Express propositions/axioms from C1
 - Generate diagrams of triangles using sage/haskell
@@ -88,19 +100,29 @@
 + Pythagorean Triple Generator (triples): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Geometry/Pythagorean.hs
 - Congruency tests for triangles (side-side-side), (side-angle-side), (angle-side-angle)
 
+
 **Topology**
 - Define a metric space
+
 
 **Linear Algebra**
 - Identify various fields
 
+
 **Matrix**
 - Various objects (strings, lists of numbers etc) stored in matrices and operations on them.
 - Simple matrix generator
++ Det, Inverse on 2x2 Matrix: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Matrix.hs
+- Det, Inverse on 3x3 Matrix
+- Det, Inverse on NxN Matrix
+- Cofactor decomposition
++ Matrix Labeler: (tag each matrix elm as a11, a12, ...) (label, label to map): https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Matrix.hs
+
 
 **Statistics**
 + Collecting data via /dev/<...>: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Random.hs
 - Generating statistics on random data/strings/etc (sample, mean, variance, correlation stddev etc)
+
 
 **Group Theory**
 + Caylay tables for multiplicative/additive groups: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/GroupTheory/Tables.hs
@@ -109,44 +131,55 @@
 - Examples of p-groups
 - Examples of albelian groups
 
+
 **Mathematics for Computer Science**
 + Logic tables via combinations: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Logic/Table.hs
 + Propositional Logic Examples: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Logic/Examples.hs
 - Well Ordered Principle examples
 - Induction Examples
 
+
 **Logic**
 - Simple Propositional Logic generator
+
 
 **Proof**
 + KnowShow table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Proof/KnowShow.hs
 + Example KnowShow tables: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Proof/Basic.hs
 
+
 **Mental Math**
 - Simple "multiply by 11" generator
 - Simple "square a number ending in 5" generator
+
 
 **Tables**
 + Power Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Table/Power.hs
 + Nth Root Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Table/NthRoot.hs
 
+
 **Translation**
 - Number Theory Using Sage. This would be a great book to translate from sage to haskell.
+
 
 **Data Structures**
 - Simple sort generator
 - Simple pre/in/post order tree generator
+
 
 **Crypto**
 - Create a visual cipher wheel function (because they look cool)
 + Create a frequency list: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Crypto/Frequency.hs (this is weak)
 - Simple Substitution Cipher solver (experimental)
 
+
 **Pearls**
 - "tell" version of SmallestFreeInteger: list, array, divide & conquer,
 
+
 **GEB**
 - MU puzzle using the MIU-system (C1)
+
 
 **Other**
 - Brain graph: tie components together via a graph structure, ie: gcd -> NumberTheory, gcd -> Algebra .. etc 

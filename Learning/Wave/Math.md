@@ -1,3 +1,8 @@
+**Dope: All in one mathematics cheat sheet**
+- v2.10: http://www.alexspartalis.com/uploads/3/5/9/8/3598073/all_in_one_cheat_sheet_v2.10_-_web.pdf
+- http://www.alexspartalis.com/cheat-sheet.html
+
+
 ***Math Wave***
 
 NO = Notes only
