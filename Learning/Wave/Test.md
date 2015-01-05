@@ -25,6 +25,7 @@ Tests of various forms.
 - http://schools.nyc.gov/documents/TeachandLearn/LearnatHome/Regents/Geometry-Regents-Review-Booklet-FINAL.pdf
 - http://www.doe.virginia.gov/testing/sol/released_tests/2010/test10_eoc_geometry.pdf
 - http://www.svsd410.org//cms/lib05/wa01919490/centricity/domain/195/geometry_eoc_practice_exam_and_answers.pdf
+- nice: http://www.ovec.org/esl_modules/BASIC%20GEOMETRY%20KEY%20CONCEPTS.pdf
 
 
 **Trigonometry**

@@ -12,6 +12,10 @@ RR = Re-Read
 RN = Rapid Notes
 
 
+**Advanced High School Mathematics**
+- source: http://www.math.ksu.edu/~dbski/writings/further.pdf
+
+
 **Logic**
 - source: http://emilkirkegaard.dk/en/wp-content/uploads/Paul-Tomassi-Logic.pdf
 - haskell: http://hackage.haskell.org/package/hatt
@@ -189,12 +193,19 @@ RN = Rapid Notes
 - 12/07/2014: Notes, 1 (leftoff: subgroups)
 
 
+**AMSCOS GEOMETRY**
+- source: http://www.vcsd.k12.ny.us/cms/lib/NY24000141/Centricity/Domain/105/AMSCOGeometry.pdf
+- answer key: http://www.commack.k12.ny.us/chs/depts/new/math/geometrysolutions.pdf
+- history:
+
+
 **An Introduction to Geometry**
 - source: http://www.math.nus.edu.sg/~matwyl/Notes_MA2219.pdf
 - haskell: https://hackage.haskell.org/package/hgeometry
 - sage: 
 - history:
 - 12/08/2014: 1, 2
+- hold off until completing a more introductor text
 
 
 **Trigonometry**
@@ -244,6 +255,12 @@ RN = Rapid Notes
 - 12/29/2014: 1
 
 
+**An Introduction To Combinatorics and Graph Theory**
+- source: http://www.whitman.edu/mathematics/cgt_online/cgt.pdf
+- history:
+- 01/05/2015: 1.1
+
+
 **Combinatorics**
 - source: http://people.math.gatech.edu/~trotter/book.pdf
 - haskell: https://hackage.haskell.org/package/combinat , haskell: https://hackage.haskell.org/package/arithmoi
@@ -256,6 +273,11 @@ RN = Rapid Notes
 - 12/29/2014: 2 (examples)
 
 
+**Analytic Combinatorics (Inria)**
+- source: http://algo.inria.fr/flajolet/Publications/book.pdf
+- dno, todo, far off
+
+
 **Mathematical Reasoning: Writing and Proof**
 - source: http://scholarworks.gvsu.edu/cgi/viewcontent.cgi?article=1007&context=books
 - history:
@@ -266,6 +288,19 @@ RN = Rapid Notes
 
 **The Art of Proof**
 - source: http://math.sfsu.edu/federico/Clase/Math301.S10/book.pdf
+- history:
+- 01/04/2015: Preface, Introduction, etc
+
+
+**The Book of Proof**
+- source: http://www.people.vcu.edu/~rhammack/BookOfProof/BookOfProof.pdf
+- 01/04/2015: Preface
+
+
+**Proofs from THE Book**
+- source: local
+- history:
+- 01/04/2015: Preface, Introduction
 
 
 **Mathematics for The Practical Man**

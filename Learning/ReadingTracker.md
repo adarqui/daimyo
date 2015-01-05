@@ -292,6 +292,7 @@ consensus:
 - Dno: https://myslu.stlawu.edu/~svanderv/chapone.pdf
 - Probabilities etc: http://esminfo.prenhall.com/math/barnett/closerlook/pdf/BARNETT.PDF
 - Notes: http://www.b-u.ac.in/sde_book/bbm_maths.pdf
+- Nice: http://www.math.ksu.edu/~dbski/writings/
 
 **Geometry**
 - An introduction to complex analysis and geometry: http://www.math.uiuc.edu/~jpda/jpd-complex-geometry-book-5-refs-bip.pdf
@@ -381,6 +382,9 @@ http://people.umass.edu/klement/imp/imp-ebk.pdf
 - Quantitative Data Analysis: An Introduction: http://www.gao.gov/special.pubs/pe10111.pdf
 - Advanced Data Analysis from an elementary point of view (Quantitative analysis): http://www.stat.cmu.edu/~cshalizi/ADAfaEPoV/ADAfaEPoV.pdf
 - Mathematics for Finance: An introduction to financial engineering: http://poincare.matf.bg.ac.rs/~kmiljan/UFM.pdf
+
+**Financial Math**
+- The Time Dependent Nature of Money: http://www.math.ksu.edu/~dbski/writings/Financial_Math.pdf
 
 **Modern Analysis**
 - A Course in Modern Analysis and its Applications: http://ebooks.cambridge.org/ebook.jsf?bid=CBO9780511755125
