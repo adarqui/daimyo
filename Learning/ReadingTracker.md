@@ -313,6 +313,7 @@ consensus:
 - A computational introduction to number theory: http://shoup.net/ntb/ntb-v2.pdf
 - Number Theory: http://web.mit.edu/~holden1/www/math/number-theory.pdf
 - Number Theory: http://joshua.smcvt.edu/numbertheory/book.pdf
+- Number Theory: http://www.math.brown.edu/~jhs/frintch1ch6.pdf
 
 **Probability Theory**
 - Introduction to probability theory and statistics: http://mplab.ucsd.edu/tutorials/ProbabilityAndStats.pdf

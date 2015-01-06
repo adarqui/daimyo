@@ -12,8 +12,14 @@ RR = Re-Read
 RN = Rapid Notes
 
 
-**Advanced High School Mathematics**
-- source: http://www.math.ksu.edu/~dbski/writings/further.pdf
+**Prime Numbers: A Computational Perspective**
+- source: http://thales.doa.fmph.uniba.sk/macaj/skola/teoriapoli/primes.pdf
+- history:
+- 01/05/2015: Preface, 1-1.1.5
+
+
+**Prime Numbers: The Most Mysterious Figures in Math**
+- source: http://www.fis.cinvestav.mx/~lmontano/sciam/primos.pdf
 
 
 **Logic**
@@ -91,6 +97,15 @@ RN = Rapid Notes
 - 12/05/2014: 1, 2, 3
 - 12/06/2014: 4
 - 12/21/2014: 5
+
+
+**Elementary Number Theory: Primes, Congruences, Secrets**
+- source: https://math.berkeley.edu/~mannisto/ent.pdf
+
+
+**250 Problems in Elementary Number Theory**
+- source: http://www.isinj.com/aime/250%20Problems%20in%20Elementary%20Number%20Theory%20-%20Sierpinski%20%281970%29.pdf
+- interesting, 250 problems and 250 solutions
 
 
 **Elementary Number Theory (Using Sage)**
@@ -290,6 +305,7 @@ RN = Rapid Notes
 - source: http://math.sfsu.edu/federico/Clase/Math301.S10/book.pdf
 - history:
 - 01/04/2015: Preface, Introduction, etc
+- 01/05/2015: 1.1
 
 
 **The Book of Proof**
@@ -336,6 +352,10 @@ RN = Rapid Notes
 **Matrices: Theory and Applications**
 - source: http://www-fourier.ujf-grenoble.fr/~marin/une_autre_crypto/Livres/Serre%20D.%20Matrices..%20Theory%20and%20Applications%20%28Springer,%202002%29%28219s%29_MAl_.pdf
 -- todo
+
+
+**Advanced High School Mathematics**
+- source: http://www.math.ksu.edu/~dbski/writings/further.pdf
 
 
 

@@ -93,7 +93,10 @@
 - Figure 2.1.24 in Sage/NumT: Table of triples: (n, n-1! mod n, -1 mod n)
 - Chinese Remainder Theorem
 + Casting out nines: (nines) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Nines.hs
-+ Fermat Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Fermat.hs
+- Euler Identity:
+
+
+**Primes (NumberTheory)**
 + Additive Prime Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Additive.hs
 - Annihilating Primes
 - Bell Primes
@@ -103,7 +106,103 @@
 + Centered Square Primes: (square) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
 + Centered Triangular Primes: (triangular) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
 + Chen Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Chen.hs
-- Euler Identity:
+- Circular Primes
+- Cousin Primes
+- Cuban Primes
+- Cullen Primes
+- Dihedral Primes
+- Double Factorial Primes
+- Double Mersenne Primes
+- Eisenstein Primes
+- Emirps
+- Euclid Primes
+- Even Primes
+- Factorial Primes
++ Fermat Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Fermat.hs
+- Fibonacci Primes
+- Fortunate Primes
+- Gaussian Primes
+- Generalized Fermat Primes base 10
+- Genocchi Number Primes
+- Good Primes
+- Happy Primes
+- Harmonic Primes
+- Higgs Primes for Squares
+- Highly Cototient Number Primes
+- Irregular Primes
+- (p, p-5) Irregular Primes
+- (p, p-9) Irregular Primes
+- Isolated Primes
+- Kynea Primes
+- Left-Truncatable Primes
+- Leyland Primes
+- Long Primes
+- Lucas Primes
+- Lucky Primes
+- Markov Primes
+- Mersenne Primes
+- Mersenne Prime Exponents
+- Mills Primes
+- Minimal Primes
+- Motzkin Primes
+- Newman-Shanks-Williams Primes
+- Non-generous Primes
+- Odd Primes
+- Padovan Primes
+- Palindromic Primes
+- Palindromic Wing Primes
+- Partition Primes
+- Pell Primes
+- Permutable Primes
+- Perrin Primes
+- Pierpont Primes
+- Pillai Primes
+- Primeval Primes
+- Primorial Primes
+- Proth Primes
+- Pythagorean Primes
+- Prime Quadruplets
+- Primes of Binary Quadratic Form
+- Quartan Primes
+- Ramanujan Primes
+- Regular Primes
+- Repunit Primes
+- Primes in Residue Classes
+- Right-Truncatable Primes
+- Safe Primes
+- Self Primes in Base 10
+- Sexy Primes
+- Smarandache-Wellin Primes
+- Solinas Primes
+- Sophie Germain Primes
+- Star Primes
+- Stern Primes
+- Super Primes
+- SuperSingular Primes
+- Swinging Primes
+- Thabit Number Primes
+- Prime Triplets
+- Twin Primes
+- Two-Sided Primes
+- Ulam Number Primes
+- Unique Primes
+- Wagstaff Primes
+- Wall-Sun-Sun Primes
+- Weakly Primes
+- Wieferich Primes
+- Wieferich Primes: Base 3
+- Wieferich Primes: Base 5
+- Wieferich Primes: Base 6
+- Wieferich Primes: Base 7
+- Wieferich Primes: Base 10
+- Wieferich Primes: Base 11
+- Wieferich Primes: Base 12
+- Wieferich Primes: Base 13
+- Wieferich Primes: Base 17
+- Wieferich Primes: Base 19
+- Wilson Primes
+- Wolstenholmes Primes
+- Woodall Primes
 
 
 **Geometry**
