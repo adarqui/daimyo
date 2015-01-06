@@ -74,6 +74,9 @@
 - Simple Prime / isPrime generator
 - Simple divisibility test generator: is divisible by 2, 3, 5, 7, 11, ..?
 - Prime/CoPrime Matrix
++ Semiprime: (semiPrimes, isSemiPrime) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Semiprime.hs
++ SquareFree Semiprimes: (squareFree) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Semiprime.hs
++ Square Semiprimes: (squares) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Semiprime.hs
 - Waring Problem. Show that every positive integer can be written asthe sum of at most four perfect squares. One for cubes also. Waring/Hilbert decomposition.
 + Wilson Theorem: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Wilson.hs
 - Set of residues
@@ -90,6 +93,17 @@
 - Figure 2.1.24 in Sage/NumT: Table of triples: (n, n-1! mod n, -1 mod n)
 - Chinese Remainder Theorem
 + Casting out nines: (nines) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Nines.hs
++ Fermat Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Fermat.hs
++ Additive Prime Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Additive.hs
+- Annihilating Primes
+- Bell Primes
++ Carol Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Carol.hs
++ Centered Decagonal Primes: (decagonal) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
++ Centered Heptagonal Primes: (heptagonal) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
++ Centered Square Primes: (square) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
++ Centered Triangular Primes: (triangular) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
++ Chen Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Chen.hs
+- Euler Identity:
 
 
 **Geometry**

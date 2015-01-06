@@ -12,6 +12,7 @@
 
 module Daimyo.NumberTheory.Prime (
     primes,
+    coprimes,
     primes'trial,
     primeFactors,
     isPrime,
@@ -48,6 +49,19 @@ sieve p (x:xs) =
         xs' = [ x' | x' <- xs, x' `mod` p > 0]
     in
         p : sieve x xs'
+
+
+{-
+    sieve
+-}
+
+coprimes = cosieve 4 [6..]
+
+cosieve p (x:xs) =
+    let
+        xs' = [ x' | x' <- xs, not $ isPrime x' ] 
+    in
+        p : cosieve x xs'
 
 
 {-

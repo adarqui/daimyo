@@ -22,6 +22,7 @@ Library
                      Daimyo.Number
                      Daimyo.Knowledge.Time
                      Daimyo.Input
+                     Daimyo.List.Safe
                      Daimyo.List.Single
                      Daimyo.List.Misc
                      Daimyo.Stack
@@ -99,7 +100,13 @@ Library
                      Daimyo.Statistics.Exercises
                      Daimyo.ProbabilityTheory
                      Daimyo.NumberTheory.Prime
+                     Daimyo.NumberTheory.Prime.Semiprime
                      Daimyo.NumberTheory.Prime.Wilson
+                     Daimyo.NumberTheory.Prime.Fermat
+                     Daimyo.NumberTheory.Prime.Additive
+                     Daimyo.NumberTheory.Prime.Carol
+                     Daimyo.NumberTheory.Prime.Centered
+                     Daimyo.NumberTheory.Prime.Chen
                      Daimyo.NumberTheory.Euler
                      Daimyo.NumberTheory.Factor
                      Daimyo.NumberTheory.GCD
