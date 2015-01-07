@@ -25,6 +25,7 @@ Library
                      Daimyo.List.Safe
                      Daimyo.List.Single
                      Daimyo.List.Misc
+                     Daimyo.List.Pattern
                      Daimyo.Stack
                      Daimyo.Queue,
                      Daimyo.Tree.Node
@@ -108,6 +109,7 @@ Library
                      Daimyo.NumberTheory.Prime.Carol
                      Daimyo.NumberTheory.Prime.Centered
                      Daimyo.NumberTheory.Prime.Chen
+                     Daimyo.NumberTheory.Prime.Circular
                      Daimyo.NumberTheory.Euler
                      Daimyo.NumberTheory.Factor
                      Daimyo.NumberTheory.GCD

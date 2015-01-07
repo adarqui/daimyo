@@ -105,8 +105,8 @@
 + Centered Heptagonal Primes: (heptagonal) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
 + Centered Square Primes: (square) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
 + Centered Triangular Primes: (triangular) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
-+ Chen Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Chen.hs
-- Circular Primes
++ Chen Primes: (chen) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Chen.hs
++ Circular Primes: (circular) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Circular.hs
 - Cousin Primes
 - Cuban Primes
 - Cullen Primes
@@ -278,6 +278,9 @@
 **Data Structures**
 - Simple sort generator
 - Simple pre/in/post order tree generator
+
+**List**
++ Rotations on a list: (rotations) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/List/Pattern.hs
 
 
 **Crypto**

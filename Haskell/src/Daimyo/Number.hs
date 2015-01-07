@@ -8,7 +8,9 @@ module Daimyo.Number (
     decimalPart'to'Integer,
     round',
     by10,
-    digits
+    one'by10,
+    digits,
+    digits'to'num
 ) where
 
 import Data.List
@@ -48,6 +50,7 @@ round' f n =  (fromInteger $ round $ f * (10^n)) / (10.0^^n)
 round'' f n =  (round $ f * (10^n)) / (10.0^^n)
 
 by10 = scanl (\acc y -> acc * 10) 10 [1..]
+one'by10 = 1 : by10
 
 {-
     extracts the digits from an integer
@@ -68,5 +71,8 @@ digits n =
                     then (list++[Nothing], 0)
                     else (list++[Just digit], fromIntegral (truncate acc') :: Double)
         ) ([],fromIntegral n :: Double) $ take 100 $ repeat 10.0
+
+
+digits'to'num ds = sum $ map (\(d,t) -> d * t) $ zip (reverse ds) one'by10
 
 t_digits = digits 1992132213246009
