@@ -110,12 +110,15 @@ Library
                      Daimyo.NumberTheory.Prime.Centered
                      Daimyo.NumberTheory.Prime.Chen
                      Daimyo.NumberTheory.Prime.Circular
+                     Daimyo.NumberTheory.Prime.Twin
                      Daimyo.NumberTheory.Euler
                      Daimyo.NumberTheory.Factor
                      Daimyo.NumberTheory.GCD
                      Daimyo.NumberTheory.TheoremOfMathematics
                      Daimyo.NumberTheory.Nines
                      Daimyo.NumberTheory.Fermat
+                     Daimyo.NumberTheory.Constants.E
+                     Daimyo.NumberTheory.Constants.Pi
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation

@@ -13,6 +13,7 @@
 module Daimyo.NumberTheory.Prime (
     primes,
     coprimes,
+    primes'pairs,
     primes'trial,
     primeFactors,
     isPrime,
@@ -62,6 +63,12 @@ cosieve p (x:xs) =
         xs' = [ x' | x' <- xs, not $ isPrime x' ] 
     in
         p : cosieve x xs'
+
+{-
+    pairs of primes (p, p+k)
+-}
+primes'pairs = primes'pairs' primes
+primes'pairs' (x:y:xs) = (x,y) : primes'pairs' (y:xs)
 
 
 {-

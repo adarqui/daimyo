@@ -16,6 +16,7 @@ RN = Rapid Notes
 - source: http://thales.doa.fmph.uniba.sk/macaj/skola/teoriapoli/primes.pdf
 - history:
 - 01/05/2015: Preface, 1-1.1.5
+- 01/06/2015: 1.2.1
 
 
 **Prime Numbers: The Most Mysterious Figures in Math**

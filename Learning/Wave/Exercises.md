@@ -96,6 +96,13 @@
 - Euler Identity:
 
 
+**Constants**
++ Represent e: (e precision) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Constants/E.hs
++ Represent pi: (pi approx) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Constants/Pi.hs
+- Represent the Brun constant
+- Represent C2
+
+
 **Primes (NumberTheory)**
 + Additive Prime Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Additive.hs
 - Annihilating Primes
@@ -182,7 +189,7 @@
 - Swinging Primes
 - Thabit Number Primes
 - Prime Triplets
-- Twin Primes
++ Twin Primes: (twins, twins even) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Twin.hs
 - Two-Sided Primes
 - Ulam Number Primes
 - Unique Primes
@@ -203,6 +210,9 @@
 - Wilson Primes
 - Wolstenholmes Primes
 - Woodall Primes
+- Arithmetic Prime Progressions
+- Prime probabilities
+- Q-test, q-test probabilities
 
 
 **Geometry**
