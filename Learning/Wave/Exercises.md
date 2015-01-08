@@ -114,7 +114,7 @@
 + Centered Triangular Primes: (triangular) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Centered.hs
 + Chen Primes: (chen) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Chen.hs
 + Circular Primes: (circular) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Circular.hs
-- Cousin Primes
++ Cousin Primes: (cousins) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Cousin.hs
 - Cuban Primes
 - Cullen Primes
 - Dihedral Primes

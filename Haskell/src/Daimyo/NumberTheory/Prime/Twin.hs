@@ -5,12 +5,10 @@ module Daimyo.NumberTheory.Prime.Twin (
 ) where
 
 import Daimyo.NumberTheory.Prime
-
 import Data.List
 
-
 {-
-    twins: returns pairs of twin primes [(3,5),(5,7)...]
+    twins: returns pairs of twin primes [(p,p+2),(3,5),(5,7)...]
 -}
 
 twins = filter (\(x,y) -> x+2 == y) primes'pairs
