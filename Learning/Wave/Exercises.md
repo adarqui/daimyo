@@ -94,6 +94,8 @@
 - Chinese Remainder Theorem
 + Casting out nines: (nines) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Nines.hs
 - Euler Identity:
+- Perfect Numbers
+- Even Perfect Numbers
 
 
 **Constants**
@@ -147,7 +149,7 @@
 - Lucas Primes
 - Lucky Primes
 - Markov Primes
-- Mersenne Primes
++ Mersenne Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Mersenne.hs
 - Mersenne Prime Exponents
 - Mills Primes
 - Minimal Primes
@@ -213,6 +215,10 @@
 - Arithmetic Prime Progressions
 - Prime probabilities
 - Q-test, q-test probabilities
+- Goldbach Conjecture
+- Ternary Goldbach Conjecture
+- Hardy & Littlewood Convexity Conjecture
+- Prime Producing Formulae
 
 
 **Geometry**

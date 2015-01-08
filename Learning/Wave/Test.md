@@ -4,6 +4,9 @@ Tests of various forms.
 **History**
 - Khan Academy:
     01/03/2015
+    01/04/2015
+    01/06/2015
+    01/07/2015
 - College Level Mathematics Pretest: http://www.mccc.edu/pdf/pretest_college-math.pdf
     01/02/2015: 1-13, Leftoff: problem 14
 - Matrix Operations Quiz: http://www.math.ucsd.edu/~bdriver/math20e_F2010/Notes/Test_2_practice.pdf

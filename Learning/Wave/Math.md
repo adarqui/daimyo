@@ -17,6 +17,7 @@ RN = Rapid Notes
 - history:
 - 01/05/2015: Preface, 1-1.1.5
 - 01/06/2015: 1.2.1
+- 01/07/2015: 1.2.2 - 1.3.1
 
 
 **Prime Numbers: The Most Mysterious Figures in Math**
@@ -158,6 +159,10 @@ RN = Rapid Notes
 - 12/14/2014: 4
 
 
+**Quick Review of Matrix and Real Linear Algebra**
+- source: http://people.hss.caltech.edu/~kcb/Notes/LinearAlgebra.pdf
+
+
 **Linear Algebra: Theory and Applications**
 - source: http://www.math.byu.edu/klkuttle/linearalgebra.pdf
 - haskell: https://hackage.haskell.org/package/linear
@@ -261,6 +266,11 @@ RN = Rapid Notes
 - 12/14/2014: 0.1-0.5
 
 
+**Quick Calculus**
+- source: http://www.stem2.org/je/calcq.pdf
+- history:
+
+
 **An Introduction to Statistics**
 - source: https://www.artofproblemsolving.com/LaTeX/Examples/statistics_firstfive.pdf
 - haskell: https://hackage.haskell.org/package/statistics
@@ -307,6 +317,7 @@ RN = Rapid Notes
 - history:
 - 01/04/2015: Preface, Introduction, etc
 - 01/05/2015: 1.1
+- 01/07/2015: 1 full
 
 
 **The Book of Proof**
@@ -336,6 +347,10 @@ RN = Rapid Notes
 - 12/26/2014: 2
 - 12/27/2014: 3, 4, 5, 6, 7
 - 12/28/2014: 8
+
+
+**Numbers (history)**
+- source: http://www.maths.ed.ac.uk/~aar/papers/numbers
 
 
 **Secrets of Mental Math**

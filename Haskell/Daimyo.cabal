@@ -111,6 +111,7 @@ Library
                      Daimyo.NumberTheory.Prime.Chen
                      Daimyo.NumberTheory.Prime.Circular
                      Daimyo.NumberTheory.Prime.Cousin
+                     Daimyo.NumberTheory.Prime.Mersenne
                      Daimyo.NumberTheory.Prime.Twin
                      Daimyo.NumberTheory.Euler
                      Daimyo.NumberTheory.Factor
