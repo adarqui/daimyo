@@ -18,10 +18,13 @@ RN = Rapid Notes
 - 01/05/2015: Preface, 1-1.1.5
 - 01/06/2015: 1.2.1
 - 01/07/2015: 1.2.2 - 1.3.1
+- 01/08/2015: 1.3
 
 
 **Prime Numbers: The Most Mysterious Figures in Math**
 - source: http://www.fis.cinvestav.mx/~lmontano/sciam/primos.pdf
+- history:
+- 01/08/2015: Introduction, abc
 
 
 **Logic**
@@ -268,6 +271,11 @@ RN = Rapid Notes
 
 **Quick Calculus**
 - source: http://www.stem2.org/je/calcq.pdf
+- history:
+
+
+**What is Calculus**
+- source: www.stem2.org/je/calcwhat.pdf
 - history:
 
 

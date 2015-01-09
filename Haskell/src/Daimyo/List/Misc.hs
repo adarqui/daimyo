@@ -1,8 +1,10 @@
 module Daimyo.List.Misc (
     subseqs,
     subsequences',
+    unique'unordered'subsequences,
     interleave,
     rests,
+    rests'test,
     removeIndices,
     choiceList
 ) where
@@ -17,6 +19,8 @@ interleave [] ys = ys
 interleave (x:xs) ys = x : interleave ys xs
 
 subsequences' l = filter (not . null) $ subsequences l
+
+unique'unordered'subsequences l = nub $ map sort $ subsequences l
 
 {-
     rests
@@ -33,6 +37,13 @@ rests l =
         perms = permutations l
     in
         nub $ concatMap (\p -> map (\n -> (take n p, drop n p)) [1..(length l)-1]) perms
+
+rests'test l =
+    let
+        subs = subseqs l
+    in
+        nub $ concatMap (\p -> map (\n -> (take n p, drop n p)) [1..(length l)-1]) subs
+
 
 
 {-

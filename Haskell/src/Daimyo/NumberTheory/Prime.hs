@@ -16,6 +16,8 @@ module Daimyo.NumberTheory.Prime (
     primes'pairs,
     primes'trial,
     primeFactors,
+    primeMultiples,
+    primeMultiples'products,
     isPrime,
     primes',
     isFactor,
@@ -33,6 +35,7 @@ module Daimyo.NumberTheory.Prime (
 
 import Daimyo.Print
 import Daimyo.Calculus.Limit
+import Daimyo.List.Misc
 
 import Data.List
 import Control.Monad
@@ -115,6 +118,12 @@ primeFactors' n | n > 1 = go n primes'
         | otherwise  =      go n t
                 where
                   (q,r) = quotRem n p
+
+
+primeMultiples n = filter (not . null) $ nub $ subsequences $ primeFactors' n
+
+primeMultiples'products n = map product $ primeMultiples n
+
 
 isFactor fac n = n `rem` fac == 0
 
