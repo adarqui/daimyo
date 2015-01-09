@@ -98,6 +98,7 @@
 - Even Perfect Numbers
 + Abc Conjecture: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Abc.hs
 + Abundant Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Abundant.hs
++ Perfect Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Perfect.hs
 
 
 **Constants**

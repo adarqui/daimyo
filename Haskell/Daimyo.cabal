@@ -115,6 +115,7 @@ Library
                      Daimyo.NumberTheory.Prime.Twin
                      Daimyo.NumberTheory.Abc
                      Daimyo.NumberTheory.Abundant
+                     Daimyo.NumberTheory.Perfect
                      Daimyo.NumberTheory.Euler
                      Daimyo.NumberTheory.Factor
                      Daimyo.NumberTheory.GCD
