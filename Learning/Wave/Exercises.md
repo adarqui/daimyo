@@ -99,6 +99,10 @@
 + Abc Conjecture: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Abc.hs
 + Abundant Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Abundant.hs
 + Perfect Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Perfect.hs
++ Aliquot Parts: (aliquot parts) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Aliquot.hs
+- Amicable Pair
++ Aliquot Sequences: (aliquot sequence) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Aliquot.hs
++ Aliquot Perfect Numbers: (aliquot perfect) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Aliquot.hs
 
 
 **Constants**

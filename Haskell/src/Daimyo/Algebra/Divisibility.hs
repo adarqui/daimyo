@@ -18,8 +18,12 @@ module Daimyo.Algebra.Divisibility (
     isNonTrivial,
     division'algorithm,
     division'algorithm'show,
-    euclidean'algorithm
+    euclidean'algorithm,
+    divisors,
+    proper'divisors
 ) where
+
+import Daimyo.NumberTheory.Prime
 
 import Daimyo.String
 import Daimyo.Algebra.Fraction
@@ -179,3 +183,22 @@ euclidean'algorithm a b =
             _ -> euclidean'algorithm b r
 
 t_euclidean'algorithm = euclidean'algorithm 13 5
+
+
+
+{-
+    divisors including 1
+-}
+
+divisors n
+    | n == 1 = [1]
+    | otherwise = 1 : primeMultiples'products n
+
+
+{-
+    divisors including 1, excluding n
+-}
+
+proper'divisors n
+    | n == 1 = [1]
+    | otherwise = filter (/= n) $ divisors n

@@ -24,7 +24,7 @@ RN = Rapid Notes
 **Prime Numbers: The Most Mysterious Figures in Math**
 - source: http://www.fis.cinvestav.mx/~lmontano/sciam/primos.pdf
 - history:
-- 01/08/2015: Introduction, abc
+- 01/08/2015: Introduction, abc, abundant
 
 
 **Logic**
@@ -149,6 +149,7 @@ RN = Rapid Notes
 **Elementary Abstract Algebra**
 - source: http://shell.cas.usf.edu/~wclark/Elem_abs_alg.pdf
 - 12/21/2014: Preface, 1
+- 01/09/2015: 2
 
 
 **Intro to Abstract Algebra**
@@ -326,6 +327,7 @@ RN = Rapid Notes
 - 01/04/2015: Preface, Introduction, etc
 - 01/05/2015: 1.1
 - 01/07/2015: 1 full
+- 01/08/2015: 2.1, 2.2
 
 
 **The Book of Proof**
