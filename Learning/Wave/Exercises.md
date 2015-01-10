@@ -114,6 +114,8 @@
 
 **Primes (NumberTheory)**
 + Additive Prime Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Additive.hs
++ Almost Prime Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Almost.hs
++ Average Prime Numbers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Average.hs
 - Annihilating Primes
 - Bell Primes
 + Carol Primes: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Carol.hs

@@ -105,7 +105,9 @@ Library
                      Daimyo.NumberTheory.Prime.Semiprime
                      Daimyo.NumberTheory.Prime.Wilson
                      Daimyo.NumberTheory.Prime.Fermat
+                     Daimyo.NumberTheory.Prime.Average
                      Daimyo.NumberTheory.Prime.Additive
+                     Daimyo.NumberTheory.Prime.Almost
                      Daimyo.NumberTheory.Prime.Carol
                      Daimyo.NumberTheory.Prime.Centered
                      Daimyo.NumberTheory.Prime.Chen

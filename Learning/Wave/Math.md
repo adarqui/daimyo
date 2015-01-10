@@ -25,6 +25,7 @@ RN = Rapid Notes
 - source: http://www.fis.cinvestav.mx/~lmontano/sciam/primos.pdf
 - history:
 - 01/08/2015: Introduction, abc, abundant
+- 01/09/2015: aks, aliquot, almost, amicable, andrica, arithmetic progressions, average prime
 
 
 **Logic**
