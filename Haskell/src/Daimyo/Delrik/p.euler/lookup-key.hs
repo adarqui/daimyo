@@ -7,7 +7,7 @@ import qualified Data.Map as M
 newtype Key = MakeKey String
     deriving (Ord, Eq, Show)
 
-newtype Env v = Env (M.Map Key v)
+newtype Env = Env (M.Map Key Integer)
     deriving (Show)
 
 toKey :: String -> Key
@@ -19,15 +19,14 @@ toKey = MakeKey
 runMakeKey :: Key -> String
 runMakeKey (MakeKey i) = i
 
-runEnv :: Env (M.Map Key a) -> Maybe v
-runEnv (Env m) = Nothing
+runEnv :: Env -> (M.Map Key Integer)
+runEnv (Env m) = m
 
-elkLookUp :: Key -> [(Key,v)]-> Maybe v
-elkLookUp (MakeKey k) env = foldr crunch Nothing env
+elkLookUp :: Key -> Env -> Maybe Integer
+elkLookUp k env= M.lookup k envMap
     where
-        crunch (MakeKey k', v') acc
-            | k' == k   = Just v'
-            | otherwise = acc
+        envMap = runEnv env
 
-t_elkLookUp = elkLookUp (toKey "Toby") t_data
-t_data = [(toKey "Dante", 5), (toKey "Toby", 6)]
+t_elkLookUp = Nothing
+--t_elkLookUp = elkLookUp (toKey "Toby") (Env t_data :: Env (M.Map Key Int))
+t_data = Env $ M.fromList [(toKey "Dante", 6), (toKey "Toby", 8)]
