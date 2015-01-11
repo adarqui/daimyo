@@ -1,7 +1,8 @@
 module Daimyo.NumberTheory.Constants.E (
     e'precision,
     e'sequence,
-    e'approx
+    e'approx,
+    e
 ) where
 
 {-
@@ -9,6 +10,8 @@ module Daimyo.NumberTheory.Constants.E (
 -}
 
 import Daimyo.Math.Factorial
+
+e = 2.718281828459045235
 
 e'precision precision = sum $ e'sequence precision
 

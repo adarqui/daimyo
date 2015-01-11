@@ -46,6 +46,7 @@
 + Binomial coefficients function: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
 + Pascal triangle data: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/AbstractAlgebra/Polynomial.hs
 - Addition modulo 2 for binary sequences of length n
+- Disjoint cycle decomposition of a permutation
 
 
 **Calculus**
@@ -103,6 +104,10 @@
 - Amicable Pair
 + Aliquot Sequences: (aliquot sequence) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Aliquot.hs
 + Aliquot Perfect Numbers: (aliquot perfect) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Aliquot.hs
++ "Benford's Law": (ben) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Benford.hs
++ Bernoulli: (bernoulli, bernoullis) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Bernoulli.hs
+- Bernoulli Algorithm
+- Parallel Bernoulli Algorithm
 
 
 **Constants**
@@ -228,6 +233,7 @@
 - Ternary Goldbach Conjecture
 - Hardy & Littlewood Convexity Conjecture
 - Prime Producing Formulae
+- Primitive Prime Factors
 
 
 **Geometry**

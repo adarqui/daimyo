@@ -26,6 +26,7 @@ RN = Rapid Notes
 - history:
 - 01/08/2015: Introduction, abc, abundant
 - 01/09/2015: aks, aliquot, almost, amicable, andrica, arithmetic progressions, average prime
+- 01/10/2015: bang, bateman, benford
 
 
 **Logic**
@@ -151,6 +152,7 @@ RN = Rapid Notes
 - source: http://shell.cas.usf.edu/~wclark/Elem_abs_alg.pdf
 - 12/21/2014: Preface, 1
 - 01/09/2015: 2
+- 01/10/2015: 3
 
 
 **Intro to Abstract Algebra**
@@ -329,6 +331,7 @@ RN = Rapid Notes
 - 01/05/2015: 1.1
 - 01/07/2015: 1 full
 - 01/08/2015: 2.1, 2.2
+- 01/09/2015: 2
 
 
 **The Book of Proof**
