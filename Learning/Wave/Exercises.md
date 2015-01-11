@@ -106,8 +106,9 @@
 + Aliquot Perfect Numbers: (aliquot perfect) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Aliquot.hs
 + "Benford's Law": (ben) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Benford.hs
 + Bernoulli: (bernoulli, bernoullis) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Bernoulli.hs
-- Bernoulli Algorithm
-- Parallel Bernoulli Algorithm
++ Bernoulli Algorithm: (bm) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Bernoulli.hs
++ Bernoulli Algorithm Using BigFloat: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Bernoulli/BigFloat.hs
+- Parallel Bernoulli Algorithm: par a / b in the 'bm' function
 
 
 **Constants**

@@ -69,6 +69,7 @@ Library
                      Daimyo.Logic.Table
                      Daimyo.Logic.Examples
                      Daimyo.Algebra
+                     Daimyo.Algebra.Exponent
                      Daimyo.Algebra.Logarithms
                      Daimyo.Algebra.Graphs
                      Daimyo.Algebra.Expression
@@ -120,6 +121,7 @@ Library
                      Daimyo.NumberTheory.Aliquot
                      Daimyo.NumberTheory.Benford
                      Daimyo.NumberTheory.Bernoulli
+                     Daimyo.NumberTheory.Bernoulli.BigFloat
                      Daimyo.NumberTheory.Perfect
                      Daimyo.NumberTheory.Euler
                      Daimyo.NumberTheory.Factor
@@ -153,5 +155,5 @@ Library
                      Daimyo.Chess
                      Daimyo.Quiz
                      Daimyo.Athletics.Run
- Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, AC-Angle
+ Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, AC-Angle, numbers
  GHC-Options:        -Wall
