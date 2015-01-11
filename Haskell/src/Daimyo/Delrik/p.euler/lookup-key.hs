@@ -1,5 +1,5 @@
 module
-    ElkStore  (elkLookUp)
+    ElkStore  (elkLookUp, t_elkLookUp)
 where
 
 newtype Key = MakeKey String
@@ -16,4 +16,7 @@ runMakeKey (MakeKey i) = i
 elkLookUp :: Key -> [(Key,v)] -> Maybe v
 elkLookUp (MakeKey k) env = foldr crunch Nothing env
     where
-        crunch (MakeKey k',v') acc = if k' == k then Just v' else acc
+        crunch (MakeKey k',v') acc
+            | k' == k = Just v'
+            | otherwise = acc
+t_elkLookUp = elkLookUp (toKey "Toby") [(toKey "Dante", 5), (toKey "Toby", 6)]
