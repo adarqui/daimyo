@@ -22,9 +22,12 @@ runMakeKey (MakeKey i) = i
 runEnv :: Env -> (M.Map Key Integer)
 runEnv (Env m) = m
 
-elkLookUp :: Key -> Env -> Maybe Integer
-elkLookUp k env= M.lookup k $ runEnv envMap
+augEnv :: Key -> Integer -> Env -> Env
+augEnv k v (Env m) = Env $ M.insert k v m
 
-t_elkLookUp = Nothing
---t_elkLookUp = elkLookUp (toKey "Toby") (Env t_data :: Env (M.Map Key Int))
+elkLookUp :: Key -> Env -> Maybe Integer
+elkLookUp k env= M.lookup k $ runEnv env
+
+t_elkLookUp = elkLookUp (toKey "Dante") t_data'
 t_data = Env $ M.fromList [(toKey "Dante", 6), (toKey "Toby", 8)]
+t_data'= augEnv (toKey "Alex") 10 t_data
