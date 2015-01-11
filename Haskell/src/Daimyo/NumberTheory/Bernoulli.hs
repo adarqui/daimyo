@@ -17,8 +17,8 @@ import Daimyo.NumberTheory.Constants.E
 
 bernoullis = [ bernoulli x | x <- [1..] ]
 
-bernoulli 0 = 1
-bernoulli x = x / ((e**x) - 1)
+bernoulli x = bm x
+
 
 {-
     implement this: http://wstein.org/projects/168/kevin_mcgown/bernproj.pdf
@@ -76,3 +76,7 @@ bm' m =
         a' = a m k' d' z'
     in
         (a' / d',(k',d',n',z',a'))
+
+
+t_b50'a = 495057205241079648212477525 / 66
+t_b50'b = bm 50
