@@ -69,7 +69,7 @@ int is_prime_3(int n) {
 int is_prime_4(int n) {
     int i;
 
-    if (n < 2 || n % 2 == 0) {
+    if (n < 2 || (n>2 && n % 2 == 0)) {
         return FALSE;
     } else {
         for (i = 2; (i*i) <= n; ++i) {
