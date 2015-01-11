@@ -311,8 +311,14 @@
 - Simple sort generator
 - Simple pre/in/post order tree generator
 
+
 **List**
 + Rotations on a list: (rotations) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/List/Pattern.hs
+
+
+**Games**
+- Chess: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Game/Chess.hs
+- Checkers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Game/Checkers.hs
 
 
 **Crypto**

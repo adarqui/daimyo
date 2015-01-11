@@ -1,17 +1,22 @@
-module Daimyo.Chess (
+module Daimyo.Game.Checkers (
     Piece (..),
     Square (..),
     Board (..),
-    board
+    newBoard,
+    defaultBoard
 ) where
 
 import Data.Matrix
+import Data.List
+
+{-
+    TODO: RULES, SIM, etc
+-}
 
 {-
     source:
 
-        http://en.wikipedia.org/wiki/Chessboard
-        http://en.wikipedia.org/wiki/Chess_piece
+        http://simple.wikipedia.org/wiki/Checkers
 -}
 
 {-
@@ -24,21 +29,17 @@ import Data.Matrix
         a      b      c      d      e      f      g      h     
 -}
 
-data Piece = King | Queen | Rook | Bishop | Knight | Pawn deriving (Show, Eq)
+data Piece = Light | Dark deriving (Show, Eq)
 
 data Square = White | Black deriving (Show, Eq, Enum)
 
 data Board = Board {
-    layout :: Matrix Square,
-    pieces :: Matrix (Maybe Piece)
+    board :: Matrix (Square, Maybe Piece)
 } deriving (Show)
 
-board = Board {
-    layout = fromList 8 8 $ take (8*8) $ color'cycle,
-    pieces = fromList 8 8 $ take (8*8) $ repeat Nothing
+newBoard = Board {
+    board = defaultBoard $ fromList 8 8 $ take (8*8) $ map (\x -> (x, Nothing)) color'cycle
 }
-
--- TODO: add default board setup with pieces & rules, etc.
 
 color'cycle =
     concat $
@@ -51,3 +52,13 @@ color'cycle =
                     take 8 $ cycle [Black, White]
         )
     $ reverse [1..8]
+
+
+defaultBoard :: Matrix (Square, Maybe Piece) -> Matrix (Square, Maybe Piece)
+defaultBoard m =
+    let
+        light = foldl' (\acc n -> mapRow (\_ (sq,p) -> if sq == White then (sq, Nothing) else (sq, Just Light)) n acc) m [1..3]
+        dark = foldl' (\acc n -> mapRow (\_ (sq,p) -> if sq == White then (sq, Nothing) else (sq, Just Dark)) n acc) light [5..8]
+        result = dark
+    in
+        result
