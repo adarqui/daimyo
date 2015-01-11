@@ -65,8 +65,6 @@ int is_prime_3(int n) {
     return 1;
 }
 
-#define FALSE 0
-#define TRUE 1
 
 int is_prime_4(int n) {
     int i;
