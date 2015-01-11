@@ -23,9 +23,7 @@ runEnv :: Env -> (M.Map Key Integer)
 runEnv (Env m) = m
 
 elkLookUp :: Key -> Env -> Maybe Integer
-elkLookUp k env= M.lookup k envMap
-    where
-        envMap = runEnv env
+elkLookUp k env= M.lookup k $ runEnv envMap
 
 t_elkLookUp = Nothing
 --t_elkLookUp = elkLookUp (toKey "Toby") (Env t_data :: Env (M.Map Key Int))
