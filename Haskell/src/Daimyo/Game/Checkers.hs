@@ -37,9 +37,11 @@ data Board = Board {
     board :: Matrix (Square, Maybe Piece)
 } deriving (Show)
 
+
 newBoard = Board {
     board = defaultBoard $ fromList 8 8 $ take (8*8) $ map (\x -> (x, Nothing)) color'cycle
 }
+
 
 color'cycle =
     concat $
