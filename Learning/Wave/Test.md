@@ -39,6 +39,10 @@ Tests of various forms.
 - https://www.witcc.edu/pdf/algebra_test.pdf
 
 
+**Review of Algebra**
+- http://www.stewartcalculus.com/data/ESSENTIAL%20CALCULUS/upfiles/ess-reviewofalgebra.pdf
+
+
 **Matrix**
 - http://cdn.kutasoftware.com/Worksheets/Alg2/Inverse%20Matrices.pdf
 - http://www2.bc.cc.ca.us/resperic/mathb1a/Spring09_Quiz9b.pdf

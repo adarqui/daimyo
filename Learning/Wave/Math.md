@@ -12,6 +12,15 @@ RR = Re-Read
 RN = Rapid Notes
 
 
+**Focus**
+- Example groups:
+- Number Theory, Algebra, Linear Algebra, Calculus, Trigonometry
+- Game Theory, Probability Theory, Set Theory
+- Combinatorics, Information Theory, Network Theory
+- history:
+- 01/11/2015: Number Theory, Algebra, Linear Algebra, Calculus, Trigonometry
+
+
 **Prime Numbers: A Computational Perspective**
 - source: http://thales.doa.fmph.uniba.sk/macaj/skola/teoriapoli/primes.pdf
 - history:
@@ -26,7 +35,7 @@ RN = Rapid Notes
 - history:
 - 01/08/2015: Introduction, abc, abundant
 - 01/09/2015: aks, aliquot, almost, amicable, andrica, arithmetic progressions, average prime
-- 01/10/2015: bang, bateman, benford
+- 01/10/2015: bang, bateman, benford, bernoulli
 
 
 **Logic**
@@ -66,6 +75,14 @@ RN = Rapid Notes
 - 12/31/2014: 1
 - MM:
 - 12/29/2014: 1.1, 1.2
+
+
+**Beginning and Intermediate Algebra**
+- source: http://www.saylor.org/site/wp-content/uploads/2011/12/SAYLOR-MA001-TEXT.pdf
+
+
+**A quick overview of basic algebraic concepts**
+- source: http://dtc.pima.edu/~hacker/primers/algebra-primer/algebra-primer.pdf
 
 
 **Concrete Mathematics**
@@ -134,6 +151,58 @@ RN = Rapid Notes
 - 12/05/2014: 1, 2
 
 
+**A Tutorial on Probability Theory**
+- source: http://www.sci.utah.edu/~gerig/CS6640-F2010/prob-tut.pdf
+
+
+**A Short Introduction to Probability**
+- source: http://www.maths.uq.edu.au/~kroese/asitp.pdf
+
+
+**Game Theory (intro)**
+- source: http://www.cdam.lse.ac.uk/Reports/Files/cdam-2001-09.pdf
+
+
+**Game Theory**
+- source: http://pioneer.netserv.chula.ac.th/~ptanapo1/gamebook.pdf
+- solutions: http://cramton.umd.edu/econ414/osborne-public-solutions.pdf
+
+
+**Basic Concepts in Information Theory**
+- source: http://www-public.it-sudparis.eu/~uro/cours-pdf/poly.pdf
+
+
+**Entropy and Information Theory**
+- source: http://www-ee.stanford.edu/~gray/it.pdf
+
+
+**Elements of Information Theory**
+
+
+**Information Theory, Inference, and Learning Algorithms**
+- source: http://www.cs.toronto.edu/~mackay/itprnn/book.pdf
+
+
+**An Introduction to Information Theory and Entropy**
+- source: http://www.fi.muni.cz/usr/staudek/infteo/info-lec.pdf
+
+
+**Network Information Theory**
+- source: http://ebooks.cambridge.org/ebook.jsf?bid=CBO9781139030687
+
+
+**Network Theory**
+- source: http://sansan.phy.ncu.edu.tw/~hclee/lec/NetworkTheory-V3.pdf
+
+
+**Introduction To Network Theory**
+- source: http://www.cl.cam.ac.uk/teaching/1011/PrincComm/slides/graph_theory_1-11.pdf
+
+
+**Social Network Analysis: Theory and Applications**
+- source:
+
+
 **Problem Solving Strategies**
 - source: http://micheleandreoli.org/public/Didattica/olimat/Libri/Engel_A._Problem-solving_strategies_for_math_olympiads__1998.pdf
 - history:
@@ -166,8 +235,20 @@ RN = Rapid Notes
 - 12/14/2014: 4
 
 
+**Linear Algebra in Twenty Five Lectures**
+- source: https://www.math.ucdavis.edu/~linear/linear.pdf
+- history:
+- 01/11/2015: Preface
+
+
 **Quick Review of Matrix and Real Linear Algebra**
 - source: http://people.hss.caltech.edu/~kcb/Notes/LinearAlgebra.pdf
+
+
+**Linear Algebra**
+- source: http://joshua.smcvt.edu/linearalgebra/book.pdf
+- source: http://joshua.smcvt.edu/linearalgebra/
+- http://linear.ups.edu/html/fcla.html
 
 
 **Linear Algebra: Theory and Applications**
@@ -186,6 +267,10 @@ RN = Rapid Notes
 - 12/21/2014: Preface, Preliminaries, 1.1 (reread)
 
 
+**A Geometryc Review of Linear Algebra**
+- source: http://www.cns.nyu.edu/~eero/NOTES/geomLinAlg.pdf
+
+
 **Introduction to Matrix Algebra**
 - source: http://www.just.edu.jo/~aobeidat/PDF/Summer%202007/matrixalgebra.pdf
 - haskell:
@@ -193,6 +278,10 @@ RN = Rapid Notes
 - history:
 - 12/15/2014: 1, 2, 3
 - 12/16/2014: 4 (do code/exercises for 1-4 before moving on to 5)
+
+
+**Elementary Linear Algebra**
+-- source: http://www.saylor.org/site/wp-content/uploads/2012/02/Elementary-Linear-Algebra-1-30-11-Kuttler-OTC.pdf
 
 
 **Introduction to Differential Equations**
@@ -236,6 +325,10 @@ RN = Rapid Notes
 - hold off until completing a more introductor text
 
 
+**A Quick Introduction to Non-Euclidean Geometry**
+- source: https://faculty.etsu.edu/gardnerr/noneuclidean/non-Euclid-highschool.pdf
+
+
 **Trigonometry**
 - source: http://mecmath.net/trig/trigbook.pdf
 - haskell: 
@@ -244,6 +337,10 @@ RN = Rapid Notes
 - 12/07/2014: Notes, 1.1
 - 12/25/2014: 1.2
 - 12/26/2014: RN: 1.3-rest, 2
+
+
+**Crash Course In Trigonometry**
+- source: http://facultyfp.salisbury.edu/despickler/personal/Resources/Other/TrigCC.pdf
 
 
 **College Algebra**
@@ -273,14 +370,32 @@ RN = Rapid Notes
 - 12/14/2014: 0.1-0.5
 
 
+**Differential Calculus of Several Variables**
+- source: http://people.reed.edu/~wieting/essays/DPMath211.pdf
+
+
 **Quick Calculus**
 - source: http://www.stem2.org/je/calcq.pdf
 - history:
+- 01/09/2015: all
 
 
 **What is Calculus**
 - source: www.stem2.org/je/calcwhat.pdf
 - history:
+- 01/08/2015: all
+
+
+**A Crash Course in Vector Calculus**
+- source: http://www.phy.iitb.ac.in/dkg/public_html/PH-102/calculus.pdf
+
+
+**A Crash Course for Stochastic Calculus**
+- source: http://www.cims.nyu.edu/~chennan/CrashCourseonStochasticCalculus.pdf
+
+
+**A Crash course on stochastic process theory and applications**
+- source: http://web.atmos.ucla.edu/~bstevens/Teaching/MAMAOS/Vanden-Eijnden.pdf
 
 
 **An Introduction to Statistics**

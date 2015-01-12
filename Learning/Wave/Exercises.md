@@ -40,6 +40,7 @@
 + NthRoot: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/NthRoot.hs
 + NthRoot Simplifier: (simplify radical) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/NthRoot.hs
 - Fraction simplifier
++ K-Cycles: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algebra/Permutation/Cycle.hs
 
 
 **Abstract Algebra**
