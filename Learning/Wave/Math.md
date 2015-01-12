@@ -14,7 +14,7 @@ RN = Rapid Notes
 
 **Focus**
 - Example groups:
-- Number Theory, Algebra, Linear Algebra, Calculus, Trigonometry
+- Number Theory, Algebra, Linear Algebra, Calculus, Trigonometry, Proof
 - Game Theory, Probability Theory, Set Theory
 - Combinatorics, Information Theory, Network Theory
 - history:
@@ -238,7 +238,7 @@ RN = Rapid Notes
 **Linear Algebra in Twenty Five Lectures**
 - source: https://www.math.ucdavis.edu/~linear/linear.pdf
 - history:
-- 01/11/2015: Preface
+- 01/11/2015: Preface, 1, 2, 3
 
 
 **Quick Review of Matrix and Real Linear Algebra**
@@ -384,6 +384,10 @@ RN = Rapid Notes
 - source: www.stem2.org/je/calcwhat.pdf
 - history:
 - 01/08/2015: all
+
+
+**A Summary of Calculus**
+- source: http://www.math.hawaii.edu/~heiner/short.pdf
 
 
 **A Crash Course in Vector Calculus**

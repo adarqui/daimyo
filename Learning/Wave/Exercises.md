@@ -253,6 +253,7 @@
 
 **Linear Algebra**
 - Identify various fields
+- System of Linear Equations Solver
 
 
 **Matrix**
