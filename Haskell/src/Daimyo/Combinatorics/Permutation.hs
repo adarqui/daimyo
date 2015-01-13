@@ -1,7 +1,9 @@
 module Daimyo.Combinatorics.Permutation (
     permutations',
     permutations'',
-    permutations'xX
+    permutations'xX,
+    permutations'repetition,
+    permutations'repetition'
 ) where
 
 import Daimyo.Math.Factorial
@@ -22,3 +24,7 @@ permutations'x3 m = m*(m-1)*(m-2)
 
 permutations'xX m 1 = m
 permutations'xX m n = permutations'xX m (n-1) * (m-n+1)
+
+permutations'repetition n r = permutations' (n, r) `div` (product (map fac [1..r]))
+
+permutations'repetition' n k = n^k

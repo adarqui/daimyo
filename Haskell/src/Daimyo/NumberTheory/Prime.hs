@@ -12,6 +12,8 @@
 
 module Daimyo.NumberTheory.Prime (
     primes,
+    sieve,
+    sieve'init,
     coprimes,
     primes'pairs,
     primes'trial,
@@ -53,6 +55,16 @@ sieve p (x:xs) =
         xs' = [ x' | x' <- xs, x' `mod` p > 0]
     in
         p : sieve x xs'
+
+{-
+    attempt to start the sieve at a specific prime
+-}
+
+sieve'init p =
+    let
+        (p1:rest) = [ x | x <- [p,p+1..], isPrime x]
+    in
+        sieve p1 rest
 
 
 {-

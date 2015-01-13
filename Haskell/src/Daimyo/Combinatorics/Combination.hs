@@ -3,7 +3,8 @@ module Daimyo.Combinatorics.Combination (
     choose',
     chooseFrom,
     combos,
-    combinations
+    combinations,
+    chooseRepetition
 ) where
 
 import Daimyo.Combinatorics.Permutation
@@ -22,3 +23,6 @@ combos members n = concatMap (\front -> map (front ++) (combos members 1)) $ com
 combinations = combos
 
 t_chooseFrom = 3 `chooseFrom` [0,1]
+
+
+n `chooseRepetition` k = (fac (n + k - 1)) `div` ((fac k)*(fac (n-1)))

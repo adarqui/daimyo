@@ -155,6 +155,7 @@ Library
                      Daimyo.Boxes
                      Daimyo.Game.Chess
                      Daimyo.Game.Checkers
+                     Daimyo.Security.Stanford
                      Daimyo.Quiz
                      Daimyo.Athletics.Run
  Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, AC-Angle, numbers

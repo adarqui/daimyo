@@ -245,6 +245,10 @@ RN = Rapid Notes
 - source: http://people.hss.caltech.edu/~kcb/Notes/LinearAlgebra.pdf
 
 
+**Linear Algebra and its Applications: 4th ed**
+- source: http://80.251.40.59/science.ankara.edu.tr/musahin/files/DavidCLay.pdf
+
+
 **Linear Algebra**
 - source: http://joshua.smcvt.edu/linearalgebra/book.pdf
 - source: http://joshua.smcvt.edu/linearalgebra/
