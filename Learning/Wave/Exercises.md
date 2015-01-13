@@ -237,6 +237,7 @@
 - Hardy & Littlewood Convexity Conjecture
 - Prime Producing Formulae
 - Primitive Prime Factors
++ Bertrand Postulate: (bertrand) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Bertrand.hs
 
 
 **Geometry**

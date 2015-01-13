@@ -109,6 +109,7 @@ Library
                      Daimyo.NumberTheory.Prime.Fermat
                      Daimyo.NumberTheory.Prime.Average
                      Daimyo.NumberTheory.Prime.Additive
+                     Daimyo.NumberTheory.Prime.Bertrand
                      Daimyo.NumberTheory.Prime.Almost
                      Daimyo.NumberTheory.Prime.Carol
                      Daimyo.NumberTheory.Prime.Centered
