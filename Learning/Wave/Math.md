@@ -36,6 +36,8 @@ RN = Rapid Notes
 - 01/08/2015: Introduction, abc, abundant
 - 01/09/2015: aks, aliquot, almost, amicable, andrica, arithmetic progressions, average prime
 - 01/10/2015: bang, bateman, benford, bernoulli
+- 01/11/2015: bertrand
+- 01/12/2015: bonse, brier, brocard, brun
 
 
 **Logic**
@@ -247,6 +249,8 @@ RN = Rapid Notes
 
 **Linear Algebra and its Applications: 4th ed**
 - source: http://80.251.40.59/science.ankara.edu.tr/musahin/files/DavidCLay.pdf
+- history:
+- 01/11/2015: Preface, 1.1
 
 
 **Linear Algebra**

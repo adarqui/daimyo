@@ -111,6 +111,9 @@
 + Bernoulli Algorithm: (bm) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Bernoulli.hs
 + Bernoulli Algorithm Using BigFloat: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Bernoulli/BigFloat.hs
 - Parallel Bernoulli Algorithm: par a / b in the 'bm' function
++ Riesel Number: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Riesel.hs 
++ Sierpinski Number: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Sierpinski.hs
++ Brier Number: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Brier.hs
 
 
 **Constants**
