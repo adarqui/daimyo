@@ -21,6 +21,7 @@ module Daimyo.NumberTheory.Prime (
     primeMultiples,
     primeMultiples'products,
     isPrime,
+    isComposite,
     primes',
     isFactor,
     nth'sieve,
@@ -119,6 +120,8 @@ primeFactors a = let (f, f1) = factorPairOf a
  prime a      = null $ factors a
 
 isPrime n = n > 1 && foldr (\p r -> p*p > n || ((n `rem` p) /= 0 && r)) True primes
+
+isComposite = not . isPrime
 
 primes' = 2 : filter isPrime [3,5..]
 
