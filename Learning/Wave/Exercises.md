@@ -119,7 +119,7 @@
 **Constants**
 + Represent e: (e precision) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Constants/E.hs
 + Represent pi: (pi approx) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Constants/Pi.hs
-- Represent the Brun constant
++ Represent the Brun constant: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Constants/Brun.hs
 - Represent C2
 
 

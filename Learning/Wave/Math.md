@@ -251,6 +251,8 @@ RN = Rapid Notes
 - source: http://80.251.40.59/science.ankara.edu.tr/musahin/files/DavidCLay.pdf
 - history:
 - 01/11/2015: Preface, 1.1
+- 01/12/2015: 1.2
+- 01/14/2015: 1.3
 
 
 **Linear Algebra**
@@ -349,6 +351,8 @@ RN = Rapid Notes
 
 **Crash Course In Trigonometry**
 - source: http://facultyfp.salisbury.edu/despickler/personal/Resources/Other/TrigCC.pdf
+- history:
+- 01/12/2015: all
 
 
 **College Algebra**

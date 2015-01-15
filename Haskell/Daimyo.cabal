@@ -134,6 +134,7 @@ Library
                      Daimyo.NumberTheory.Fermat
                      Daimyo.NumberTheory.Constants.E
                      Daimyo.NumberTheory.Constants.Pi
+                     Daimyo.NumberTheory.Constants.Brun
                      Daimyo.NumberTheory.Riesel
                      Daimyo.NumberTheory.Sierpinski
                      Daimyo.NumberTheory.Brier
