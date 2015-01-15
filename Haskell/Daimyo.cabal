@@ -129,6 +129,7 @@ Library
                      Daimyo.NumberTheory.Factor
                      Daimyo.NumberTheory.Factorial
                      Daimyo.NumberTheory.GCD
+                     Daimyo.NumberTheory.GCD.Analysis
                      Daimyo.NumberTheory.TheoremOfMathematics
                      Daimyo.NumberTheory.Nines
                      Daimyo.NumberTheory.Fermat

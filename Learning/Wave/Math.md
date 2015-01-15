@@ -28,6 +28,7 @@ RN = Rapid Notes
 - 01/06/2015: 1.2.1
 - 01/07/2015: 1.2.2 - 1.3.1
 - 01/08/2015: 1.3
+- 01/13/2015: 1.4-end, skipped exercises, 2.1.1
 
 
 **Prime Numbers: The Most Mysterious Figures in Math**
