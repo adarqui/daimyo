@@ -253,7 +253,7 @@ RN = Rapid Notes
 - history:
 - 01/11/2015: Preface, 1.1
 - 01/12/2015: 1.2
-- 01/14/2015: 1.3
+- 01/14/2015: 1.3, 1.3 exercises (leftoff @ 15)
 
 
 **Linear Algebra**
@@ -367,6 +367,17 @@ RN = Rapid Notes
 - 12/11/2014: NO, 0.2,0.3,0.4,0.5,0.6
 - MM:
 - 12/29/2014: 0.2-0.5
+
+
+**Calculus: Early Transcendentals**
+- source: http://withg.org/parkerlreed/Thomas%20Calculus%2012th%20Edition%20Textbook.pdf
+- history:
+- 01/13/2015: Preface
+
+
+**Calculus**
+- source: http://www.whitman.edu/mathematics/california_calculus/calculus.pdf
+- history:
 
 
 **Understanding Basic Calculus**
