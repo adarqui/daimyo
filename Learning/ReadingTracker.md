@@ -468,6 +468,7 @@ Programming:
 - Principles of Programming Languages: http://www.cs.jhu.edu/~scott/pl/book/dist/book/book.pdf
 - 2nd Ed ^^: http://www.cs.cmu.edu/~rwh/plbook/2nded.pdf
 - Can programming be liberated from the von neumann style? http://web.stanford.edu/class/cs242/readings/backus.pdf
+- Essentials of Programming Languages: http://www.researchgate.net/profile/Christopher_Haynes/publication/220689009_Essentials_of_programming_languages_%282._ed.%29/links/02bfe5119056b370a3000000.pdf
 
 **Pearls**
 - Haskell/Functional: https://www.haskell.org/haskellwiki/Research_papers/Functional_pearls

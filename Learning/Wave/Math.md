@@ -171,6 +171,10 @@ RN = Rapid Notes
 - solutions: http://cramton.umd.edu/econ414/osborne-public-solutions.pdf
 
 
+**The Art of Doing Science and Engineering: Learning to Learn**
+- source: http://worrydream.com/refs/Hamming-TheArtOfDoingScienceAndEngineering.pdf
+
+
 **Basic Concepts in Information Theory**
 - source: http://www-public.it-sudparis.eu/~uro/cours-pdf/poly.pdf
 
@@ -203,7 +207,7 @@ RN = Rapid Notes
 
 
 **Social Network Analysis: Theory and Applications**
-- source:
+- source: http://train.ed.psu.edu/WFED-543/SocNet_TheoryApp.pdf
 
 
 **Problem Solving Strategies**
@@ -373,6 +377,7 @@ RN = Rapid Notes
 - source: http://withg.org/parkerlreed/Thomas%20Calculus%2012th%20Edition%20Textbook.pdf
 - history:
 - 01/13/2015: Preface
+- 01/15/2015: 1.1
 
 
 **Calculus**
@@ -434,6 +439,10 @@ RN = Rapid Notes
 - 12/07/2014: Notes, 1
 - MM:
 - 12/29/2014: 1
+
+
+**Hand-book on statistical distributions for experimentalists**
+- source: http://www.stat.rice.edu/~dobelman/textfiles/DistributionsHandbook.pdf
 
 
 **An Introduction To Combinatorics and Graph Theory**
