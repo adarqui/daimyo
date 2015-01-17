@@ -1,7 +1,8 @@
 module Daimyo.Delrik (
     euler'p2,
     isPrime,
-    primes
+    primes,
+    pf
 ) where
 
 import Data.List
@@ -25,3 +26,16 @@ euler'p2 x = takeWhile isPrime $ zip [x,(x-1)..hf] [1..x]
         isPrime (x',y') = case (op y') of 
             0 -> False;
             _ -> True
+pf :: Integer-> [Integer] -> IO([Integer])
+pf 2 _= do return []
+pf 1 _= do return []
+pf n cc= putStrLn (show n ++ "," ++  show nf ++ "," ++  show sprimes) >> pf n' cc
+    where 
+        n'          = n `div` nf
+        nf          = head $ filter isDivisible sprimes
+        sprimes     = takeWhile (<n) $ tail primes
+        isDivisible = (\x -> (n `mod` x) == 0 )
+--{- Prime Factorisation -}
+--pf :: i -> a -> [a]
+--pf _ 2 = []
+--pf i n = (head [x | x <- primes, (x `mod` n) == 0]) : []
