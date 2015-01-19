@@ -36,13 +36,15 @@ pf 1 = return ([1,1], 1)
 pf n = pf' ([n], 0)
     where 
         pf' :: ([Float],Float) -> IO ([Float], Float)
-        pf' (2:xs ,b) = return ([] ++ xs,b)
-        pf' (1:xs ,b) = return ([] ++ xs,b)
+
+        pf' ((n:ns), m)
+            | isPrime n = return (n:ns, succ m)
 
         pf' (hd:ns,b) = do
-            putStrLn ("Hello: " ++ (show hd) ++ "|" ++ show b ++ "==" ++ show smallestPrime )  
+            putStrLn (">: hd:" ++ (show hd) ++ "| it: " ++ show b ++ "| prime: " ++ show smallestPrime )
             let n' = hd / smallestPrime in pf' (n':smallestPrime:ns,succ b)
 
         isMultiple :: Float -> Float -> Bool
-        isMultiple m n'' = (round m) `mod` (round n) == 0
-        smallestPrime = head $ filter (isMultiple n) $ tail primes
+        isMultiple m n'' = ((round m) `mod` (round n)) == 0
+        smallestPrime = head $ takeWhile (isEvenlyDivisible) $ filter (isMultiple n) $ tail primes
+        isEvenlyDivisible x' = x' == fromInteger (round x') 
