@@ -41,10 +41,16 @@ pf n = pf' ([n], 0)
             | isPrime n = return (n:ns, succ m)
 
         pf' (hd:ns,b) = do
-            putStrLn (">: hd:" ++ (show hd) ++ "| it: " ++ show b ++ "| prime: " ++ show smallestPrime )
-            let n' = hd / smallestPrime in pf' (n':smallestPrime:ns,succ b)
+            let 
+                smallestPrime = takeWhile (\x -> do isInt(hd/x) 20) $ tail primes
+                in do
+                    putStrLn (">: hd:" ++ (show hd) ++ "| it: " ++ show b ++ "| prime: " ++ show smallestPrime)
+                    pf' ((hd / head smallestPrime):(head smallestPrime):ns,succ b)
+
+        isInt :: (Integral a, RealFrac b) => b -> a -> Bool
+        isInt x n = (round $ 10^(fromIntegral n)*(x-(fromIntegral $ round x)))==0
 
         isMultiple :: Float -> Float -> Bool
         isMultiple m n'' = ((round m) `mod` (round n)) == 0
-        smallestPrime = head $ takeWhile (isEvenlyDivisible) $ filter (isMultiple n) $ tail primes
+
         isEvenlyDivisible x' = x' == fromInteger (round x') 
