@@ -1,4 +1,4 @@
-module Daimyo.Delrik (
+module Main (
     euler'p2,
     isPrime,
     primes,
@@ -6,7 +6,9 @@ module Daimyo.Delrik (
     isInt,
     smallestPrimeFactor,
     isFactor,
-    pf2
+    pf2,
+    baseMultiple,
+    main
 ) where
 
 import Data.List
@@ -27,13 +29,13 @@ euler'p2 x = takeWhile isPrime $ zip [x,(x-1)..hf] [1..x]
 isPrime :: Float -> Bool
 isPrime 1 = True
 isPrime 2 = True
-isPrime n = null [x | x <- possibles, (round  n) `mod` (round x) == 0]
-    where
-        possibles :: [Float]
-        possibles = takeWhile (\x -> x*x <= n) [2..n]
+isPrime n = not $ any (isFactor n) (possibles n)
+
+possibles :: Float -> [Float]
+possibles n = takeWhile (\x -> x*x <= n) [2..n]
 
 isFactor :: Float -> Float -> Bool
-isFactor x n = isInt (x/n) 5
+isFactor x n = (round  x) `mod` (round n) == 0
 
 isInt :: (Integral a, RealFrac b) => b -> a -> Bool
 isInt x n = (round $ 10^(fromIntegral n)*(x-(fromIntegral $ round x)))==0
@@ -45,16 +47,15 @@ smallestPrimeFactor :: Float -> [Float]
 smallestPrimeFactor x = filter (\primeF -> isInt (x/primeF) 10) $ tail primes
 
 
-pf2 :: Float -> IO ([Float], Float)
+pf2 :: Float -> ([Float], Float)
 pf2 n = pf2' ([n],0)
     where
-        pf2' :: ([Float],Float) -> IO ([Float], Float)
+        pf2' :: ([Float],Float) -> ([Float], Float)
 
         pf2' (hd:hds,b)
-            | isPrime hd = return (hd:hds, b)
+            | isPrime hd = (hd:hds, b)
 
         pf2' (hd:hds,b) = do
-            --putStrLn ("prime: " ++ show divisor ++ " iteration:" ++ show b)
             pf2' (hd':divisor:hds, succ b)
             where
                 divisor = head $ smallestPrimeFactor hd
@@ -81,3 +82,9 @@ pf n = pf' ([n], 0)
         isMultiple m n'' = ((round m) `mod` (round n)) == 0
 
         isEvenlyDivisible x' = x' == fromInteger (round x') 
+
+baseMultiple :: Float -> Float
+baseMultiple x = product $ nub $ concatMap fst $ map pf2 [1..x]
+
+main :: IO ()
+main = putStrLn $ (show.round) $ head $ filter (\x -> all (isFactor x) [1..23]) $ map ((baseMultiple 23)*) [1..]
