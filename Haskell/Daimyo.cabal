@@ -116,6 +116,7 @@ Library
                      Daimyo.NumberTheory.Prime.Chen
                      Daimyo.NumberTheory.Prime.Circular
                      Daimyo.NumberTheory.Prime.Cousin
+                     Daimyo.NumberTheory.Prime.Distance
                      Daimyo.NumberTheory.Prime.Mersenne
                      Daimyo.NumberTheory.Prime.Twin
                      Daimyo.NumberTheory.Abc
@@ -139,6 +140,7 @@ Library
                      Daimyo.NumberTheory.Riesel
                      Daimyo.NumberTheory.Sierpinski
                      Daimyo.NumberTheory.Brier
+                     Daimyo.NumberTheory.Consecutive
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation

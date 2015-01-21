@@ -114,6 +114,7 @@
 + Riesel Number: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Riesel.hs 
 + Sierpinski Number: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Sierpinski.hs
 + Brier Number: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Brier.hs
++ Consecutive Integer Sequence: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Consecutive.hs
 
 
 **Constants**
@@ -241,6 +242,7 @@
 - Prime Producing Formulae
 - Primitive Prime Factors
 + Bertrand Postulate: (bertrand) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Bertrand.hs
++ Distance Between Primes: **custom prime idea** (distance) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Distance.hs
 
 
 **Geometry**

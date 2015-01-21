@@ -1,8 +1,3 @@
-**Dope: All in one mathematics cheat sheet**
-- v2.10: http://www.alexspartalis.com/uploads/3/5/9/8/3598073/all_in_one_cheat_sheet_v2.10_-_web.pdf
-- http://www.alexspartalis.com/cheat-sheet.html
-
-
 ***Math Wave***
 
 NO = Notes only
@@ -19,6 +14,13 @@ RN = Rapid Notes
 - Combinatorics, Information Theory, Network Theory
 - history:
 - 01/11/2015: Number Theory, Algebra, Linear Algebra, Calculus, Trigonometry
+
+
+**Dope: All in one mathematics cheat sheet**
+- source: v2.10: http://www.alexspartalis.com/uploads/3/5/9/8/3598073/all_in_one_cheat_sheet_v2.10_-_web.pdf
+- source: http://www.alexspartalis.com/cheat-sheet.html
+- history:
+- 01/18/2015: 195 pages
 
 
 **Prime Numbers: A Computational Perspective**
@@ -39,6 +41,7 @@ RN = Rapid Notes
 - 01/10/2015: bang, bateman, benford, bernoulli
 - 01/11/2015: bertrand
 - 01/12/2015: bonse, brier, brocard, brun
+- 01/20/2015: champernowne, champion, cicada, chinese remainder, circle prime, circular prime, compositorial, consecutive integer sequence
 
 
 **Logic**
@@ -240,6 +243,11 @@ RN = Rapid Notes
 - 12/11/2014: 2
 - 12/14/2014: 3
 - 12/14/2014: 4
+
+
+**Introduction to Linear Algebra: 4th Edition**
+- source: http://218.4.189.15:8090/download/2ac43097-6138-4606-81f6-581964443e81.pdf
+- source: http://math.bnu.edu.cn/~lijiequan/publications/Strang_Linear.Algebra.and.Its.Applications.4ed.pdf
 
 
 **Linear Algebra in Twenty Five Lectures**
