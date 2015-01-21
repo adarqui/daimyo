@@ -7,8 +7,10 @@ where
 
 toDigits,toDigitsRev :: Integer -> [Integer]
 
-toDigits = undefined
-toDigitsRev = undefined
+toDigits 0 = []
+toDigits n = map (read . (:[])) $ show n
+
+toDigitsRev = reverse . toDigits
 
 main :: IO ()
 main = putStrLn "Excercise 1"
