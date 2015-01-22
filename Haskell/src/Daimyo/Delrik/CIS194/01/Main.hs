@@ -8,8 +8,10 @@ where
 
 toDigits,toDigitsRev :: Integer -> [Integer]
 
-toDigits 0 = []
-toDigits a = toDigits' a
+toDigits a
+  | a < 1 = []
+  | otherwise = toDigits' a
+
 toDigits'  = map (read . (:[])) . show
 
 toDigitsRev = reverse . toDigits
