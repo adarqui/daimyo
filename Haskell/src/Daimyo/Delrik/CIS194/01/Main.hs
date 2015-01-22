@@ -1,6 +1,7 @@
 module Main 
 (
 toDigits,
+toDigitsRev,
 main
 )
 where
@@ -8,9 +9,10 @@ where
 toDigits,toDigitsRev :: Integer -> [Integer]
 
 toDigits 0 = []
-toDigits n = map (read . (:[])) $ show n
+toDigits a = toDigits' a
+toDigits'  = map (read . (:[])) . show
 
 toDigitsRev = reverse . toDigits
 
 main :: IO ()
-main = putStrLn "Excercise 1"
+main = putStrLn $ (show . toDigits) 12345678
