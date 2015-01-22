@@ -347,3 +347,11 @@
 **Other**
 - Brain graph: tie components together via a graph structure, ie: gcd -> NumberTheory, gcd -> Algebra .. etc 
 - Brain CPU: figure out a way to measure 'performance' on specific tasks that equate to a 'cpu architecture' (hehe). ie, ability to perform calculations of more variables (temp vars) as stored in registers -> the more registers, the more capacity. floating point vs general purpose registers. ie, my floating point register is weak and of small precision. concurrency, parallelism? Not only can we measure, but we need to identify methods for improving the architecture.
+
+
+**Discovery**
+- Distance & primes
+- Prime SocNet
+- Number Theory SocNet
+- Haskell SocNet
+- Messy desk

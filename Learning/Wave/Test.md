@@ -45,6 +45,7 @@ Tests of various forms.
 
 **Linear Algebra**
 - http://www.csulb.edu/~jchang9/m247_flipped.html
+- http://www.mff.cuni.cz/veda/konference/wds/proc/pdf06/WDS06_106_m8_Ulrychova.pdf
 
 
 **Matrix**

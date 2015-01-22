@@ -176,6 +176,8 @@ RN = Rapid Notes
 
 **The Art of Doing Science and Engineering: Learning to Learn**
 - source: http://worrydream.com/refs/Hamming-TheArtOfDoingScienceAndEngineering.pdf
+- history:
+- 01/22/2015: Preface, Introduction
 
 
 **Basic Concepts in Information Theory**
@@ -207,10 +209,13 @@ RN = Rapid Notes
 
 **Introduction To Network Theory**
 - source: http://www.cl.cam.ac.uk/teaching/1011/PrincComm/slides/graph_theory_1-11.pdf
+- history:
 
 
 **Social Network Analysis: Theory and Applications**
 - source: http://train.ed.psu.edu/WFED-543/SocNet_TheoryApp.pdf
+- 01/20/2015: Theory
+- 01/21/2015: Social Network Analysis, leftoff: History of social network analysis
 
 
 **Problem Solving Strategies**
@@ -266,6 +271,7 @@ RN = Rapid Notes
 - 01/11/2015: Preface, 1.1
 - 01/12/2015: 1.2
 - 01/14/2015: 1.3, 1.3 exercises (leftoff @ 15)
+- 01/20/2015: 1.4 (no ex)
 
 
 **Linear Algebra**

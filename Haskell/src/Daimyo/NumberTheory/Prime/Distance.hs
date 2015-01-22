@@ -8,10 +8,13 @@ module Daimyo.NumberTheory.Prime.Distance (
     p2,
     prime'distances,
     composite'distances,
-    compositeOr1'distances
+    compositeOr1'distances,
+    stats,
+    t_stats
 ) where
 
 import Daimyo.NumberTheory.Prime
+import Daimyo.Statistics
 
 distance = map dist distances
 distances = map (\(p1,p2) -> (p1, p2, p2 - p1)) primes'pairs
@@ -26,6 +29,10 @@ p2 (_,p2,_) = p2
 prime'distances = filter (\d -> isPrime $ dist d) distances
 composite'distances = tail compositeOr1'distances
 compositeOr1'distances = filter (\d -> not $ isPrime $ dist d) distances
+
+stats l = fromListStats (map fromIntegral l)
+
+t_stats n = stats (take n distance)
 
 -- TODO
 -- add max, min, sort, distribution/stats etc

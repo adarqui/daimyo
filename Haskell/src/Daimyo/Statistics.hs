@@ -6,7 +6,9 @@
 
 module Daimyo.Statistics (
     Population,
+    PopulationStats,
     fromList,
+    fromListStats,
     mean,
     mean'sample,
     variance,
@@ -33,10 +35,28 @@ data Population a = Population {
     n :: Double
 } deriving (Show)
 
+data PopulationStats a = PopulationStats {
+    _pop :: Population a,
+    _mean :: Double,
+    _variance :: Double,
+    _stddev :: Double
+} deriving (Show)
+
 fromList l = Population {
     set = l,
     n = fromIntegral (length l) :: Double
 }
+
+fromListStats l =
+    let
+        pop = fromList l
+    in
+        PopulationStats {
+            _pop = pop,
+            _mean = mean pop,
+            _variance = variance pop,
+            _stddev = stddev pop
+        }
 
 mean Population{..} = (1/n) * sum set
 
@@ -87,7 +107,7 @@ r = correlation'sample
 -}
 
 t_dogs = do
-    let p = fromList [600,470,170,430,300]
+    let p = fromList [600, 470, 170, 430, 300]
     let q = fromList [601, 470, 160, 400, 350]
     putStrLn $ "population mean: " ++ (show $ mean p)
     putStrLn $ "population variance: " ++ (show $ variance p)
