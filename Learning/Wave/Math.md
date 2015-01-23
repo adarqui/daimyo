@@ -42,6 +42,7 @@ RN = Rapid Notes
 - 01/11/2015: bertrand
 - 01/12/2015: bonse, brier, brocard, brun
 - 01/20/2015: champernowne, champion, cicada, chinese remainder, circle prime, circular prime, compositorial, consecutive integer sequence
+- 01/22/2015: consecutive numbers, consecutive primes, conways prime machine, cousin primes
 
 
 **Logic**
@@ -177,7 +178,7 @@ RN = Rapid Notes
 **The Art of Doing Science and Engineering: Learning to Learn**
 - source: http://worrydream.com/refs/Hamming-TheArtOfDoingScienceAndEngineering.pdf
 - history:
-- 01/22/2015: Preface, Introduction
+- 01/21/2015: Preface, Introduction, 1
 
 
 **Basic Concepts in Information Theory**
@@ -216,6 +217,7 @@ RN = Rapid Notes
 - source: http://train.ed.psu.edu/WFED-543/SocNet_TheoryApp.pdf
 - 01/20/2015: Theory
 - 01/21/2015: Social Network Analysis, leftoff: History of social network analysis
+- 01/22/2015: Social Network Analysis, Tools, Leftoff: Some Definitions
 
 
 **Problem Solving Strategies**

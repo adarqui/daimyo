@@ -139,7 +139,7 @@
 + Circular Primes: (circular) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Circular.hs
 + Cousin Primes: (cousins) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Cousin.hs
 - Cuban Primes
-- Cullen Primes
++ Cullen Primes: (cullens) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/Cullen.hs
 - Dihedral Primes
 - Double Factorial Primes
 - Double Mersenne Primes
