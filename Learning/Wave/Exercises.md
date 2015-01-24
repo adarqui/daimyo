@@ -204,7 +204,7 @@
 - Sexy Primes
 - Smarandache-Wellin Primes
 - Solinas Primes
-- Sophie Germain Primes
++ Sophie Germain Primes: (sophieGermainPrimes) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Prime/SophieGermain.hs
 - Star Primes
 - Stern Primes
 - Super Primes
