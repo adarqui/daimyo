@@ -119,6 +119,8 @@ Library
                      Daimyo.NumberTheory.Prime.Cullen
                      Daimyo.NumberTheory.Prime.Distance
                      Daimyo.NumberTheory.Prime.Mersenne
+                     Daimyo.NumberTheory.Prime.SophieGermain
+                     Daimyo.NumberTheory.Prime.CunninghamChain
                      Daimyo.NumberTheory.Prime.Twin
                      Daimyo.NumberTheory.Abc
                      Daimyo.NumberTheory.Abundant

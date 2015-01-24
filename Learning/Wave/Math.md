@@ -42,7 +42,8 @@ RN = Rapid Notes
 - 01/11/2015: bertrand
 - 01/12/2015: bonse, brier, brocard, brun
 - 01/20/2015: champernowne, champion, cicada, chinese remainder, circle prime, circular prime, compositorial, consecutive integer sequence
-- 01/22/2015: consecutive numbers, consecutive primes, conways prime machine, cousin primes
+- 01/22/2015: consecutive numbers, consecutive primes, conways prime machine, cousin primes, cullen primes
+- 01/23/2015: leftoff: deletable
 
 
 **Logic**
@@ -168,6 +169,8 @@ RN = Rapid Notes
 
 **Game Theory (intro)**
 - source: http://www.cdam.lse.ac.uk/Reports/Files/cdam-2001-09.pdf
+- history:
+- 01/22/2015: 1, 2
 
 
 **Game Theory**
@@ -555,6 +558,9 @@ RN = Rapid Notes
 **Advanced High School Mathematics**
 - source: http://www.math.ksu.edu/~dbski/writings/further.pdf
 
+
+**The Joy of Mathematics**
+- source: http://anon.eastbaymediac.m7z.net/anon.eastbaymediac.m7z.net/teachingco/CourseGuideBooks/DG1411_G5C7N6.pdf
 
 
 **Mathematics for Finance: An introduction to financial engineering**
