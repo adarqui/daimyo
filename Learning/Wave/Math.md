@@ -14,6 +14,7 @@ RN = Rapid Notes
 - Combinatorics, Information Theory, Network Theory
 - history:
 - 01/11/2015: Number Theory, Algebra, Linear Algebra, Calculus, Trigonometry
+- 01/21/2015: Number Theory, Graph Theory, Network Theory, Game Theory
 
 
 **Dope: All in one mathematics cheat sheet**
@@ -171,6 +172,7 @@ RN = Rapid Notes
 - source: http://www.cdam.lse.ac.uk/Reports/Files/cdam-2001-09.pdf
 - history:
 - 01/22/2015: 1, 2
+- 01/23/2015: 3
 
 
 **Game Theory**
@@ -182,6 +184,7 @@ RN = Rapid Notes
 - source: http://worrydream.com/refs/Hamming-TheArtOfDoingScienceAndEngineering.pdf
 - history:
 - 01/21/2015: Preface, Introduction, 1
+- 01/23/2015: 2
 
 
 **Basic Concepts in Information Theory**
@@ -470,6 +473,27 @@ RN = Rapid Notes
 - 01/05/2015: 1.1
 
 
+**Graph Theory**
+- source: http://www.esi2.us.es/~mbilbao/pdffiles/DiestelGT.pdf
+- history:
+- 01/23/2015: Preface
+
+
+**Graph Theory Lecture Notes**
+- source: http://math.tut.fi/~ruohonen/GT_English.pdf
+
+
+**Digraph Theory**
+- source: http://www.cs.rhul.ac.uk/books/dbook/main.pdf
+
+
+**Random Graphs and Complex Networks**
+- source: http://www.win.tue.nl/~rhofstad/NotesRGCN.pdf
+
+
+- misc graph theory: http://bayanbox.ir/view/134038771254298574/West-2nd-Edition-Solution-Manual.pdf
+
+
 **Combinatorics**
 - source: http://people.math.gatech.edu/~trotter/book.pdf
 - haskell: https://hackage.haskell.org/package/combinat , haskell: https://hackage.haskell.org/package/arithmoi
@@ -561,6 +585,8 @@ RN = Rapid Notes
 
 **The Joy of Mathematics**
 - source: http://anon.eastbaymediac.m7z.net/anon.eastbaymediac.m7z.net/teachingco/CourseGuideBooks/DG1411_G5C7N6.pdf
+- history:
+- 01/24/2015: intro, 1
 
 
 **Mathematics for Finance: An introduction to financial engineering**

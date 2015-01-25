@@ -88,6 +88,7 @@ Library
                      Daimyo.Algebra.Quiz.GCD
                      Daimyo.Algebra.Quiz.LCM
                      Daimyo.Algebra.Quiz.ASMD
+                     Daimyo.LinearAlgebra.Quiz.Problems
                      Daimyo.Geometry
                      Daimyo.Geometry.Point
                      Daimyo.Geometry.Line
