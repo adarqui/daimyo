@@ -42,7 +42,7 @@ p1'rref =
         m'c = combineRows 3 (-3) 1 m'b
         m'd = combineRows 3 (-2) 2 m'c
     in
-        [("augmented",m), ("swap R1,R2",m'a), ("R1 = -2*R2+R1",m'b), ("R3 = -3*R1+R3",m'c), ("R3=-2*R2+R3",m'd)]
+        [("augmented",m), ("swap R1,R2",m'a), ("R1= -2*R2+R1",m'b), ("R3= -3*R1+R3",m'c), ("R3= -2*R2+R3",m'd)]
 
 
 p1 =
