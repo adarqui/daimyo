@@ -21,6 +21,7 @@ module Daimyo.NumberTheory.Prime (
     primeMultiples,
     primeMultiples'products,
     isPrime,
+    isPrime',
     isComposite,
     primes',
     isFactor,
@@ -119,11 +120,30 @@ primeFactors a = let (f, f1) = factorPairOf a
  isFactor a b = a `mod` b == 0
  prime a      = null $ factors a
 
+
 isPrime n = n > 1 && foldr (\p r -> p*p > n || ((n `rem` p) /= 0 && r)) True primes
+
+
+isPrime' n = n > 1 && foldr (\p r -> p*p > n || ((n `rem` p) /= 0 && r)) True (take (floor (sqrt (fromIntegral n :: Double))) primes)
+
+
+t_isPrime = [ isPrime 67867979, isPrime' 67867979]
+
+
+isPrime'' :: Integer -> Bool
+isPrime'' n =
+    let
+        floor' = floor (sqrt (fromIntegral n :: Double))
+        (b, r) = foldlIf (\r -> r /= 0) (\_ p -> n `rem` p) 0 (take floor' primes)
+    in
+        n > 1 && (n == 2 || b)
+
 
 isComposite = not . isPrime
 
+
 primes' = 2 : filter isPrime [3,5..]
+
 
 primeFactors' n | n > 1 = go n primes'
  where

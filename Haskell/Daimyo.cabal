@@ -46,6 +46,7 @@ Library
                      Daimyo.Math.Table.Power
                      Daimyo.Math.Table.NthRoot
                      Daimyo.Math.Factorial
+                     Daimyo.Math.Base
                      Daimyo.Math.Mean.Arithmetic
                      Daimyo.Math.Mean.Harmonic
                      Daimyo.Math.Mean.Geometric
@@ -89,6 +90,7 @@ Library
                      Daimyo.Algebra.Quiz.LCM
                      Daimyo.Algebra.Quiz.ASMD
                      Daimyo.LinearAlgebra.Quiz.Problems
+                     Daimyo.LinearAlgebra.Other.GaussJordan
                      Daimyo.Geometry
                      Daimyo.Geometry.Point
                      Daimyo.Geometry.Line
@@ -145,6 +147,10 @@ Library
                      Daimyo.NumberTheory.Sierpinski
                      Daimyo.NumberTheory.Brier
                      Daimyo.NumberTheory.Consecutive
+                     Daimyo.NumberTheory.Fibonacci
+                     Daimyo.NumberTheory.Binet
+                     Daimyo.NumberTheory.Lucas
+                     Daimyo.NumberTheory.GoldenRatio
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation
@@ -157,8 +163,8 @@ Library
                      Daimyo.Proof.Basic
                      Daimyo.Proof.KnowShow
                      Daimyo.Proof.Exercises.Misc
-                     Daimyo.Graphs.Circles
-                     Daimyo.Graphs.T1
+--                     Daimyo.Graphs.Circles
+--                     Daimyo.Graphs.T1
                      Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.PSS.C1.E1
@@ -170,5 +176,6 @@ Library
                      Daimyo.Security.Stanford
                      Daimyo.Quiz
                      Daimyo.Athletics.Run
- Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, AC-Angle, numbers
+ Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, AC-Angle, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, numbers
+-- diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, constructive-algebra
  GHC-Options:        -Wall

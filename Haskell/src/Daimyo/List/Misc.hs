@@ -6,7 +6,9 @@ module Daimyo.List.Misc (
     rests,
     rests'test,
     removeIndices,
-    choiceList
+    choiceList,
+    mapIf,
+    foldlIf
 ) where
 
 import Data.List
@@ -81,3 +83,20 @@ t_removeIndieces =
 -}
 
 choiceList = undefined
+
+
+mapIf t aTob a = takeWhile t $ map aTob a
+
+
+foldlIf _ _ b [] = (True, b)
+foldlIf t bToaTob b (a:as) =
+    let
+        r = bToaTob b a
+    in
+        if (t r)
+            then foldlIf t bToaTob r as
+            else (False, b)
+
+
+t_mapIf = [mapIf (>3) (+1) [1..10], mapIf (>0) (+1) [1..10]]
+t_foldlIf = [foldlIf (>0) (\acc x -> x + acc) 0 [0..10], foldlIf (>0) (\acc x -> x + acc) 0 [1..10]]

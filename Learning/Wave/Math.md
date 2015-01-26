@@ -562,6 +562,16 @@ RN = Rapid Notes
 - source: http://www.maths.ed.ac.uk/~aar/papers/numbers
 
 
+**The Golden Ratio: The Story of Phi, The Worlds Most Astonishing Number**
+- source: http://103.9.88.89/app/2014-07-18/Mario%20Livio%20-%20The%20Golden%20Ratio%20The%20Story%20of%20Phi,%20the%20World%27s%20Most%20Astonishing%20Number.pdf
+- history:
+- 01/25/2015: Preface
+
+
+**Historic**
+-  Liber Abaci (The Book of Calculation) 
+
+
 **Secrets of Mental Math**
 - source: http://www.engineeringsurveyor.com/software/secrets%20of%20mental%20math.pdf
 - history:
@@ -587,6 +597,7 @@ RN = Rapid Notes
 - source: http://anon.eastbaymediac.m7z.net/anon.eastbaymediac.m7z.net/teachingco/CourseGuideBooks/DG1411_G5C7N6.pdf
 - history:
 - 01/24/2015: intro, 1
+- 01/25/2015: 2, 3, 4
 
 
 **Mathematics for Finance: An introduction to financial engineering**
@@ -595,6 +606,12 @@ RN = Rapid Notes
 - sage:
 - history:
 - 12/10/2014: 1 (leftoff: 1.3)
+
+
+**Financial Mathematics and its Applications**
+- source: http://www.ftvs.cuni.cz/hendl/metodologie/financial-mathematics-and-its-applications.pdf
+- history:
+- 01/25/2015: Preface
 
 
 **An Eternal Golden Braid**

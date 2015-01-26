@@ -4,6 +4,9 @@
 **Misc Math**
 + Misc Number operations: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Number.hs
 + Extract digits from a number: (digits) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Number.hs
++ Base Factors: (factorBase) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Base.hs
++ Translate Base Factors: (translateFactorBase) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Base.hs
+- Translate Base Factors By digits + alphabet
 
 
 **Set Theory**
@@ -115,6 +118,11 @@
 + Sierpinski Number: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Sierpinski.hs
 + Brier Number: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Brier.hs
 + Consecutive Integer Sequence: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Consecutive.hs
++ Fibonacci Number: (fibonacci, fibonacciNumbers) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Fibonacci.hs
++ Fibonacci GCD: (fibonacciGCD) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Fibonacci.hs
++ Lucas Numbers: (lucas, lucasNumbers) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Lucas.hs
++ Golden Ratio: (golden) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GoldenRatio.hs
++ "Binet's" Formula: (binet) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Binet.hs
 
 
 **Constants**
