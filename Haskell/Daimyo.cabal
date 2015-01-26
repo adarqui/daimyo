@@ -151,6 +151,7 @@ Library
                      Daimyo.NumberTheory.Binet
                      Daimyo.NumberTheory.Lucas
                      Daimyo.NumberTheory.GoldenRatio
+                     Daimyo.NumberTheory.MagicSquare
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation

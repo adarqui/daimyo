@@ -123,6 +123,7 @@
 + Lucas Numbers: (lucas, lucasNumbers) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Lucas.hs
 + Golden Ratio: (golden) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GoldenRatio.hs
 + "Binet's" Formula: (binet) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Binet.hs
+/ 18 x 19 Magic Square: (magicSquare 18x19) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/MagicSquare.hs
 
 
 **Constants**
@@ -269,6 +270,7 @@
 **Linear Algebra**
 - Identify various fields
 - System of Linear Equations Solver
+- Parser for matrix operations, linear algebra shell. Similar to how I do operation in this post: http://www.adarq.org/lets-nerd-the-f-out/the-linear-algebra-thread/msg105598/#msg105598
 
 
 **Matrix**

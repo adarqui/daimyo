@@ -15,6 +15,7 @@ RN = Rapid Notes
 - history:
 - 01/11/2015: Number Theory, Algebra, Linear Algebra, Calculus, Trigonometry
 - 01/21/2015: Number Theory, Graph Theory, Network Theory, Game Theory
+- 01/25/2015: Number Theory, Algebra, Linear Algebra, Calculus, Trigonometry
 
 
 **Dope: All in one mathematics cheat sheet**
@@ -280,6 +281,7 @@ RN = Rapid Notes
 - 01/12/2015: 1.2
 - 01/14/2015: 1.3, 1.3 exercises (leftoff @ 15)
 - 01/20/2015: 1.4 (no ex)
+- 01/26/2015: 1.4, 1.5
 
 
 **Linear Algebra**
@@ -400,6 +402,7 @@ RN = Rapid Notes
 - history:
 - 01/13/2015: Preface
 - 01/15/2015: 1.1
+- 01/25/2015: 1.2
 
 
 **Calculus**
@@ -477,6 +480,7 @@ RN = Rapid Notes
 - source: http://www.esi2.us.es/~mbilbao/pdffiles/DiestelGT.pdf
 - history:
 - 01/23/2015: Preface
+- 01/26/2015: 1.1, 1.2
 
 
 **Graph Theory Lecture Notes**
@@ -560,12 +564,14 @@ RN = Rapid Notes
 
 **Numbers (history)**
 - source: http://www.maths.ed.ac.uk/~aar/papers/numbers
+- history:
+- 01/26/2015: Preface, Introduction
 
 
 **The Golden Ratio: The Story of Phi, The Worlds Most Astonishing Number**
 - source: http://103.9.88.89/app/2014-07-18/Mario%20Livio%20-%20The%20Golden%20Ratio%20The%20Story%20of%20Phi,%20the%20World%27s%20Most%20Astonishing%20Number.pdf
 - history:
-- 01/25/2015: Preface
+- 01/25/2015: Preface, 1
 
 
 **Historic**
@@ -597,7 +603,8 @@ RN = Rapid Notes
 - source: http://anon.eastbaymediac.m7z.net/anon.eastbaymediac.m7z.net/teachingco/CourseGuideBooks/DG1411_G5C7N6.pdf
 - history:
 - 01/24/2015: intro, 1
-- 01/25/2015: 2, 3, 4
+- 01/25/2015: 2, 3, 4, 5
+- 01/26/2015: 6
 
 
 **Mathematics for Finance: An introduction to financial engineering**
