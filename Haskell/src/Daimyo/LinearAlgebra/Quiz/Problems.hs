@@ -4,6 +4,7 @@ module Daimyo.LinearAlgebra.Quiz.Problems (
 
 import Daimyo.LinearAlgebra.Other.GaussJordan
 import Data.Matrix
+import Control.Monad
 
 p1'equations =
     [
@@ -36,8 +37,17 @@ p1'augmented'matrix =
 p1'rref =
     let
         m = p1'augmented'matrix
+        m'a = switchRows 1 2 m
+        m'b = combineRows 1 (-2) 2 m'a
+        m'c = combineRows 3 (-3) 1 m'b
+        m'd = combineRows 3 (-2) 2 m'c
     in
-        m
+        [("augmented",m), ("swap R1,R2",m'a), ("R1 = -2*R2+R1",m'b), ("R3 = -3*R1+R3",m'c), ("R3=-2*R2+R3",m'd)]
 
 
-p1 = undefined
+p1 =
+    let
+        rref = p1'rref
+    in
+        mapM_ (\(s,m) -> putStrLn ("Operation: " ++ s) >> putStrLn (show m)) rref
+
