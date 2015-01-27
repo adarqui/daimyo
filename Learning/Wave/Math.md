@@ -46,6 +46,7 @@ RN = Rapid Notes
 - 01/20/2015: champernowne, champion, cicada, chinese remainder, circle prime, circular prime, compositorial, consecutive integer sequence
 - 01/22/2015: consecutive numbers, consecutive primes, conways prime machine, cousin primes, cullen primes
 - 01/23/2015: leftoff: deletable
+- 01/26/2015: magic squares, deficient, deletable, demlo
 
 
 **Logic**
@@ -403,6 +404,7 @@ RN = Rapid Notes
 - 01/13/2015: Preface
 - 01/15/2015: 1.1
 - 01/25/2015: 1.2
+- 01/26/2015: 1.3 (leftoff: trigonometric identities)
 
 
 **Calculus**

@@ -124,6 +124,7 @@
 + Golden Ratio: (golden) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/GoldenRatio.hs
 + "Binet's" Formula: (binet) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Binet.hs
 / 18 x 19 Magic Square: (magicSquare 18x19) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/MagicSquare.hs
++ Demlo Numbers: (demlos) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Demlo.hs
 
 
 **Constants**

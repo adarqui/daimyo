@@ -152,6 +152,7 @@ Library
                      Daimyo.NumberTheory.Lucas
                      Daimyo.NumberTheory.GoldenRatio
                      Daimyo.NumberTheory.MagicSquare
+                     Daimyo.NumberTheory.Demlo
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation
