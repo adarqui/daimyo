@@ -483,6 +483,7 @@ RN = Rapid Notes
 - history:
 - 01/23/2015: Preface
 - 01/26/2015: 1.1, 1.2
+- 01/27/2015: 1.3
 
 
 **Graph Theory Lecture Notes**

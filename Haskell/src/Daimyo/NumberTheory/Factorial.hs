@@ -2,7 +2,8 @@ module Daimyo.NumberTheory.Factorial (
     fac,
     fac'product,
     fac'hist,
-    fac'list
+    fac'list,
+    ratFac
 ) where
 
 fac 0 = 1
@@ -18,3 +19,7 @@ fac'hist n =
         (r*n, l ++ [r*n])
 
 fac'list n = let (_, l) = fac'hist n in l
+
+ratFac n
+    | n < 1 = 1
+    | otherwise = n * ratFac (n-1)

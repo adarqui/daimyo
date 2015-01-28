@@ -153,6 +153,7 @@ Library
                      Daimyo.NumberTheory.GoldenRatio
                      Daimyo.NumberTheory.MagicSquare
                      Daimyo.NumberTheory.Demlo
+                     Daimyo.NumberTheory.Gamma
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation
@@ -167,6 +168,7 @@ Library
                      Daimyo.Proof.Exercises.Misc
 --                     Daimyo.Graphs.Circles
 --                     Daimyo.Graphs.T1
+                     Daimyo.Algorithm.Growth
                      Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.PSS.C1.E1
@@ -178,6 +180,6 @@ Library
                      Daimyo.Security.Stanford
                      Daimyo.Quiz
                      Daimyo.Athletics.Run
- Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, AC-Angle, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, numbers
+ Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, AC-Angle, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, numbers, gamma
 -- diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, constructive-algebra
  GHC-Options:        -Wall
