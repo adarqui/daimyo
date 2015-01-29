@@ -125,6 +125,8 @@ Library
                      Daimyo.NumberTheory.Prime.SophieGermain
                      Daimyo.NumberTheory.Prime.CunninghamChain
                      Daimyo.NumberTheory.Prime.Twin
+                     Daimyo.NumberTheory.Log
+                     Daimyo.NumberTheory.Log.Gap
                      Daimyo.NumberTheory.Abc
                      Daimyo.NumberTheory.Abundant
                      Daimyo.NumberTheory.Aliquot

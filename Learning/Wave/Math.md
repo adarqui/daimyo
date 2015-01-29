@@ -405,6 +405,7 @@ RN = Rapid Notes
 - 01/15/2015: 1.1
 - 01/25/2015: 1.2
 - 01/26/2015: 1.3 (leftoff: trigonometric identities)
+- 01/28/2015: 1.4, 1.5
 
 
 **Calculus**
