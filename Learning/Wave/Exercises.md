@@ -125,6 +125,9 @@
 + "Binet's" Formula: (binet) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Binet.hs
 / 18 x 19 Magic Square: (magicSquare 18x19) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/MagicSquare.hs
 + Demlo Numbers: (demlos) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Demlo.hs
++ Continued Fractions: (continuedFraction, continuedFractionNumerators) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/ContinuedFraction.hs
++ Continued Fractions Constant examples: (_e, _pi, _goldenN) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/ContinuedFraction/Constant.hs
++ Square Palindrome: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/NumberTheory/Square.hs
 
 
 **Constants**

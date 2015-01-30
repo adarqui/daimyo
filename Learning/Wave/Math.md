@@ -609,6 +609,11 @@ RN = Rapid Notes
 - 01/24/2015: intro, 1
 - 01/25/2015: 2, 3, 4, 5
 - 01/26/2015: 6
+- 01/30/2015: 7, 8, 9
+
+
+**Computational Complexity: A Modern Approach**
+- source: http://www.cs.princeton.edu/theory/complexity/book.pdf
 
 
 **Mathematics for Finance: An introduction to financial engineering**
