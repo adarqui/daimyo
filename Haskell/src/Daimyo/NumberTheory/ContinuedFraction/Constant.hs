@@ -15,7 +15,7 @@ _e = continuedFraction (2, [1,2,1,1,4,1,1,6,1,1,8])
 
 _goldenRatio = continuedFraction (1, [1,1,1,1,1,1,1,1,1,1,1])
 
-_goldenRatioN n = continuedFraction (1, replicate n 1)
+_goldenRatioN precision = continuedFraction (1, replicate precision 1)
 
 {-
     n' + 1 / (n' + (1 / ...) ...)

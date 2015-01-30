@@ -158,6 +158,7 @@ Library
                      Daimyo.NumberTheory.Gamma
                      Daimyo.NumberTheory.ContinuedFraction
                      Daimyo.NumberTheory.ContinuedFraction.Constant
+                     Daimyo.NumberTheory.Odd
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation
