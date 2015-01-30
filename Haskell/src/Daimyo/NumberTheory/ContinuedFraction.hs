@@ -1,13 +1,13 @@
 module Daimyo.NumberTheory.ContinuedFraction (
     continuedFraction,
-    continuedFraction'list
+    continuedFraction'rest
 ) where
 
-continuedFraction (n,dl) = n + continuedFraction'list dl
+continuedFraction (n,dl) = n + continuedFraction'rest dl
 
-continuedFraction'list ds = 1 / continuedFraction'list' ds
+continuedFraction'rest ds = 1 / continuedFraction'rest' ds
 
-continuedFraction'list' [] = 0
-continuedFraction'list' (d:ds) = d + (1 / continuedFraction'list' ds)
+continuedFraction'rest' [] = 0
+continuedFraction'rest' (d:ds) = d + (1 / continuedFraction'rest' ds)
 
 t_continuedFraction'1 = continuedFraction (4,[2,6,7])
