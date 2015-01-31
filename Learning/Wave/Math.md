@@ -612,8 +612,19 @@ RN = Rapid Notes
 - 01/30/2015: 7, 8, 9
 
 
+**Mathemtical Foundations of Automata Theory**
+- source: http://www.liafa.jussieu.fr/~jep/PDF/MPRI/MPRI.pdf
+
+
 **Computational Complexity: A Modern Approach**
 - source: http://www.cs.princeton.edu/theory/complexity/book.pdf
+- history:
+- 01/30/2015: About This Book
+- 01/31/2015: 1
+
+
+**Introduction to Theory of Computation**
+- source: http://cglab.ca/~michiel/TheoryOfComputation/TheoryOfComputation.pdf
 
 
 **Mathematics for Finance: An introduction to financial engineering**

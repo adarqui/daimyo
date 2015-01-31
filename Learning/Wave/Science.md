@@ -1,5 +1,7 @@
 **An Introduction to Bioinformatics Algorithms**
 - source: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.218.3258&rep=rep1&type=pdf
+- history:
+- 01/30/2015: Preface, 1
 
 
 **Introduction To Computational NeuroScience**

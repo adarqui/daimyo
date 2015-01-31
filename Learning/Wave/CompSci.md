@@ -40,3 +40,7 @@
 
 **Dictionary of Algorithms and Dada Structures**
 - source: http://xlinux.nist.gov/dads
+
+
+**Introduction To Automata Theory, Languages, and Computation**
+- source: http://www.pmfst.unist.hr/~milica/Matem_teorija_r/MTR_web/Introduction%20To%20Automata%20Theory.pdf

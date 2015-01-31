@@ -159,6 +159,8 @@ Library
                      Daimyo.NumberTheory.ContinuedFraction
                      Daimyo.NumberTheory.ContinuedFraction.Constant
                      Daimyo.NumberTheory.Odd
+                     Daimyo.NumberTheory.Even
+                     Daimyo.NumberTheory.Square
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation

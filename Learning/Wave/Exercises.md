@@ -7,6 +7,17 @@
 + Base Factors: (factorBase) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Base.hs
 + Translate Base Factors: (translateFactorBase) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Math/Base.hs
 - Translate Base Factors By digits + alphabet
+- Grade school algorithm for multiplication
+
+
+**Multiplication**
+- Grid
+- Long
+- Lattice
+- Peasant or Binary
+- Shift and Add
+- Quarter Square
+- FFT
 
 
 **Set Theory**
@@ -340,8 +351,9 @@
 
 
 **Games**
-- Chess: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Game/Chess.hs
-- Checkers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Game/Checkers.hs
+/ Chess: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Game/Chess.hs
+/ Checkers: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Game/Checkers.hs
+- Rock Game:
 
 
 **Crypto**
