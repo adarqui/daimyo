@@ -337,6 +337,19 @@
 + Nth Root Table: https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Table/NthRoot.hs
 
 
+**Turing Machine**
+- Simple Turing Machine
+- Universal Turing Machine
+- Addition
+- Multiplication
+- Implement PAL (palindrome test)
+
+
+**Algorithm**
++ Growth Examples: (gaps, growth) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algorithm/Growth.hs
++ Growth Detective: (detect) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algorithm/Growth/Detective.hs
+
+
 **Translation**
 - Number Theory Using Sage. This would be a great book to translate from sage to haskell.
 

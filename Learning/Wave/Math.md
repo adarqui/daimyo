@@ -620,7 +620,7 @@ RN = Rapid Notes
 - source: http://www.cs.princeton.edu/theory/complexity/book.pdf
 - history:
 - 01/30/2015: About This Book
-- 01/31/2015: 1
+- 01/31/2015: Introduction, 1
 
 
 **Introduction to Theory of Computation**

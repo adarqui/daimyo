@@ -176,6 +176,7 @@ Library
 --                     Daimyo.Graphs.Circles
 --                     Daimyo.Graphs.T1
                      Daimyo.Algorithm.Growth
+                     Daimyo.Algorithm.Growth.Detective
                      Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.PSS.C1.E1
