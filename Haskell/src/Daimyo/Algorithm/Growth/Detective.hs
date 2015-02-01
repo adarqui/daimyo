@@ -46,5 +46,6 @@ tests =
             detect (\x -> 3*2**x) interval,
             detect (\x -> 3*(log x)+100) interval,
             detect (\x -> 3*(log (log x))+100) interval,
-            detect (\x -> 3*(fac x)+100) interval
+            detect (\x -> 10+sin x) interval,
+            detect (\x -> 10+cos x) interval
         ]

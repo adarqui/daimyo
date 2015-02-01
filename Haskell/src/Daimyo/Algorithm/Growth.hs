@@ -9,12 +9,16 @@ module Daimyo.Algorithm.Growth (
     gaps'log'logn,
     gaps'nfac,
     gaps'2expn,
+    gaps'sin,
+    gaps'cos,
     growth'n,
     growth'n2,
     growth'logn,
     growth'log'logn,
     growth'nfac,
     growth'2expn,
+    growth'sin,
+    growth'cos,
     growthFunctions,
     testGrowthFunctionResults
 ) where
@@ -36,6 +40,8 @@ gaps'logn interval = gaps [ log n | n <- interval ]
 gaps'log'logn interval = gaps [ log (log n) | n <- interval ]
 gaps'nfac interval = gaps [ fac n | n <- interval ]
 gaps'2expn interval = gaps [ 2**n | n <- interval ]
+gaps'sin interval = gaps [ sin n | n <- interval ]
+gaps'cos interval = gaps [ cos n | n <- interval ]
 
 growth'n = Growth "n" gaps'n
 growth'n2 = Growth "n^2" gaps'n2
@@ -43,6 +49,8 @@ growth'logn = Growth "logn" gaps'logn
 growth'log'logn = Growth "log(logn)" gaps'log'logn
 growth'nfac = Growth "n!" gaps'nfac
 growth'2expn = Growth "2^n" gaps'2expn
+growth'sin = Growth "sin" gaps'sin
+growth'cos = Growth "cos" gaps'cos
 
 growthFunctions =
     [
@@ -51,7 +59,9 @@ growthFunctions =
         growth'logn,
         growth'log'logn,
         growth'nfac,
-        growth'2expn
+        growth'2expn,
+        growth'sin,
+        growth'cos
     ]
 
 testGrowthFunctionResults ns gs = 
