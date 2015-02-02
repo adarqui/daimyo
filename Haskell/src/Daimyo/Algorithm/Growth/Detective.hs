@@ -6,7 +6,9 @@ module Daimyo.Algorithm.Growth.Detective (
 ) where
 
 import Daimyo.Algorithm.Growth
+import Daimyo.NumberTheory.Prime
 import Daimyo.NumberTheory.Factorial
+import Daimyo.NumberTheory.Fibonacci
 import Data.List
 
 {-
@@ -44,8 +46,11 @@ tests =
             detect (\x -> 3*x) interval,
             detect (\x -> 3*(x*x)+100) interval,
             detect (\x -> 3*2**x) interval,
+            detect (\x -> 3*(fac x)+100) interval,
+            detect (\x -> 3*(fromIntegral (fibonacciNumbers !! (truncate x)) :: Double)+100) interval,
             detect (\x -> 3*(log x)+100) interval,
             detect (\x -> 3*(log (log x))+100) interval,
             detect (\x -> 10+sin x) interval,
-            detect (\x -> 10+cos x) interval
+            detect (\x -> 10+cos x) interval,
+            detect (\x -> 3+(fromIntegral (primes !! (truncate x)) :: Double)+100) interval
         ]
