@@ -77,6 +77,9 @@ PEX= Partial exercises. Means I need to finish the exercises.
 12/10/2014: Hofstatdr interview: http://tal.forum2.org/hofstadter_interview
 
 todo:
+Emergence of Prime Numbers as an Evolutional Straegy: http://www.cicadamania.com/downloads/prime-PRL.pdf
+Golden Ratio Scheduling for Low Delay / Flow Control etc: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.376.5550&rep=rep1&type=pdf
+Linux Kernel Hash Table Behavior: http://www.citi.umich.edu/techreports/reports/citi-tr-00-1.pdf
 Exploring the Cloud From Passive Measurements: http://www.retitlc.polito.it/traverso/papers/amazon_mini.pdf
 Large scale observation and analysis of Amazon AWS traffic: http://homes.di.unimi.it/~pagae/BORMIO2013/PAPERI/bermudez-polito.pdf
 http://plato.stanford.edu/entries/quine-nf/

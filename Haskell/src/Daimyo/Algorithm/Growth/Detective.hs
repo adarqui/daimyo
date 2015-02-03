@@ -52,5 +52,6 @@ tests =
             detect (\x -> 3*(log (log x))+100) interval,
             detect (\x -> 10+sin x) interval,
             detect (\x -> 10+cos x) interval,
+            detect (\x -> 10+tan x) interval,
             detect (\x -> 3+(fromIntegral (primes !! (truncate x)) :: Double)+100) interval
         ]

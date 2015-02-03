@@ -12,6 +12,7 @@ module Daimyo.Algorithm.Growth (
     gaps'2expn,
     gaps'sin,
     gaps'cos,
+    gaps'tan,
     gaps'primes,
     growth'n,
     growth'n2,
@@ -22,6 +23,7 @@ module Daimyo.Algorithm.Growth (
     growth'fib,
     growth'sin,
     growth'cos,
+    growth'tan,
     growth'primes,
     growthFunctions,
     testGrowthFunctionResults
@@ -57,6 +59,7 @@ gaps'fib interval =
 gaps'2expn interval = gaps [ 2**n | n <- interval ]
 gaps'sin interval = gaps [ sin n | n <- interval ]
 gaps'cos interval = gaps [ cos n | n <- interval ]
+gaps'tan interval = gaps [ tan n | n <- interval ]
 gaps'primes interval =
     let
         -- noob
@@ -73,6 +76,7 @@ growth'fib = Growth "fib" gaps'fib
 growth'2expn = Growth "2^n" gaps'2expn
 growth'sin = Growth "sin" gaps'sin
 growth'cos = Growth "cos" gaps'cos
+growth'tan = Growth "tan" gaps'tan
 growth'primes = Growth "primes" gaps'primes
 
 growthFunctions =
@@ -86,6 +90,7 @@ growthFunctions =
         growth'2expn,
         growth'sin,
         growth'cos,
+        growth'tan,
         growth'primes
     ]
 
