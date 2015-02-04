@@ -47,6 +47,7 @@ RN = Rapid Notes
 - 01/22/2015: consecutive numbers, consecutive primes, conways prime machine, cousin primes, cullen primes
 - 01/23/2015: leftoff: deletable
 - 01/26/2015: magic squares, deficient, deletable, demlo
+- 02/03/2015: leftoff: divisibility test
 
 
 **Logic**
