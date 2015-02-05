@@ -178,6 +178,7 @@ Library
                      Daimyo.Algorithm.Growth
                      Daimyo.Algorithm.Growth.Detective
                      Daimyo.Algorithm.Examples.USChange
+                     Daimyo.Algorithm.Examples.Hanoi
                      Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.PSS.C1.E1

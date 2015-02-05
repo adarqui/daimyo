@@ -2,6 +2,7 @@
 - source: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.218.3258&rep=rep1&type=pdf
 - history:
 - 01/30/2015: Preface, 1
+- 02/03/2015: 2 (leftoff: Fast versus slow algorithms)
 
 
 **Introduction To Computational NeuroScience**

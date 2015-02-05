@@ -1,12 +1,17 @@
 module Daimyo.Algorithm.Examples.USChange (
-    uschange
+    change,
+    uschange,
+    uscoins
 ) where
 
-coins = [25,10,5,1]
 
-uschange 0 = []
-uschange m = 
+change coins 0 = []
+change coins m = 
     let
         c = head $ filter (<=m) coins
     in
-        c : uschange (m-c)
+        c : change coins (m-c)
+
+uscoins = [25,10,5,1]
+
+uschange = change uscoins

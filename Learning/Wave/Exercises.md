@@ -348,6 +348,7 @@
 **Algorithm**
 + Growth Examples: (gaps, growth) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algorithm/Growth.hs
 + Growth Detective: (detect) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algorithm/Growth/Detective.hs
+- Growth Detective based on running time
 + Simple Algo: USChange: (uschange) https://github.com/adarqui/Daimyo/blob/master/Haskell/src/Daimyo/Algorithm/Examples/USChange.hs
 
 
