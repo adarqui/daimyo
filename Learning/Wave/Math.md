@@ -1,3 +1,6 @@
+Complete dedication to Math Wave temporarily on hold 02/04/2015. I still plan to chip away at it slowly. I have lots of other things going on that prevent me from dedicating as much effort as I need to.
+
+
 ***Math Wave***
 
 NO = Notes only
