@@ -20,7 +20,7 @@
 **Patterns of Enterprise Application Architecture**
 - source: local
 - 04/16/2015: Preface, Introduction
-- 04/18/2015: Ch1
+- 04/18/2015: 1, 2
 
 **Pattern Oriented Software Architecture, A System of Patterns**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Wiley%20-%20Pattern-Oriented%20Software%20Architecture%20-%20Volume%201,%20A%20System%20of%20Patterns.pdf
@@ -35,6 +35,7 @@
 
 **Software Engineering Best Practices: Lessons from Successful Projects in the Top Companies**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Software%20Engineering%20Best%20Practices.%20Lessons%20from%20Successful%20Projects%20in%20the%20Top%20Companies%20(McGraw-Hill,%202010).pdf
+- 04/18/2015: Forward
 
 **The Rust Programming Language**
 - source: http://doc.rust-lang.org/1.0.0-beta/book
