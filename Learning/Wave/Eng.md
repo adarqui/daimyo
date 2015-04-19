@@ -21,6 +21,7 @@
 - source: local
 - 04/16/2015: Preface, Introduction
 - 04/18/2015: 1, 2
+- 04/19/2015: 3, 4
 
 **Pattern Oriented Software Architecture, A System of Patterns**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Wiley%20-%20Pattern-Oriented%20Software%20Architecture%20-%20Volume%201,%20A%20System%20of%20Patterns.pdf
@@ -59,6 +60,11 @@
 - 04/16/2015: Starbucks Async: http://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html
 - 04/18/2015: Hipchat/React/Flux: https://developer.atlassian.com/blog/2015/02/rebuilding-hipchat-with-react/
 - 04/18/2015: Getting Started with SOA: http://www.sei.cmu.edu/library/assets/whitepapers/SOA_Terminology.pdf
+- 04/19/2015: Haskell Design Patterns: http://blog.ezyang.com/2010/05/design-patterns-in-haskel/
+
+**Misc: TODO**
+- http://research.microsoft.com/en-us/um/people/simonpj/Haskell/guards.html
+- http://alistair.cockburn.us/Hexagonal+architecture
 
 **Haskell Misc PPT**
 - source: http://www.cs.princeton.edu/~dpw/cos441-11/schedule.htm
@@ -66,6 +72,10 @@
 
 **Facts and Fallacies of Software Engineering**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Addison%20Wesley%20-%20Robert%20L%20Glass%20-%20Facts%20and%20Fallacies%20of%20Software%20Engineering.pdf
+
+**UML: Unified Modeling Language User Guide**
+- source: http://www.incubodc.com/eventos_energia_mayorista/memorias_SG/sg_2011/5_materialadicionalUML/Booch-UML-UserGuide.pdf
+- 04/19/2015: Introduction, Ch1
 
 **UML Reference Manual**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Addison%20Wesley%20-%20UML%20Reference%20Manual.pdf
