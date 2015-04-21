@@ -22,6 +22,7 @@
 - 04/16/2015: Preface, Introduction
 - 04/18/2015: 1, 2
 - 04/19/2015: 3, 4
+- 04/20/2015: 5
 
 **Pattern Oriented Software Architecture, A System of Patterns**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Wiley%20-%20Pattern-Oriented%20Software%20Architecture%20-%20Volume%201,%20A%20System%20of%20Patterns.pdf
@@ -54,18 +55,6 @@
 **AMPQ**
 - source: http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-complete-v1.0.pdf
 
-**Misc**
-- 04/08/2015: Open Source (almost) Everything. http://tom.preston-werner.com/2011/11/22/open-source-everything.html
-- 04/10/2015: Tomcat Performance: https://tomcat.apache.org/articles/performance.pdf
-- 04/16/2015: Starbucks Async: http://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html
-- 04/18/2015: Hipchat/React/Flux: https://developer.atlassian.com/blog/2015/02/rebuilding-hipchat-with-react/
-- 04/18/2015: Getting Started with SOA: http://www.sei.cmu.edu/library/assets/whitepapers/SOA_Terminology.pdf
-- 04/19/2015: Haskell Design Patterns: http://blog.ezyang.com/2010/05/design-patterns-in-haskel/
-
-**Misc: TODO**
-- http://research.microsoft.com/en-us/um/people/simonpj/Haskell/guards.html
-- http://alistair.cockburn.us/Hexagonal+architecture
-
 **Haskell Misc PPT**
 - source: http://www.cs.princeton.edu/~dpw/cos441-11/schedule.htm
 - source: http://www.cs.princeton.edu/~dpw/cos441-11/notes/
@@ -79,9 +68,6 @@
 
 **UML Reference Manual**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Addison%20Wesley%20-%20UML%20Reference%20Manual.pdf
-
-**Software Engineering - A Practioners Approach**
-- source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Mcgraw%20Hill%20-%20Software%20Engineering%20-%20A%20Practitioner's%20Approach%20-%20Pressman%20(5Th%20Ed,2001,Bookmarked,Cover).pdf
 
 **Service Oriented Software System Engineering**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/%5bSOA%5d%20%5bIdea%20Group%5d%20%5bService-Oriented%20Software%20System%20Engineering%5d%20%5b2005%5d.pdf
@@ -101,3 +87,36 @@
 **Misc URLS**
 - http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/
 - http://soapatterns.org
+
+**MISC**
+- 04/08/2015: Open Source (almost) Everything. http://tom.preston-werner.com/2011/11/22/open-source-everything.html
+- 04/10/2015: Tomcat Performance: https://tomcat.apache.org/articles/performance.pdf
+- 04/16/2015: Starbucks Async: http://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html
+- 04/18/2015: Hipchat/React/Flux: https://developer.atlassian.com/blog/2015/02/rebuilding-hipchat-with-react/
+- 04/18/2015: Getting Started with SOA: http://www.sei.cmu.edu/library/assets/whitepapers/SOA_Terminology.pdf
+- 04/19/2015: Haskell Design Patterns: http://blog.ezyang.com/2010/05/design-patterns-in-haskel/
+- 04/20/2015: Is Go Object Oriented? http://spf13.com/post/is-go-object-oriented/
+- 04/20/2015: Composition over Inheritance part 1: http://codingdelight.com/2014/01/16/favor-composition-over-inheritance-part-1/
+- 04/20/2015: Composition over Inheritance part 2: http://codingdelight.com/2014/01/17/favor-composition-over-inheritance-part-2/
+- 04/21/2015: Takeaways from Service Architectures At Scales Lessons from Google and Ebay: http://theburningmonk.com/2015/03/qcon-london-2015takeaways-from-service-architectures-at-scale-lessons-from-google-and-ebay/
+- 04/21/2015: Patterns for fine-grain access-controlled business objects: http://www.hillside.net/plop/2014/papers/Security/rubis_2.pdf
+- 04/21/2015: Dont do Role-Based Authorization Checks; Do Activity-Based Checks: https://lostechies.com/derickbailey/2011/05/24/dont-do-role-based-authorization-checks-do-activity-based-checks/
+
+**Misc: TODO**
+- http://research.microsoft.com/en-us/um/people/simonpj/Haskell/guards.html
+- http://alistair.cockburn.us/Hexagonal+architecture
+- http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf
+- http://fsharpforfunandprofit.com/posts/monoids-without-tears/
+- domain model: https://msdn.microsoft.com/en-us/magazine/ee236415.aspx
+- kerberos: http://web.mit.edu/kerberos/dialogue.html
+- is your programming language unreasonable: http://fsharpforfunandprofit.com/posts/is-your-language-unreasonable/
+- fowler microservices: http://martinfowler.com/articles/microservices.html
+- apache shiro: http://www.infoq.com/articles/apache-shiro
+- rbac: http://csrc.nist.gov/rbac/sandhu-ferraiolo-kuhn-00.pdf
+- rbac: https://stormpath.com/blog/new-rbac-resource-based-access-control/
+- rbac: http://sangeeth.github.io/java/shiro/rbac-using-shiro.html
+- apache fortress: https://directory.apache.org/fortress/user-guide/1-intro-rbac.html
+- fortress demo: https://github.com/shawnmckinney/apache-fortress-demo
+
+**Software Engineering - A Practioners Approach**
+- source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Mcgraw%20Hill%20-%20Software%20Engineering%20-%20A%20Practitioner's%20Approach%20-%20Pressman%20(5Th%20Ed,2001,Bookmarked,Cover).pdf
