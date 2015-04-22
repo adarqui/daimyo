@@ -42,6 +42,26 @@
 **The Rust Programming Language**
 - source: http://doc.rust-lang.org/1.0.0-beta/book
 
+**Effective Java: 2nd Edition**
+- source: http://uet.vnu.edu.vn/~chauttm/e-books/java/Effective.Java.2nd.Edition.May.2008.3000th.Release.pdf
+
+**Groovy in Action: 2nd Edition**
+- source: http://testa.roberta.free.fr/My%20Books/Computer%20programming/Java/Manning%20Groovy%20in%20Action%20Jan%202007%20eBook-BBL.pdf
+
+**Scala by Example**
+- source: http://www.scala-lang.org/docu/files/ScalaByExample.pdf
+- 04/21/2015:
+
+**Scala for the Impatient**
+- source: http://logic.cse.unt.edu/tarau/teaching/scala_docs/scala-for-the-impatient.pdf
+- 04/21/2015: 1,2,3,4,5,6
+
+**Programming in Scala: 2nd Edition**
+- source: http://www.r-5.org/files/books/computers/Martin_Odersky_Lex_Spoon_Bill_Venners-Programming_in_Scala-EN.pdf
+
+**Scala School**
+- source: https://twitter.github.io/scala_school/
+
 **Rust By Example**
 - source: http://rustbyexample.com/
 - 04/07/2015: Modules [1, 8]
@@ -101,6 +121,7 @@
 - 04/21/2015: Takeaways from Service Architectures At Scales Lessons from Google and Ebay: http://theburningmonk.com/2015/03/qcon-london-2015takeaways-from-service-architectures-at-scale-lessons-from-google-and-ebay/
 - 04/21/2015: Patterns for fine-grain access-controlled business objects: http://www.hillside.net/plop/2014/papers/Security/rubis_2.pdf
 - 04/21/2015: Dont do Role-Based Authorization Checks; Do Activity-Based Checks: https://lostechies.com/derickbailey/2011/05/24/dont-do-role-based-authorization-checks-do-activity-based-checks/
+- 04/21/2015: React To The Future With Isomorphic Apps: http://www.smashingmagazine.com/2015/04/21/react-to-the-future-with-isomorphic-apps/
 
 **Misc: TODO**
 - http://research.microsoft.com/en-us/um/people/simonpj/Haskell/guards.html
@@ -117,6 +138,7 @@
 - rbac: http://sangeeth.github.io/java/shiro/rbac-using-shiro.html
 - apache fortress: https://directory.apache.org/fortress/user-guide/1-intro-rbac.html
 - fortress demo: https://github.com/shawnmckinney/apache-fortress-demo
+- jboss tutorial: https://github.com/jboss-developer/ticket-monster && http://www.jboss.org/ticket-monster/
 
 **Software Engineering - A Practioners Approach**
 - source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Mcgraw%20Hill%20-%20Software%20Engineering%20-%20A%20Practitioner's%20Approach%20-%20Pressman%20(5Th%20Ed,2001,Bookmarked,Cover).pdf
