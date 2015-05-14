@@ -1,0 +1,4 @@
+It's not that traditional libraries like jQuery can't help you build desktop-like experiences, it's just not the use-case for it and is missing things like:
+- data-binding
+- event routing
+- state management

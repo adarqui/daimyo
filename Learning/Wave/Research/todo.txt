@@ -1,0 +1,23 @@
+daimyo/higherLearning
+
+organize into:
+incomplete
+    | books
+    | news
+    | code
+    | people
+complete
+    | books
+    | news
+    | code
+    | people
+
+etc.
+
+code:
+    cors plugin for goji
+    cors middleware for scotty
+
+hackerrank
+codeeval
+

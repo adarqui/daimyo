@@ -1,0 +1,4 @@
+source: http://thetechcofounder.com/getting-started-with-ember-js-using-ember-cli/
+
+history:
+- 05/11/2015: read, implement, great tutorial.. need one like this one components

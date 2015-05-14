@@ -1,0 +1,4 @@
+source: http://code.tutsplus.com/tutorials/getting-into-ember-js--net-30709
+
+history:
+- 05/06/2015: notes

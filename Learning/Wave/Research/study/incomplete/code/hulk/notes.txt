@@ -1,0 +1,99 @@
+Types.h
+- It’s also common to put all your types into one module named Types, as you tend to use types from every module and this avoids circular dependency problems in the long run.
+
+ConfigFile library:
+- http://hackage.haskell.org/package/ConfigFile
+- nice
+
+example:
+        hostname <- get c "LISTEN" "hostname"
+
+[LISTEN]
+port = 6667
+hostname = cn-done
+
+
+HULK MONAD:
+-----------
+- https://github.com/chrisdone/hulk/blob/master/src/Hulk/Types.hs
+- https://hackage.haskell.org/package/mtl-2.2.1/docs/Control-Monad-RWS-Lazy.html
+
+-- | The Hulk client monad.
+newtype HulkT m a = Hulk { runHulk :: RWST HulkReader [HulkWriter] HulkState m a }
+  deriving (Monad,
+            Functor,
+            Applicative,
+            MonadReader HulkReader,
+            MonadWriter [HulkWriter],
+            MonadState HulkState)
+
+
+Client
+------
+https://github.com/chrisdone/hulk/blob/master/src/Hulk/Client.hs
+
+-- | Run the client monad.
+handleCommand
+  :: Config                        -- ^ Server configuration.
+  -> HulkState                     -- ^ Server state.
+  -> UTCTime                       -- ^ Current time.
+  -> Conn                          -- ^ Current client connection.
+  -> (String,String)               -- ^ Authorization info.
+  -> Command                       -- ^ The command.
+  -> ((), HulkState, [HulkWriter]) -- ^ The new transformed state and any instructions.
+handleCommand config state' now conn auth cmd = do
+  runRWS (runHulk (handleCmd cmd))
+         (HulkReader now conn config Nothing auth)
+         state'
+
+
+Server
+------
+
+-- | Handle a received message from the client.
+runClientHandler :: MVar () -> Config -> MVar HulkState -> Handle -> Conn -> (String,String) -> Message -> IO ()
+runClientHandler lvar config mstate handle conn auth msg = do
+  now <- getCurrentTime
+  instructions <- modifyMVar mstate $ \state -> return $
+    let ((),newstate,instructions) = handleCommand config state now conn auth (msgCommand msg)
+    in (newstate,instructions)
+  forM_ instructions $ \i ->
+    do result <- try (handleWriter lvar config handle i)
+       case result of
+         Left e -> putStrLn ("handleWriter exception: " ++ show (e :: SomeException) ++ " for " ++ show i)
+         Right () -> return ()
+
+
+
+use of void:
+    void $ forkIO $ handleClient lvar config handle statevar auth conn
+
+
+fix?
+  fix $ \loop -> do
+
+
+
+
+Validation
+----------
+
+-- | Handle WHOIS message.
+handleWhoIs :: Text -> Hulk ()
+handleWhoIs nick' =
+  withValidNick nick' $ \nick ->
+  ...
+
+-- | With a valid nickname, perform an action.
+withValidNick :: Text -> (Nick -> Hulk ()) -> Hulk ()
+withValidNick nick m
+    | validNick nick = m (NickName (mk nick))
+    | otherwise      = errorReply $ "Invalid nick format: " <> nick
+
+-- | Perform an action with a registered user by its nickname.
+withRegUserByNick :: Nick -> (RegUser -> Hulk ()) -> Hulk ()
+withRegUserByNick nick m = do
+  user <- regUserByNick nick
+  case user of
+    Just user' -> m user'
+    Nothing -> sendNoSuchNick nick

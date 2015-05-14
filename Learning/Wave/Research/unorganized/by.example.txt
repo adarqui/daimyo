@@ -1,0 +1,14 @@
+go:
+- https://gobyexample.com/
+
+rust:
+- http://rustbyexample.com/
+
+haskell:
+
+scala:
+- http://www.scala-lang.org/docu/files/ScalaByExample.pdf
+
+java:
+
+groovy:

@@ -1,0 +1,5 @@
+source: https://www.youtube.com/watch?v=phIK3wtEIwk
+- http://www.amooma.de/screencasts/2015-03-09-hello-world-with-ember/
+
+history:
+- 05/07/2015

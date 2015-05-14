@@ -1,0 +1,23 @@
+convert exceptions into failures
+- for functions that throw exceptions, capture those exceptions and return either success or failure
+
+IMP
+designing for errors
+
+type ErrorMessage =
+    | Blah1
+    | Blah2
+    ...
+    | Blah99
+
+let returnMessage = ...
+    case error of
+        Blah1 -> "blah1 .."
+        ...
+        Blah99 -> "blah999 .."
+
+if you need to retry three times, put the function three times in the pipeline.... IMP
+
+Many examples in functional programming assume that you are always on the "happy path". But to create a robust real world application you must deal with validation, logging, network and service errors, and other annoyances.
+
+compensating transactions instead of two phase commits

@@ -1,0 +1,4 @@
+source: http://www.haskellforall.com/2014/02/streaming-logging.html
+
+history:
+- 05/01/2015: quick read

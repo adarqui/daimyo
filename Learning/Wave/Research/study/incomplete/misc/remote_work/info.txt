@@ -1,0 +1,4 @@
+sources:
+- https://github.com/lukasz-madon/awesome-remote-job
+- https://github.com/remotesclub
+- https://www.remotes.club

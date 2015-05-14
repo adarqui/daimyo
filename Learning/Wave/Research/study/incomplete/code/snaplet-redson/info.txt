@@ -1,0 +1,3 @@
+source: https://hackage.haskell.org/package/snaplet-redson-0.1.0.0/docs/src/Snap-Snaplet-Redson.html#redsonInit
+
+good example of hedis/aeson bytestring usage

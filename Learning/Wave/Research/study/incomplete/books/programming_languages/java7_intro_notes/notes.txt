@@ -1,0 +1,129 @@
+C1 The Mental Landscape
+-----------------------
+
+fetch-and-execute cycle:
+- fetch an instruction, execute it, repeat
+
+A computer is a machine built of millions of tiny switches called
+transistors, which have the property that they can be wired together in such a way that an
+output from one switch can turn another switch on or off. As a computer computes, these
+switches turn each other on or off in a pattern determined both by the way they are wired
+together and by the program that the computer is executing.
+
+A computer can work directly with binary numbers because switches can readily represent
+such numbers: Turn the switch on to represent a one; turn it off to represent a zero. Machine
+language instructions are stored in memory as patterns of switches turned on or off. When a
+machine language instruction is loaded into the CPU, all that happens is that certain switches
+are turned on or off in the pattern that encodes that instruction. The CPU is built to respond
+to this pattern by executing the instruction it encodes; it does this simply because of the way
+all the other switches in the CPU are wired together
+
+A computer system consisting of many devices is typically organized by connecting those
+devices to one or more busses. A bus is a set of wires that carry various sorts of information
+between the devices connected to those wires. The wires carry data, addresses, and control
+signals. An address directs the data to a particular device and perhaps to a particular register
+or location within that device. Control signals can be used, for example, by one device to alert
+another that data is available for it on the data bus.
+
+polling
+interrupts
+
+thread will continue to run until one of several things happen:
+- yield: thread voluntarily yield's
+- block: thread becomes blocked
+- preemptive multitasking: thread might use up it's allotted time slice
+
+programs written in java are compiled into a virtual machine language
+- java virtual machine
+
+just-in-time compiler
+- java bytecode used to be slow but not anymore
+- executes java bytecode
+- just-in-time compiler translates java bytecode to native machine language
+- done while executing the program
+
+to work with data you need to understand:
+- variables and types
+
+to work with instructions you need to understand:
+- control structures and subroutines
+
+variable in java:
+- memory location assigned a name
+- a "box" in memory
+
+control structures:
+- special instructions that can change the flow of control
+- two basic types: loops and branches
+
+subroutine:
+- consists of the instructions for performing some task, grouped together as a unit and given a name
+
+software engineering:
+- concerned with the construction of correct, working, well-written programs
+
+structured programming:
+- 1970's and 1980's
+- to solve a large problem, break the problem into several pieces and work on each piece separately
+- to solve each piece, treat it as a new problem.. and repeat
+- aka top-down programming
+- focus on the instructions necessary to solve a problem
+- less focus on the data structures
+- difficult to reuse work for other projects
+- produces designs that are unique to the problem
+
+bottom-up design:
+- start at the bottom, with problems that you already know how to solve
+- might already have reusable software components at hand
+- work upwards towards a solution to the overall problem
+- reusable components should be as modular as possible
+
+module: component of a larger system that interacts with the rest of the system in a simple, well-defined, straight forward manner
+- can be plugged into systems
+details of what goes on inside the module are not important to the system as a while - as long as module fulfills its assigned role correctly
+- information hiding ^^
+
+information hiding: one of the most important principles in software engineering
+
+more advanced methods of information hiding: OOP
+
+oop:
+- central concept: object
+- object: kind of module containing data and subroutines
+- objects are a self-sufficient entity that has internal state (data) and that can respond to message (calls to its subroutines)
+- solution to the software reuse problem
+
+oop approach to software eng:
+- start by identifying the objects involved in a problem and the messages that those objects should respond to
+
+"think of objects as knowing how to respond to certain messages"
+
+polymorphism:
+- different objects can respond to the same message in different ways
+
+class:
+- objects that contain the same type of data and respond to the same messages in the same way belong to the same class
+- a class is created and then one or more objects are created using that class as a template
+
+                     drawable object
+        multipoint object       two point object
+    polygon  curve             line rectangle oval
+
+drawable object, multipoint object, and twopoint object would be classes
+multipoint object and twopoint object would be subclasses of drawable object
+line would be a subclass of twopoint object and indirectly of drawable object
+
+inherit:
+- a subclass of a class is said to inherit the properties of that class
+
+subclass:
+- inherits properties of a class
+- can add to its inheritance
+- can override part of that inheritance
+
+"a class is the ultimate reusable component"
+
+
+
+C2: Programming in the small I: Names and things
+------------------------------------------------

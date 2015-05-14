@@ -1,0 +1,4 @@
+source: http://www.infoq.com/articles/apache-shiro
+
+history:
+- 05/09/2015:

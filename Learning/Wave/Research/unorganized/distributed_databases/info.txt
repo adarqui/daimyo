@@ -1,0 +1,3 @@
+mnedia:
+- http://www.erlang.org/doc/man/mnesia.html
+- A Distributed Telecommunications DBMS

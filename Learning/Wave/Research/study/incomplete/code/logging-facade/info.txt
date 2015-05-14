@@ -1,0 +1,7 @@
+source: https://github.com/sol/logging-facade
+
+backends:
+- https://github.com/zalora/logging-facade-journald
+
+history:
+- 05/01/2015: quick lookover

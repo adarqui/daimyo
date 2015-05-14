@@ -1,0 +1,27 @@
+npm install -g ember-cli
+ember new app
+ember install ember-cli-coffeescript
+ember help generate
+ember generate route ping
+ember g http-mock posts
+ember g route --pod about
+
+resources:
+- https://github.com/tastejs/todomvc/tree/gh-pages/examples/emberjs
+
+starter-kit:
+- https://github.com/emberjs/starter-kit
+- tests, organization, etc
+
+ember-cli:
+- http://www.ember-cli.com/
+- http://www.ember-cli.com/asset-compilation/
+
+coffee6
+https://github.com/alexspeller/ember-cli-coffees6
+
+ember data model maker:
+- http://andycrum.github.io/ember-data-model-maker/
+
+ember-inspector:
+- chrome/firefox plugin

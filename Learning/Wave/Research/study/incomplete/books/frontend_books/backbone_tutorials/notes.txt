@@ -1,0 +1,201 @@
+backbone.js tutorial
+
+views:
+------
+- backbone views are used to reflect what your applications' data models look like
+- listen to events and react
+- initialize() method is always called when instantiating a backbone view
+- initialize() is basicaly the constructor of the view class
+- every view has an el property
+    - el references the DOM object created in the browser
+- if empty, backbone creates an empty div
+
+backbones.js dependent on underscore.js
+
+var v = new SearchView({ el: $("#search_container") });
+- binds search_container to the element.
+- any events we trigger must be in the element
+
+render()
+- loads a template into the view's el property using jQuery
+
+templates:
+----------
+- can be cached
+- allows to separate design from the application logic placing all our html in the template folder
+
+var template = _.template( $("#search_template").html(), variables_object);
+this.el.html(template);
+<script type="text/template" id="search_template">
+    <label>Search</label>
+    <input type="text" id="search_input" />
+</script>
+
+events:
+-------
+- attach listeners to views
+- can only be attached to child elements of the el property
+events: {
+    "click input[type=button]": "someFunction"
+}
+
+backbone.js model:
+------------------
+- containing the interactive data as well as a large part of the logic surrounding it: conversions, validations, computed properties, access control
+- Backbone.Model.extend()
+- initialize() constructor
+- setting attributes on the model:
+    var model = new Model({ attribute: value });
+    or
+    model.set({ attribute: value });
+- getting attributes of the model:
+    model.get("attribute");
+- model defaults:
+    var Model = Backbone.Model.Extend({
+        defaults: {
+            ...
+        }
+    });
+- all attributes of a model can have listeners bound to them to detect changes to their values
+    bind a function to a change event: this.bind("change:<attribute>", function);
+    put in initialize()
+    ie
+        this.bind("change:name", function() {
+            this.get() ..
+        });
+- get all current attributes:
+    model.toJSON();
+    or
+    var attributes = model.attributes;
+- validations: validate method
+    Model = Backbone.Model.extend({
+        validate: function(attributes) {
+            ...
+        });
+    });
+
+
+collections:
+------------
+- ordered set of models
+    Model: Todo, Collection: TodoList
+- models not limited to a type of collection
+    Model: Student, Collection: GymClass
+    Model: Student, Collection: ArtClass
+    ..
+    var Song = Backbone.Model.Extend({});
+    var Album = Backbone.Collection.extend({
+        model: Song
+    });
+    var myAlbum = new Album([song1, song2, ...]);
+- has defaults() and initialize() as well
+- access models: models attribute, ie: myAlbum.models
+
+
+router:
+-------
+- used for routing application URL's when using hash tags
+- routes interpret anyting after "#" tag in the url
+- all links in your app should target "#/action" or "#action"
+- "#/action" is for aesthetics: "examples.com/#/user/help"
+- start the router with Backbone.history.start()
+- two styles of routing:
+    :params
+    _splat *splats
+
+    var AppRouter = Backbone.Router.extend({
+        routes: {
+            "/post/:thread:/:id": "getPost",
+            "/download/*path", "downloadFile",
+            "*actions": "defaultRoute"
+        },
+        getPost: function(thread, id) {
+            ...
+        },
+        downloadFile: function(path) {
+            ...
+        },
+        defaultRoute: function(actions) {
+            ...
+        }
+    });
+    var app_router = new AppRouter;
+    Backbone.history.start();
+
+organizing your application:
+----------------------------
+- backbone doesn't tell you how to organize your code
+- AMD - Asynchronous Module Definitions
+- AMD (fork of Common.js spec)
+- require.js
+- require.js data-main:
+    <script data-main="js/main" src="js/libs/require/require.js"></script>
+    will load js/main.js
+
+file structure:
+---------------
+
+/* File Structure
+├── imgs
+├── css
+    └── style.css
+├── templates
+    ├── projects
+        ├── list.html
+        └── edit.html
+    └── users
+        ├── list.html
+        └── edit.html
+├── js
+    ├── libs
+        ├── jquery
+            ├── jquery.min.js
+            └── jquery.js // jQuery Library Wrapper
+        ├── backbone
+            ├── backbone.min.js
+            └── backbone.js // Backbone Library Wrapper
+        └── underscore
+            ├── underscore.min.js
+            └── underscore.js // Underscore Library Wrapper
+        ├── models
+            ├── users.js
+            └── projects.js
+    ├── collections
+        ├── users.js
+        └── projects.js
+    ├── views
+        ├── projects
+            ├── list.js
+            └── edit.js
+        └── users
+            ├── list.js
+            └── edit.js
+        ├── router.js
+        ├── app.js
+        ├── main.js // Bootstrap
+        ├── order.js //Require.js plugin
+        └── text.js //Require.js plugin
+└── index.html
+
+
+page 25: example require.js bootstrapping
+page 27: example boilerplate.js
+
+
+parse:
+- can override the default parse method in backbone to parse responses from a server
+    var Tweets = Backbone.Collection.extend({
+        url: function() {
+            return "...";
+        },
+        parse: function(resp, xhr) {
+            return resp.results;
+        },
+    });
+
+fetch:
+- native function for calling and parsing the collection url
+
+http://backboneboilerplate.com/
+
+

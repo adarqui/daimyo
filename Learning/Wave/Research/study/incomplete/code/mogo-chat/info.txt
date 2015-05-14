@@ -1,0 +1,6 @@
+sources:
+- https://github.com/HashNuke/mogo-chat
+- http://getmogochat.com/
+
+history:
+- 05/06/2015: notes on api

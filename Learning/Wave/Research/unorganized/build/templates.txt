@@ -1,0 +1,11 @@
+c++ library:
+- https://code.google.com/p/cpp-library-project-template/
+
+c++ project:
+- https://code.google.com/p/cpp-project-template/
+
+java project:
+- https://code.google.com/p/java-project-template/
+
+java librry:
+- https://code.google.com/p/java-library-project-template/

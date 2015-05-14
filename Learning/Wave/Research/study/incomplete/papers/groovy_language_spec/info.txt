@@ -1,0 +1,6 @@
+**Groovy Language Spec**
+- source: http://groovy-lang.org/single-page-documentation.html
+
+history:
+- 04/13/2015: 1 - 1.4.2 (Traits)
+- 04/14/2015: 1.4.2 - 1.6

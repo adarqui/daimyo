@@ -1,0 +1,9 @@
+sources:
+- http://reefpoints.dockyard.com/2015/03/22/tips-for-writing-ember-addons.html
+- http://toranbillups.com/blog/archive/2014/12/22/write-your-first-ember-cli-addon-in-six-easy-steps/
+- http://edgycircle.com/blog/2014-creating-a-datepicker-ember-addon/
+- https://gist.github.com/kristianmandrup/ae3174217f68a6a51ed5
+- https://medium.com/delightful-ui-for-ember-apps/slack-style-loading-messages-in-an-ember-app-6319559a19d0
+
+history:
+- 05/10/2015: notes

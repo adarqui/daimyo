@@ -1,0 +1,17 @@
+source: https://lostechies.com/derickbailey/2011/05/24/dont-do-role-based-authorization-checks-do-activity-based-checks/
+
+
+Solving The Role-Based Authorization Problems
+IMP
+If we approach the problem of authorization not from the perspective of which roles are allowed to do something, but which activities we must be authorized to perform, we can solve the problems of role-based authorization checks.
+
+
+Action vs Activity
+
+Note: “Action” Vs “Activity”
+
+I used to call this action-based security. However, the recent popularity in Model-View-Controller application architectures has overloaded the term “action”. Most people think of actions as controller actions because of this. While a controller action is certainly an action or activity that may have authorization needs, it’s not the only place that authorization may need to be checked. Using the term “activity” instead of action gives a little bit of differentiation and distinction, to hopefully indicate that authorization is not strictly limited to controller actions.
+
+
+
+

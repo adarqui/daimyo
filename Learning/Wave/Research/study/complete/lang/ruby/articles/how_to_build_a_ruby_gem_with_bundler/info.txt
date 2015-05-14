@@ -1,0 +1,4 @@
+source: http://www.smashingmagazine.com/2014/04/08/how-to-build-a-ruby-gem-with-bundler-test-driven-development-travis-ci-and-coveralls-oh-my/
+
+history:
+- 05/08/2015: notes

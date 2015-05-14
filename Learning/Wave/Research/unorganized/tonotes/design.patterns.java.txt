@@ -1,0 +1,60 @@
+source: https://github.com/iluwatar/java-design-patterns
+
+Creational Patterns:
+- abstract the instantiation process.
+- helps make system independent of how its objects are created, composed, and represented
+- abstract factory
+- builder
+- factory method
+- prototype
+- property
+- singleton
+
+Structural Patterns:
+- concerned with how classes and objects are composed to form larger structures
+- adapter
+- bridge
+- composite
+- decorator
+- facade
+- flyweight
+- proxy
+- service locator
+- servant
+- event aggregator
+
+Behavioral Patterns:
+- concerned with algorithms and the assignment of responsibilities between objects
+- chain of responsibility
+- command
+- interpreter
+- iterator
+- mediator
+- memento
+- observer
+- state
+- strategy
+- template method
+- visitor
+- null object
+- intercepting filter
+
+Presentation Tier Patterns:
+- top most level of the application
+- concerned with translating tasks and results to something the user can understand
+- Model-View-Presenter
+
+Architectural Patterns:
+- general, reusable solution to a commonly occurring problem in software architecture within a given context
+- data access object
+- service layer
+
+Idioms:
+- expression of a simple task, algorithm, or data structure that is not a built in feature in the programming language
+- tend to be small, whilst patterns are larger
+- execute around
+- double checked locking
+- poison pill
+- callback
+- lazy loading
+

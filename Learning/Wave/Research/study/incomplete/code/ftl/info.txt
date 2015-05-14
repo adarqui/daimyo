@@ -1,0 +1,3 @@
+source: https://github.com/beark/ftl
+
+functional programming, c++

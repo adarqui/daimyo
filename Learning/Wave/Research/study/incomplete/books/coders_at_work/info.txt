@@ -1,0 +1,5 @@
+**Coders at Work**
+- source: http://www.szemtsov.net/books/Coders%20At%20Work%20-%20Reflections%20on%20the%20Craft%20of%20Programming%20-%20Peter%20Seibel.pdf
+
+history:
+- 04/28/2015: Introduction

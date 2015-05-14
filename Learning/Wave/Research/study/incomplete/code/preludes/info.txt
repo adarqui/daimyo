@@ -1,0 +1,5 @@
+new/modern preludes:
+
+http://hackage.haskell.org/package/base-prelude
+http://hackage.haskell.org/package/basic-prelude
+http://hackage.haskell.org/package/classy-prelude <--

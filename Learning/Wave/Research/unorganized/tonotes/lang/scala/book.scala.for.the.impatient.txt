@@ -1,0 +1,754 @@
+source: http://logic.cse.unt.edu/tarau/teaching/scala_docs/scala-for-the-impatient.pdf
+
+immutable value:
+val <varname>: <Type> = <assignment>
+val str: String = "hello"
+
+mutable variable:
+var <varname<: <Type> = <assignment>
+var res = 6
+res = 7
+
+Commonly Used Types:
+- Byte
+- Char
+- Short
+- Int
+- Long
+- Float
+- Double
+- Boolean
+- unlike java, these are all classes
+- no distinction between primitive types and class types in scala
+
+1.to(1) yields Range(1,...10)
+
+RichInt, RichDouble, RichChar
+
+BigInt, BigDecimal
+- backed by java.math.BigInteger and java.Math.BigDecimal
+
+in scala, you use methods NOT casts to convert between types.
+
+a + b is shorthand for: a.+(b)
+- operators are methods
+
+a method b is shorthand for: a.method(b)
+
+instead of 1.to(10) you can write: 1 to 10
+- implicit and explicit params
+
+scala allows you to overload/define operators
+
+scala has functions in addition to methods
+- don't need to use static methods
+- scala doesn't have static methods
+
+import scala.math._
+import math._
+- can drop 'scala from imports'
+
+instead of static methods, scala has: singleton objects
+
+"the rule of thumb is that a paramterless method that doesn't modify the object has no parenthesis"
+- "Hello".distinct
+
+indexing a string: "Hello"(4)
+- as opposed to: s[4] or Java's s.charAt(4)
+- defined using apply: def apply(n: Int) Char ..
+
+scaladoc
+javadoc
+
+C = Class
+O = Companion Object
+
+
+almost everything has a value
+- if: val s = if (x>0) 1 else 0
+- blocks
+
+avoid using return
+
+Unit type: ()
+- is void
+
+every expression has a type.
+
+common supertype is called: Any
+- if (x>0) "str" else 0
+- ^^ Any
+
+no values:
+- if (x>0) 1
+- same as: if (x>0) 1 else ()
+
+multi-line stuff in interpreter:
+- use :paste
+- control+K to finish
+
+only need semicolons when you have multiple expressions side by side, that can't be strung together
+
+Scala programmers favor Kernighan and Ritchie brace style:
+if (n > 0) {
+r = r * n
+n -= 1
+}
+
+{ } contains a sequence of expressions.
+- value of the block is the last expression
+
+has no value:
+{ r = r * n ; n -= 1 }
+- there's no 'final' expression
+
+
+Loops
+-----
+
+while:
+- sae as C++/java
+
+for (initialize; test; update):
+- no equivalent
+
+for:
+for (i <- 1 to n) println(i)
+
+until:
+for (i <- 0 until 1 to 10) println(i)
+
+loops operate on collections:
+for (ch <- "Helo") println(ch)
+
+multiple generators:
+for (i <- 1 to 3; j <- 1 to 3) println(i + j)
+for (i <- 1 to 10; j <- 21 to 30) println(i.toString() + j.toString())
+
+generators can have guards:
+for (i <- 1 to 5 if i != 3) println(i)
+
+yield: results in a colletion of values (Vector)
+for (i <- 1 to 10) yield (i-1)
+
+can use newlines to separate generators, guards, and definitions:
+for { i <- 1 to 3
+    from = 4 - i
+    j <- from to 3 }
+
+Break/Continue:
+- use util.Control.Breaks
+- breakable
+- etc
+- control transfer is done by throwing and catching an exception, avoid this unless really needed
+
+
+Functions
+---------
+
+methods operate on objects
+functions don't
+- in java, you imitate functions by using static methods
+- def abs(x: Double) = if (x >= 0) x else -x
+- must specify types of parameters
+- as long as the function isn't recursive, do not need return type
+
+recursive functions:
+- must specify return type
+- def fac(n: Int): Int = if (n <= 0) 1 else n * fac (n-1)
+
+
+Default Arguments
+-----------------
+
+scala allows default arguments when not specified:
+def decorate(str: String = "hi") = println(str)
+
+you can use param names:
+decorate(str="hello")
+
+
+
+Variable arguments
+------------------
+
+variable arguments denoted by: *
+- ie, args: Int*
+def sum(args: Int*) = for (arg <- args.elements) println(arg)
+
+turn collections into arguments: _*
+- convert arguments into a sequence with _*
+- val s = sum(1 to 5: _*)
+
+
+Procedures
+----------
+
+procedure:
+- doesn't return a value
+- functio body enclosed in braces without a preceeding = symbol, then return type is Unit
+- only called for their side effects
+
+def side_effects() {
+    println("side effects! returns Unit")
+}
+
+or you can use an explicit Unit return type:
+
+def side_effects(): Unit = {
+    println("side effects!")
+}
+
+
+Lazy Values
+-----------
+
+when a val is declared as lazy, its initialization is deferred until it is accessed for the first time
+lazy val words = io.Source.fromFile("/etc/motd").mkString
+- if the program never accesses 'words', io never happens. hence, lazyness.
+
+laziness is not cost-free.
+- every time a lazy value is accessed, a method is called that checks, in a threadsafe manner, whether the value has been initialized
+
+
+Exceptions
+----------
+
+throw new SomeException("eh")
+
+throw
+- current computation is aborted
+- runtime system looks for an exception that can accept SomeException
+- control resumes at innermost such handler
+- if no such handler exists, program terminates
+- has special type Nothing
+
+catch exceptions in pattern matching syntax
+
+try {
+    ...
+} catch {
+    case _: FileNotFoundException => println("file not found")
+    case ex: IOException => ex.printStackTrace()
+}
+
+
+try/finally: lets you dispose of a rsource whether or not an exception has occurred
+val reader = new FileReader("/etc/motd")
+try {
+    process(reader)
+} finally {
+    // executed whether or not the process functions throws an exception
+    read.close()
+}
+
+
+try/catch/finally:
+- try something
+- catch exceptions
+- finally do some cleanup
+
+
+
+Weird
+-----
+
+var x = y = 1
+x: Unit = ()
+y: Int = 1
+
+
+
+Arrays
+======
+
+arrays:
+- use Array if size is fixed
+- use ArrayBuffer if size can vary
+- use () to access elements
+- use for (elem <- arr) to traverse array elements
+- use for (elem <- arr if ...) ... yield ... to trasnform into a new array
+
+fixed size array:
+val a = new Array[Int](10)
+
+variable size array:
+- java vector
+- use ArrayBuffer
+
+import collection.mutable.ArrayBuffer
+val b = ArrayBuffer[Int]()
+
+traversing:
+for (i <- 0 until arr.size) println(arr(i))
+
+two visit every nth element:
+0 until (10, n)
+
+Some programmers with experience in FP prefer filter and map instead of guards and yield.
+
+Lots of methods for Arrays
+- sum, min, max, reverse ...
+
+nice syntax:
+val b = Array(1, 7, 2, 9)
+val bSorted = b.sortWith(_ < _)
+
+
+Some syntax stuff
+-----------------
+
+def count (p: (A) => Boolean) : Int
+- p: (A) => Boolean .. a function from A to Boolean
+
+def append (elems: A*) : Unit
+- A* .. takes zero or more arguments of type A
+
+def appendAll (xs : TraversableOnce[A]) : Unit
+- TraversableOnce[A] .. xs param can be any collection with the TRAIT TraversableOnce
+
+def += (elem: A) : ArrayBuffer.this.type
+- ArrayBuffer.this.type .. the method returns this, which allows you to chain calls
+
+def copyToArray [B >: A] (xs: Array[B]) : Unit
+- [B >: A] .. B is allowed to be a supertype of A
+- ie, ArrayBuffer[Int] to Array[Any]
+
+def max [B >: A] (implicit cmp: Ordering[B]) : A
+- A must have a supertype B, for which an "implicit" object of type Ordering[B] exists
+
+
+Multi-Dimensional Arrays
+------------------------
+
+example: Array[Array[Double]]
+
+matrix:
+- val matrix = Array.ofDim[Double](3,4)
+- matrix(row)(column) = ..
+
+
+Interoparting with Java
+-----------------------
+
+scala arrays = java arrays, you can pass them back and forth between java and scala.
+
+
+
+Maps and Tuples
+===============
+
+"If I can only have one data structure, make it a hash table."
+
+map construction: immutable
+val scores = Map("player1" -> 50, "player2" -> 3, "player3" -> 60)
+val scores = Map(("player1", 50), ("player2", 3), ("player3", 60))
+
+map construction: mutable
+val scores = collection.mutable.Map("player1" -> 50, "player2" -> 3, "player3" -> 60)
+
+blank map:
+val scores = new collection.mutable.HashMap[String, Int]
+
+creating a pair:
+"player1" -> 50
+("player1", 50)
+
+
+accessing map values:
+val player1Score = scores("player1")
+val player1Score = if (scores.contains("player1")) scores("player1") else 0
+val player1Score = scores.getOrElse("player1", 0)
+val player1Score = scores.get("player1") <-- returns Some(x) or None
+
+updating values in a mutable map:
+scores("player1") = 51
+scores += ("player4" -> 40, "player5" -> 500)
+scores -= "player4"
+
+updating values in an immutable map: (returns a new map)
+val newScores = scores + ("player5" -> 6")
+or
+var scores = ..
+scores = scores + ..
+scores = scores - "player4"
+
+
+iterating over maps:
+for ((k, v) <- map) process k and v
+
+reverse a map:
+for ((k, v) <- map) yield (v, k)
+
+
+Hash Tables and Trees
+---------------------
+
+when working with a map, you need to choose an implementation:
+- hash table (default)
+- balanced tree
+
+immutable balanced tree:
+val scores = collection.immutable.SortedMap("player1" -> 50 ...)
+- no mutable tree map
+
+to visit keys in insertion order: use LinkedHashMap
+val scores = collection.mutable.LinkedHashMap("player1" -> 50 ...)
+
+
+Tuples
+------
+
+forming tuples:
+(1, 2.5, "poop")
+(1, "poop")
+(true, "poop")
+
+accessing members in a tuple:
+- _1, _2, _3
+val t = (1, 2.5, "poop")
+t._2
+t _2
+val (first, second, third) = t
+
+
+
+Classes
+=======
+
+stuff:
+- fields in classes automatically come with getters and setters
+- you can replace a field with a custom getter/setter without changing the client of a class -> "uniform access principle"
+- every class has a primary constructor that is interwoven with the class definition. params turn into fields of the class.
+- auxiliary constructors are optional, they are called this.
+
+uniform access principle:
+- you can replace a field with a custom getter/setter without changing the client of a class
+
+classes:
+- methods are public by default
+- all classes have public visibility
+- can call parameter-less methods with or without parenthesis
+
+class Counter {
+    private var value: Int = 0
+    def inc() { value += 1 }
+    def current() = value
+    // def current = value <- doesn't need ()
+}
+
+
+Properties with Getters and Setters
+-----------------------------------
+
+When writing a java class, don't use public fields. Instead, use getters/setters.
+
+public class Person {
+    public int age;
+}
+
+^^ bad
+vv good
+
+public class Person
+    private int age;
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+}
+
+getters and setters are better than public fields because they let you start with simple get/set semantics and evolve them as needed.
+
+scala class:
+- age is by default private
+- public setters and getters generated
+- getter: x = blah.age <-- blah.age()
+- setter: blah.age = x <-- blah.age_=(x)
+class Person {
+    var age: Int = 0
+}
+
+println(fred.age) calls fred.age()
+fred.age = 21 calls fred.age_=(21)
+
+to see the contents of a class:
+scalac Person.scala
+scala -private Person
+
+
+renaming getters/setters:
+class Person {
+    private var privateAge: Int = 0
+    def age = privateAge
+    def age_=(newValue: Int) {
+        ..
+    }
+}
+
+
+IMP
+Uniform Access Principle states: All services offered by a module should be available through a uniform notation, which does not betray whether they are implemented through storage or through computation.
+
+class rules:
+- if the field is private, getter and setter are private
+- if the field is a val, only getter is generated
+- if you don't want any getter or setter, declare the field as private[this]
+
+In Scala (and java/c++), a method can access the private fields of all objects of its class
+
+@BeanProperty -> annotation that sets up extra getters/setters etc so that other tools can make sense of your code.
+
+classes can have many constructors
+- primary constructor - most important
+- auxiliary constructors
+
+auxiliary constructors
+- called this
+- ^^ in java/c++, named after the class.. but not convenient if you rename the class
+- each auxliary consstructor must start with a call to a previously defined auxiliary constructor or the primary constructor
+
+class Person {
+    private var name : String = ""
+    private var age : Int = 0
+    def this(name : String) { this() ; this.name = name }
+    def this(name : string, age : Int) { this(name); this.age = age }
+}
+
+can instantiate that class three different ways:
+val p1 = new Person
+val p2 = new Person("Adarq")
+val p3 = new Person("Adarq", 32)
+
+primary constructor: params are interwoven in the class def
+
+class Person(val name: String, val age: Int) {
+    // params of the primary constructor turn into fields that are initialized with the construction parameters
+    // declares and initializes: val name: String
+    // declares and initializes: val age: Int
+}
+- half a line of scala is equiv to seven lines of java
+
+
+"The scala designers think that every keystroke is precious"
+
+
+nested classes:
+- can nest anything inside anything
+
+Network#Member -> which means "a Member of any Network"
+
+
+
+Objects
+=======
+
+when to use objects?
+- whenever you want a class with a single instance
+- when you want to find a home for miscellaneous values or functions
+- use objects for singletons and utility methods
+- classes can have companion objects with the same name
+- objects can extend classes or traits
+- apply method of an object is usually for constructing new instances of the companion class
+- to avoid the main method, use an object that extends the app trait
+- can implement enumerations by extending the Enumeration object
+- constructors of the object are executed when the object is first used
+- if never used, constructor never executed
+- cannot provide constructor parameters
+- can extend a class or one or more traits
+
+singletons:
+- scala has no static methods or fields.
+- instead, use object construct.
+- object defines a single instance of a class with the features that you define
+
+object Accounts {
+    private var lastNumber = 0
+    def newUniqueNumber() { lastNumber += 1; lastNumber }
+}
+
+Accounts.newUniqueNumber() <-- static call
+}
+
+
+Companion objects:
+- java/c+: can have class with both instance methods and static methods
+- scala: achieve this by aving a class and companion object of the same name
+- scala: class and companion object must be located in the same source file
+
+
+application objects:
+- each scala program must start with an object's main method of type Array[String] => Unit
+object Hello {
+    def main(args: Array[String]) {
+        println("hello")
+    }
+}
+
+instead: can extend the app trait
+object Hello extends App {
+    println("hello")
+}
+
+
+enumerations:
+- Enumeration helper class can produce enumerations
+object TrafficLightColor extends Enumeration {
+    val Red, Yellow, Green = Value
+}
+
+^^ short for:
+val Red = Value
+val Yellow = Value
+val Green = Value
+
+type alias:
+object TrafficLightColor extends Enumeration {
+    type TrafficLightColor = Value
+    val Red, Yellow, Green = Value
+}
+
+
+
+Packages and Imports
+====================
+
+packages:
+- packages nest just like inner classes
+- package paths are NOT absolute
+- package x.y.z leaves x, and x.y invisible
+- package statements without braces at the top of the file extend to the entire file
+- packages can hold functions and variables
+- import statements can import packages, classes, objects
+- import statements can be anywhere
+- import statements can rename and hide members
+- java.lang.scala and Predef are always imported
+- fulfill the same purpose as packages in Java or namespaces in C++
+- there is no enforced directory structure for package nesting
+- can have more than one package in a file
+- nested packages follow simple scoping rules
+- packages can have one package object
+
+package com {
+    package level {
+        package classes {
+            class Person {
+            }
+        }
+    }
+}
+
+- nested notation: top of file
+package com.bleh.impatient
+package people
+^^ equiv to
+package com.bleh.impatient {
+    package people {
+    }
+}
+
+package object people {
+}
+
+imports:
+- import scala.collection.mutable.HashMap -> can now use HashMap directly
+- import scala.collection.mutable._ -> can access everything in that package, same as * in java
+- import java.awt.{Color, Graphics} -> import multiple (specific) things from a package
+- import java.util.{HashMap => JavaHashMap} -> rename HashMap to JavaHashMap
+- import java.util.{HashMap => _, _) -> hides HashMap
+- imports can be anywhere: within classes, etc
+- scope of import extends until end of enclosing block
+
+
+implicit imports:
+import java.lang._
+import scala._
+import Predef._
+
+
+
+Inheritance
+===========
+
+inheritance:
+- extends and final
+- must use override when you override a method
+- only the primary constructor can call the primary superclass constructor
+- you can override fields
+
+extending classes: same as java
+class Employee extends Person {
+}
+
+final:
+- declaring a class final means it can't be extended
+- can declare individual fields or methods final with ! so that they cannot be overridden
+
+overriding methods:
+- must use the override modifier when you override a method that isn't abstract
+public class Person {
+    override def toString = ..
+}
+
+
+fragile base class problem: a change in the superclass cannot be verified without looking at all of the subclasses.
+
+isInstanceOf: test whether an object belongs to a given class
+asInstanceOf: convert a reference to a subclass reference
+classOf: test whether something refers to an object, but not a cubalsss
+
+if (p.isInstanceOf[Student]) {
+    val s = p.asInstanceOf[Student]
+}
+
+protected: any field or method can be declared protected
+- accessible from any subclass, but not from other locations
+
+protected[this]
+private[this]
+
+super: in a scala instructor, you can never call super(params) as you would in java, to call the supercall constructor
+
+anonymous subclass:
+var alien = new Person("Bob") {
+    override val toString = "I'm an alien"
+}
+
+abstract classes: as in Java, use abstract to denote a class that cannot be instantiated
+- usually because one or more of its methods are not defined
+
+abstract class Person(val name: String) {
+    def id(): Int // no method body, abstract method
+}
+
+^^ to subclass:
+
+class Employee(name: String) extends Person(name) {
+    def id() = 42
+}
+
+
+abstract fields:
+- field without an initial value
+- concrete subclasses must provide concrete fields
+
+abstract class Person {
+    val id: Int
+    var name: String
+}
+
+class Employee(val id: Int) extends Person {
+    var name = ""
+}
+
+scala inheritance hierarchy:
+- Any is the root of the hierarchy
+- AnyVal and AnyRef extend Any
+
+object equality:
+- the eq method of the AnyRef class checks whether two references refer to the same object.
+- override the 'equals' method if you want to implement equality tests between classes
+
+final override def equals(other: Any) = {
+    ...
+}
+
+

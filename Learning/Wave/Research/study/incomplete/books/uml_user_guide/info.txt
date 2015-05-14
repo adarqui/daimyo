@@ -1,0 +1,5 @@
+**UML: Unified Modeling Language User Guide**
+- source: http://www.incubodc.com/eventos_energia_mayorista/memorias_SG/sg_2011/5_materialadicionalUML/Booch-UML-UserGuide.pdf
+
+history:
+- 04/19/2015: Introduction, Ch1

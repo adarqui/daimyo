@@ -1,0 +1,19 @@
+lift:
+- http://liftweb.net/
+- http://liftweb.net/download
+
+lift examples:
+- https://github.com/bubblefoundry/lift-from-scratch
+- http://simply.liftweb.net/index-Chapter-2.html#toc-Chapter-2
+
+scalatra:
+- http://www.scalatra.org/
+
+finatra:
+- http://finatra.info/
+
+twitter-server:
+- https://github.com/twitter/twitter-server
+
+bootzooka:
+- https://github.com/softwaremill/bootzooka

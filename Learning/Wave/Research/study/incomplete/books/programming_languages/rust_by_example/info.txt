@@ -1,0 +1,7 @@
+**Rust By Example**
+- source: http://rustbyexample.com/
+
+history:
+- 04/07/2015: Modules [1, 8]
+- 04/09/2015: Modules [9, 18]
+- 04/24/2015: Modules [1, 39)

@@ -1,0 +1,4 @@
+**Patterns: Service Oriented Architecture and Web Services**
+- source: http://www.redbooks.ibm.com/redbooks/pdfs/sg246303.pdf
+
+history:

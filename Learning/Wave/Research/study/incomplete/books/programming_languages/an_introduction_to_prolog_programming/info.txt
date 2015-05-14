@@ -1,0 +1,1 @@
+source: https://staff.science.uva.nl/u.endriss/teaching/prolog/prolog.pdf

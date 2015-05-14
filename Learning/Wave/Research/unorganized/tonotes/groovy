@@ -1,0 +1,802 @@
+groovy:
+- source: http://groovy-lang.org/single-page-documentation.html
+
+comments:
+---------
+
+//
+
+/* */
+
+groovyDoc:
+/**
+ * A Class description
+ */
+class ...
+
+/** the name of .. */
+String name
+
+shebang: #!/usr/bin/env groovy
+
+
+strings:
+--------
+
+weird vars:
+def map = [:]
+map."poop" = "hello"
+map.$/yo slashy string/$
+def firstname = "first"
+map."${firstname}" = "bleh"
+
+groovy strings: java.lang.String
+groovy GString: groovy.lang.GString
+
+'strings' = don't support interpolation
+
+string concat: 'abc' + 'def'
+
+multi-line strings:
+'''multi line
+string'''
+
+interpolatable multi-line strings:
+"""multi ${line}
+string"""
+
+interpolation: "${interpolation_variable}"
+
+interpolated arith: "sum ${2 + 3}"
+
+interpolated expressions: "expr = ${def a = 1; def b = 2; a + b}"
+
+escaping interpolation: "bleh \${...}"
+
+closures are lazy evaluated
+closures: "1 + 2 == ${-> 3}"
+
+plain java strings are immutable
+
+hashcodes:
+assert "one: ${1}".hashCode() != "one: 1".hashCode()
+even though those strings look "the same", they have different hash codes.
+
+slashy strings:
+def pattern = /.*foo.*/
+def multilinepattern = /one
+    two
+    three/
+def interpolatedslashy = /a ${color} car/
+
+
+single characters:
+char c1 = 'A'
+def c1 = 'B' as char
+def c3 = (char)'C'
+
+numbers:
+--------
+
+java number type: Number
+
+integer literals: byte, char, short, int, long, java.lang.BigInteger
+- same as in java
+
+// primitive types
+byte  b = 1
+char  c = 2
+short s = 3
+int   i = 4
+long  l = 5
+
+// infinite precision
+BigInteger bi =  6
+
+asserting instance type: assert a instanceof Integer
+
+binary:
+int xInt = 0b10101111
+assert xInt == 175
+
+octal:
+int xInt = 077
+assert xInt == 63
+
+hex:
+int xInt = 0x77
+assert xInt == 119
+
+decimal literals: float, double, java.lang.BigDecimal
+- same as in java
+// primitive types
+float  f = 1.234
+double d = 2.345
+// infinite precision
+BigDecimal bd =  3.456
+
+underscore syntax:
+assert 1e3  ==  1_000.0
+assert 2E4  == 20_000.0
+long creditCardNumber = 1234_5678_9012_3456L
+long socialSecurityNumbers = 999_99_9999L
+double monetaryAmount = 12_345_132.12
+long hexBytes = 0xFF_EC_DE_5E
+long hexWords = 0xFFEC_DE5E
+long maxLong = 0x7fff_ffff_ffff_ffffL
+long alsoMaxLong = 9_223_372_036_854_775_807L
+long bytes = 0b11010010_01101001_10010100_10010010
+
+type/suffix:
+BigInteger G or g
+Long L or l
+Integer I or i
+BigDecimal G or g
+Double D or d
+Float F or f
+
+math operations:
+binary operations between byte, char, short and int result in int
+binary operations involving long with byte, char, short and int result in long
+binary operations involving BigInteger and any other integral type result in BigInteger
+binary operations between float, double and BigDecimal result in double
+binary operations between two BigDecimal result in BigDecimal
+
+Thanks Groovy’s operator overloading, the usual arithmetic operators work as well with BigInteger and BigDecimal, unlike in Java where you have to use explicit methods for operating on those numbers.
+
+division operator: /
+division and assignment: /=
+power: **
+
+
+booleans:
+---------
+
+booleans: true, false
+
+lists:
+------
+
+lists: [1,2,3]
+- java.util.List
+
+groovy doesn't define its own collection classes
+
+concrete list implementation used when defining list literals are (by default): java.util.ArrayList
+
+size of list can be queried with: size() .. list.size()
+
+def homogeneous_list = [1,2,3]
+def heterogeneous_list = [1, "a", true]
+
+using 'as' (coercian):
+def arrayList = [1,2,3]
+def arrayList = [1,2,3] as java.util.ArrayList
+def linkedList = [1,2,3] as java.util.LinkedList
+
+specify type up front:
+ArrayList arrayList = [1,2,4]
+LinkedList linkedList = [1,2,3]
+
+append elements to a list: <<
+
+accessing elements in a list by index: list[<num>], 0-positive, or negative (from the right end)
+
+
+arrays:
+-------
+
+same notation as lists.
+need to explicitly define the type of the array through coercian or type declaration:
+- String[] arrStr = ['hi', 'yo']
+- def numArr = [1,2,3] as int[]
+
+multi dimensional:
+def matrix = new Integer[3][3]
+Integer[][] matrix
+matrix = [[1,2], [3,4]]
+
+
+maps:
+-----
+
+def colors = [red: 'RED' green: 'green']
+def nums = [1: 'one', 2: 'two']
+colors['red']
+colors.red
+
+maps are java.util.LinkedHashMap
+
+unknown key = null
+assert colors.poop == null
+
+explicit check for key/value: colors.containsKey('red')
+
+
+operators:
+----------
+
++ - / ** % ++ --
+
+== != < <= > >=
+
+&& || !
+
+& | ^ ~
+
+comparison ? true : false;
+
+elvis operators:
+displayName = user.name ? user.name : 'Anonymous'   
+displayName = user.name ?: 'Anonymous'
+- allows for sensible default
+
+safe navigation operator:
+?
+ie
+def person = Person.find { it.id == 123 }
+def name = person?.name
+assert name == null
+- prevents NullPointerException
+
+direct field access:
+class User {
+    public final String name                 
+    User(String name) { this.name = name}
+    String getName() { "Name: $name" }       
+}
+def user = new User('Bob')
+assert user.name == 'Name: Bob'
+assert user.@name == 'Bob'
+
+The '@' gets you directly to the instance variable.
+
+use of .@ forces usage of the field instead of the getter
+
+method pointer operator: .&
+- .& = groovy.lang.Closure
+
+def str = 'example of method reference'
+def fun = str.&toUpperCase
+def upper = fun()
+
+method pointers are bound by the receiver and a method name.
+arguments are resolved at runtime.
+
+regex: ~
+def p = ~/foo/
+p = ~'foo'
+p = ~"foo"
+p = ~"${pattern}"
+~ is an instance of Pattern
+
+find operator: =~
+def text = "some text to match"
+def m = text =~ /match/
+=~ instance of Matcher
+
+match operator: ==~
+- returns a booloean, not a Matcher
+m = text ==~ /match/
+
+* spread operator: *.
+- The Spread Operator (*.) is used to invoke an action on all items of an aggregate object. It is equivalent to calling the action on each item and collecting the result into a list:
+class Car {
+    String make
+    String model
+}
+def cars = [
+       new Car(make: 'Peugeot', model: '508'),
+       new Car(make: 'Renault', model: 'Clio')]       
+def makes = cars*.make                                
+assert makes == ['Peugeot', 'Renault']
+
+The spread operator is null-safe, meaning that if an element of the collection is null, it will return null instead of throwing a NullPointerException
+
+The spread operator can be used on any class which implements the Iterable interface
+
+* Spreading method arguments: *
+There may be situations when the arguments of a method call can be found in a list that you need to adapt to the method arguments. In such situations, you can use the spread operator to call the method. For example, imagine you have the following method signature:
+int function(int x, int y, int z) {
+    x*y+z
+}
+then if you have the following list:
+def args = [4,5,6]
+you can call the method without having to define intermediate variables:
+assert function(*args) == 26
+It is even possible to mix normal arguments with spread ones:
+args = [4]
+assert function(*args,5,6) == 26
+
+
+* Spread list elements: *
+When used inside a list literal, the spread operator acts as if the spread element contents were inlined into the list:
+def items = [4,5]                      
+def list = [1,2,3,*items,6]            
+assert list == [1,2,3,4,5,6]
+
+* Spread map elements: *:
+The spread map operator works in a similar manner as the spread list operator, but for maps. It allows you to inline the contents of a map into another map literal, like in the following example:
+def m1 = [c:3, d:4]                   
+def map = [a:1, b:2, *:m1]            
+assert map == [a:1, b:2, c:3, d:4]
+
+* range operator: ..
+Groovy supports the concept of ranges and provides a notation (..) to create ranges of objects:
+def range = 0..5                                    
+assert (0..5).collect() == [0, 1, 2, 3, 4, 5]       
+assert (0..<5).collect() == [0, 1, 2, 3, 4]         
+assert (0..5) instanceof List                       
+assert (0..5).size() == 6
+assert ('a'..'d').collect() == ['a','b','c','d']
+
+You can create a range from any Comparable object.
+
+* Spaceship operator: <=>
+The spaceship operator (<=>) delegates to the compareTo method:
+assert (1 <=> 1) == 0
+assert (1 <=> 2) == -1
+assert (2 <=> 1) == 1
+assert ('a' <=> 'z') == -1
+
+
+* Subscript operator
+The subscript operator is a short hand notation for getAt or putAt, depending on whether you find it on the left hand side or the right hand side of an assignment:
+def list = [0,1,2,3,4]
+assert list[2] == 2                         
+list[2] = 4                                 
+assert list[0..2] == [0,1,4]                
+list[0..2] = [6,6,6]                        
+assert list == [6,6,6,3,4]
+
+* Membership operator: in
+The membership operator (in) is equivalent to calling the isCase method. In the context of a List, it is equivalent to calling contains, like in the following example:
+def list = ['Grace','Rob','Emmy']
+assert ('Emmy' in list)                     
+equivalent to calling list.contains('Emmy') or list.isCase('Emmy')
+
+* Identity operator: ==
+- same operator in java
+- to compare reference equality use 'is'
+
+* Coercion operator: as
+
+* Diamond operator: <>
+The diamond operator (<>) is a syntactic sugar only operator added to support compatibility with the operator of the same name in Java 7. It is used to indicate that generic types should be inferred from the declaration:
+List<String> strings = new LinkedList<>()
+
+* Call operator: ()
+The call operator () is used to call a method named call implicitly. For any object which defines a call method, you can omit the .call part and use the call operator instead:
+class MyCallable {
+    int call(int x) {           
+        2*x
+    }
+}
+def mc = new MyCallable()
+assert mc.call(2) == 4          
+assert mc(2) == 4
+
+
+operator overloading:
+---------------------
+All (non-comparator) Groovy operators have a corresponding method that you can implement in your own classes. The only requirements are that your method is public, has the correct name, and has the correct number of arguments. The argument types depend on what types you want to support on the right hand side of the operator.
+
+
+Operator    Method  Operator    Method
++ a.plus(b)
+a[b] a.getAt(b)
+- a.minus(b)
+a[b] = c a.putAt(b, c)
+* a.multiply(b)
+<< a.leftShift(b)
+/ a.div(b)
+>> a.rightShift(b)
+% a.mod(b)
+++ a.next()
+** a.power(b)
+-- a.previous()
+| a.or(b)
++a a.positive()
+& a.and(b)
+-a a.negative()
+^ a.xor(b)
+~a a.bitwiseNegative()
+
+
+Program Structure
+-----------------
+
+defining a package:
+// defining a package named com.yoursite
+package com.yoursite
+package com.yoursite.Foo
+
+Groovy follows Java’s notion of allowing import statement to resolve class references.
+
+default imports (packages that groovy imports for you):
+There are six packages that groovy imports for you, they are:
+import java.lang.*
+import java.util.*
+import java.io.*
+import java.net.*
+import groovy.lang.*
+import groovy.util.*
+import java.math.BigInteger
+import java.math.BigDecimal
+
+simple import: import groovy.xml.MarkupBuilder
+star import: import groovy.xml.*
+
+static import:
+import static Boolean.FALSE
+assert !FALSE //use directly, without Boolean prefix!
+
+static import aliasing: import ... as ..
+import static Calendar.getInstance as now 
+
+static star import: import static java.lang.Math.*
+
+import aliasing: import thirdpartylib.MultiplyTwo as OrigMultiplyTwo
+
+variables in scripts: Variables in a script do not require a type definition. This means that this script:
+int x = 1
+int y = 2
+assert x+y == 3
+will behave the same as:
+x = 1
+y = 2
+assert x+y == 3
+
+
+Object Orientation:
+-------------------
+
+Here are key aspects of Groovy classes, that are different from their Java counterparts:
+- Public fields are turned into properties automatically, which results in less verbose code, without so many getter and setter methods. More on this aspect will be covered in the fields and properties section.
+- Their declarations and any property or method without an access modifier are public.
+- Classes do not need to have the same name of the files where they are defined.
+- One file may contain one or more classes (but if a file contains no classes, it is considered a script).
+
+* Normal class: top level and concrete. They can be instantiated without restrictions from any other classes or scripts
+def p = new Person()
+
+* Inner Class:
+- defined within another class
+- enclosing class can use the inner class as usual
+- inner class can access members of its enclosing class, even if private
+- classes other than the enclosing class cannot access inner classes
+
+* Abstract Class
+- represent generic concepts
+- cannot be instantiated
+- created to be subclasses
+- members include fields/properties and abstract or concrete methods
+- abstract methods do not have implementation, must be implemented by concrete subclasses
+- commonly compared to interfaces
+- abstract classes must be declared with abstract keyword
+- abstract methods must also be declared with abstract keyword
+
+abstract class Abstract {         
+    String name
+
+    abstract def abstractMethod() 
+
+    def concreteMethod() {
+        println 'concrete'
+    }
+}
+
+two important differences between abstract classes and interfaces:
+- First, while abstract classes may contain fields/properties and concrete methods, interfaces may contain only abstract methods (method signatures).
+- Moreover, one class can implement several interfaces, whereas it can extend just one class, abstract or not
+
+* Interface
+- defines a contract that a class needs to conform to
+- only defines a list of methods that need to be implemented
+- does not define the methods implementation
+- methods of an interface are always public
+- It is an error to use protected or private methods in interfaces
+- an interface needs to be declared using the interface keyword
+- an interface only defines method signatures
+
+interface Greeter {                                         
+    void greet(String name)                                 
+}
+
+
+* Implementing Interfaces
+- A class implements an interface if it defines the interface in its implements list or if any of its superclasses does:
+
+class SystemGreeter implements Greeter {                    
+    void greet(String name) {                               
+        println "Hello $name"
+    }
+}
+
+def greeter = new SystemGreeter()
+assert greeter instanceof Greeter  
+
+Groovy interfaces do not support default implementation like Java 8 interfaces. If you are looking for something similar (but not equal), traits are close to interfaces, but allow default implementation as well as other important features described in this manual.
+
+* Constructors
+- special methods used to initialize an object with a specific state
+- class can declare more than one constructor
+
+two ways to invoke constructors:
+- positional parameters or named parameters
+
+There is three forms of using a declared constructor. The first one is the normal Java way, with the new keyword.
+
+class PersonConstructor {
+    String name
+    Integer age
+
+    PersonConstructor(name, age) {          
+        this.name = name
+        this.age = age
+    }
+}
+
+def person1 = new PersonConstructor('Marie', 1)  
+def person2 = ['Marie', 2] as PersonConstructor  
+PersonConstructor person3 = ['Marie', 3]
+
+* Named argument constructor
+- if no constructor is declared, it is possible to create objects by passing params in the form of a map (property/value pairs)
+
+class PersonWOConstructor {                                  
+    String name
+    Integer age
+}
+
+def person4 = new PersonWOConstructor()                      
+def person5 = new PersonWOConstructor(name: 'Marie')         
+def person6 = new PersonWOConstructor(age: 1)                
+def person7 = new PersonWOConstructor(name: 'Marie', age: 2) 
+
+* Methods
+
+* Method definition: def
+- methods always return some value
+- if no return is provided, value evluated in the last line executed will be returned
+
+* Named Arguments
+- normal methods can also be called with named arguments, receive params as a map
+
+def foo(Map args) { args.name }
+foo(name: 'hi')
+
+* Default arguments
+- make params optional
+- if arg is not supplied, method assumes a default value
+
+def foo(String par1, Integer par2 = 1) { [name: par1, age: par2] }
+
+* Varargs
+- def foo(p1, ..., pn, T... args)
+- def foo(Object... args) { args.length }
+- def foo(Object[] args) { args.length }
+
+* Fields
+- member of a class or a trait which
+    - a mandatory access modifier (public, protected, or private)
+    - one or more optional modifiers (static, final, synchronized)
+    - an optional type
+    - a mandatory name
+
+It is possible to omit the type declaration of a field. This is however considered a bad practice and in general it is a good idea to use strong typing for field
+
+* Properties
+- A property is a combination of a private field and getters/setters. You can define a property with:
+    - an absent access modifier (no public, protected or final)
+    - one or more optional modifiers (static, final, synchronized)
+    - an optional type
+    - a mandatory name
+
+Groovy will then generate the getters/setters appropriately. For example:
+class Person {
+    String name                             
+    int age                                 
+}
+- getName, setName
+- getAge, setAge
+
+If a property is declared final, no setter is generated:
+class Person {
+    final String name
+    ...
+
+It is possible to list the properties of a class thanks to the meta properties field of an instance:
+
+class Person {
+    String name
+    int age
+}
+def p = new Person()
+assert p.properties.keySet().containsAll(['name','age'])
+
+
+Annotation:
+-----------
+
+Annotation definition
+An annotation is a kind of special interface dedicated at annotating elements of the code. An annotation is a type which superinterface is the Annotation interface. Annotations are declared in a very similar way to interfaces, using the @interface keyword:
+
+@interface SomeAnnotation {}
+An annotation may define members in the form of methods without bodies and an optional default value. The possible member types are limited to:
+
+primitive types
+
+Strings
+
+Classes
+
+an enumeration
+
+another annotation type
+
+or any array of the above
+
+For example:
+
+@interface SomeAnnotation {
+    String value()                          
+}
+@interface SomeAnnotation {
+    String value() default 'something'      
+}
+@interface SomeAnnotation {
+    int step()                              
+}
+@interface SomeAnnotation {
+    Class appliesTo()                       
+}
+@interface SomeAnnotation {}
+@interface SomeAnnotations {
+    SomeAnnotation[] value()                
+}
+enum DayOfWeek { mon, tue, wed, thu, fri, sat, sun }
+@interface Scheduled {
+    DayOfWeek dayOfWeek()                   
+}
+
+
+
+Traits
+------
+
+Traits are a a structural construct of the language which allow:
+- composition of behaviors
+- runtime implementation of interfaces
+- behavior overriding
+- compatibility with static type checking/compilation
+- They can be seen as interfaces carrying both default implementations and state. A trait is defined using the trait keyword
+- Traits only support public and private methods. Neither protected nor package private scopes are supported.
+- this represents the implementing instance. 
+- A trait may define properties,
+- private methods, private fields, public fields
+- traits support multiple inheritance
+- Traits encourage the reuse of capabilities among objects, and the creation of new classes by the composition of existing behavior.
+- traits can extend other traits with 'extends'
+- traits are fully compatible with duck typing
+
+trait FlyingAbility {
+    public String religion
+    private int count = 0
+    String color
+    abstract String name()
+    private String greeting() { 'Hello' }
+    String fly() { "I'm Flying" }
+}
+class Bird implements FlyingAbility {}
+
+Traits may implement interfaces, in which case the interfaces are declared using the implements keyword:
+
+While traits support public fields, it is not recommended to use them and considered as a bad practice.
+
+
+multiple inheritance:
+trait FlyingAbility {                           
+        String fly() { "I'm flying!" }          
+}
+trait SpeakingAbility {
+    String speak() { "I'm speaking!" }
+}
+And a class implementing both traits:
+
+class Duck implements FlyingAbility, SpeakingAbility {} 
+
+def d = new Duck()                                      
+assert d.fly() == "I'm flying!"                         
+assert d.speak() == "I'm speaking!"
+
+
+overriding default methods: (specific to above example)
+class Duck implements FlyingAbility, SpeakingAbility {
+    String quack() { "Quack!" }                         
+    String speak() { quack() }                          
+}
+
+It is also possible for a trait to implement MOP methods like methodMissing or propertyMissing, in which case implementing classes will inherit the behavior from the trai
+
+
+multiple inheritance conflicts:
+- default: last declared trait wins
+
+Within traits, prefix and postfix operations are not allowed if they update a field of the trait
+
+
+Closures:
+---------
+
+- A closure in Groovy is an open, anonymous, block of code that can take arguments, return a value and be assigned to a variable.
+- A closure may reference variables declared in its surrounding scope.
+- In opposition to the formal definition of a closure, Closure in the Groovy language can also contain free variables which are defined outside of its surrounding scope
+- Unlike a method, a closure always returns a value when called.
+
+{ [closureParameters -> ] statements }
+
+closureParameters are comma separated
+
+{ item++ }                                          
+{ -> item++ }                                       
+{ println it }                                      
+{ it -> println it }                                
+{ name -> println name }                            
+{ String x, int y ->                                
+    println "hey ${x} the value is ${y}"
+}
+
+l = { int it-> it + 1}
+===> groovysh_evaluate$_run_closure1@6f7923a5
+groovy:000> l 1
+===> 2
+
+implicit parameter: it
+- When a closure does not explicitly define a parameter list (using ->), a closure always defines an implicit parameter, named it
+
+varargs: def concat1 = { String... args -> args.join('') }           
+
+
+Owner, delegate and this
+To understand the concept of delegate, we must first explain the meaning of this inside a closure. A closure actually defines 3 distinct things:
+- this corresponds to the enclosing class where the closure is defined
+- owner corresponds to the enclosing object where the closure is defined, which may be either a class or a closure
+- delegate corresponds to a third party object where methods calls or properties are resolved whenever the receiver of the message is not defined
+
+
+Currying:
+n Groovy, currying refers to the concept of partial application. It does not correspond to the real concept of currying in functional programming because of the different scoping rules that Groovy applies on closures. Currying in Groovy will let you set the value of one parameter of a closure, and it will return a new closure accepting one less argument.
+
+left currying: .curry
+def nCopies = { int n, String str -> str*n }    
+def twice = nCopies.curry(2) 
+
+right currying: .rcurry
+def blah = nCopies.rcurry('bla')                
+
+index based currying: ncurry
+- curry a specific argument
+def volume = { double l, double w, double h -> l*w*h }      
+def fixedWidthVolume = volume.ncurry(1, 2d) 
+
+memoization: .memoize()
+fib = { long n -> n<2?n:fib(n-1)+fib(n-2) }.memoize()
+assert fib(25) == 75025 // fast!
+
+memoizeAtMost will generate a new closure which caches at most n values
+memoizeAtLeast will generate a new closure which caches at least n values
+memoizeBetween will generate a new closure which caches at least n values and at most n values
+
+trampoline: don't hit stack limit in recursive functions
+example
+def factorial
+factorial = { int n, def accu = 1G ->
+    if (n < 2) return accu
+    factorial.trampoline(n - 1, n * accu)
+}
+factorial = factorial.trampoline()
+
+
+
+Leftoff: Semantics 1.6

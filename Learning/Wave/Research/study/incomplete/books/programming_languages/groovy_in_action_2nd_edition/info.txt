@@ -1,0 +1,4 @@
+**Groovy in Action: 2nd Edition**
+- source: http://testa.roberta.free.fr/My%20Books/Computer%20programming/Java/Manning%20Groovy%20in%20Action%20Jan%202007%20eBook-BBL.pdf
+
+history:

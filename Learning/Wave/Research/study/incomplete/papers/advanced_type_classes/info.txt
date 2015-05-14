@@ -1,0 +1,1 @@
+source: http://en.wikibooks.org/wiki/Haskell/Advanced_type_classes

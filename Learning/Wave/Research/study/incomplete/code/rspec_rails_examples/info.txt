@@ -1,0 +1,1 @@
+source: https://github.com/eliotsykes/rspec-rails-examples

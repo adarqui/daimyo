@@ -1,0 +1,8 @@
+source: https://github.com/superfeedr/ejabberd-websockets
+- https://github.com/dhruvbird/node-xmpp-bosh
+- http://www.quora.com/Can-ejabberd-chat-server-be-intergrated-with-scalable-and-fast-server-technologies-like-node-js-tornado-server-to-implement-an-in-browser-chat
+- http://mrjoes.github.io/2012/10/11/sockjs-ejabberd.html
+
+history:
+- 05/06/2015: read
+

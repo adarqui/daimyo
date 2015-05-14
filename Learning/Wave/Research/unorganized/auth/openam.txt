@@ -1,0 +1,6 @@
+videos:
+- oauth2: https://www.youtube.com/watch?v=u3kqjbtB0l4
+- openam intro: https://www.youtube.com/watch?v=sbP-xwsFpQc
+
+tutorials:
+- https://wikis.forgerock.org/confluence/display/openam/1+Introduction

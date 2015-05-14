@@ -1,0 +1,8 @@
+source: https://blog.process-one.net/embedding-ejabberd-into-an-elixir-phoenix-web-application/
+- examples https://gist.github.com/mremond/383666d563025e86adfe
+
+need to watch vid
+
+
+history:
+- 05/06/2015: read

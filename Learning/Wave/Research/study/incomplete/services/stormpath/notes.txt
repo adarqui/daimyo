@@ -1,0 +1,19 @@
+node.js: req.user
+
+{"href":"https://api.stormpath.com/v1/accounts/63p4xK90wy5DxA45BBzu3e","username":"andrew.darqui@gmail.com","email":"andrew.darqui@gmail.com","givenName":"a","middleName":null,"surname":"d","fullName":"a d","status":"ENABLED","createdAt":"2015-05-10T03:51:02.838Z","modifiedAt":"2015-05-10T03:51:18.635Z","emailVerificationToken":null,"customData":{"href":"https://api.stormpath.com/v1/accounts/63p4xK90wy5DxA45BBzu3e/customData"},"providerData":{"href":"https://api.stormpath.com/v1/accounts/63p4xK90wy5DxA45BBzu3e/providerData"},"directory":{"href":"https://api.stormpath.com/v1/directories/3IIyDdqTMiOnIMbVSKWhLf"},"tenant":{"href":"https://api.stormpath.com/v1/tenants/77ZR8vywQsNZH1jxWAwOp"},"groups":{"href":"https://api.stormpath.com/v1/accounts/63p4xK90wy5DxA45BBzu3e/groups"},"applications":{"href":"https://api.stormpath.com/v1/accounts/63p4xK90wy5DxA45BBzu3e/applications"},"groupMemberships":{"href":"https://api.stormpath.com/v1/accounts/63p4xK90wy5DxA45BBzu3e/groupMemberships"},"apiKeys":{"href":"https://api.stormpath.com/v1/accounts/63p4xK90wy5DxA45BBzu3e/apiKeys"}}
+
+http://docs.stormpath.com/nodejs/api/account
+
+
+By defining a postRegistrationHandler you’re able to do stuff like:
+
+Send a new user a welcome email.
+Generate API keys for all new users.
+Setup Stripe billing.
+etc.
+
+Instead of defining a database table for users, and another database table for user profile information – with Stormpath, you don’t need either!
+
+With Stormpath, however, this process is greatly simplified. Stormpath can create API keys for your users, store them securely, and completely handle API authentication / caching.
+
+

@@ -1,0 +1,14 @@
+apps built on:
+- urls
+- components
+- services
+
+generating tests from ember-cli:
+ember g acceptance-test index
+etc
+
+es6 - don't need to do: playGame: function() { ... }
+actions: {
+    playGame() {
+    }
+}

@@ -1,0 +1,7 @@
+https://github.com/haskell-servant/
+https://github.com/haskell-servant/servant-jquery/tree/master/examples#examples
+http://haskell-servant.github.io/getting-started
+
+cabal configure -f example
+cabal install
+

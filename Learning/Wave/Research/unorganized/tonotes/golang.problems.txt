@@ -1,0 +1,6 @@
+Go adopted semantics (safety and memory model) that are quite unsatisfactory.
+- Shared mutable state.
+- Global GC.
+- Null pointers.
+- No RAII or destructors.
+- No type-parametric user code.

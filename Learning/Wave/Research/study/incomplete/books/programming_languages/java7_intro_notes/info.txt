@@ -1,0 +1,7 @@
+source:
+- http://math.hws.edu/eck/cs124/downloads/javanotes7-linked.pdf
+- http://math.hws.edu/javanotes
+- http://math.hws.edu/eck/cs124/downloads/javanotes7-full-source.zip
+
+history:
+- 05/03/2015: Preface, C1

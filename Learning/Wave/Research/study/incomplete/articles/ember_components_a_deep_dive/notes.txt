@@ -1,0 +1,54 @@
+w3C web components specification comprised of:
+- templates
+- decorators
+- shadow DOM
+- custom elements
+
+There are several important concepts to grasp when talking about components:
+- Components know nothing about the outside world unless explicitly passed in
+- Components should have a well defined interface to the outside world
+- Components cannot manipulate any JavaScript outside of the component
+- Components can broadcast events
+- Custom elements must be namespaced with a hyphen
+- Outside JavaScript cannot manipulate components
+
+web components:
+- provide true encapsulation for ui widgets
+
+components:
+- subclass of Ember.View
+- views are generally found in the context of a controller
+- do not have a context
+- only know about the interface they define
+- allows a component to be rendered into any context (making it decoupled/reusable)
+- if you want the component to render properly you must supply it with data that it's expecting
+- passed in values can be both strings or bound properties
+- when bound properties are manipulated inside of a component those changes are still propogated wherever they are referenced in your app
+
+views:
+- normally sit behind a template and turn raw input (click, mouseEnter) into a semantic action (openMenu, editName, etc) in a controller or route.
+
+hierarchy diagram: https://cdn.tutsplus.com/net/uploads/2013/11/hierarchy-1.png
+- seen below
+
+localhost/#/foo/bar
+ApplicationRoute / ApplicationController / ApplicationView / Application Template
+    FooRoute / FooController / FooView / Foo Template
+        BarRoute / BarController / BarView / Bar Template
+
+"anything that we can draw a box around is a component"
+
+You will see that components can be nested inside of other components. This makes components just like legos that we can assemble any way we want.
+
+passing properties:
+- use quotes when passing a string
+- don' use quotes when passing a bound property
+
+ember handlebars helper:
+Ember.Handlebars.helper('format-date', function( date ) {
+  return moment( date ).fromNow();
+});
+
+{{format-date <Time>}}
+
+

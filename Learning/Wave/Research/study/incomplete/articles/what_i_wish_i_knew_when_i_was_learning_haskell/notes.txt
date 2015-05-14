@@ -1,0 +1,281 @@
+monad laws:
+-----------
+
+class Monad m where
+  (>>=)  :: m a -> (a -> m b) -> m b
+  return :: a -> m a
+
+Law 1
+return a >>= f ≡ f a
+
+Law 2
+m >>= return ≡ m
+
+Law 3
+(m >>= f) >>= g ≡ m >>= (\x -> f x >>= g)
+
+
+monad transformer laws:
+-----------------------
+
+Law #1
+lift . return = return
+
+Law #2
+lift (m >>= f) = lift m >>= (lift . f)
+
+Or equivalently:
+
+Law #1
+  lift (return x)
+= return x
+
+Law #2
+  do x <- lift m 
+     lift (f x)
+
+= lift $ do x <- m
+            f x
+
+
+desugar:
+--------
+
+"Being able to manually desugar is crucial to understanding."
+
+main = do
+  x <- getLine
+  putStrLn x
+  return ()
+
+main = 
+  getLine >>= \x ->
+    putStrLn >>= \_ ->
+      return ()
+
+main = 
+  (>>=) getLine (\x ->
+    (>>=) putStrLn (\_ ->
+          return ()
+    )
+  )
+
+main = bind getLine (\x -> bind putStrLn (\_ -> return ()))
+  where
+    bind x y = x >>= y
+
+main $fMonad = bind $dMonad getLine (\x -> bind $dMonad putStrLn (\_ -> return $dMonad ()))
+
+main :: IO ()
+main = bind $dMonadIO getLine (\x -> bind $dMonadIO putStrLn (\_ -> return $dMonadIO ()))
+
+why are monads "difficult"?
+1. There are several levels on indirection with desugaring.
+2. Asymmetric binary infix operators for higher order functions are not common in other languages.
+3. Ad-hoc polymorphism is not common place in other languages.
+
+
+transformers:
+- allow us to nest monadic computations in a stack with an interface to exchange values between the levels, called lift
+- composed outside-in
+- unrolled inside-out
+
+Newtypes let us reference a data type with a single constructor as a new distinct type, with no runtime overhead from boxing, unlike a algebraic datatype with single constructor.
+
+Using newtype deriving with the mtl library typeclasses we can produce flattened transformer types that don't require explicit lifting in the transform stack.
+- Newtype wrappers around strings and numeric types can often drastically reduce accidental errors.
+
+monads have kind (* -> *)
+Monad (m :: * -> *)
+
+monad transformers which take monads to monad have kind ((* -> *) -> * -> *)
+MonadTrans (t :: (* -> *) -> * -> *)
+
+-- Less Efficient      More Efficient
+forever (lift m)    == lift (forever m)
+mapM_ (lift . f) xs == lift (mapM_ f xs)
+forM_ xs (lift . f) == lift (forM_ xs f)
+
+The most common edge case of the inference is known as the dreaded monomorphic restriction.
+
+functions that can be used to subvert the type system:
+- prefixed with: unsafe
+- strongly discouraged
+
+defining:
+{-# LANGUAGE Safe #-}
+{-# LANGUAGE Trustworthy #-}
+- can be used to prevent unsafe or template haskell
+
+useful extensions: PatternGuards, ViewPatterns, MultiWayIf, RecordWildCards
+
+lazyness:
+- lazy by default
+- strict by need
+
+IMP
+The primary advantage of lazy evaluation in the large is that algorithms that operate over both unbounded and bounded data structures can inhabit the same type signatures and be composed without additional need to restructure their logic or force intermediate computations. Languages that attempt to bolt laziness on to a strict evaluation model often bifurcate classes of algorithms into ones that are hand-adjusted to consume unbounded structures and those which operate over bounded structures. In strict languages mixing and matching between lazy vs strict processing often necessitates manifesting large intermediate structures in memory when such composition would "just work" in a lazy language.
+
+
+lambda calc evaluation strategies:
+- strict - all arguments are evaluated before the body of a function.
+- non-strict - arguments are not necessarily evaluated before entering the body of a function.
+
+haskell: call-by-need model
+
+models:
+- call-by-value: strict, arguments evaluated before function entered
+- call-by-name: non-strict, arguments passed unevaluated
+- call-by-need: non-strict, arguments passed unevaluated but an expression is only evaluated once (sharing)
+
+weak-head-normal-form: outermost constructor or lambda cannot be reduced any further.
+normal form: fully evaluated and all sub-expressions and thunks contained within are evaluated
+
+-- In Normal Form
+42
+(2, "foo")
+\x -> x + 1
+
+-- Not in Normal Form
+1 + 2
+(\x -> x + 1) 2
+"foo" ++ "bar"
+(1 + 1, "foo")
+
+-- In Weak Head Normal Form
+(1 + 1, "foo")
+\x -> 2 + 2
+'f' : ("oo" ++ "bar")
+
+-- Not In Weak Head Normal Form
+1 + 1
+(\x -> x + 1) 2
+"foo" ++ "bar"
+
+thunk:
+- unevaluated computation
+
+forcing:
+- evaluation of a thunk is called forcing the thunk
+
+update:
+- result of forcing a thunk, a referentially transparent effect
+- replaces memory representation of the thunk with a computed value
+- only update once
+
+typo: has :sprintf
+:sprint
+- can be used to introspect the state of unevaluated thunks without forcing evaluation
+
+bang patterns: {-# LANGUAGE BangPatterns #-}
+- force arguments to be wrapped in seq
+- ! on an argument forces its evaluation to WHNF before performing the match
+- can be used to keep specific arguments evaluated throughout recursion instead of creating a giant chain of thunks
+
+deepseq: fully evaluates a structure
+
+irrefutuable patterns:
+
+f :: (a, b) -> Int
+f (a,b) = const 1 a
+
+g :: (a, b) -> Int
+g ~(a,b) = const 1 a
+
+-- λ: f undefined
+-- *** Exception: Prelude.undefined
+-- λ: g undefined
+-- 1
+
+The short version of the advice on the Prelude is:
+
+Use fmap instead of map.
+Use Foldable and Traversable instead of the Control.Monad, and Data.List versions of traversals.
+Avoid partial functions like head and read or use their total variants.
+Avoid asynchronous exceptions.
+Avoid boolean blind functions.
+
+import  Data.List hiding ( 
+    all , and , any , concat , concatMap find , foldl , 
+    foldl' , foldl1 , foldr , foldr1 , mapAccumL , 
+    mapAccumR , maximum , maximumBy , minimum , 
+    minimumBy , notElem , or , product , sum )
+
+import Control.Monad hiding ( 
+    forM , forM_ , mapM , mapM_ , msum , sequence , sequence_ )
+
+
+partial functions:
+- doesn't terminate and yield a value for all inputs
+
+total functions:
+- terminates and is defined for all inputs
+
+The difference between partial and total functions is the compiler can't reason about the runtime safety of partial functions purely from the information specified in the language and as such the proof of safety is left to the user to to guarantee. They are safe to use in the case where the user can guarantee that invalid inputs cannot occur, but like any unchecked property its safety or not-safety is going to depend on the diligence of the programmer. This very much goes against the overall philosophy of Haskell and as such they are discouraged when not necessary.
+
+safe variations:
+May - return Nothing when the function is not defined for the inputs
+Def - provide a default value when the function is not defined for the inputs
+Note - call error with a custom error message when the function is not defined for the inputs. This is not safe, but slightly easier to debug!
+
+headMay, headDef, headNote
+
+In Haskell, the Prelude provides functions like isJust and fromJust both of which can be used to subvert this kind of reasoning and make it easy to introduce bugs and should often be avoided.
+
+Foldable and Traversable:
+- general interface for all traversals and folds of any data structure which is parameterized over its element type ( List, Map, Set, Maybe, ...).
+- extremely important
+
+foldable instance:
+- allows us to apply functions to data types of monoidal values that collapse the structure using some logic over mappend.
+
+traversable instance:
+- allows us to apply functions to data types that walk the structure left-to-right within an applicative context.
+
+
+so nice
+
+The instances we defined above can also be automatically derived by GHC using several language extensions. The automatic instances are identical to the hand-written versions above.
+
+{-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveFoldable #-}
+{-# LANGUAGE DeriveTraversable #-}
+
+data Tree a = Node a [Tree a]
+  deriving (Show, Functor, Foldable, Traversable)
+
+
+recursive function:
+- consumes data and eventually terminates
+
+corecursive function:
+- generates data and coterminates
+
+Basically, corecursion is recursion accumulator-style, building its result on the way forward from the starting case, whereas regular recursion builds its result on the way back from the base case.
+
+(speaking Haskell now). That's why foldr (with a strict combining function) expresses recursion, and foldl' (with strict comb. f.) / scanl/ until/ iterate/ unfoldr/ etc. express corecursion. Corecursion is everywhere. foldr with non-strict comb. f. expresses tail recursion modulo cons.
+
+
+text:
+- packed blob of Unicode characters.
+
+bytestring:
+- arrays of unboxed characters with either strict or lazy evaluation
+
+applicatives:
+-------------
+
+- abstract structure for a wild class of computations that sit between functors and monads
+
+pure :: Applicative f => a -> f a
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+(<*>) :: f (a -> b) -> f a -> f b
+
+laws:
+pure id <*> v = v
+pure f <*> pure x = pure (f x)
+u <*> pure y = pure ($ y) <*> u
+u <*> (v <*> w) = pure (.) <*> u <*> v <*> w
+
+
+Leftoff: typeclass hierarchy

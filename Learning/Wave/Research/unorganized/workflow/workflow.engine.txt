@@ -1,0 +1,8 @@
+jbpm: http://docs.jboss.org/jbpm/v6.2/userguide/
+- http://sourceforge.net/projects/jbpm/
+
+activi: http://www.activiti.org/
+- http://www.activiti.org/userguide/index.html
+
+rundeck:
+- http://rundeck.org/2.1.3/

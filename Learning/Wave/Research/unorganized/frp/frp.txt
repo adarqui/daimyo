@@ -1,0 +1,5 @@
+ReactiveX: https://github.com/ReactiveX
+RxJS: https://github.com/ReactiveX/RxJS
+
+nice: https://github.com/gelisam/frp-zoo#readme
+- comparison and examples of various frameworks

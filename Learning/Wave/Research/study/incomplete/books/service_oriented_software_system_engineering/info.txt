@@ -1,0 +1,4 @@
+**Service Oriented Software System Engineering**
+- source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/%5bSOA%5d%20%5bIdea%20Group%5d%20%5bService-Oriented%20Software%20System%20Engineering%5d%20%5b2005%5d.pdf
+
+history:

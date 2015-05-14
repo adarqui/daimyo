@@ -1,0 +1,6 @@
+source:
+- https://github.com/mwitte/EmberChat/
+- http://mwitte.github.io/EmberChat/
+
+history:
+- 05/06/2015: read

@@ -1,0 +1,2 @@
+**SOA: Patterns, Mashups, Governance, Service Modeling, and More**
+- source: http://ptgmedia.pearsoncmg.com/imprint_downloads/informit/promotions/LearnSOA/SOA_eBook-InformIT.pdf

@@ -1,0 +1,21 @@
+infoq:
+- http://www.infoq.com/development/news/
+- http://www.infoq.com/architecture-design/news/
+- http://www.infoq.com/process-practices/news/
+- http://www.infoq.com/operations-infrastructure/news/
+- http://www.infoq.com/enterprise-architect/news/
+
+hackernews:
+- https://news.ycombinator.com/
+
+reddit:
+- http://www.reddit.com/r/C_Programming/
+- https://www.reddit.com/r/cpp/
+- https://www.reddit.com/r/haskell/
+- https://www.reddit.com/r/rust/
+- https://www.reddit.com/r/golang/
+- http://www.reddit.com/r/scala/
+- https://www.reddit.com/r/java/
+- http://www.reddit.com/r/groovy
+- https://www.reddit.com/r/javascript/
+- https://www.reddit.com/r/Clojure/

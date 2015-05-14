@@ -1,0 +1,4 @@
+**Programming in Scala: 2nd Edition**
+- source: http://www.r-5.org/files/books/computers/Martin_Odersky_Lex_Spoon_Bill_Venners-Programming_in_Scala-EN.pdf
+
+history:

@@ -1,0 +1,16 @@
+locust:
+- http://locust.io/
+
+tsung:
+- http://tsung.erlang-projects.org/
+- https://engineering.helpshift.com/2014/tsung/
+
+grinder:
+- http://grinder.sourceforge.net/
+
+jmeter:
+- http://jmeter.apache.org/
+- http://jmeter.apache.org/usermanual/jmeter_distributed_testing_step_by_step.pdf
+
+loads:
+- https://github.com/mozilla-services/loads

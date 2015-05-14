@@ -1,0 +1,4 @@
+source: http://book.realworldhaskell.org/read/
+
+history:
+- 05/02/2015: Intro, C1, C2

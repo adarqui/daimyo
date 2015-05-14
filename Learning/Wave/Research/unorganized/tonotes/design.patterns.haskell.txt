@@ -1,0 +1,21 @@
+- source: http://blog.ezyang.com/2010/05/design-patterns-in-haskel/
+
+strategy: first class functions and lambdas
+- implemented using closures or currying
+factory method & template method: high-order functions
+abstract factory, builder, bridge: type classes & smart constructors
+adapter, decorator, chain of responsibility: composition and lifting
+visitor functions: foldable
+interpreter: functions
+command: monads
+composite: recursive algebraic data types
+iterator: lazy lists
+prototype: immutability
+flyweight: memoising and constant applicative forms
+state, memento: unnecessary
+singleton: unnecessary
+facade: functions
+observer: concurrency mechanisms such as channels, async exceptions and mutable variables
+proxy: wrapped data types, laziness, garbage collector, IORef, STRef
+mediator: monad stacks
+

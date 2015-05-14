@@ -1,0 +1,3 @@
+command: ~
+- makes subsequent commands run when files change.
+- ~; container:start; container:reload /

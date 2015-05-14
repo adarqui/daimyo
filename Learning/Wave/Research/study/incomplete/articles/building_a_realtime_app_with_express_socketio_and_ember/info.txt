@@ -1,0 +1,5 @@
+source: http://www.hutchinson.io/building-a-real-time-application-with-express-socketio-and-ember/
+- https://github.com/danielhutchinson/helpdesk-ticketer
+
+history:
+- 05/09/2015: read/notes

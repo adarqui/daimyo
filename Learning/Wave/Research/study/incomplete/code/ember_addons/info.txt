@@ -1,0 +1,58 @@
+http://www.emberaddons.com/
+
+forms:
+- http://indexiatech.github.io/ember-forms/overview
+- http://piceatech.github.io/ember-rapid-forms/#/overview
+
+data:
+- ember-data: https://www.npmjs.com/package/ember-data
+- restless: https://www.npmjs.com/package/ember-restless
+- github: https://www.npmjs.com/package/ember-data-github
+- crud table: https://www.npmjs.com/package/ember-cli-crudtable
+
+validation:
+- https://www.npmjs.com/package/ember-cli-validatorjs
+
+concat:
+- into one single css/js file
+- https://www.npmjs.com/package/ember-cli-concat
+
+tables:
+- https://github.com/onechiporenko/ember-models-table
+- https://www.npmjs.com/package/table-grid-2d
+
+tooltips:
+- https://www.npmjs.com/package/ember-cli-tooled
+
+modals:
+- https://www.npmjs.com/package/ember-modal-dialog
+
+notifications:
+- https://www.npmjs.com/package/ember-notify
+
+markdown:
+- https://www.npmjs.com/package/em-markdown-editor
+
+video:
+- https://github.com/IvyApp/ivy-videojs
+- http://www.videojs.com/
+
+uploads:
+- https://www.npmjs.com/package/ember-plupload
+
+native:
+- generate chrome/cordova apps:
+- https://www.npmjs.com/package/ember-cli-mobile-chrome-apps
+
+features:
+- the idea is good, plugin to allow features to be turned off/on dynamically
+- https://www.npmjs.com/package/ember-cli-feature-manager
+
+deploy:
+- cloudfiles: https://www.npmjs.com/package/ember-deploy-cloudfiles
+
+throttling:
+- throttle computed values: https://www.npmjs.com/package/rate-limit-computed
+
+admin:
+- https://github.com/dockyard/ember-admin

@@ -1,0 +1,6 @@
+sources:
+- https://github.com/chrisdone/hulk/
+- http://chrisdone.com/posts/hulk-haskell-irc-server
+
+history:
+- 04/30/2015: read

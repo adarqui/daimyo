@@ -1,0 +1,4 @@
+sources:
+- http://simply.liftweb.net/index-Chapter-2.html#Next
+- https://github.com/dpp/simply_lift/tree/master/chat
+

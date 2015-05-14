@@ -1,0 +1,19 @@
+api docs:
+- https://github.com/HashNuke/mogo-chat/blob/master/docs/api.md
+
+POST /api/users             create a user
+PUT /api/users/:user_id     modify a user
+DELETE /api/users/:user_id  delete a user
+POST /api/rooms             create a room
+PUT /api/rooms/:room_id     modify a room
+GET /api/rooms/:room_id/users active users in a room
+POST /messages              post a message to a room
+GET /messages/:room_id      get messages in a room
+GET /api/room_user_states   get room states
+PUT /api/room_user_states/:room_user_state_id join or leave rooms
+POST /api/sessions          sign in
+
+
+polling:
+- eek
+    @fetchMessages() && @timer = setInterval(@fetchMessages.bind(@), 2500)

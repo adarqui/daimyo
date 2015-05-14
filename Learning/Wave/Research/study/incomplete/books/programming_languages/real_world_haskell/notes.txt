@@ -1,0 +1,156 @@
+Intro
+-----
+
+immutability:
+- de-emphasize code that modifies data
+- focus on functions that take immutable values as input and produce new values as output
+- given the same inputs, these functions always return the same results
+
+Robin Milner created ML
+
+haskell created by a committee
+
+bos interned for spj
+
+
+C1: Getting Started
+-------------------
+
+runghc: run haskell programs as script without needing to compile them
+
+ghci:
+:? print helps
+
+Prelude: standard prelude
+- haskell 98 standard
+
+precedence:
+- haskell numerical precedence values to operators
+- lowest precedence: 1
+- highest precedence: 9
+- higher applied before lower
+- to inspect precedence levels use :info
+
+infixl 6 +
+- the (+) operator has a precedence of 6, left associative
+
+associativity: l or r
+- determines whether an expression containing multiple uses of an operator is evaluated from left to right, or right to left
+
+fixity rules:
+- combination of precedence and associativity rules
+
+: aka cons
+
+type names begin with upper case letter
+variable names begin with a lower case letter
+
+:set +t
+:unset +t
+- prints type info on every instruction in ghci
+
+x :: y
+- the expression x has the type y
+
+Integer
+- bounded by system's memory capacity
+
+
+C2: Types and Functions
+-----------------------
+
+types:
+- give us abstraction
+- adds meaning to plain bytes: "these bytes are <x>"
+
+haskell's type system:
+- strong
+- static
+- inferred
+
+strong types:
+- type system guarantees a program cannot contain certain kinds of errors
+- won't automatically coerce values from one type to another (such as in C)
+- strength refers to how permissive a type system is
+
+static types:
+- compiler knows the type of every value and expression at compile time, before any code is executed
+- haskell's type classes provide similar benefits of dynamic typing
+
+strong + static typing:
+- impossible for type errors to occur at run time
+- need to think more up front
+
+A helpful analogy to understand the value of static typing is to look at it as putting pieces into a jigsaw puzzle. In Haskell, if a piece has the wrong shape, it simply won't fit. In a dynamically typed language, all the pieces are 1x1 squares and always fit, so you have to constantly examine the resulting picture and check (through testing) whether it's correct.
+
+duck typing:
+- object acts enough like another to be used as a substitute for it
+
+type inference:
+- compiler can automatically deduce the types of almost all expressions in a program
+
+composite data type:
+- constructed from other types
+- most common composite data types: lists, tuples
+
+type variables: lower case
+
+tuple:
+- fixed size collection of values
+- each value can have a different type
+
+haskell tuples aren't immutable lists like python
+
+function application:
+- left associative
+- a b c d is equivalent to (((a b) c) d)
+
+side effect:
+- introduces a dependency between the global state of the system and the behavior of a function
+- essentially invisible inputs to, or outputs from, functions
+- impure
+
+variables in haskell:
+- provide a way to give a name to an expression
+- once a variable is bound, its value does not change
+
+predicate:
+- an expression of type bool
+
+thunk:
+- unevaluated expression
+- defer actual evaluation until it's really needed
+
+non-strict evaluation aka lazy evaluation
+
+Many languages need to treat the logical-or operator specially so that it short circuits if its left operand evaluates to True. In Haskell, (||) is an ordinary function: non-strict evaluation builds this capability into the language.
+
+
+We have established several important points here.
+- It makes sense to use substitution and rewriting to understand the evaluation of a Haskell expression.
+- Laziness leads us to defer evaluation until we need a value, and to evaluate just enough of an expression to establish its value.
+- The result of applying a function may be a thunk (a deferred expression).
+
+polymorphic:
+- functions of type variables
+
+haskell uses parametric polymorphism
+
+parametric polymorphism:
+- 
+
+subtype polymorphism:
+- C++, Java etc
+- base class defines a set of behaviors that its subclasses can modify and extend
+
+coercion polymorphism:
+- allows a value of one type to be implicitly converted into a value of another type
+- many languages provide some form of this
+
+If a type contains type parameters, we say that it is a parameterised type, or a polymorphic type. If a function or value's type contains type parameters, we call it polymorphic.
+
+right associative:
+- signatures with chains of arrows
+- grouped from right to left
+-> is right associative
+

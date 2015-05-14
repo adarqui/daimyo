@@ -1,0 +1,17 @@
+At Google, there has never been a top-down design approach to build­ing sys­tems, but rather an evo­lu­tion­ary process using nat­ural selec­tion – ser­vices sur­vive  by jus­ti­fy­ing their exis­tence through usage or they are dep­re­cated.
+
+At Google, there are no “archi­tect” roles, nor is there a cen­tral approval process for tech­nol­ogy deci­sions. Most tech­nol­ogy deci­sions are made within the team, so they’re empow­ered to make the deci­sions that are best for them and their service.
+
+By the sound of it, best prac­tices and stan­dard­iza­tion are achieved through a consensus-based approach in teams and then spread out  through­out the orga­ni­za­tion through:
+
+encap­su­la­tion in shared/reusable libraries;
+sup­port for these stan­dards in under­ly­ing services;
+code reviews (word of mouth);
+
+
+IMP
+
+You can have too much alerting, but you can never have too much monitoring.
+
+auton­omy to the team, and DevOps phi­los­o­phy of “you build it, you run it”
+

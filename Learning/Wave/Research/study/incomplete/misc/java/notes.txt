@@ -1,0 +1,12 @@
+Here’s a decision tree to know how the type you’re looking for is called:
+
+Does your function return void? It’s called a Consumer
+Does your function return boolean? It’s called a Predicate
+Does your function return an int, long, double? It’s calledXXToIntYY, XXToLongYY, XXToDoubleYY something
+Does your function take no arguments? It’s called a Supplier
+Does your function take a single int, long, double argument? It’s called an IntXX, LongXX, DoubleXX something
+Does your function take two arguments? It’s called BiXX
+Does your function take two arguments of the same type? It’s calledBinaryOperator
+Does your function return the same type as it takes as a single argument? It’s called UnaryOperator
+Does your function take two arguments of which the first is a reference type and the second is a primitive type? It’s called ObjXXConsumer(only consumers exist with that configuration)
+Else: It’s called Function

@@ -1,0 +1,30 @@
+gem install bundler
+bundler gem name
+
+name/name.gemspec: contains actual gem defs
+
+bundler uses hyphens to namespace code: polyglot-ruby = Polyglot::Ruby
+
+Gemfile:
+- filled with a list of dependencies, description, license, contact, etc
+
+Rakefile:
+- contains ruby tasks
+
+guiding steps to TDD: red, green, refactor
+- aka tight feedback loop
+
+TDD fundamentally breaks down as the following:
+- Write a test.
+- Run the test and watch it fail (because there is no code yet for it to pass).
+- Write the least amount of code to pass the test (literally, hack it together).
+- Refactor the code so that it’s cleaner and better written.
+- If the test has failed through refactoring, then start the red, green, refactoring process again.
+
+RSpec:
+RSpec is a testing tool for the Ruby programming language. Born under the banner of behaviour-driven development, it is designed to make test-driven development a productive and enjoyable experience
+
+in Rakefile: require 'rspec/core/rake_task':
+- adds rspec related modules and classes for us to use
+
+

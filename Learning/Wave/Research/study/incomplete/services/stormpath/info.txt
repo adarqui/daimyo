@@ -1,0 +1,10 @@
+sources:
+- node.js: http://docs.stormpath.com/nodejs/quickstart/
+- sessions: https://support.stormpath.com/hc/en-us/articles/203697596-How-does-Stormpath-recommend-handling-sessions-
+
+examples:
+- express: https://stormpath.com/blog/making-expressjs-authentication-fun-again/
+- https://stormpath.com/blog/build-nodejs-express-stormpath-app/
+
+integrating with sails.js:
+- http://stackoverflow.com/questions/27762285/how-to-configure-stormpath-as-middleware-in-sails-js

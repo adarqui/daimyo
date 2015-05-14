@@ -1,0 +1,3 @@
+go:
+- osin: https://github.com/RangelReale/osin
+- oauth2: https://github.com/golang/oauth2

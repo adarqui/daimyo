@@ -1,0 +1,18 @@
+don't include css/styling
+tests
+allow for overrides
+- put all of your business logic into addon/
+- include wrapper classes in app/ that just import/export the extended class
+
+// addon/components/foo-bar.js
+import Ember from 'ember';
+export default Ember.Component.extend({
+  // business logic
+});
+
+// app/components/foo-bar.js
+import FooBar from 'my-addon/components/foo-bar';
+export default FooBar;
+
+
+

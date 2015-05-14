@@ -1,0 +1,15 @@
+contexts:
+- go: https://godoc.org/golang.org/x/net/context
+
+storage acl example:
+- https://github.com/GoogleCloudPlatform/gcloud-golang/blob/master/storage/acl.go
+- https://godoc.org/google.golang.org/cloud/storage
+
+linux acl:
+- http://linux.about.com/library/cmd/blcmdl5_acl.htm
+
+go prolog:
+- https://github.com/mndrix/golog
+
+haskell:
+- posix: https://hackage.haskell.org/package/posix-acl-0.1.0.0/docs/System-Posix-ACL.html

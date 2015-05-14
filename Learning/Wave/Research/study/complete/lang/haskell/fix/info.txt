@@ -1,0 +1,4 @@
+source: http://www.vex.net/~trebla/haskell/fix.xhtml
+
+history:
+- 05/04/2015: read/play

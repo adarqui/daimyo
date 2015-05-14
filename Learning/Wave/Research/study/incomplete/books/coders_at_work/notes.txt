@@ -1,0 +1,63 @@
+introduction
+------------
+
+coders at work was coined from the paris review's "writers at work"
+
+in 2008, 1.25 million programmers/software engineers. 1 in every 106 workers.
+
+almost everyone emphasized:
+- the importance of writing readable code
+- hardest bugs to track down are in concurrent code
+- programming is not a solved problem
+- looking for better ways to write software
+- multi-core cpus are going to force some serous changes in the way software is written
+
+"Personally I have never believed that it is possible to be a good coder without being a good programmer nor a good programmer without being a good designer, communicator, and thinker."
+
+
+jamie zawinski
+--------------
+- lisp, netscape, emacs
+
+Then I guess I read a bunch of books. I remember reading books about languages that I had no way to run and writing programs on paper for languages that I’d only read about. 
+
+"The thing that really made me decide to leave was just this feeling that I wasn’t accomplishing anything. And I was surrounded by people who weren’t programmers.  I’m still friends with some of them; they’re good folks, but they were linguists. They were much more interested in abstract things than solving problems. I wanted to be doing something that I could point to and say, “Look, I made this neat thing.”"
+
+The sooner you realize that your map is wrong, the sooner you’ll be able to figure out where it went wrong
+
+And really, why would we? Everyone wants to write version two,
+right? You were figuring it out while you wrote it and now you’ve got
+a chance to throw that away and start over—of course you’re going
+to start over. It’s going to be better this time. And it was. With the
+design that the other ones had, there was basically no way to load
+images in parallel, things like that. And that was really important. So
+we had a better design for the back end. 
+
+Zawinski: It’s certainly not healthy. I know we did it that way and it
+worked. So the way to answer that question is, is there another
+example of someone delivering a big piece of software that fast that’s
+of reasonable quality where they actually had dinner at home and slept
+during the night? Has that ever happened? I don’t actually know.
+Maybe it has. 
+
+Seibel: Overengineering seems to be a pet peeve of yours.
+Zawinski: Yeah. At the end of the day, ship the fucking thing! It’s
+great to rewrite your code and make it cleaner and by the third time
+it’ll actually be pretty. But that’s not the point—you’re not here to
+write code; you’re here to ship products. 
+
+Zawinski: Sometimes. I end up doing all the sysadmin crap, which I can’t stand—I’ve never liked it
+
+likes coding screensavers because:
+But no one is ever going to ask for a new feature in a screen saver. “I
+wish it was more yellow.” You’re not going to get a bug report like
+that. It is what it is. So that’s why I’ve always written those for fun.
+They make this neat result and you don’t have to think about them
+too much. They don’t haunt you. 
+
+where to start?
+I find that getting something on the screen as soon as possible really helps focus the problem for me. It helps me decide what to work on next
+
+
+
+leftoff: page 29 (45)

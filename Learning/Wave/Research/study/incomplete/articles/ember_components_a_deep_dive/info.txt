@@ -1,0 +1,4 @@
+source: http://code.tutsplus.com/tutorials/ember-components-a-deep-dive--net-35551
+
+history:
+- 05/10/2015:

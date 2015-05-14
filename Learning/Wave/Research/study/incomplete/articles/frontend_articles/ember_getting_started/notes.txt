@@ -1,0 +1,1342 @@
+npm install -g ember-cli
+npm install -g phantomjs
+ember new app
+cd app
+ember server
+hit http://localhost:4200
+
+phantom.js:
+- ember cli uses phantomjs to run tests from the command line
+
+evergreen browsers:
+- Browsers that update themselves (without user intervention).
+
+less/sass:
+- css preprocessors
+
+polyfill:
+- provide js which tests for features that are missing, and fills them by providing an implementation
+
+promise:
+- async calls typically return a promise (or deferred)
+- object which has state
+- can be given handlers for when it's fulfilled or rejected
+
+
+concepts:
+---------
+
+ember borrowed ideas from cocoa / smalltalk
+
+template:
+- backed by a model
+- automatically updates itself if the model changes
+
+router:
+- translates a url into a series of nested templates, each backed by a model
+
+components:
+- custom html tag whose behavior you implement using javascript and whose appearance you describe using handlebars templates
+
+models:
+- object that stores persistent state
+- templates are responsible for displaying the model to the user by turning it into html
+
+route:
+- object that tells the template which model it should display
+
+
+the app:
+--------
+app/app.js
+app/controllers/application.js
+app/templates/application.hbs
+app/routes/application.js
+
+In Ember.js applications, you will always provide your objects as classes, and the framework is responsible for instantiating them and providing them to your templates at runtime through the resolver.
+
+
+routes:
+-------
+
+- if you don't specify a route handler (app/routes/...), ember will still render app/templates/...hbs with the app's instance of ...
+- routes can be nested under a resource
+
+app/router.js
+export default Ember.Router.extend().map(function(){
+  this.route('favorites');
+});
+if user navigates to /favoriates, ember will look for these classes:
+app/routes/favorites.js
+app/controllers/favorites.js
+app/templates/favorites.hbs
+
+dynamic segments:
+- url that includes a parameter
+
+export default Ember.Router.extend().map(function(){
+  this.route('post', { path: '/posts/:post_id' });
+});
+
+model method: "fetches" the model
+serialize method: converts a model object back into the url params for the route
+- when generating links for a route
+
+default behavior ^^
+
+nesting:
+this.route('posts', function() { // posts route: app/*/posts.js
+    this.route('favorites'); // posts.favorites route: app/*/posts/favorites.js
+    ...
+}
+
+index route:
+- at every level of nesting, ember provides a route for / (named index)
+
+export default Ember.Router.extend().map(function(){
+  this.route('favorites');
+});
+
+is equiv to
+
+export default Ember.Router.extend().map(function(){
+  this.route('index', { path: '/' });
+  this.route('favorites');
+});
+
+if user visits /, ember looks for app/*/index.js
+
+
+classes:
+--------
+
+classes:
+- created with extend() on Ember.Object: Person = Ember.Object.extend({})
+
+subclasses:
+- created by calling extend() on an object: Soldier = Person.extend({});
+
+instances:
+- created by calling create(): var person = Person.create()
+
+passing in values:
+- can pass in an optional hash which contains keys/values
+
+initializing instances:
+- init method of a class, invoked automatically
+- when subclassing a framework class like Ember.View or Ember.ArrayController, and you override init, make sure to call this._super()
+
+_super():
+- can access parent class
+
+accessing properties:
+- get/set
+- var person = Person.create(); person.set('name', 'Bob'); person.get('name');
+- use get/set or computed values won't properly recalculate, observers won't fire, templates won't update
+
+PascalCase:
+- variables that hold classes are PascalCased
+- People
+
+
+computed properties:
+--------------------
+
+- property is a function
+- ember calls the function when you ask for the property
+- blah: function() { }.property('property..'); <- declares it to be a computed propery
+- blah: function(key, value, previousValue) { ... }.property('property...');
+- blah: Ember.computed('property'...', function() { return this.get('...') }) <-- SAME THING ^
+- ember extends the function prototype
+
+Person = Ember.Object.extend({ firstName: null, lastName: null, fullName: function() { return this.get('firstName') + ' ' + this.get('lastName'); }.property('firstName', 'lastName');
+
+chaining computed properties:
+- can chain them, meaning, blah1: function().property(), blah2: function() { return this.get('blah1'); }
+
+dynamic updating:
+- computed properties by default observe any changes made to the properties they depend on and are dynamically update when called
+
+
+computed properties and aggegate data with @each:
+
+remaining: function() {...}.property('todos.@each.isDone');
+- @each instructs ember to update bindings and fire observers for this computed property when one of four events occurs:
+- only works one level deep
+
+1. The isDone property of any of the objects in the todos array changes.
+2. An item is added to the todos array.
+3. An item is removed from the todos array.
+4. The todos property of the controller is changed to a different array.
+
+observers:
+----------
+
+- observes method
+- currently synchronous: they will fire as soon as one of the properties they observe changes
+- use Ember.run.once() to ensure that any processing you need only happens once, and happens in the next run loop once all bindings are synchronized
+- never fire until after the initialization of an object is complete
+- if you never 'get' a computed propery, its observers will not fire even if its dependent keys change
+- Ember.observer() : inline
+- can add observers to an object outside of a class definition using addObserver('...', function() { });
+
+fullNameChanged: function() {
+    Ember.run.once('this, 'processFullName');
+}.observes('fullName').on('init');
+
+or (inline)
+fullNameChanged: Ember.observer('fullName', function() { }) 
+
+.on('init'), fires during the initialization process
+
+
+bindings:
+---------
+
+- creates a link between two properties such that when one changes, the other one is updated to the new value automatically
+- can connect properties on the same object or across different objects
+- can be used with any object, not just between views and models
+- easiest way: use computed alias that specifies the path to another object
+- not updated immediately - waits until app code has finished; so you can change a bound property as many times as you'd like without worrying about the overhead of syncing bindings when values are transient
+- created with: Ember.computed.alias()
+
+lool nice example:
+
+wife = Ember.Object.create({
+    householdIncome: 80000
+});
+
+Husband = Ember.Object.extend({
+    householdIncome: Ember.computed.alias('wife.householdIncome')
+});
+
+husband = Husband.create({
+    wife: wife
+});
+
+husband.get('householdIncome'); // 80000
+
+// Someone gets raise.
+husband.set('householdIncome', 90000);
+wife.get('householdIncome'); // 90000
+
+
+one-way bindings:
+- only propogates changes in one direction
+- created with: Ember.computed.oneWay() 
+
+bindings:
+---------
+- don't need todefine a class all at once
+- can reopen a class and define new propeties using the reopen method
+- can override existing methods and call this._super() 
+- used to add instance methods and properties that are shared across all instances of a class
+- does not add methods and properties to a paritcular instance of a class
+- reopen method: Blah.reopen()
+- reopenClass() : to create class method or properties to the class itself
+
+
+bindings, observers, computed properties guidelines:
+----------------------------------------------------
+
+Use computed properties to build a new property by synthesizing other properties. Computed properties should not contain application behavior, and should generally not cause any side-effects when called. Except in rare cases, multiple calls to the same computed property should always return the same value (unless the properties it depends on have changed, of course.)
+
+Observers should contain behavior that reacts to changes in another property. Observers are especially useful when you need to perform some behavior after a binding has finished synchronizing.
+
+Bindings are most often used to ensure objects in two different layers are always in sync. For example, you bind your views to your controller using Handlebars.
+
+
+creating an application: Ember.Application
+------------------------------------------
+
+one instance of Ember.Application located at app/app.js
+- adds event listeners to the document and is responsible for delegating events to your views
+- automatically renders the application template
+- automatically creates a router and begins routing, choosing which template and model to display based on the current url
+
+
+
+templates
+---------
+
+default template: application aka app/templates/application.hbs
+- application.hbs created by default with ember-cli
+- rendered when app starts
+- header, footer, other decorative content
+- have at leat one outlet: router will fill in the appropriate template based on the url
+- bound to application controller
+
+templates:
+- for templates that are shared across many areas of your site, see components
+- each template has an associated controller
+- {{property}
+- conditionals: {{#if ..}} .. {{#unless ..}} 
+- loops: {{#each ..}}
+
+<div>
+    {{outlet}}
+</div>
+
+handlbars template aka "HTML-like DSL" for describing the user interface of your app.
+
+
+binding element attributes
+- attributes that are bound to the controller
+
+2 ways to enable support for data attributes:
+Ember.LinkView.reopen({
+  attributeBindings: ['data-toggle']
+});
+
+Ember.TextField.reopen({
+  attributeBindings: ['data-toggle', 'data-placement']
+});
+
+binding element class names:
+- <div {{bind-attr class="priority"}}>
+- pulls priority from the controller
+
+binding multiple classes:
+- <div {{bind-attr class="isUrgent priority"}}>
+
+static classes:
+- <div {{bind-attr class=":high-priority isUrgent"}}>
+- :blah
+
+links:
+- {{link-to 'route' [optional params]}}text{{/link-to}}
+
+replacing history entries:
+- {{link-to 'route' [optional params] replace=true}}text{{/link-to}}
+
+actions:
+- make html elements clickable
+- trigger a method on the template's controller
+    - if action doesn't exist in controller, will be sent to the router
+- {{action 'event' [optional params]}}
+- {{action 'event' [optional params] on='event'}}
+- to stop event propagation: bubbles=false
+    {{action ... bubbles=false}}
+
+<button {{action 'expand'}}>Show more...</button>
+<button {{action 'select' post on='mouseUp'}}></button>
+
+and in the controller:
+
+export default Ember.ObjectController.extend({ ... actions: { expand: function() { .. } })
+
+routes and controllers that handle actions:
+- MUST PLACE ACTION HANDLER INSIDE AN actions HASH
+
+action bubbling:
+- allows you to create a button that has different behavior based on where you are in the application
+
+input helpers:
+- {{input}}
+- {{textarea}}
+- {{input}} wraps Ember.TextField and Ember.Checkbox
+- {{textarea}} wraps Ember.TextArea
+
+input actions:
+- {{input ... on='action'}}
+- event names must be dasherized when using on
+
+checkboxes:
+- {{input type="checkbox" ...}}
+
+all of the options for input, textarea, etc:
+- http://guides.emberjs.com/v1.10.0/templates/input-helpers/
+
+development helpers:
+- logging: {{log}}
+- breakpoints: {{debugger}}
+
+rendering with helpers:
+- {{partial}}
+    - takes the template to be rendered as an argument, and renders that template in place.
+    - does not change context or scope. It simply drops the given template into place with the current scope.
+- {{view}}
+    - works like partial, except, provides a view class to render
+- {{render <context> [model]}}
+    - 
+
+export default Ember.View.extend({
+    templateName: "author"
+    ...
+});
+
+... {{view "author"}}
+
+
+writing helpers:
+- Ember.Handlebars.helper('name', function(value, options) { }
+
+
+routing
+-------
+
+router responsible for:
+- displaying templates
+- loading data
+- setting up application state
+
+^ does so by matching current URL to the routes you've defined
+
+routes:
+- states are represented by a url
+- at any given time, app has one or more active route handlers
+- whenever you define a new route, ember.js attempts to find corresponding route, controller, view, and template classes named according to the conventions.
+
+all of this is encapsulated by route handlers:
+- "are we logged in"
+- "what post are we looking at"
+- etc
+
+active route handlers can change:
+- if user interacted with a view, which generated an event that caused the url to change
+- user changed the url manually (back button), or page loaded for first time
+
+when current url changes:
+- conditionally redirect to new url
+- update a controller so that it represents a particular model
+- change the template on screen, or place a new template into an existing outlet
+
+logging route changes: within Ember.Application()
+LOG_TRANSITIONS: true
+
+specifying a root url:
+rootURL: '/root'
+
+routes you get for free:
+- ApplicationRoute & IndexRoute (/)
+
+paths:
+- can leave it off if it's the same as your route name
+- this.route('favorites', { path: '/favs' });
+- this.resource('stuff', { path: '/stf' });
+
+in templates, linking between routes:
+- use {{link-to 'route'}} helper
+- {{link-to}} helper also adds an active class to the link that points to the currently active route
+
+customizing routes:
+- use setupController: function()
+
+IndexRoute = Ember.Route.extend({
+    setupController: function(controller) {
+        controller.set('title', 'hi');
+    }
+});
+
+resources:
+- groups of routes that work with a resource
+- one of the responsibilities of a resource's route handler is to convert a URL into a model
+
+    BlahRoute = Ember.Route.extend({
+        model: function() { return this.store.find('blah'); }
+    });
+
+ember.js automatically figures out the names: this.route('about')
+- url: /about
+- route name: about
+- controller: AboutController
+- route: AboutRoute
+- template: about
+
+ember.js automatically figures out the names:
+this.resource('posts', function() {
+    this.route('new')
+});
+- URL: /, /posts, /posts/new
+- route: index, posts, posts.index, posts.new
+- controller: IndexController, PostsController, PostsIndexController, PostsNewController
+- route: IndexRoute, PostsRoute, PostsIndexRoute, PostsNewRoute
+- template: index, posts, posts/index, posts/new
+
+visiting /posts:
+- first renders the posts template
+- then it will render posts/index template into the posts template's OUTLET
+
+visiting /posts/new:
+- first renders the posts template
+- then renders the posts/new template into the posts template's OUTLET
+
+nouns, verbs, adjectives:
+- this.resource: use for urls that represent a noun
+- this.route: use for urls that represent adjectives or verbs modifying those nouns
+
+multi-word model names: model named BigMac
+- resource: /bigMacs/:big_mac_id
+- route: bigMac
+- template: bigMac
+
+dynamic segment:
+- portion of a URL that starts with : and is followed by an identifier
+- this.resource('post', { path: '/post/:post_id' });
+- below is the default behavior:
+
+App.Router.map(function() {
+  this.resource('posts');
+  this.resource('post', { path: '/post/:post_id' });
+});
+
+App.PostRoute = Ember.Route.extend({
+  model: function(params) {
+    return this.store.find('post', params.post_id);
+  }
+});
+
+wildcard / globbing routes:
+- this.route('catchall', { path: '/*wildcard' });
+
+
+generated objects
+-----------------
+
+generated routes
+- App.Route
+- if you define App.Route, all generated routes will be instances of this route
+
+generated controllers:
+- Ember.ObjectController, Ember.ArrayController, Ember.Controller
+- type of controller ember chooses depends on your route's model hook
+    if model returns an object, Ember.ObjectController generated
+    if model returns an array, Ember.ArrayController generated
+    if nothing is returned, Ember.Controller generated
+
+generated views and templates:
+- route expects a view and template
+- generated templates are empty
+- if it's a resource template, may simply act as an {{outlet}}
+
+
+specifying a route's model
+--------------------------
+
+templates backed by models
+
+"how do templates know which model they should display"
+- Ember.Route
+- can tell a template which model it should render by defining a route with the same name as the template, implementing its model hook
+
+PhotosRoute = Ember.Route.extend({
+    model: function() { ... }
+});
+
+synchronously returning model data:
+- return data immediately from the model hook
+model: function() {
+    return { title: "hi" }
+}
+
+asynchronously returning model data:
+- return a promise from the model hook
+model: function() {
+    return Ember.$.getJSON('https://.../blah');
+}
+
+models and controllers:
+- by default, the value returned from your model hook will be assigned to the model property of the associated controller
+
+This, under the hood, is how templates know which model to render: they look at their associated controller's model property. For example, the photos template will render whatever the App.PhotosController's model property is set to.)
+
+dynamic models:
+- for routes whose model changes depending on user interaction
+
+IMP
+If your data represented by your model is being updated frequently, you may want to refresh it periodically:
+
+The controller can send an action to the Route; in this example above, the IndexController exposes an action getLatest which sends the route an action called invalidateModel. Calling the route's refresh method will force Ember to execute the model hook again.
+
+
+setting up a controller
+-----------------------
+
+a template retrieves information to display from a controller
+
+to tell a controller which model to present, set its model property in the router handler's setupController hook
+
+
+rendering a template
+--------------------
+
+one of the most important jobs of a route handler:
+- rendering the appropriate template to the screen
+
+renderTemplate:
+- used to specify a template explicitly
+
+
+redirecting
+-----------
+
+transitionTo:
+- called from a route
+
+transitionToRoute:
+- called from a controller
+
+beforeModel:
+- specified in a route
+- redirects from one route to another before the model is known
+
+afterModel, redirect:
+- called from a route
+- redirects from a route to another after the model is known
+- data from model can be used to decide how to redirect
+
+
+specifying the url type
+-----------------------
+
+hash:
+- by default, the router uses the browser's hash to load the starting state of your app
+
+/#/posts/new takes you to:
+- posts.new route
+
+
+query parameters
+----------------
+
+query params:
+- optional key-value pairs
+- occur to the right of ?
+- /articles?sort=ASC&page=2
+- allow for additional application state to be serialized into the url that can't otherwise fit into the path of the URL
+- specified in the controller by the queryParams field
+    Ember.ArrayController.extend({ queryParams: ['blah'], blah: null })
+
+link-to query params:
+- {{#link-to 'route' {query-params blah="blah"}}}route{{/link-to}}
+
+transitionTo, transitionToRoute:
+- supports query params
+- this.transitionTo('route', {queryParams: ...})
+- this.transitionTo('/route/blah?blah=blah')
+
+opening a full transition for query params, refreshModel
+- causes model to be refreshed
+- query params don't cause a model to refresh
+queryParams: {
+    param: {
+        refreshModel: true
+    }
+}
+
+By default, Ember will use pushState to update the URL in the address bar in response to a controller query param property change, but if you would like to use replaceState instead (which prevents an additional item from being added to your browser's history), you can specify this on the Route's queryParams config hash, e.g. (continued from the example above):
+queryParams: {
+    param: {
+        replace: true
+    }
+}
+
+default values:
+    queryParams: 'param',
+    param: blah (not null)
+
+
+asynchronous routing
+--------------------o
+
+promises
+- ember's approach to handling asynchronous logic in the router
+- represent an eventual value
+- can either fulfill or reject
+- eventual values retrieved using: then, with two optional callbacks
+- can be chained together to perform sequential async ops
+- during a transition, router pauses for promises to fulfill or reject
+- router considers any object with a 'then method' defined on it to be a promise
+
+promise.then(op1).then(op2).then(op3).then(success, failure);
+
+then:
+- promise.then(fulfill, reject)
+
+RSVP:
+- promise library that ember uses
+- https://github.com/tildeio/rsvp.js
+
+App.TardyRoute = Ember.Route.extend({
+  model: function() {
+    return new Ember.RSVP.Promise(function(resolve) {
+      Ember.run.later(function() {
+        resolve({ msg: "Hold Your Horses" });
+      }, 3000);
+    });
+  }, 
+
+This pause-on-promise behavior is extremely valuable for when you need to guarantee that a route's data has fully loaded before displaying a new template.
+
+rejections:
+- default behavior: transition aborted, no new destination route templates are rendered, error logged to console
+
+error:
+- overrides default reject behavior
+- defined in 'actions' in the route class
+- actions: { error: function() { ... } }
+
+beforeModel, afterModel:
+- most often used when transitioning into a route with a dynamic url segment via {{link-to}} or transitionTo
+
+beforeModel usefulness:
+- Deciding whether to redirect to another route before performing a potentially wasteful server query in model
+- Ensuring that the user has an authentication token before proceeding onward to model
+- Loading application code required by this route
+
+afterModel usefulness:
+- passed the already-resolved model and can therefore perform any additional logic that depends on the fully resolved value of a model
+
+loading/error substates
+-----------------------
+
+loading substate:
+- can be loaded when navigating to a slow route (with a slow model) etc
+- during a slow async transition, ember will transition into the first loading sub-state/route that it finds if one exists
+- optional
+- if not defined, async transitions are lazy
+- if defined, async transitions are eager
+
+pp.Router.map(function() {
+  this.resource('foo', function() {       // -> FooRoute
+    this.resource('foo.bar', function() { // -> FooBarRoute
+      this.route('baz');                  // -> FooBarBazRoute
+    });
+  });
+});
+
+defines: ^^ if foo.bar.baz is taking long to load
+- foo.bar.loading
+- foo.loading
+- loading
+
+lazy vs eager:
+
+This has implications on error handling, i.e. when a transition into another route fails, a lazy transition will (by default) just remain on the previous route, whereas an eager transition will have already left the pre-transition route to enter a loading substate.
+
+loading event:
+- If you return a promise from the various beforeModel/model/afterModel hooks, and it doesn't immediately resolve, a loading event will be fired on that route and bubble upward to ApplicationRoute.
+
+error substate:
+- analogous to loading substate, but for errors
+- if an error occurs, will look for route/error template, or ErrorRoute/error template
+
+preventing transitions:
+- during link-to or transitionTo, a willTransition is fired
+- can be overridden in a route's actions
+
+actions: {
+    willTransition: function(transition) {
+        if ... { transition.abort(); }
+        else { return true; }
+    }
+}
+
+preventing transitions within model, beforeModel, afterModel:
+beforeModel: function(transition) {
+    transition.abort();
+}
+
+
+nice login redirect, direct back example:
+
+App.SomeAuthenticatedRoute = Ember.Route.extend({
+  beforeModel: function(transition) {
+    if (!this.controllerFor('auth').get('userIsLoggedIn')) {
+      var loginController = this.controllerFor('login');
+      loginController.set('previousTransition', transition);
+      this.transitionTo('login');
+    }
+  }
+});
+
+App.LoginController = Ember.Controller.extend({
+  actions: {
+    login: function() {
+      // Log the user in, then reattempt previous transition if it exists.
+      var previousTransition = this.get('previousTransition');
+      if (previousTransition) {
+        this.set('previousTransition', null);
+        previousTransition.retry();
+      } else {
+        // Default back to homepage
+        this.transitionToRoute('index');
+      }
+    }
+  }
+});
+
+
+components
+==========
+
+limited to the tags created by W3C.
+
+components:
+- define your own, application specific html tags
+- implement behavior using javascript
+- web components spec: http://www.w3.org/TR/components-intro/
+- components located in: ./components/ directory
+    also:
+    templates/components/component.hbs
+- to use a component: {{component}} , and, ./components/component
+- components MUST have a dash in their name. prevents clashes with future html element names.
+- subclasses is done via Ember.Component
+- blog-post: BlogPostComponent
+- by default does not have access to properties in the template scope which it is used
+- must make properties available to the component explicitly: {{blog-post title=title}} ... {{blog-post componentProperty=outerProperty}}
+- can make elements in the component interactive by using {{action}}
+- has the ability to send actions to that template's controller and routes
+
+{{yield}} ?
+- In addition to the simple form you've learned so far, components also support being used in block form. In block form, components can be passed a Handlebars template that is rendered inside the component's template wherever the {{yield}} expression appears.
+
+customizing:
+- tagName: string , instead of div, use custom tag
+- classNames: [], classes to add
+- classNameBindings: []
+- attributeBindings: []
+
+App.TodoItemComponent = Ember.Component.extend({
+  classNameBindings: ['isUrgent'],
+  isUrgent: true
+});
+
+=
+
+<div class="ember-view is-urgent"></div>
+
+{{action}} inside a component:
+- Instead of sending an action to the template's controller, then bubbling up the route hierarchy, actions sent from inside a component are sent directly to the component's Ember.Component instance, and do not bubble.
+
+Like the {{action}} Handlebars helper, actions sent from components first go to the template's controller. If the controller does not implement a handler for that action, it will bubble to the template's route, and then up the route hierarchy.
+
+?? ^^^
+
+primary action:
+- many components only send one kind of action
+- set it like so: {{component action="someAction"}}
+
+confirmation example:
+
+App.ConfirmButtonComponent = Ember.Component.extend({
+  actions: {
+    showConfirmation: function() {
+      this.toggleProperty('isShowingConfirmation');
+    },
+
+    confirm: function() {
+      this.toggleProperty('isShowingConfirmation');
+      this.sendAction('action', this.get('param'));
+    }
+  }
+});
+
+{{! templates/components/confirm-button.handlebars }}
+
+{{#if isShowingConfirmation}}
+  <button {{action "confirm"}}>Click again to confirm</button>
+{{else}}
+  <button {{action "showConfirmation"}}>{{title}}</button>
+{{/if}}
+
+{{! index.handlebars }}
+
+    {{#each todo in todos}}
+      <p>{{todo.title}} {{confirm-button title="Delete" action="deleteTodo" param=todo}}</p>
+    {{/each}}
+
+sending multiple actions:
+- {{user-form submit="createUser" cancel="cancelUserCreation"}}
+
+
+IMP
+think of component actions as:
+- translating a primitive event (mouse click etc) into actions that have meaning within your app
+
+component actions are a "public api" of your component
+
+
+controllers
+===========
+
+controllers allow you to:
+- decorate your models with display logic
+- controllers get the model it represents from its route handler
+- models have properties that are saved to the server
+- controller have properties that your app does not need to save to the server
+- templates bind to model properties
+
+coupling:
+- templates get their properties from controllers, which decorate a model
+- templates know about controllers
+- controllers know about models
+- model knows nothing about which (if any) controllers are decorating it
+- controller does not know which views are presenting its properties
+- templates: ALL of its properties come from its controller, doesn't need to know about the model
+- ember creates a template's controller once for the entire application
+- controller's model may change throughout the lifetime of the application
+- templates are always connected to controllers, not models
+    separates display-specific properties from model specific properties
+
+storing application properties:
+- not all properties need to be saved to the server
+- storing info only for the lifetime of this application run, store it on a controller
+
+Ember.ObjectController
+- used to represent a single model
+- to tell an ObjectController which model to represent, set its model property in your route's setupController method
+
+App.SongRoute = Ember.Route.extend({
+  setupController: function(controller, song) {
+    controller.set('model', song);
+  }
+});
+
+
+Ember.ArrayController
+- used to represent an array of models
+- to tell an ArrayController which models to represent, set its model property in your route's setupController method.
+
+ie
+
+App.SongsRoute = Ember.Route.extend({
+  setupController: function(controller, playlist) {
+    controller.set('model', playlist.get('songs'));
+  }
+});
+
+sorting: uses Ember.SortableMixin
+- properties that can be set: sortProperties: [..], sortAscending: bool
+
+item controller:
+- often used to specify a controller to decorate individual items in the ArrayController while iterating over them
+
+App.SongsController = Ember.ArrayController.extend({
+  itemController: 'song'
+});
+
+managing dependencies between controllers:
+- links between two controllers
+- defined using 'needs', needs: 'someController'
+- connecting multiple controllers together: needs ['controller1' 'controller2']
+
+Ember.computed.alias('controllers.blah') ?
+
+
+models
+======
+
+models:
+- every route has an associated model
+- model is set by:
+    - implementing a route's model hook
+    - passing the model as an argument to {{link-to}}
+    - calling a route's transitionTo() method
+- class that defines the properties and behaviors of the data that you present to the user
+- IMP: Anything that the user expects to see if they leave your app and come back later (or if they refresh the page) should be represented by a model.
+- define the type of data that will be provided by your server
+- models don't have any data themselves; they just define the properties and behavior of specific instances called records
+- a model is a class that defines properties and behavior of the data that you present to the user
+- specify attributes using DS.attr('type')
+- can have computed properties in models
+
+ember data:
+- integrates with ember.js
+- makes it easy to:
+    - retrieve records from a server
+    - cache them for performance
+    - save updated back to server
+    - create new records on the client
+- RESTful JSON API support
+- socket.io, firebase, websockets support
+- serializes and deserializes according to http://en.wikipedia.org/wiki/ISO_8601
+
+ember data's RESTful JSON API follows conventions
+- if api doesn't follow conventions, can still configure ember data
+
+store:
+- central repository of records in your application
+- cache of all records available in your app
+- controllers and routes have access to the shared store
+    - when they need to display/modify a record, first ask store for it
+- DS.Store - created automatically, shared among all objects
+- model: function() { return this.store.find('person', 1); }
+- this.store.find('person');
+
+relationships:
+- A model also describes its relationships with other objects. For example, an Order may have many LineItems, and a LineItem may belong to a particular Order.
+- hasMany, belongsTo
+- DS.hasMany('...')
+- DS.belongsTo('...')
+
+records:
+- an instance of a model that contains data loaded from a server
+- uniquely identified by its model type and id
+
+adapter:
+- object that knows about your particilar server backend
+- responsible for translating requests for and changes to records into the appropriate calls to your server
+
+serializer:
+- responsible for turning a raw JSON payload returned from your server into a record object
+- when adapter gets a payload back for a particular record, will give that payload to the serializer to normalize into the form that ember data is expecting
+- usually used to normalize JSON, but can be used with binary blobs etc
+
+automatic caching:
+- store will automatically cache records for you
+- if a record had already been loaded, asking for it a second time will always return the same object instance
+- known as an identity map ^
+    important because it ensures that changes you make in one part of your UI are propogated to other parts of the UI
+    don't have to keep records in sync
+
+architecture overview:
+- first time app asks store for record, sees it doesn't have local copy
+- requests it from adapter
+- adapter retrieves record (async request) from persistence layer
+
+DS.attr:
+- takes an optional hash param
+- verified: DS.attr('boolean', { defaultValue: false })
+- createdAt: DS.attr('string', { defaultValue: function() { return new Date(); }})
+
+defining relationships:
+- one-to-one: DS.belongsTo('model')
+- one-to-many: use belongsTo in combination with hasMany: DS.hasMany('model');
+- many-to-many: use hasMany
+
+
+one-to-many:
+App.Post = DS.Model.extend({
+  comments: DS.hasMany('comment')
+});
+
+App.Comment = DS.Model.extend({
+  post: DS.belongsTo('post')
+});
+
+
+many-to-many:
+App.Post = DS.Model.extend({
+  tags: DS.hasMany('tag')
+});
+
+App.Tag = DS.Model.extend({
+  posts: DS.hasMany('post')
+});
+
+explicit inverses
+
+reflexive relation
+
+creating records:
+- createRecord
+- store.createRecord('model', { ... });
+
+deleting records:
+- call deleteRecord on any instance of DS.Model
+- call destroyRecord on any instance of DS.Model
+
+store object:
+- available to controllers using this.store
+
+store.find('post', 1).then(function (post) {
+    post.deleteRecord();
+    post.save();
+});
+
+pushing records:
+- one use, streaming.. if app has a streaming connection to a backend, if a record is created or modified, you want to update the UI immediately.
+- use push() on the store
+
+ApplicationRoute:
+- top most route in the route hierarchy
+- its model hook gets called once when the app starts up
+- can use it's model to push data once the app starts up
+
+persisting records:
+- persisted on a per-instance basis
+- call save() on any instance of DS.Model and it will make a network request
+
+comon pattern:
+post.save().then(transitionToPost).catch(failure);
+post.save().then(onSuccess, onFail);
+
+finding records:
+- find method
+- first arg to find is ALWAYS the record type
+- second optional arg determines if a request is made for all records, a single record, or a query
+- internally, store uses find, findAll, and findQuery
+
+var posts = this.store.find('post') GET /posts
+var posts = this.store.all('post'); no network request
+var post = this.store.find('post', 1); GET /posts/1
+var peters = this.store.find('person', { name: 'Peter' }); GET /persons?name=Peter
+
+working with records:
+- "all of ember.js conveniences are available for modifying attributes"
+- blah.set, blah.get, blah.incrementProperty, blah.changedAttributes
+
+persisting using: save()
+rollback using: rollback()
+
+using fixtures:
+- FixtureAdapter - use now without backend api, switch it out later
+- by default, ember data assumes unique id field is called 'id'
+- provide an id field to your fixtures
+
+Using the fixture adapter entails three very simple setup steps:
+1. Create a new store using the fixture adapter and attach it to your app.
+2. Define your model using DS.Model.extend.
+3. Attach fixtures (also known as sample data) to the model's class.
+
+SomeModel.reopenClass({
+    FIXTURES: [
+        { ... },
+    ]
+});
+
+rest adapter:
+- by default, store uses DS.RESTAdapter to load and save records
+- assumes urls and json associated with each model are conventional
+- uses the name of the model to determine what URL to send JSON to
+
+url conventions:
+- action: Find, verb: GET, url: /route/:id
+- action: FindAll, verb: GET, url: /route
+- action: Update, verb: PUT, url: /route/:id
+- action: Create, verb: POST, url: /route
+- action: Delete, verb: DELETE, url: /route/:id
+
+pluralization customization: nice
+- Irregular or uncountable pluralizations can be specified via Ember.Inflector.inflector:
+    var inflector = Ember.Inflector.inflector;
+    inflector.irregular('formula', 'formulae');
+    inflector.uncountable('advice');
+- This will tell the REST adapter that requests for App.Formula requests should go to /formulae/1 instead of /formulas/1.
+
+endpoint path customization: namespace
+- namespace property
+    DS.RESTAdapter.extend({ namespace: '/api' });
+
+host customization:
+- host property
+    DS.RESTAdapter.extend({ host: 'https://api.blah.com' });
+
+header customization:
+- headers property
+    DS.RESTAdapter.extend({ headers: { 'key': 'value' } });
+
+json:
+- attributes should be camelized
+
+json root:
+- response should be nested inside a property
+    {
+        "property": {
+            ...
+        }
+    }
+
+relationships:
+- references to other records should be done by ID
+- json should encode the relationships as an array of IDS
+    "comments": [1, 2, 3]
+
+connecting to an HTTP server:
+- store uses an object called an adapter to know how to communicate over the network
+- default adapter: DS.RESTAdapter - communicates with an HTTP server by transmitting JSON via XHR
+
+EMBER expects data to be returned from:
+
+App.Post = DS.Model.extend({
+  title:    DS.attr(),
+  comments: DS.hasMany('comment'),
+  user:     DS.belongsTo('user')
+});
+
+App.Comment = DS.Model.extend({
+  body: DS.attr()
+});
+
+to:
+
+{
+  "post": {
+    "id": 1,
+    "title": "Rails is omakase",
+    "comments": ["1", "2"],
+    "user" : "dhh"
+  },
+
+  "comments": [{
+    "id": "1",
+    "body": "Rails is unagi"
+  }, {
+    "id": "2",
+    "body": "Omakase O_o"
+  }]
+}
+
+to quickly prototype a model and see the expted JSON, try this: http://andycrum.github.io/ember-data-model-maker/
+
+
+metadata:
+- data that goes along with a specific model or type instead of a record
+- common example: pagination
+- Ember data JSON deserializer looks for a meta key
+- store.metadataFor
+
+customizing adapters:
+- extend Adapter or swap it out
+- extend an Adapter to add different functionality instead of adding a flag
+
+ember data comes with several builtin adaters:
+- DS.Adapter
+- DS.FixtureAdapter
+- DS.RESTAdapter
+- DS.ActiveModelAdapter - specialized version of RESTAdapter that is setup to work with rils-style REST APIs
+
+
+views
+=====
+
+majority of your application's user interface will be described using:
+- handlebars templates
+
+views typically only created:
+- when you need sophisticated handling of user events
+- when you want to create a re-usable component
+
+views:
+- role: translate primitive browser events into events that have meaning to your application
+- responsible for turning a primitive event (click) into a semantic event (delete this todo)
+- semantic events sent to controller
+- if no method defined, sent to router
+- defined by Ember.View
+- represented by a single DOM element on the page
+    can change with tagName:
+- can specify clasNames: []
+- if you want class names to be determined by the state of properties in the view, can use classNameBindings: []
+
+var view = Ember.View.create({
+    templateName: 'hello',
+    name: 'Bob'
+});
+
+appending views:
+    view.appendTo('#container');
+
+removing a view:
+    view.remove();
+
+router:
+- responsible for reacting to the event based on the current state of the application
+
+handling events:
+- implement the name of the event you want to respond to as a method on your view
+- events bubble up from the target view to each parent view in succession, until the root view
+-to have an event from your view affect the state of your application, simply send an event to the views controller:
+    this.get('controller').send('blah', ..);
+    if the controller doesn't exit, it'll be sent to route
+
+{{#view "clickable"}}
+This is a clickable area!
+{{/view}}
+
+App.ClickableView = Ember.View.extend({
+  click: function(evt) {
+    alert("ClickableView was clicked!");
+  }
+});
+
+layouts:
+- handlebars templates that will be inserted inside the view's tag
+- layoutName: to specify layout template
+- templateName:
+
+base views:
+- Ember.Checkbox
+- Ember.TextField
+- Ember.TextArea
+- Ember.Select
+
+// {{view "my-text" value=name inputDidChange=nameDidChange}}
+App.MyTextView = Ember.TextField.extend({
+  inputDidChange: false,
+  change: function() {
+    this.set('inputDidChange', true);
+  }
+});
+
+enumerables
+===========
+
+enumerable:
+- any object that contains a number of child objects
+- allows you to work with those children using the Ember.Enumerable API
+- most common: javascript array
+- allows you to change the way your underlying data is stored without having to modify other parts of the app that access it
+- methods: map, filter, every, some, forEach, firstObject, lastObject etc
+- implement the Enumerable interface: Array, Ember.ArrayController, Ember.Set
+- order may not be guaranteed
+
+
+testing
+=======
+
+integration tests:
+- test user interaction and application flow
+
+ex:
+A user is able to log in via the login form.
+A user is able to create a blog post.
+A visitor does not have access to the admin panel.
+
+unit tests:
+- test isolated chunks of functionality
+
+ex:
+A user has a role
+A user has a username
+A user has a fullname attribute which is the aggregate of its first and last names with a space between
+A post has a title
+A post's title must be no longer than 50 characters
+
+qunit:
+- default testing framework
+- only included in development builds, not production
+App.rootelement =
+App.setupForTesting()
+App.injectTestHelpers()
+
+two types of helpers:
+- async and sync
+
+async helpers:
+- visit(url) -> visits given route, returns promise
+- fillIn(selector, text) ->  fills in selected input with the given text, returns promise
+- click(selector) -> clicks an element and triggers any actions triggered by the element's click event, returns promise
+- keyEvent(selector, type, keyCode) -> simulates key event (keypress, keydown, keyup) with the desired keyCode
+- triggerEvent(selector, type, options) -> triggers the given event (blur, dblclick)
+
+sync helpers:
+- find(selector, context) -> finds an element within the app's root elm and within the optional context
+- currentPath() -> returns the current path
+- currentRouteName() -> returns the currently active route name
+- currentURL() -> returns the current URL
+
+wait helpers:
+- andThen() - wait for all preceding async helpers to complete prior to progressing forward
+
+exepct ?
+
+testing user interaction:
+- Almost every test has a pattern of visiting a route, interacting with the page (using the helpers), and checking for expected changes in the DOM.
+
+unit testing basics:
+
+
+
+
+Actions from the template can be handle by the controller or the route, in this tutorial I opt for controllers handling the actions for simplicity, but don't forget that your route could also handle actions

@@ -1,0 +1,15 @@
+allows you to use kind * and kind *->* in instance definitions?
+
+-# LANGUAGE FlexibleInstances #-}
+
+class Something a where
+  doSomething :: a -> Integer
+
+instance Something Integer where
+  doSomething x = 1
+
+instance Something Char where
+  doSomething x = 2
+
+instance Something [Char] where
+  doSomething x = 3

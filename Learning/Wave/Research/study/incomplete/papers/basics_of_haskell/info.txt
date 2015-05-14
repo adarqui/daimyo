@@ -1,0 +1,5 @@
+**Basics of Haskell**
+- source: https://www.fpcomplete.com/school/starting-with-haskell/basics-of-haskell
+
+history:
+- 04/30/2015: C10 (Error Handling)

@@ -1,0 +1,1 @@
+source: http://heather.cs.ucdavis.edu/~matloff/Python/PLN/FastLanePython.pdf

@@ -1,0 +1,4 @@
+source: http://www.ember-cli.com/
+
+history:
+- 05/07/2015: notes, leftoff: asset compilation

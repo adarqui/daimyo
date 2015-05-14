@@ -1,0 +1,6 @@
+https://github.com/yinqiwen/ardb
+
+persistent, redis-like key-value store with multiple backends:
+- rocksdb
+- leveldb
+- lmdb

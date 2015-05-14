@@ -1,0 +1,1 @@
+source: http://www.toptal.com/emberjs/a-thorough-guide-to-ember-data

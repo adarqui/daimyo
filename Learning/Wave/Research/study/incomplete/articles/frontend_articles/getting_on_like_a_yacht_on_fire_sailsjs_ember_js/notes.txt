@@ -1,0 +1,28 @@
+sails new <blah>
+
+sails generate api todo
+- View all of our resource, in this case todos.
+- View an individual resource.
+- Create a new resource.
+- Edit a resource.
+- Destroy a resource.
+
+curl -X POST 'http://localhost:1337/todo/create?title=Start%20using%20Sails.js&isComplete=true'
+{
+  "title": "Start using Sails.js",
+  "isComplete": "true",
+  "createdAt": "2015-05-14T04:37:39.400Z",
+  "updatedAt": "2015-05-14T04:37:39.400Z",
+  "id": 1
+}
+
+to generate ember api's:
+- https://github.com/mphasize/sails-generate-ember-blueprints
+
+$ npm install --save sails-generate-ember-blueprints
+$ npm install --save lodash
+$ npm install --save pluralize
+$ sails generate ember-blueprints
+
+creates api/blueprints
+

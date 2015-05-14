@@ -1,0 +1,16 @@
+class Observable obs val | obs -> val where
+   getValue     :: obs -> IO val
+   setValue     :: obs -> val -> IO ()
+   getObservers :: obs -> IO [val -> IO ()]
+   addObserver  :: obs -> (val -> IO ()) -> IO ()
+
+- multi-param type class
+- obs: observable object
+- val: value the observable is carrying
+- the functional dependency (obs -> val), states that the type of an observable uniquely determines the type of the value it is carrying
+
+control:
+- instance of Observable
+- consists of a model (pointer to current value) and a pointer to a list of callbacks
+- callbacks called if value changes
+

@@ -1,0 +1,22 @@
+node.js:
+- passport: http://passportjs.org/
+
+go:
+- social auth: https://github.com/beego/social-auth
+
+openAM:
+- https://www.forgerock.com/en-us/products/access-management/
+- http://docs.forgerock.org/en/index.html?product=openam&version=12.0.0
+- http://idmdude.com/category/openam/
+- http://opendj.forgerock.org/opendj-server/doc/bootstrap/install-guide/
+
+openDJ:
+- https://www.forgerock.com/en-us/products/directory-services/
+- http://opendj.forgerock.org/
+
+openIDM:
+- https://www.forgerock.com/en-us/products/identity-management/
+- http://openidm.forgerock.org/
+
+rbac:
+- apache SHIRO: http://shiro.apache.org/

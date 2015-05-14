@@ -1,0 +1,9 @@
+A quick recap on how Ember’s order of operations:
+- A user hits a URL, which Ember’s Router recognizes and passes to a Route object.
+- That Route sets up a Controller and supplies it with a Model, which provides the View layer (represented by a Template) access to the data.
+- Any properties defined by the Model are available to the Controller – so, for instance, if User has first_name, your Template has direct access to it through the Controller.
+
+You won’t be sending Ember formatted HTML. You won’t be rendering things in ERB or Haml templates. In fact, from here on out, you can pretty much ignore Rails’s view folder. What Ember wants from Rails is JSON. Ember is going to call a route in your Rails app, and Rails is going to get the data it needs, serialize it, and send it back.
+
+The find method in Ember Data doesn’t return the object it’s found. What it returns is a Promise. To use that Promise properly, we can chain a then method onto the end. Essentially, Promise.then() says, “Once you’re done, depending on what happens, these are the callbacks I want run.”
+

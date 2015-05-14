@@ -1,0 +1,5 @@
+**Effective Java: 2nd Edition**
+- source: http://uet.vnu.edu.vn/~chauttm/e-books/java/Effective.Java.2nd.Edition.May.2008.3000th.Release.pdf
+
+history:
+- 05/03/2015: intro

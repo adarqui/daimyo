@@ -1,0 +1,17 @@
+Show me how you handle errors and I'll tell you what programmer you are.
+
+
+C10 Error Handling
+------------------
+
+in functional programming, failure is another way of saying that the computation is: partial
+- partial: not defined for all values of arguments
+- total: functions defined for all values of their arguments
+
+"Notice the creeping indentation. I'm showing you this code so that you know what awaits you if you refuse to learn about monads"
+
+Looking at the code above, you can see a pattern arising. First of all, we have all these functions that return their results wrapped in the Either type. Every time we get an Either value, we pattern match it and fork the computation: When the result is Right we make the value in it available to the rest of the computation. If the result is Left, we skip the rest of the computation and propagate the error.
+
+A monad in Haskell is defined by a type constructor (a type parameterized by another type) and two functions, bind and return (optionally, fail).
+
+

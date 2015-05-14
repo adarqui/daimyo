@@ -1,0 +1,15 @@
+Authentication
+- act of confirming the truth of an attribute of a datum or entity.
+- This might involve confirming the identity of a person or software program, tracing the origins of an artifact, or ensuring that a product is what its packaging and labeling claims to be.
+- Authentication often involves verifying the validity of at least one form of identificatio
+
+Authorization
+- the function of specifying access rights to resources, which is related to information security and computer security in general and to access control in particular.
+- More formally, "to authorize" is to define access policy.
+
+RBAC:
+- Users
+- Roles
+- Permissions
+
+

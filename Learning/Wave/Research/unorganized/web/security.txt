@@ -1,0 +1,6 @@
+authentication/authorization:
+- http://projects.spring.io/spring-security/
+- http://shiro.apache.org
+
+as a server:
+- https://stormpath.com

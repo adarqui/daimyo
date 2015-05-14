@@ -1,0 +1,133 @@
+shiro provides:
+- authentication
+- authorization
+- cryptography
+- session management
+
+shiro's architecture has three main components:
+- Subject
+- SecurityManager
+- Realms
+
+
+subject:
+- a subject represents the "current user"
+- who is the current user, is the current user allowed to do X? etc
+- subject means "currently executing user", "the thing that is currently interacting with the software"
+- once you acquire a user, you can login/logout/access their session, auth checks etc
+- almost everything you do at runtime is achieved by interacting with the current subject
+
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.SecurityUtils;
+...
+Subject currentUser = SecurityUtils.getSubject();
+
+
+security manager:
+- manages security operations for ALL users
+- most of the developer's time is spent with the subject api
+- single securitymanager instance per application, singleton
+
+configuration:
+- simples: INI
+
+simple INI and initialization:
+
+[main]
+cm = org.apache.shiro.authc.credential.HashedCredentialsMatcher
+cm.hashAlgorithm = SHA-512
+cm.hashIterations = 1024
+# Base64 encoding (less text):
+cm.storedCredentialsHexEncoded = false
+iniRealm.credentialsMatcher = $cm
+
+[users]
+jdoe = TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJpcyByZWFzb2
+asmith = IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbXNoZWQsIG5vdCB
+
+
+initialization:
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.config.IniSecurityManagerFactory;
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.util.Factory;
+...
+
+//1. Load the INI configuration
+Factory<SecurityManager> factory =
+new IniSecurityManagerFactory("classpath:shiro.ini");
+
+//2. Create the SecurityManager
+SecurityManager securityManager = factory.getInstance();
+
+//3. Make it accessible
+SecurityUtils.setSecurityManager(securityManager);
+
+
+realms:
+- acts as a bridge or connector between shiro and your application's security data
+- security specific DAO: it encapsulates connection details for data sources and makes the associated data available to shiro as needed
+- must specify at least one realm for authentication and authorization.
+- there are realms to connect to LDAP, JDBC, text configurations, property files etc
+- can plug in your own custom data sources
+
+
+authentication:
+1. Collect the user’s identifying information, called principals (ie, username), and supporting proof of identity, called credentials (ie, password).
+2. Submit the principals and credentials to the system.
+3. If the submitted credentials match what the system expects for that user identity (principal), the user is considered authenticated. If they don’t match, the user is not considered authenticated.
+4. handle failures by reacting to AuthenticationException
+
+
+//1. Acquire submitted principals and credentials:
+AuthenticationToken token =
+new UsernamePasswordToken(username, password);
+//2. Get the current Subject:
+Subject currentUser = SecurityUtils.getSubject();
+
+//3. Login:
+currentUser.login(token);
+
+
+
+authorization:
+- access control
+- roles: must be hardcoded
+- permissions: can be decided at runtime
+- shiro supports wildcard permissions
+
+roles:
+
+if ( subject.hasRole(“administrator”) ) {
+    //show the ‘Create User’ button
+} else {
+    //grey-out the button?
+} 
+
+permissions:
+
+if ( subject.isPermitted(“user:create”) ) {
+    //show the ‘Create User’ button
+} else {
+    //grey-out the button?
+}
+
+
+
+
+session management:
+- consistent Session API usable in any application and any architectural tier. 
+- container independent
+
+Session session = subject.getSession();
+Session session = subject.getSession(boolean create);
+Session session = subject.getSession();
+session.getAttribute(“key”, someValue);
+Date start = session.getStartTimestamp();
+Date timestamp = session.getLastAccessTime();
+session.setTimeout(millis);
+
+
+
+

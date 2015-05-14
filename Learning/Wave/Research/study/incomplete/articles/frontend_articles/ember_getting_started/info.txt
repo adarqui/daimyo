@@ -1,0 +1,4 @@
+source: http://guides.emberjs.com/v1.11.0/
+
+history:
+- 05/07/2015: notes

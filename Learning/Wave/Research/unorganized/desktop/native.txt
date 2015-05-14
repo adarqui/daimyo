@@ -1,0 +1,56 @@
+atom/electron:
+- htps://github.com/atom/electron/
+- http://electron.atom.io/
+
+github's atom editor:
+- https://atom.io/
+- https://github.com/atom/atom
+
+
+node-webkit:
+- https://github.com/nwjs/
+- https://github.com/mllrsohn/node-webkit-builder
+- http://captainkuro.com/html/node-webkit-todomvc-as-a-desktop-app/
+- http://thejackalofjavascript.com/getting-started-with-node-webkit-apps/
+- https://github.com/nwjs/nw.js/wiki/Protect-JavaScript-source-code-with-v8-snapshot
+- https://github.com/nwjs/nw.js/wiki/Application-auto-building-scripts-for-Linux-Windows-and-OSX
+- nwbuild -r <path>
+IMPORTANT
+  561  sudo sysctl -w kern.maxfilesperproc=180000
+  562  sudo sysctl -w kern.maxfiles=204800
+
+- list of companies:
+  https://github.com/nwjs/nw.js/wiki/List-of-apps-and-companies-using-nw.js
+
+
+macgap:
+- https://github.com/MacGapProject
+- apparently slack written in macgap
+- http://docs.macgap.com/doc/developing.html
+defaults write com.MacGap developer 1
+defaults write com.MG developer 1
+defaults write com.Slack developer 1
+
+
+slack:
+- linux: https://github.com/raelgc/scudcloud
+
+
+inside slack:
+/Applications/Slack.app/Contents/Resources/public/index.html
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            window.tlsd = (macgap.app.useSlackDev()) ? 'dev.slack.com' : 'slack.com'; // top level slack domain
+            var destination = 'https://'+tlsd+'/ssb';
+            macgap.teams.updateTitleBarColor("#ffffff");
+        </script>
+        <title>Slack</title>
+        <style>
+            @font-face {
+
+
+
+crosswalk:
+- https://crosswalk-project.org

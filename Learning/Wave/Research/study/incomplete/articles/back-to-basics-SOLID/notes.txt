@@ -1,0 +1,29 @@
+SOLID:
+- 5 fundamental principles that help engineers write maintainable code
+
+S - Single Responsibility Principle
+O - Open/Closed Principle
+L - Liskov Substitution Principle
+I - Interface Segregation Principle
+D - Dependency Inversion Principle
+
+Single Responsibility Principle
+- helps keep classes and methods small and maintainable
+- it is said that anything that gives a class a reason to change can be viewed as a responsibility.
+- The fact that we can identify multiple reasons to change signals a violation of the Single Responsibility Principle.
+
+Open/Closed Principle
+- classes or methods should be open for extension, but closed for modification
+- can change behavior without making modifications to the classes themselves
+- strategy pattern
+- example: pass in a parser on instantiation instead of defining them as methods to the class
+
+Liskov Substitution Principle
+- should be able to replace any instances of a parent class with an instance of one of its children without creating any unexpected or incorrect behavior
+
+Interface Segregation Principle
+- client should not be forced to depend on methods that it does not use
+
+Dependency Inversion Principle
+- high level (ie business logic) objects not depending on low-level (db querying and IO) implementation details
+

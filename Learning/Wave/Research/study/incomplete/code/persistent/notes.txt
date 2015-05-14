@@ -1,0 +1,32 @@
+persistent:
+
+PersistStore:
+- https://github.com/yesodweb/persistent/blob/master/persistent/Database/Persist/Class/PersistStore.hs
+
+class
+  ( Show (BackendKey backend), Read (BackendKey backend)
+  , Eq (BackendKey backend), Ord (BackendKey backend)
+  , PersistField (BackendKey backend), A.ToJSON (BackendKey backend), A.FromJSON (BackendKey backend)
+  ) => PersistStore backend where
+    data BackendKey backend
+
+    -- | Get a record by identifier, if available.
+    get :: (MonadIO m, backend ~ PersistEntityBackend val, PersistEntity val)
+        => Key val -> ReaderT backend m (Maybe val)
+
+
+redis:
+- https://github.com/yesodweb/persistent/blob/master/persistent-redis/Database/Persist/Redis/Store.hs
+instance PersistStore R.Connection where
+    newtype BackendKey R.Connection = RedisKey Text
+        deriving (Show, Read, Eq, Ord, PersistField, FromJSON, ToJSON)
+
+...
+
+   get k = do
+        r <- execRedisT $ R.hgetall (unKey k)
+        if null r
+            then return Nothing
+            else do
+                Entity _ val <- mkEntity k r
+                return $ Just val

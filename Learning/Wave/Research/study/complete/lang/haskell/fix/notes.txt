@@ -1,0 +1,32 @@
+great explanation of fix, here's his progression for explanation
+
+fix:
+let x = f x in x
+fix f = let x = f x in x
+
+zeroes:
+-------
+zeroes = 0 : zeroes
+let zeroes    = 0 : zeroes in zeroes
+let x = 0 : x in x
+let x = (\v -> 0 : v) x in x
+fix (0 :)
+
+fibs:
+-----
+fibs = 0 : scanl (+) 1 fibs
+let fibs      = 0 : scanl (+) 1 fibs in fibs
+let x = 0 : scanl (+) 1 x in x
+let x = (\v -> 0 : scanl (+) 1 v) x in x
+fix (\v -> 0 : scanl (+) 1 v)
+fix ( (0 :) . scanl (+) 1 )
+
+factorial:
+----------
+factorial n = if n==0 then 1 else n * factorial(n-1)
+factorial = \n -> if n==0 then 1 else n * factorial(n-1)
+let factorial = \n -> if n==0 then 1 else n * factorial(n-1) in factorial
+let x = \n -> if n==0 then 1 else n * x(n-1) in x
+let x = (\v -> \n -> if n==0 then 1 else n * v(n-1)) x in x
+fix (\v -> \n -> if n==0 then 1 else n * v(n-1))
+fix (\v n -> if n==0 then 1 else n * v(n-1))

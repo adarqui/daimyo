@@ -1,0 +1,2 @@
+https://github.com/docopt/docopt.go/tree/master/examples
+- cool, parse args BASED ON the help doc.

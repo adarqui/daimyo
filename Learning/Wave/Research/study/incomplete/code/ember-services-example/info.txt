@@ -1,0 +1,1 @@
+source: https://github.com/danielhutchinson/ember-services-example

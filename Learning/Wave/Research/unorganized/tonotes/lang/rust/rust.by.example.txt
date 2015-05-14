@@ -1,0 +1,1024 @@
+source: http://rustbyexample.com/index.html
+
+printing is handled by macros found in:
+- std::fmt
+- format!, print!, println!
+- fmt::Debug uses {:?}
+- fmt::Display uses {}
+
+literals:
+- integers: 1
+    hex: 0x01
+    octal: 0o1000
+    binary: 0b1010101
+    precision:
+        unsigned integer: 1u8, 1u16, 1u32, 1u64
+        signed integer: 1i8, 1i16, 1i32, 1i64
+        floating: f32, f64
+- floats: 1.2
+- characters: 'a'
+- strings: "abc"
+- booleans: true
+- unit: ()
+
+underscore as a comma: 1_000, 0.000_001
+
+variable bindings: let
+let an_int = 1u32
+
+mutable bindings: mut
+let mut an_int = 1u32
+an_int += 1
+
+block: { }
+
+scope:
+- variable bindings are scoped to a block { }
+
+shadowing: allowed
+
+can declare first: seldom used
+let a_binding
+a_binding = 1
+
+type casting:
+- no implicit type conversion (coercion) between primitive types
+- explicit conversion via 'as'
+- conversions usually follow C conventions
+let decimal = 3.145
+let integer = decimal as u8
+let character = integer as char
+
+passing arguments to a function by reference:
+fun(&foo)
+
+type alias: type
+- can be used to give a new name to an existing type
+- CamelCase names
+type NanoSecond = u64
+type IoResult<T> = Result<T, IoError>
+
+expressions:
+- variable bindings: end in ;
+    let x = 5;
+- blocks: consists of r-values, last expression is the l-value
+    if last expression ends with ; the return value will be unit ()
+    let z = {
+        let x = 1;
+        let y = 2;
+        x + y
+    }
+
+enums:
+    enum Color {
+        Red,
+        Green,
+        Blue,
+        RGB(i32, i32, i32)
+    }
+
+pointers/ref:
+- dereferencing: *
+- destructuring: &, ref, and ref mut
+- let ref reference = 3
+- let mut ref
+
+structs:
+    struct Foo { x: u32, y: u32 }
+
+flow control
+------------
+
+if/else:
+let result =
+if n > 3 {
+    true   
+} else {
+    false
+}
+
+loops:
+    loop {
+        ...
+        break/continue
+    }
+
+loop labels:
+    'outer: loop {
+        'inner: loop {
+            break 'outer;
+        }
+    }
+
+while loop:
+    while condition {
+    }
+
+range iterator: a..b
+    for n in 1..10 {
+    }
+
+matching:
+    match number {
+        1 => 1
+        13..19 => 2
+        _ => 3
+    }
+
+match desctuturing:
+    let pair = (0, -2)
+    match pair {
+        (0, y) => ..
+        (x, 0) => ..
+        _ => ..
+    }
+
+    let color = Color::RGB(122, 17, 40);
+    match color {
+        Color::Red => ..
+        Color::Green => ..
+        ..
+        Color::RGB(r, g, b) => ..
+    }
+
+    let reference = &4
+    match reference {
+        &val => ..
+    }
+
+    match *reference {
+        val => ..
+    }
+
+    let value = 5
+    match value {
+        ref r => println("reference {:?}", r)
+    }
+
+    let Foo { x: a, y: b } = Foo { x: 1, y: 2 }
+
+match guards:
+    let pair = (2, 2)
+    match pair {
+        (x, y) if x == y => ..
+        (x, _) if x % 2 == 1 => ..
+    }
+
+match binding: using @
+    match age {
+        n @ 1..12 => ..
+        n => ..
+    }
+
+if let:
+    let number = Some(5);
+    if let Some(i) = 6 {
+    } else {
+    }
+
+while let:
+    while let blah = bleh {
+        if blah {
+            ....
+        }
+    }
+
+
+functions
+---------
+
+functions: fn
+- declared with fn
+- return type specified with ->
+- returning early: return
+- final expression is used as the return value
+
+
+modules
+-------
+
+module is a collection of items: mod
+- functions
+- structs
+- traits
+- impl blocks
+- other modules.
+
+use my::nested as mynest;
+
+mod my {
+    pub mod nested {
+        pub fn function() {
+        }
+        fn private() {
+        }
+    }
+}
+
+fn main() {
+    my::nested::function();
+    mynest::function();
+}
+
+use declaration:
+- bind a full path to a new name
+
+
+super:: refers to the parent module scope
+
+self:: refers to the current module scope
+
+$ tree .
+.
+|-- my
+|   |-- inaccessible.rs
+|   |-- mod.rs
+|   `-- nested.rs
+`-- split.rs
+
+import a module:
+mod my;
+
+scope:
+mod inaccessible_mod;
+pub mod private_mod;
+
+
+crates
+------
+
+compilation units: crates
+- only crates are "compiled"
+- can be compiled into a binary or a library
+
+libraries: rustc --crate-type=lib blah.rs
+
+to link a crate: extern crate
+extern crate blah
+
+
+attributes
+----------
+
+attributes:
+- metadata applied to some module, crate, or item
+- apply to whole crate: #![...]
+- apply to a module or item: #[...]
+#[attribute = "value"]
+#[attribute(key = "value")]
+#[attribute(value)]
+
+#![crate_type = "lib or binary"]
+#![crate_name = "blah"]
+
+conditional compilation is possible through: cfg and cfg!
+- attribute: #[cfg(...)]
+- boolean macro: cfg!(...)
+
+attribute style:
+#[cfg(target_os = "linux")]
+...
+
+boolean macro style:
+if cfg!(target_os = "linux") {
+} else {
+}
+
+passing custom configurations: rustc --cfg flag
+
+
+tuples
+------
+
+tuples: (T1, T2, ...)
+- collection of values of different types
+- access members by deconstruction: let (integer, boolean) = (1, true)
+
+
+structures
+----------
+
+structures: struct
+- tuple struct
+- classic C structs
+- unit struct
+
+tuple struct:
+struct Pair(i32, bool);
+
+classic C struct:
+struct Point {
+    x: i32,
+    y: i32
+}
+
+unit structs:
+struct Nil;
+
+visibility:
+- struct fields are private by default
+pub struct WhiteBox<T> {
+    pub contents: T
+}
+
+pub struct BlackBox<T> {
+    contents: T
+}
+
+
+generics
+--------
+
+functions can be specialized passing the generic arguments using this syntax:
+::<T, U, ...>
+
+struct Point<T> {
+    x: T,
+    y: T
+}
+
+struct Tuple<T, U>(T, U);
+
+implementation: impl
+
+impl <T> Point<T> {} // need <T> before point to remain generic
+
+impl Point<int> {
+    fn value(&self) -> int {
+        ...
+    }
+}
+
+let point = Point { x: 1, y: 2 };
+println!("{}", point.value());
+
+
+REVISIT
+phantom types:
+- data type which contains extra hidden generic parameters
+- extra params contain no storage values
+- checked statically at compile time
+- have no run-time behavior
+
+
+box, stack, heap
+----------------
+
+allocation:
+- all values are stack allocated by default
+- values can be boxed by create a Box<T>
+- boxed means allocated in the heap
+- box: smart pointer to a heap allocated value of T
+- when a box goes out of scope, its destructor is called inner object destroyed, memory in the heap is freed
+- boxed values can be dereferenced using: *
+- to create a boxed value, use Box::new(...)
+- Box<T> owns memory in the heap
+
+#![feature(box_syntax)]
+
+fn main() {
+    let boxed: Box<i32> = Box::new(5);
+    let boxed2 = box 2;
+    println!("{} {}", boxed, boxed2);
+}
+
+
+RAII
+----
+
+resource acquisition is initialization
+- http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization
+
+raii:
+- whenever an object goes out of scope, its destructor is called and the resources owned by it are freed
+- shields against resource leak bugs
+
+
+ownership and moves
+-------------------
+
+resources:
+- can ONLY have ONE owner
+
+move: transfers ownership
+- prevents dangling pointers
+- after moving resources, the previous owner can no longer be used
+
+no transfer of ownership:
+let x = 5
+let y = x
+println!("x is {}, y is {}", x, y)
+
+transfer of ownership:
+let x = Box::new(5)
+let y = x // can't use x anymore
+println!("y is {}", y)
+
+transfer of ownership via function arguments:
+let x = Box::new(5);
+some_function(x)
+// x is now destroyed once some_function returns
+
+
+mutability: can create mutable boxes
+
+good example:
+fn main() {
+    let immutable_box = Box::new(5u32);
+
+    println!("immutable_box contains {}", immutable_box);
+
+    // Mutability error
+    //*immutable_box = 4;
+
+    // Hand over the box, changing the mutability
+    let mut mutable_box = immutable_box;
+
+    println!("mutable_box contained {}", mutable_box);
+
+    // Modify the contents of the box
+    *mutable_box = 4;
+
+    println!("mutable_box now contains {}", mutable_box);
+}
+
+can mutate the heap memory pointed to by immutable_box, but, it's safe because ownership hhas already been transferred from immutable_box to mutable_box.
+
+
+Borrowing
+---------
+
+borrowing:
+- when you need to access some data without taking ownership over it
+- instead of passing objects by-value (T), objects are passed by reference (&T)
+- compiler statically guarantees that references always point to valid objects via its borrow checker
+- objects can't be destroyed while references to it exist
+
+fn eat_box(boxed_int: Box<i32>) { ...
+fn peek_inside_box(borrowed_int: &i32) { ...
+
+immutable borrows: &T
+- borrower has read access
+
+mutable borrows: &mut T
+- borrower has read/write access
+
+freezing:
+- when data is borrowed, it also freezes
+- frozen data can't be modified via the original object until all of the references to it go out of scope
+
+aliasing:
+- data can be immutably borrowed any number of times
+- while immutably borrowed, original data can't be mutably borrowed
+..
+- only one mutable borrow is allowed at a time
+- original data can be borrowed again after the mutable reference goes out of scope
+
+the ref pattern:
+- ref keyword can be used to take references to the fields of a struct/tuple
+
+
+lifetimes
+---------
+
+lifetime:
+- the lifetime of an object starts when the object is created and ends when it goes out of scope
+- 'burrito, which is read as: "the lifetime of burrito"
+- all references actually have a type signature of the form: &'a T
+- 'a is the lifetime of the referenced object
+- compiler takes care of inserting the lifetime part, that's why we can use: &T
+
+explicit lifetimes are needed when:
+- functions return references
+- structs that hold references
+
+    fn mut_three<'s>(&'s mut self) -> &'s mut i32 {
+        &mut self.three
+    }
+
+struct Pair<'a, 'b> {
+    one: &'a mut i32,
+    two: &'b mut i32,
+}
+
+static lifetimes:
+- lasts for the lifetime of the running program
+- two ways to make a 'static lifetime:
+    - make a "string" literal which has type: &'static str
+            let static_string = "static string in read only memory!"
+    - make a constant with the static definition
+            static NUM: i32 = 10
+
+
+constants
+---------
+
+const: unchangable value
+static: a possibly mut able variable with 'static lifetime
+
+globals:
+static LANGUAGE: &'static str = "Rust";
+const THRESHOLD: i32 = 10;
+
+
+methods
+-------
+
+methods:
+- are functions attached to objects
+- have access to the data of the object and its other methods via self
+- defined under an impl block
+
+impl: define methods on an object
+
+struct Point {
+    x: f64,
+    y: f64,
+}
+
+impl Point {
+    fn origin() -> Point {
+        Point { x: 0.0, y: 0.0 }
+    }
+
+    fn incx(&mut self) {
+        self.x = 2.0;
+    }
+
+    fn incy(&mut self) {
+        self.y = 2.0;
+    }
+
+    fn new(x: f64, y: f64) -> Point {
+        Point { x: x, y: y }
+    }
+}
+
+fn main() {
+    let mut point = Point::new(1.0, 1.0);
+    point.incx();
+    println!("{} {}", point.x, point.y)
+}
+
+
+enums
+-----
+
+enum:
+- allows for the creation of tagged unions (ADT's)
+
+use std::fmt;
+
+enum Noun {
+    Person,
+    Place,
+    Thing
+}
+
+impl fmt::Display for Noun {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match *self {
+            Noun::Person => write!(f, "Person"),
+            Noun::Place => write!(f, "Place"),
+            Noun::Thing => write!(f, "Thing")
+        }
+    }
+}
+
+fn main() {
+    let n = Noun::Person;
+    println!("{}", n);
+}
+
+
+you're supposed to be able to use enums like this, but didn't work for me:
+
+// If you'd like to refer to the days without saying
+// `Day::Monday`, then you use the following notation
+// use Day::{
+//     Monday,
+//     Tuesday,
+//     Wednesday,
+//     Thursday,
+//     Friday,
+//     Saturday,
+//     Sunday,
+// }
+//
+// And you can refer to enum variants just like in C
+
+
+
+panic
+-----
+
+panic macro: panic!()
+- generate a panic message and unwind its stack (in the thread).
+- unwinding frees all resources owned by the thread.
+
+
+
+option
+------
+
+option: Option<T>
+- None and Some(T)
+
+
+arrays and slices
+-----------------
+
+array:
+- collection of objects of the same type T
+- stored in contiguous memory
+- created using [T; size]
+- let xs: [i32; 5] = [1, 2, 3, 4, 5];
+- let ys: [i32; 500] = [0; 500]; // All elements can be initialized to the same value
+
+slices:
+- type sig: &[T]
+- similar to arrays
+- size not known at compile time
+- can slice an array, ie, to cover an area of elements/memory
+- two word objects:
+    first word: pointer to the data
+    second word: length of data
+
+fn main() {
+    let arr: [i32; 100] = [1; 100];
+    let slice = &arr[1..5];
+    println!("{:?} {}", slice, slice.len())
+}
+
+
+
+traits
+------
+
+trait:
+- collection of methods declared/defined for an unknown type: Self
+- can be implemented for any data type
+
+trait Animal {
+    fn new(name: &'static str) -> Self;
+    fn name(&self) -> &'static str;
+    fn noise(&self) -> &'static str;
+    fn talk(&self) {
+        println!("{} says {}", self.name(), self.noise());
+    }
+}
+
+struct Dog { name: &'static str }
+impl Animal for Dog {
+    fn new(name: &'static str) -> Dog {
+        Dog { name: name }
+    }
+    fn name(&self) -> &'static str {
+        self.name
+    }
+    fn noise(&self) -> &'static str {
+        "woof"
+    }
+}
+
+fn main() {
+    let spike: Dog = Animal::new("spike");
+    spike.talk();
+}
+
+
+derive
+------
+
+derive: #[derive(...)]
+- compiler is capable of providing basic implementations for some traits
+- can still be manually implemented
+
+#[derive(PartialEq, PartialOrd)]
+struct Centimeters(f64);
+
+This is a list of the "derivable" traits:
+
+Comparison traits: Eq, PartialEq, Ord, PartialOrd
+Serialization: Encodable, Decodable
+Clone, to create T from &T via a copy.
+Hash, to compute a hash from &T.
+Rand, to create a random instance of a data type.
+Default, to create an empty instance of a data type.
+Zero, to create a zero instance of a numeric data type.
+FromPrimitive, to create an instance from a numeric primitive.
+Debug, to format a value using the {:?} formatter.
+
+
+operator overloading
+--------------------
+
+overloading:
+- many of the operators can be overloaded via traits
+- operators are just sugar for method calls
+- a + b desugars to a.add(b)
+- ^ add method part of the Add trait
+- any implementor of the Add trait will be able to use the + operator
+
+use std::ops::Add;
+
+#[derive(Debug)]
+struct Foo;
+
+impl Add<Foo> for Foo {
+    type Output = Foo;
+    fn add(self, _rhs: Foo) -> Foo {
+        Foo
+    }
+}
+
+fn main() {
+    let x = Foo + Foo;
+    println!("{:?}", x)
+}
+
+
+bounds
+------
+
+when working with generics, the type params (Ty) may use traits (Tr) as bounds:
+- Ty: Tr
+- Ty must implement the Tr trait
+
+bounding: two effects
+- generics instances can now access the methods of the traits specified in the bounds
+- generic can only be specialized for type params that conform to the bounds.
+
+bounds applied in two ways:
+1. at first instance of the type
+
+impl<T: Add<T, Output = T>> Add<Vec2<T>>
+        for Vec2<T> {
+    type Output = Vec2<T>;
+
+
+2. in a where clause directly precedes the { in the impl
+
+// Bound: `T` must implement *both* the `Add` trait and the `Mul` trait
+impl<T> Vec2<T>
+        where T: Add<T, Output = T> + Mul<T, Output = T> {
+
+
+
+drop trait
+----------
+
+drop trait:
+- has only one method: drop
+- drop is called when the object goes out of scope
+- main use of Drop is to free resources that the implementor instances owns
+
+struct Droppable {
+    name: &'static str,
+}
+
+// This `drop` implementation doesn't free resources; but instead reports its
+// usage via a print to the console
+impl Drop for Droppable {
+    fn drop(&mut self) {
+        println!("> Dropping {}", self.name);
+    }
+}
+
+
+iterator trait
+--------------
+
+http://doc.rust-lang.org/std/iter/trait.Iterator.html
+
+iterator trait:
+- Iterator
+- implements iterators over collections and lazy value generators
+
+struct Counter {
+    base: u32,
+    curr: u32,
+    by: u32,
+    limit: u32
+}
+
+impl Counter {
+    fn new(base: u32, limit: u32, by: u32) -> Counter {
+        Counter { base: base, curr: base, by: by, limit: limit }
+    }
+}
+
+impl Iterator for Counter {
+    type Item = u32;
+    fn next(&mut self) -> Option<u32> {
+        if self.curr > self.limit {
+            None
+        } else {
+            let o = self.curr;
+            self.curr = self.curr + self.by;
+            Some(o)
+        }
+    }
+}
+
+fn main() {
+    let mut counter: Counter = Counter::new(0, 10, 2);
+    for i in counter {
+        println!("{:?}", i)
+    }
+}
+
+
+
+closures
+--------
+
+closures:
+- special functions that can capture the variables available in the surrounding scope
+- consist of 3 parts
+    1. list of arguments enclosed by pipes |
+    2. optionally the return type using an arrow ->
+    3. a block, last expression is the return value
+
+fn main() {
+    let captured_value = 7u32;
+
+    let closure = |argument| {
+        println!("I captured this: {}", captured_value);
+        println!("Argument passed was: {}", argument);
+
+        true
+    };
+
+    println!("Closure returned: {}", closure("a string"));
+}
+
+
+
+high order functions
+--------------------
+
+HOF's:
+- functions that take a closure as an argument to produce a more useful function
+
+fn main() {
+    let sum_of_squared_odd_numbers: u32 =
+        (0..).take_while(|&n| n < 10)
+             .map(|n| n * n)
+             .filter(|n| n % 2 == 1)
+             .fold(0, |acc, n| acc + n);
+    println!("sum: {}", sum_of_squared_odd_numbers);
+}
+
+
+vectors
+-------
+
+https://doc.rust-lang.org/std/vec/struct.Vec.html
+
+vectors:
+- re-sizable arrays
+- size not known at compile time
+- grow or shrink at any time
+- represented by 3 words:
+    1. pointer to data
+    2. its length
+    3. its capacity: how much memory is reserved for the vector
+- vectors can grow as long as length < capacity
+- when threshold met, vector is reallocted with a larger capacity
+
+    // Iterators can be collected into vectors
+    let collected_iterator: Vec<i32> = (0..10).collect();
+    // The `vec!` macro can be used to initialize a vector
+    let mut xs = vec![1i32, 2, 3];
+    println!("{}", xs[1])
+
+
+
+strings
+-------
+
+https://doc.rust-lang.org/std/string/index.html
+https://doc.rust-lang.org/std/string/struct.String.html
+
+strings: String and &str
+- String: stored as a vector of bytres (Vec<u8>)
+    - guaranteed to always be a valid UTF-8 sequence
+- &str: a slice (&[u8])
+    - always points to a valid UTF-8 sequence and can be used to view into a String
+    - just like &[T] is a view into Vec<T>
+
+// http://doc.rust-lang.org/0.11.0/std/str/trait.StrSlice.html
+
+fn main() {
+    let pangram = "the quick brown fox jumps over the lazy dog";
+    println!("Pangram: {}", pangram);
+
+    let v: String = pangram.chars().rev().collect();
+    println!("{:?}", v)
+}
+
+
+clone
+-----
+
+when dealing with resources:
+- default behavior: transfer them during assignments or function calls
+- sometimes the intention: make a copy of the resource
+- accomplished via the clone method defined in the Clone trait
+
+for example, with Copy, the default behavior for moved_pair is not to actually move it.. so this is safe, as a copy is created:
+
+#[derive(Debug, Clone, Copy)]
+struct Pair(u32, bool);
+
+fn main() {
+    let pair: Pair = Pair (0, false);
+    let moved_pair = pair;
+    println!("pair: {:?}, moved_pair: {:?}", pair, moved_pair)
+}
+
+
+threads
+-------
+
+native os threads: scoped
+- implemented via the "scoped" function
+- thread::scoped(move || { });
+
+use std::thread;
+
+static NTHREADS: u32 = 10;
+
+fn main() {
+    for i in 0..NTHREADS {
+        let _ = thread::scoped(move || {
+            println!("this is thread number {}", i)
+        });
+    }
+}
+
+
+
+
+channels
+--------
+
+https://doc.rust-lang.org/std/sync/mpsc/fn.channel.html
+
+channels:
+- async communication between threads
+- unidirectional flow of information between two endpoints: Sender<T>, Receiver<T>
+- let (tx, rx): (Sender<usize>, Receiver<usize>) = mpsc::channel();
+- there's also a SyncSender, SyncReceiver etc
+
+http://rustbyexample.com/channels.html
+
+
+
+result
+------
+
+result: Result<T, E>
+- enum
+- used to express WHY an operation failed
+- has two variants:
+    Ok(value): success, value has type T
+    Err(why): failure, why has type E
+
+enum MathError {
+    DivisionByZero,
+    NegativeLogarithm,
+    NegativeSquareRoot,
+}
+
+type MathResult = Result<f64, MathError>;
+
+fn div(x: f64, y: f64) -> MathResult {
+    if y == 0.0 {
+        Err(MathError::DivisionByZero)
+    } else {
+        Ok(x / y)
+    }
+}
+
+fn divPrinter(x: f64, y: f64) {
+    let res = div(x, y);
+    match res {
+        Ok(value) => println!("value={:?}", value),
+        Err(err) => println!("error={:?}", err)
+    }
+}
+
+fn main() {
+    divPrinter(1.0, 0.0);
+    divPrinter(10.0, 5.0);
+}
+
+
+
+try!: helpful
+- Ok(value) branch expands to an ok expression
+- Err(err) branch expands to a return Err(err) expression
+
+try!(div(x, y))

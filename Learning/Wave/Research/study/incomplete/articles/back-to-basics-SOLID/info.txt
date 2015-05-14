@@ -1,0 +1,4 @@
+source: https://robots.thoughtbot.com/back-to-basics-solid
+
+history:
+- 05/01/2015: read
