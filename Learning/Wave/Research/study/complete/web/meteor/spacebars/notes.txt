@@ -1,0 +1,45 @@
+spacebars: reactive meteor templates in the style of handlebars
+
+{{#each dogs}}
+    {{name}}
+{{/each}}
+
+{{#each dogs}}
+    {{this.name}}
+{{/each}}
+
+{{#with dog}}
+    ..
+{{else}}
+    ..
+{{/with}}
+
+{{#if ..}}
+{{else}}
+{{/if}}
+
+{{#unless ..}}
+{{else}}
+{{/if}}
+
+template inclusion:
+{{> template}}
+
+passing a data context:
+{{> someTemplate dataContext}}
+
+passing named arguments:
+{{> someTemplate namedArgument=value}}
+
+single line comments:
+{{! ..}}
+
+multi line comments:
+{{!
+    ...
+}}
+
+rendering dynamic templates:
+{{> Template.dynamic template=someVarThatHoldsTheTemplate}}
+
+

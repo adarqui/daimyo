@@ -1,0 +1,6 @@
+source: http://devshop.meteor.com
+
+history:
+- 06/01/2015: may2015, https://www.youtube.com/watch?v=xQJ-QGYrpRc
+- 06/02/2015: apr2015_react_native, https://www.youtube.com/watch?v=7BF5LHn2B5s
+- 06/03/2015: dec2014/building_a_production_ready_meteor_app, https://www.youtube.com/watch?v=gfFGjmiKfnA

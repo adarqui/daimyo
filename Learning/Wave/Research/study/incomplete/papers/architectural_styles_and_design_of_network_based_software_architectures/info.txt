@@ -1,0 +1,3 @@
+source:
+- http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm
+- http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf

@@ -1,0 +1,4 @@
+source: http://www.sapphiresteel.com/IMG/pdf/LittleBookOfRuby.pdf
+
+history:
+- 05/18/2015: notes

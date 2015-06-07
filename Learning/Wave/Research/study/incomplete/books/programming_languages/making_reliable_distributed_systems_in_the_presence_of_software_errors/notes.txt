@@ -1,0 +1,404 @@
+Abstract
+========
+
+this doc is the result of research started in 1981:
+- to find betters ways of programming telecom applications
+
+otp (open telecom platform):
+- libraries for building robust systems
+
+"central problem addressed by the thesis"
+- "the problem of constructing reliable systems from programs which may themselves contain errors"
+
+
+Introduction
+============
+
+"large systems will probably always be delivered containing a number of errors in the software, nevertheless such systems are expected to behave in a reasonable manner".
+
+these problems can be solved via:
+- the language itself
+- the standard libraries
+
+erlang:
+- belongs to the family of: pure message passing languages
+- concurrent process based language
+- strong isolation between concurrent processes
+- model makes extensive use of fail-fast processes
+
+fail-fast processes:
+
+threads model of programming:
+- shared resources
+- extremely difficult to isolate components from each other
+- errors in one component can propagate to another component and damage the internal consistency of the system
+
+erlang birth:
+• 1986 — I start work on the language that was to become Erlang,
+though at the time the language had no name. The language started
+as an experiment to add concurrent processes to Prolog—this work
+is described in [10]. At this stage I did not intend to design a new
+programming language, I was interested in how to program POTS
+(Plain Old Telephony Service)—at the time the best method for programming
+POTS appeared to be a variant of Prolog augmented with
+parallel processes.
+
+JAM - joe's abstract machine
+- based on Warren abstract machine (WAM)
+- jam added parallel processes, message passing, failure detection
+
+haha:
+Once the design of the JAM was complete I started a C implementation
+of the virtual machine—which was soon abandoned ader Mike
+Williams read some of my C code—ader which I worked on the compiler.
+Mike Williams wrote the virtual machine emulator and Robert
+Virding worked on the Erlang libraries.
+
+
+The Architectural Model
+=======================
+
+software architecture:
+An architecture is the set of significant decisions about the organization of a software system, the selection of the structural elements and their interfaces by which the system is composed, together with their behavior as specified in the collaborations among those elements, the composition of these structural and behavioral elements into progressively larger subsystems, and the architectural style that guides this organization - these elements and their interfaces, their collaborations, and their composition.
+-- Booch, Rumbaugh, Jacobson
+
+architecture: "a way of thinking about the world"
+
+software architecture composed of:
+- problem domain
+- philosophy
+- set of construction guidelines
+- set of pre-defined components
+- a way of describing things
+- a way of configuring things
+
+problem domain:
+- what type of problem is the arch trying to solve?
+
+philosophy:
+- what is the reasoning behind the method of software construction?
+- what are the central ideas in the arch?
+
+set of construction guidelines:
+- how do we program a system?
+- need explicit set of construction guidelines
+- all programmers and system designers must understand the system architecture and its underlying philosophy
+
+set of pre-defined components:
+- design by "choosing from a set of pre-defined components" is far easier than "design from scratch"
+
+a way of describing things:
+- describe interfaces to a component
+- describe communication protocol between components
+- describe static/dynamic structure of the system
+
+a way of configuring things:
+- start, stop, configure, re-configure while running
+
+problem domain: 10 requirements for properties of a telecoms system
+1. system must be able to handle very large numbers of concurrent activities
+2. actions must be performed at a certain point in time or within a certain time
+3. systems may be distributed over several computers.
+4. system is used to control hardware.
+5. software systems are very large
+6. system exhibits complex functionality
+7. systems should be in continuous operation for many years
+8. software maintenance (reconfiguration) should be performed without stopping the system
+9. stringent quality and reliability requirements
+10. fault tolerance both to hardware failures and software errors
+
+fault tolerance:
+- from the outset we known that faults will occur
+- we must design a software and hardware infrastructure that can deal with these fauls and provide an acceptable level of service even in the presence of faults.
+
+"Typically having less than two hours of down-time in 40 years"
+
+to make a fault-tolerant system which behaves reasonably in the presence of software errors we proceed as follows:
+1.  - organize software into hierarchy of tasks.
+    - tasks correspond to achievement of a number of goals.
+    - tasks ordered by complexity
+2. try to perform the top level task
+3. if an error is detected when trying to achieve a goal, make an attempt to correct the error. If we cannot correct the error, immediately abort the current task and start performing a simpler task.
+
+programming a hierarchy of tasks needs:
+- a strong encapsulation method
+- strong encapsulation for error isolation
+
+essential problem that must be solved in making a fault tolerant system:
+- fault-isolation
+
+fault isolation provided by:
+- essential for fault tolerant systems
+- a process
+- processes provide protection domains
+- in erlang: processes and concurrency provided by the programming language
+- concurrent processes with no data sharing provide a strong measure of fault toleration
+
+erlang processes:
+- run identical in different os's
+- light weight
+- isolated
+- share no data
+- communicate by message passing
+- can be thought of as a self-contained virtual machine
+
+"as soon as two processes share any common resource, for example, memory or a pointer to memory, or a mutex etc.. the possibility exists that a software error in one of the processes will corrupt the shared resource."
+
+our arch:
+- large numbers of communicating parallel processes
+    - provides an architectural infrastructure
+    - potential efficiency
+    - fault isolation
+
+concurrency oriented programming
+--------------------------------
+
+concurrency oriented programming provides:
+- polymorphism
+- use of defined protocols having the same message passing interface between instances of different process types
+
+"Such as Object Oriented programming which models the world in terms of Objects, Functional Programming which uses functions, or Logic Programming with uses relations"
+
+concurrency:
+- the set of events which happen simultaneously
+
+IMP - nice
+in regards to "real world activities":
+"The fact that we can do things which require processing massive amounts of parallel information suggests that we are equipped with perceptual mechanisms which allow us to intuitively understand concurrency without consciously thinking about it.
+
+When it comes to computer programming things suddenly become inverted. Programming a sequential chain of activities is viewed the norm , and in some sense is thought of as being easy, whereas programming collections of concurrent activities is avoided as much as possible, and is generally perceived as being difficult."
+
+concurrency usually provided by the OS, not the language.
+
+COPL
+- concurrency oriented programming languages
+
+programming by observing the real world: 3 step process
+1. identify all truly concurrent activities in our real world activity
+2. identify all message channels between the concurrent activities
+3. write down all messages which can flow on the different message channels
+4. write the program
+
+the program is isomorphic to the problem:
+- if there is a 1:1 mapping of the problem onto the program -> each real world concurrent activity should be mapped onto exactly one concurrent process
+- mapping has to be 1:1
+- if not 1:1, program degenerates and becomes too difficult to understand
+
+must choose an appropriate granularity for our model
+
+characteristics of COPL:
+------------------------
+
+characterized by 6 properties:
+1. must support processes
+2. processes must be strongly isolated
+3. each process must be identified by a unique unforgeable identifier (Pid - process id)
+4. no shared state between processes. processes interact by sending messages (via a Pid).
+5. message passing asumed to be unreliable with no guarantee of delivery
+6. a process should be able to detect failure in another process
+
+process isolation
+-----------------
+
+isolation:
+- central to COP
+- two processes running on the same machine must be as independent as if they ran on physically separate machines
+- ideal arch: one cpu per software process
+- share nothing semantics
+- message passing is the only way to pass data between processes. only way to exchange data.
+- message passing is asynchronous
+- everything necessary to perform a distributed computation must be copied
+- only way to know if a message has been correctly sent is to send a confirmation message back
+
+message passing is asynchronous:
+- if synchronous, one process could indefinitely block the sender, destroying isolation
+
+scalable:
+- since all processes are completely isolated, adding more processes cannot affect the original system
+
+names of processes
+------------------
+
+names:
+- unforgeable
+- processes know their own names
+- processes know the names of their children
+- can only send messages to a process if we know it's name
+- security is tied to knowing the names of processes
+
+name distribution problem:
+- the key to security lies in the name distribution problem
+
+hah
+In many primitive religions it was believed that humans had powers
+over spirits if they could command them by their real names. Knowing
+the real name of a spirit gave you power over the spirit, and using this
+name you could command the spirit to do various things for you. COPLs
+use the same idea.
+
+message passing
+---------------
+
+rules:
+- message passing assumed to be atomic: msg is delivered in its entirety or not at all
+- message passing between a pair of procs is assumed to be ordered
+- messages should not contain pointers - they should only contain constants and/or Pids
+- send and prey semantics
+
+send and prey semantics:
+- send the message and pray that it arrives
+
+round-trip confirmation:
+- confirmation message
+- optional
+
+can also be used for:
+- synchronization
+
+casual ordering in distributed systems theory
+
+protocols
+---------
+
+communication protocols:
+- by specifying, can find out if either of the components involved has violated the protocol
+- guaranteeing that protocols are enforced should be done by static analysis, failing at compile time.. or run time checks
+
+
+programmer teams:
+-----------------
+
+these concepts apply to teams of programmers as well: ie communicate by message passing.
+
+system requirements for COPL's:
+-------------------------------
+1. concurrency
+2. error encapsulation
+3. fault detection
+4. fault identification
+5. code upgrade
+6. stable storage
+
+concurrency: OS must support concurrency
+error encapsulation: errors occurring in one process must not be able to damage other processes in the system
+fault detection: must be possible to detect exceptions both locally and remotely
+fault identification: identify why an exception occurred
+code upgrade: ability to change code as it is executing without stopping the system
+stable storage: store data in a manner which survives a system crash
+
+^^ all of the above must be implemented efficiently
+
+
+language requirements for COPL's:
+---------------------------------
+- encapsulation primitives
+- concurrency
+- fault detection primitives
+- location transparency
+- dynamic code upgrade
+
+encapsulation primitives:
+- mechanisms for limited the consequences of an error
+- isolate processes so that they cannot damage each other
+
+concurrency:
+- mechanisms for lightweight process creation and sending messages between them
+- context switching between procs, message passing, must be efficient
+- concurrent processes must time-share the CPU
+
+fault detection primitives:
+- allow one process to observe another process and detect if the observed process has terminated for any reason
+
+location transparency:
+- if we know the pid of a proc, should be able to send messages to it
+
+dynamic code upgrade:
+- should be possible to dynamically change code in a running system
+- existing processes run old code
+- new processes run the modified code
+- old/new run simultaneously
+
+we shouldn't have to worry about max processes, etc
+
+
+library requirements
+--------------------
+must provide:
+- stable storage
+- device drivers: mechanism to communicate with the outside world
+- code upgrade
+- infrastructure: starting/stopping/logging/etc
+
+application libraries:
+----------------------
+
+otp provides us with a complete set of design patterns called:
+- behaviours
+
+minimal set of behaviours:
+- supervisor
+- gen_server
+- gen_event
+- gen_fsm
+
+supervisor: supervision model
+gen_server: behaviour for implementing client-server applications
+gen_event: behaviour used for implementing event handling software
+gen_fsm: behaviour used for implementing finite state machines
+
+central component for programming fault tolerant applications:
+- supervision model
+
+
+main reason why popular programming languages cannot be used for making robust system software:
+- inability to isolate softeare components
+
+
+nice quote:
+
+"As with hardware, the key to sodware fault-tolerance is to hierarchically
+decompose large systems into modules, each module
+being a unit of service and a unit of failure. A failure of a
+module does not propagate beyond the module.
+...
+The process achieves fault containment by sharing no state
+with other processes; its only contact with other processes is
+via messages carried by a kernel message system. — [38]"
+
+-- "why do computers stop and what can be done about it" jim gray
+
+
+"message oriented languages"
+- languages which support parallel processes, no shared data, pure message passing
+-- Andrews and schneider
+
+
+fail stop processors: properties of fault tolerant systems, hardware: (Schneider)
+- halt on failure: halt instead of performing an erroneous operation
+- failure status property: when a processor fails, other processors in the system must be informed
+- stable storage property: storage partitioned into stable and volatile
+
+fail fast:
+- process should either function correctly or it should detect the fault, signal failure, and stop operating
+- defensive programming
+
+
+joe advocates this:
+- processes are the units of error encapsulation
+- processes do what they are supposed to or fail ASAP
+- failure, and the reason for it, can be detected by remote processes
+- processes share no state
+- processes communicate by message passing
+
+
+The keys to this sodware fault-tolerance are:
+• Sodware modularity through processes, and messages.
+• Fault containment through fail-fast sodware modules.
+• Process-pairs to tolerant hardware, and transient sodware
+faults.
+• Transaction mechanisms to provide data, and message
+integrity.
+• Transaction mechanisms combined with process-pairs to
+ease exception handling, and tolerate sodware faults.
+
+

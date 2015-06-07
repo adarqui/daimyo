@@ -1,0 +1,38 @@
+he refers to them as:
+- red callbacks: interrupt flow of control in your program
+- green callbacks: do not interrupt the flow of control in your program
+
+no read in erlang:
+- has selective read (http://www.erlang.org/course/concurrent_programming.html#select)
+- uses pattern matching
+- looks as if it were a blocking operation
+
+javascript:
+- no processes
+- no threads
+- every js programmer who has a concurrent problem to solve must "invent their own concurrency model"
+- "Every time a Javascript programmer writes a line of code that says “on this do that” they are actually inventing a new concurrency model, and they haven’t a clue how the code will interleave when it executes."
+
+red callbacks:
+- a callback that triggers when an operation is complete
+- "Code like this melts my brain." in regards to js callbacks
+
+green callbacks:
+- know precisely where, in the context of a process, a callback is evaluated
+- don't get the problem of figuring out how the callbacks interleave
+
+ie:
+
+loop(F) ->
+        receive
+            {new_callback, F1} ->
+                loop(F1);
+            Msg ->
+                F(Msg),
+                loop(F)
+        end.
+
+erlang:
+- don't send messages to a process
+- send messages to a process mailbox
+- house/mailbox analoy: houses are processes, each have a mailbox, mail guy delivers the mail, house owners check mailboxes for mail

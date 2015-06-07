@@ -1,0 +1,4 @@
+sources:
+- node: https://www.npmjs.com/package/mongo-oplog , https://github.com/cayasso/mongo-oplog
+
+- haskell ex: https://gist.github.com/aloiscochard/1338d462f12a7480dd42

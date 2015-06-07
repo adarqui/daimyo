@@ -1,0 +1,187 @@
+curl https://install.meteor.com/ | sh
+meteor create slack
+
+hot code push:
+- meteor restarts when you make changes
+- intelligent: knows the diff between backend/front end changes
+
+.meteor
+- meteor core files
+
+.meteor/packages
+- dependencies; meteor-platform, autopublish, insecure, etc
+
+.meteor/versions
+- shows the versions of every package installed
+
+.meteor/release
+- run meteor update to update the release
+
+directory naming conventions:
+- client/ - any file in a "client" directory are purely client side
+- server/ - .. server side
+- public/ - public assets
+- private/ - only accessed by the server via the assets api
+
+mkdir client server public private
+
+spacebars:
+- meteor version of handlebars
+{{ variable }} – evaluated and printed as plain text
+{{> name }} – inserts a template by name.
+{{#each}}
+{{{}}} – Everything inside the triple-braces are inserted as raw HTML
+
+db:
+- official: mongo
+- supported: numtel:meteor-mysql, austinrivas:meteor-postgresql, meteor-stream:meteor-postgres etc
+
+mongo:
+- meteor mongo
+    brings up mongo shell
+- consists of collections of documents
+- collections = tables, documents = rows
+- show dbs
+- show tables, show collections
+- runs on port 3001 (the mongo that comes with meteor)
+
+meteor schema for mongo:
+- simple schema package
+- provides a schema for meteor collections
+- https://github.com/aldeed/meteor-simple-schema
+
+defining a collection:
+- Blah = new Mongo.Collection('blah');
+
+"database everywhere"
+- meteor db is server (mongo) and client (minimongo).
+
+Meteor.startup(cb)
+- runs on meteor startup
+
+meteor packages:
+- https://atmospherejs.com/
+
+adding packages:
+- meteor add anti:fake
+
+nice way to inject fake data, using anti:fake and dburles:factory:
+- creates random messages
+
+Meteor.startup(function() {
+  Factory.define('message', Messages, {
+    text: function() {
+        return Fake.sentence();
+    }
+  });
+
+  // Add this if you want to remove all messages before seeding
+  Messages.remove({});
+
+  if (Messages.find({}).count() === 0) {
+    _(10).times(function(n) {
+      Factory.create('message');
+    });
+  }
+});
+
+meteor reset:
+- removes all database from a db
+
+meteor load order:
+HTML template files are always loaded before everything else
+Files beginning with main. are loaded last
+Files inside any lib/ directory are loaded next
+Files with deeper paths are loaded next
+Files are then loaded in alphabetical order of the entire path
+
+reactivity:
+- works by detecting a change in a data source, then re-running some code to recompute new values
+- achieved through blaze / tracker
+
+react + meteor:
+- https://www.meteor.com/blog/2015/04/29/two-weeks-with-react-and-meteor
+
+react + angular:
+- https://www.youtube.com/watch?v=s6IgKYsZAyI
+
+
+list of reactive data sources:
+Session variables
+Database queries on Collections
+Meteor.status
+The ready() method on a subscription handle
+Meteor.user
+Meteor.userId
+Meteor.loggingIn
+
+latency compensation:
+- meteor updates the ui even without confirmation from the server
+- when data comes back from server, ui updated if need be
+
+offline use:
+- meteor will 'resend/resume' once reconnected.
+
+pubsub:
+- autopublish package
+- automatically publishes all collections in the entire database
+- client has access to all collections on the server
+
+accounts:
+- accounts-base and accounts-passwords package
+    - contain login/logout/account creation/email validation/password recovery
+- accounts-github, accounts-google, accounts-facebook, accounts-twitter etc
+- accounts-ui / accounts-ui-unstyled
+    - provides login / register
+- to add the login form:
+    {{> loginButtons}}
+
+meteor add accounts-base accounts-password accounts-ui
+meteor add accounts-github
+
+configuring accounts-ui:
+    Accounts.ui.config({
+        passwordSignupFields: 'USERNAME_AND_EMAIL'
+    });
+
+USERNAME_AND_EMAIL
+USERNAME_AND_OPTIONAL_EMAIL
+USERNAME_ONLY
+EMAIL_ONLY
+EMAIL_ONLY is the default.
+
+email verification: server/accounts.js
+- meteor add email
+    Accounts.config({
+        sendVerificationEmail: true
+    });
+
+for security, remove autopublish/insecure:
+autopublish makes available all the data from all collections
+insecure allows any user to insert into, update, and/or delete any documents.
+
+meteor remove autopublish
+
+allow/deny rules:
+- allow users to directly interact with collections
+
+    Messages.allow({
+      insert: function (userId, doc) {
+        return true;
+      }
+    });
+
+meteor doesn't have collection hooks by default:
+- third party package: matb33:collection-hooks
+- or meteor methods
+
+Messages.before.insert(function (userId, doc) {
+  doc.timestamp = Date.now();
+});
+
+
+Meteor.methods({
+    newMessage: ...
+});
+
+

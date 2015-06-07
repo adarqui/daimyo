@@ -1,0 +1,4 @@
+source: http://blog.dancarlo.net/ember-js-nested-routing-with-multiple-outlets/
+
+history:
+- 05/19/2015: notes

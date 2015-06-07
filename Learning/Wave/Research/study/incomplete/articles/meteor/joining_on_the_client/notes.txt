@@ -1,0 +1,1 @@
+can simply use template helpers and templates

@@ -1340,3 +1340,6 @@ unit testing basics:
 
 
 Actions from the template can be handle by the controller or the route, in this tutorial I opt for controllers handling the actions for simplicity, but don't forget that your route could also handle actions
+
+
+

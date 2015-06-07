@@ -1,0 +1,438 @@
+http://www.sapphiresteel.com/IMG/pdf/LittleBookOfRuby.pdf
+
+C1: Strings and Methods
+=======================
+
+ruby is case sensitive
+brackets/parens are generally optional
+
+string interpolation:
+- only works with strings surrounded by double quotes
+- "Hello #{name}"
+
+can also embed expressions:
+- "Age times 2 #{(age * 2)}"
+
+comments:
+- begin with #
+# blah
+
+methods:
+- declared with 'def'
+    def method args
+        ...
+    end
+- so named: "provides a method for an object to respond to messages"
+- in OOP: send a message to an object
+
+numbers:
+- blah = 1.2
+- numbers have methods
+- blah.to_s, s.to_f
+
+testing a condition: if ... then
+if ... then
+end
+
+
+C2: Classes and Objects
+=======================
+
+ruby object:
+- defined by a class
+
+creating classes:
+- class keyword
+- all classes inherit from the Object class
+- class names begin with uppercase letters
+
+    class MyClass
+    end
+
+creating new instances of classes:
+- new method
+    ob = MyClass.new
+
+instance variables:
+- begin with @
+- belong to individual objects or instances, of a class
+- not necessary to pre-declare variables
+- considered the attributes of an object
+- attributes are equivalent to properties in other langs
+
+class variables:
+- begin with @@
+- @@num_things = 0 etc
+
+constructors:
+- new and initialize
+- automatically called when an object is created using the 'new' method
+- initialize usually used to set instance variables
+    def initiliaze constructor_arguments
+        ...
+    end
+
+new method:
+- creates/constructs an object
+- can override new, but not recommended
+
+Object class:
+- ultimate ancestor of all other classes in ruby
+
+inspecting objects:
+- someObject.inspect
+- defined for all ruby objects
+- returns a string containing a human readable representation of the object
+
+return values:
+- return keyword optional
+- ruby methods will always return the last expression evaluated
+
+
+C3: Class Hierarchies
+=====================
+
+"descendant" classes "inheriting" features from their "ancestor" classes.
+- each class only has one parent
+- can have many grandparents, great-grandparents and so on
+
+encapsulation:
+- refers to the modularity of an object
+- only the object itself can mess around with its own internal state
+- outside world cannot access internal state
+
+superclasses & subclasses:
+- < means subclass of, or descendant of.. inherits the data (variables) and behaviour (methods) of
+- need to use 'super' to access the parent class
+    class Subclass < Superclass
+
+def SuperClass
+    def initialize one two
+        ...
+    end
+end
+
+def SubClass < SuperClass
+    def initialize one two three
+        super one two
+        ...
+    end
+end
+
+super:
+- when used inside a method, calls a method with the same name in the ancestor or super class
+- when used without arguments, all arguments sent to the current method are passed to the ancestor method
+
+
+
+C4: Accessors, Attributes, Class Variables
+==========================================
+
+    class SomeClass
+        def setDescription desc
+            @desc = desc
+        end
+        def getDescription
+            @desc
+        end
+    end
+
+to access desc, we need to use setDescription and getDescription. So, cannot do something like this:
+    v = SomeClass.new
+    v.desc = "hi"
+    print "#{v.desc}"
+
+In order to do that, we need to define accessors
+    class SomeClass
+        def desc
+            @desc
+        end
+        def desc=(newDesc)    <-- no spaces between desc=(newDesc) etc..
+            @desc = newDesc
+        end
+    end
+
+Now you can do
+    v.desc = "hi"
+    etc..
+
+even shorter way of writing that using attribute readers and writers:
+- attr_reader :v1, :v2, ...
+    creates a getter for v1, v2, ...
+- attr_writer :v1, :v2, ...
+    creates a setter for v1, v2, ...
+- attr_accessor: both attr_reader and attr_writer
+
+    class SomeClass
+        attr_reader :desc
+        attr_writer :desc
+    end
+
+    or
+
+    class SomeClass
+        attr_accessor :desc
+    end
+
+
+C5: Arrays
+==========
+
+arrays:
+- in ruby, arrays can hold items of mixed data types
+- index 0: first item in the array
+- arr = [1,2,3,'four']
+- arrays, like everything, are objects
+- defined using the Array class
+- can be created with Array.New
+
+unquoted strings in arrays:
+- %w
+- %w{string1 string2 string3 ...}
+
+iterating over arrays:
+- for
+
+    for item in arr
+        ...
+    end
+
+array indexing:
+- arr[index]
+- from the end: arr[-index]
+
+array indexing: range
+- arr[start_index..end_index]
+- from the end: negative numbers, arr[-5..-1]
+
+
+
+C6: Hashes
+==========
+
+hashes:
+- h1 = Hash.new
+- h2 = Hash.new(default value when the hash is not initialized)
+    h2['blah'] = 'bleh'
+
+shorthand:
+h1 = { 'blah' => 'blah',
+        ...
+        }
+
+unique keys:
+- keys are unique
+
+indexing a hash:
+- h1[index]
+
+default values:
+- h1.default
+
+hash operations:
+- keys
+- values
+- & intersection
+    h1.keys & h2.keys
+    h1.values & h2.values
+- + concatenation
+- - difference
+- << append
+    h1.keys << h2.keys
+
+
+
+C7: Loops and Iterators
+=======================
+
+for each:
+    for i in [1,2,3] do
+        ...
+    end
+
+for range:
+    for i in (1..3) do
+        ...
+    end
+
+each:
+    [1,2,3].each do |i|
+        ...
+    end
+
+    (1..3).each do |i|
+        ..
+    end
+
+block parameters:
+- any variable declared between || at the top of a block
+
+blocks:
+- do end
+- { }
+
+[1,2,3].each do |i|
+    ...
+end
+
+[1,2,3].each { |i|
+}
+
+while loops:
+- two forms
+
+    while tired
+        sleep
+    end
+
+    or
+
+    sleep while tired
+
+while modifier:
+- always executes at least once
+
+    begin
+        sleep
+        snore
+    end while tired
+
+until loops:
+- 'while not' loop
+
+
+C8: Conditional Statements
+==========================
+
+if ... or ...
+    ...
+else
+    ...
+end
+
+same line:
+if x == 1 then puts( 'ok' ) end # with 'then'
+if x == 1 : puts( 'ok' ) end # with colon
+if x == 1 puts( 'ok' ) end # syntax error!
+
+and, or, not
+&&, ||, !
+
+if ... Elsif
+
+shorthand if..then..else
+- ?
+- ternary
+- x == 10 ? ... : ...
+
+unless:
+- opposite of if tests
+- alternative way of expressing 'if not'
+
+    unless day == 'Saturday' or day == 'Sunday'
+        'weekday'
+    else
+        'weekend'
+    end
+
+if tired sleep
+sleep if tired
+
+if tired sleep
+sleep unless not tired
+
+case statements:
+    case (i)
+        when x: ...
+        when y, z: ...
+        else ...
+    end
+
+
+C9: Modules and Mixins
+======================
+
+each ruby class can only have one immediate parent, though each parent class may have many children
+
+by restricting to single line of descent class hierarchies:
+- avoids problems such as in C++ which permit multiples lines of descent
+
+modules:
+- like a class: contains constants, methods, classes
+- can be used as a means of grouping together related methods, constants, and classes within a named scope.
+- modules can be thought of as discreet code units which can simplify the creation of reusable code libraries.
+
+    module MyModule
+        GOODMOOD = "happy"
+        BADMOOD = "grumpy"
+        def greet            <- instance method
+            "i'm #{GOODMOOD}"
+        end
+        def MyModule.greet   <- module method
+            "I'm #{BOODMOOD"
+        end
+    end
+
+    accessing:
+
+    MyModule::GOODMOOD
+    MyModule.greet
+
+    to use the 'greet' instance method (instead of the module method greet above, needs mixins):
+    include MyModule 
+    greet
+
+module methods:
+- preceded by the name of the module
+- classes possess instances and ineritance, modules do not
+- classes can have instances (objects), superclasses (parents), subclasses (children) <-- modules can't have any of these
+- modules are for namespaces and mixins
+
+mixins:
+- provide a way of dealing with the little problem of multiple inheritance
+
+modules as namespaces:
+- module: named wrapper around a set of methods, constants, and classes
+- bits of code within the module share the same namespace: all visible to each other but are not visible to code outside the module
+- Math, Kernel, etc are modules
+
+constants:
+- can change value of constants in ruby
+- begin with a capital letter
+
+mixins:
+- object can access the instance methods of a module by including it using 'include' method
+- the process of including a module in a class is also called 'mixing in' the module
+
+    class MyClass
+        include MyModule <-- can now use anything inside MyModule, so can instantiated objects
+    end
+
+using modules as an alternative to multiple inheritance:
+- use mixins
+- Sword wants to inherit from Treasure and Weapon, so, 'turn' treasure/weapon into modules so that they can be included in sword as mixins.
+
+including modules from files:
+- require method
+- require('blahmod.rb');
+
+predefined modules:
+- Comparable, Enumerable, FileTest, GC, Kernel, Math, ObjectSpace, Precision, Process, Signal
+
+
+Misc
+====
+
+backticks run a command:
+    v = `dir`
+
+jruby: sun's ruby on jvm
+ironruby: microsoft's .net ruby
+
+File.exist?
+- exist? is a class method
+- exist? belongs to File
+
+globals:
+- variables that begin with $
+

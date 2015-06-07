@@ -1,0 +1,6 @@
+source:
+- code: https://github.com/studiointeract/meteor-slack
+- slides: http://slides.com/timbrandin/meteor-slack#/
+
+history:
+- 06/01/2015: read: Intro, C1, ... 5.4 (leftoff 5.5)

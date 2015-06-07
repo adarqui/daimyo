@@ -1,0 +1,7 @@
+source: https://dineshramitc.wordpress.com/2014/11/14/writing-ember-js-components-with-ember-cli/
+
+excellent video.
+
+
+history:
+- 05/19/2015: watched

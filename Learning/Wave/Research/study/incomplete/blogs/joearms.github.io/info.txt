@@ -1,0 +1,6 @@
+source: http://joearms.github.io/
+
+history:
+- 05/26/2015: why_programming_is_difficult, Why Programming is Difficult: http://joearms.github.io/2014/02/07/why-programming-is-difficult.html
+- 05/26/2015: solving_the_wrong_problem, Solving the wrong problem: http://joearms.github.io/2013/03/28/solving-the-wrong-problem.html
+- 05/26/2015: red_and_green_callbacks, Red and Green Callbacks: http://joearms.github.io/2013/04/02/Red-and-Green-Callbacks.html

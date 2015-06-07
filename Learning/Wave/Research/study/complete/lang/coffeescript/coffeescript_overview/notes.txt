@@ -1,0 +1,436 @@
+npm install -g coffee-script
+
+
+assignment:
+-----------
+blah = blah
+
+
+conditions:
+-----------
+number = -42 if isBlah
+
+if cond1 and cond2
+    dosomething()
+else
+    dosomethingElse()
+
+result = if cond1 then res1 else res2
+
+
+functions:
+----------
+someFunction = (someArgument1, someArgument2) -> someArgument1 * someArgument2
+
+functions with default arguments:
+someFunction = (someArgument = "defaultValue") -> someArgument
+
+
+arrays:
+-------
+list = [e1, e2, ... eN]
+
+
+objects:
+--------
+someObject =
+    key1: blah1
+    key2: blah2
+    key3Function: (someArgument) -> someArgument * 2
+
+someObject = {key1: blah1, key2: blah2}
+
+
+splats: ...
+------
+- used for variable length arguments
+race = (winner, runners...) ->
+    print winner, runners
+
+
+array comprehensions:
+---------------------
+- over arrays, objects, and ranges
+- compile in to for loops
+- optional guard clauses and the value of the current array index
+- unlike for loop, comprehensions are expressions and can be returned and assigned
+
+cubes = (math.cube num for num in list)
+
+eat food for food in ['.', '..', '...']
+
+# Health conscious meal.
+foods = ['broccoli', 'spinach', 'chocolate']
+eat food for food in foods when food isnt 'chocolate'
+
+# ranges
+countdown = (num for num in [10..1])
+
+# while loops
+buy() while supply > demand
+sell() until supply > demand
+
+
+literate coffeescript:
+----------------------
+- extension: .litcoffee
+
+
+string interpolation:
+---------------------
+"string #{interpolation}"
+
+reserved words: coffee notices them and handles it for you
+$('.account').attr class: 'active'
+log object.class
+
+"pi is #{ 22/7 }"
+
+
+lexical scoping and variable safety: never need to write var
+------------------------------------
+outer = 1
+changeNumbers = ->
+    inner = -1 <--------- scoped to changeNumbers
+    outer = 10 <--------- scoped to changeNumbers
+inner = changeNumbers()
+
+
+array slicing
+-------------
+inclusive range: ..
+    (3..6)
+exclusive range: ...
+    (3...6)
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+start   = numbers[0..2]
+middle  = numbers[3...-2]
+end     = numbers[-2..]
+copy    = numbers[..]
+
+updating:
+numbers[3..6] = [-3, -4, -5, -6]
+
+
+everything is an expression:
+----------------------------
+
+
+return final value:
+-------------------
+don't need explicit returns
+
+if ..
+    blah
+
+
+weird variable assignment:
+--------------------------
+
+six = (one = 1) + (two = 2) + (three = 3)
+
+
+try/catch:
+----------
+- try, catch, finally
+
+try
+    nonexistent
+catch error
+    "error is #{error}"
+finally
+    cleanup()
+
+
+operators and aliases:
+----------------------
+
+coffeescript compiles:
+ == into ===
+!= into !===
+is into ===
+isnt into !==
+
+not = !
+and = &&
+or = ||
+
+on = yes = true
+off = no = false
+
+unless = inverse of if
+
+'then' can be used to separate conditions from expressions
+
+in = test for array presence
+of = test for javascript object/key presence
+
+** = exponentiation
+// = integer division
+
+
+properties:
+-----------
+
+this.property = @property
+
+
+existential operator:
+---------------------
+?
+and
+?. (accessor variant, soaks up null references in a chain of properties)
+
+solipsism = true if mind? and not world?
+speed ?= 15
+
+zip = lottery.drawWinner?().address?.zipcode
+
+
+classes, inheritance, super:
+----------------------------
+
+class: creates a new class
+extends: sets up prototype, create an inheritance chain between any pair of constructor functions
+:: gives you quick access to an object's prototype
+super() is converted into a call against the immediate ancestor's method of the same name
+
+class SomeClass
+    constructor: (@blah) ->
+
+    method1: (arg1) ->
+        ...
+
+class SomeSubClass extends SomeClass
+    method1: ->
+        ...
+        super blah
+
+c1 = new SomeSubClass "hi"
+c1.method1()
+
+
+excellent example of coffeescript classes vs javascript:
+
+class Animal
+  constructor: (@name) ->
+
+  move: (meters) ->
+    alert @name + " moved #{meters}m."
+
+class Snake extends Animal
+  move: ->
+    alert "Slithering..."
+    super 5
+
+class Horse extends Animal
+  move: ->
+    alert "Galloping..."
+    super 45
+
+sam = new Snake "Sammy the Python"
+tom = new Horse "Tommy the Palomino"
+sam.move()
+tom.move()
+
+vs
+
+var Animal, Horse, Snake, sam, tom,
+  extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+  hasProp = {}.hasOwnProperty;
+
+Animal = (function() {
+  function Animal(name) {
+    this.name = name;
+  }
+
+  Animal.prototype.move = function(meters) {
+    return alert(this.name + (" moved " + meters + "m."));
+  };
+
+  return Animal;
+
+})();
+
+Snake = (function(superClass) {
+  extend(Snake, superClass);
+
+  function Snake() {
+    return Snake.__super__.constructor.apply(this, arguments);
+  }
+
+  Snake.prototype.move = function() {
+    alert("Slithering...");
+    return Snake.__super__.move.call(this, 5);
+  };
+
+  return Snake;
+
+})(Animal);
+
+Horse = (function(superClass) {
+  extend(Horse, superClass);
+
+  function Horse() {
+    return Horse.__super__.constructor.apply(this, arguments);
+  }
+
+  Horse.prototype.move = function() {
+    alert("Galloping...");
+    return Horse.__super__.move.call(this, 45);
+  };
+
+  return Horse;
+
+})(Animal);
+
+sam = new Snake("Sammy the Python");
+tom = new Horse("Tommy the Palomino");
+sam.move();
+tom.move();
+
+
+
+prototype:
+String::dasherize = ->
+    this.replace /_/g, "-"
+
+
+
+destructuring assignment:
+-------------------------
+
+someFunction = (arg1) ->
+    [arg1, 2, 3]
+[ret1, ret2, ret3] = someFunction "blah"
+
+parallel assignment, etc
+[v1, v2] = [v2, v1]
+
+objects:
+futurists =
+  sculptor: "Umberto Boccioni"
+  painter:  "Vladimir Burliuk"
+  poet:
+    name:   "F.T. Marinetti"
+    address: [
+      "Via Roma 42R"
+      "Bellagio, Italy 22021"
+    ]
+{poet: {name, address: [street, city]}} = futurists
+
+
+bound functions:
+----------------
+
+=>
+- both define a function and to bind it to the current value of this
+- functions created with => are able to access properties of the 'this' where they were defined
+- as opposed to ->, which creates a new this
+- when used in a class, methods declared with the fat arrow will be automatically bound to each instance of the class when the instance is constructed
+
+
+generators:
+-----------
+"a generator in coffeescript is simply a function that yields"
+- yield keyword
+- also yield from, yield return
+
+perfectSquares = ->
+  num = 0
+  loop
+    num += 1
+    yield num * num
+  return
+
+
+embedded javascript:
+--------------------
+
+backticks
+
+hi = `function() { ... }`
+
+
+switch/when/else:
+-----------------
+- coffeescript prevents accidental fall-through
+- can convert the switch into a returnable, assignable expression
+- switch condition, when clauses, else the default case
+
+switch condition
+    when blah then doSomething
+    when blah2 then ...
+    when blah3, blah4
+        if ..
+    else doDefault
+
+switch can also be used without a control expression:
+score = 76
+grade = switch
+  when score < 60 then 'F'
+  when score < 70 then 'D'
+  when score < 80 then 'C'
+  when score < 90 then 'B'
+  else 'A'
+# grade == 'C'
+
+
+chained comparisons:
+--------------------
+- borrowed from python
+- makes it easy to test if a value falls within a certain range
+
+healthy = 200 > someValue > 60
+
+
+
+strings:
+--------
+
+multiline = "...
+    ...
+    ...
+    ..."
+
+block strings:
+
+html = """
+    <strong>
+        ...
+    </strong>
+    """
+
+comments:
+---------
+
+single: #
+
+block:
+###
+...
+###
+
+
+block regex:
+------------
+
+OPERATOR = /// ^ (
+  ?: [-=]>             # function
+   | [-+*/%<>&|^!?=]=  # compound assign / compare
+   | >>>=?             # zero-fill right shift
+   | ([-+:])\1         # doubles
+   | ([&|<>])\2=?      # logic / shift
+   | \?\.              # soak access
+   | \.{2,3}           # range or splat
+) ///
+
+
+cake:
+-----
+similar to make/rake
+coffeescript cake files: Cakefile
+cake [task]
+
+

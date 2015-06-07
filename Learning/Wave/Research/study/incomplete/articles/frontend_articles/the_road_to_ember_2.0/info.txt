@@ -1,0 +1,4 @@
+source: https://github.com/emberjs/rfcs/pull/15
+
+history:
+- 05/23/2015: read

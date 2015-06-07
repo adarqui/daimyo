@@ -1,0 +1,1 @@
+source: http://blog.jasonkriss.com/building-an-infinite-scroll-ember-cli-addon/

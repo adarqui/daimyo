@@ -1,0 +1,10 @@
+source: https://www.meteor.com/
+
+style guide: https://github.com/meteor/meteor/wiki/Meteor-Style-Guide
+
+testing package -> reactive testing: velocity
+
+meteor packages:
+- https://github.com/meteor/meteor/tree/devel/packages
+
+- one to one, many to many etc: http://stackoverflow.com/questions/17936159/meteor-embed-documents-inside-a-document-or-separate-them-into-each-collection

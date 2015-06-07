@@ -1,0 +1,114 @@
+requirements api should strive for:
+- It should use web standards where they make sense
+- It should be friendly to the developer and be explorable via a browser address bar
+- It should be simple, intuitive and consistent to make adoption not only easy but pleasant
+- It should provide enough flexibility to power majority of the Enchant UI
+- It should be efficient, while maintaining balance with the other requirements
+
+key principles of rest:
+- separating api into logical resources (nouns) manipulated by http verbs
+
+always use a plural
+
+when to use relations?
+- when a resource can only exist within another resource
+
+when not to use relations?
+- when a resource can exist independently
+
+actions that don't fit into CRUD?
+1. restructure the action to appear like a field of a resource
+2. treat it like a sub resource with restful principles: github's star api example: star -> PUT /gists/:id/star , unstar -> DELETE /gists/:id/star
+3. one offs
+
+always use ssl
+
+api only as good as it's docs
+- github/stripe example apis
+- https://stripe.com/docs/api
+
+always version api via url
+
+aliasing:
+- shorthand aliases can be helpful
+- /tickets/recently_closed for example
+
+api fields:
+- use fields query param
+- GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at
+
+updates and creation should return a resource representation
+- when an update is made, return the new representation
+
+In case of a POST that resulted in a creation, use a HTTP 201 status code and include a Location header that points to the URL of the new resource.
+
+json only responses - nice
+
+xml/json api trends graph: http://www.vinaysahni.com/images/201305-xml-vs-json-api.png
+
+if supporting dynamic media types, should be specified in the url
+
+use camelCase for field names
+
+Based on an eye tracking study on camelCase and snake_case (PDF) from 2010, snake_case is 20% easier to read than camelCase!
+
+use gzip
+
+nice:
+
+$ curl https://api.github.com/users/veesahni > with-whitespace.txt
+$ ruby -r json -e 'puts JSON JSON.parse(STDIN.read)' < with-whitespace.txt > without-whitespace.txt
+$ gzip -c with-whitespace.txt > with-whitespace.txt.gz
+$ gzip -c without-whitespace.txt > without-whitespace.txt.gz
+The output files have the following sizes:
+
+without-whitespace.txt - 1252 bytes
+with-whitespace.txt - 1369 bytes
+without-whitespace.txt.gz - 496 bytes
+with-whitespace.txt.gz - 509 bytes
+
+he claims to stay envelope free:
+{
+  "data" : {
+    "id" : 123,
+    "name" : "John"
+  }
+}
+vs
+{
+    id
+    name
+}
+
+complex api's should stick to json, urlencode strips type information
+
+side loading violates rest, however, can specify it via the ember query param: GET /tickets/12?ember=customer.name,assigned_user
+
+rate limiting:
+- error code 429: Too many requests
+- notify customer of limits before they hit it
+- document it
+
+rate limiting headers:
+
+X-Rate-Limit-Limit - The number of allowed requests in the current period
+X-Rate-Limit-Remaining - The number of remaining requests in the current period
+X-Rate-Limit-Reset - The number of seconds left in the current period
+
+authentication:
+- every request should come with some sort of authentication credentials
+
+HTTP status codes:
+200 OK - Response to a successful GET, PUT, PATCH or DELETE. Can also be used for a POST that doesn't result in a creation.
+201 Created - Response to a POST that results in a creation. Should be combined with a Location header pointing to the location of the new resource
+204 No Content - Response to a successful request that won't be returning a body (like a DELETE request)
+304 Not Modified - Used when HTTP caching headers are in play
+400 Bad Request - The request is malformed, such as if the body does not parse
+401 Unauthorized - When no or invalid authentication details are provided. Also useful to trigger an auth popup if the API is used from a browser
+403 Forbidden - When authentication succeeded but authenticated user doesn't have access to the resource
+404 Not Found - When a non-existent resource is requested
+405 Method Not Allowed - When an HTTP method is being requested that isn't allowed for the authenticated user
+410 Gone - Indicates that the resource at this end point is no longer available. Useful as a blanket response for old API versions
+415 Unsupported Media Type - If incorrect content type was provided as part of the request
+422 Unprocessable Entity - Used for validation errors
+429 Too Many Requests - When a request is rejected due to rate limiting

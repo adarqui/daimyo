@@ -1,0 +1,4 @@
+source: https://hackhands.com/3-ways-ember-js-leverages-promises/
+
+history:
+- 05/26/2015: notes

@@ -1,0 +1,4 @@
+source: https://www.mongodb.com/mongodb-architecture
+
+history:
+- 06/07/2015: read

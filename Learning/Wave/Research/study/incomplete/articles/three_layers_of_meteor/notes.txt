@@ -1,0 +1,48 @@
+layer1: security inside publications
+
+Meteor.publish(“todoLists”, function () {
+  // In this publication, we will be careful to only
+  // return the todo lists that the current user can access,
+  // using this.userId
+ 
+  // A user can read a todo list if:
+  // 1. The list is public, or
+  // 2. The user is a member of this list
+  return TodoLists.find({
+    $or: [
+      { public: true },
+      { members: this.userId }
+    ]
+  });
+});
+
+The rule of thumb here is that each component of your UI should be able to get the data it needs with just a few subscriptions, but it shouldn’t get more data than necessary.
+
+
+Layer 2: Think about performance in subscriptions
+- pattern: do your subscriptions inside templates
+
+Template.todoList.onCreated(function () {
+  var self = this;
+  // When this todo list template is used, get
+  // the tasks we need.
+  self.autorun(function () {
+    self.subscribe(“tasksInList”, Template.currentData()._id);
+  });
+});
+
+
+subscriptionsReady:
+
+<template name=”todoList”>
+  {{#if Template.subscriptionsReady}}
+    … display the tasks …
+  {{else}}
+    Loading…
+  {{/if}}
+</template>
+
+
+Layer 3: Think about the UI inside helpers
+- select exactly the data you want to display.
+- Don’t rely on being subscribed only to a certain set of documents — write the most specific MongoDB query that returns exactly what you need.

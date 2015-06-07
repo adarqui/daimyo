@@ -1,0 +1,15 @@
+http://iheanyi.com/blog/a-list-of-open-source-emberjs-projects/
+- https://github.com/discourse/discourse
+
+ghost:
+- https://github.com/TryGhost/Ghost/tree/master/core/client/app
+
+wordset:
+- https://github.com/wordset/wordset-ui
+
+diesel:
+- https://github.com/aptible/dashboard.aptible.com
+- pods example
+
+hn-reader:
+- https://github.com/chancancode/hn-reader

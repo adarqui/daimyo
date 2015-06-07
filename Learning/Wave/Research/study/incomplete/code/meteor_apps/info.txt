@@ -1,0 +1,7 @@
+sources:
+
+sites:
+- crater.io
+
+packages:
+- session-amplify

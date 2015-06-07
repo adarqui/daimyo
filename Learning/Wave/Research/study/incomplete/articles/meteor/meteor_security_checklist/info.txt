@@ -1,0 +1,4 @@
+source: https://meteorjs.club/MeteorSecurityChecklist.pdf?__s=zpq2hwziqejn5mpsfssf
+
+history;
+- 06/08/2015: read

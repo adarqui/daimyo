@@ -1,0 +1,6 @@
+meteor devshop:
+- http://lightning-talks.meteor.com/
+- http://devshop.meteor.com
+
+meteor blog:
+- https://blog.meteor.com

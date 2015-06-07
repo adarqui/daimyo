@@ -1,0 +1,4 @@
+source: http://www.peej.co.uk/articles/restfully-delicious.html
+
+history:
+- 05/23/2015: read

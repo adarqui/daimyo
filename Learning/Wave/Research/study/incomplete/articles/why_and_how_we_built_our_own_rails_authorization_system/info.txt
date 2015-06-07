@@ -1,0 +1,1 @@
+source: http://www.analyticsmediagroup.com/blog/strongbolt-why-and-how-we-built-our-own-rails-authorization-framework

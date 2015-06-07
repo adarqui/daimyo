@@ -1,0 +1,3 @@
+sources:
+- http://web.mit.edu/~deberg/Public/Discover-Meteor.pdf
+- http://discovermeteor.com

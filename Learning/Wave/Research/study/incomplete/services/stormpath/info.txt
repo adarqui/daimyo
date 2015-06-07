@@ -8,3 +8,9 @@ examples:
 
 integrating with sails.js:
 - http://stackoverflow.com/questions/27762285/how-to-configure-stormpath-as-middleware-in-sails-js
+
+api auth:
+- https://github.com/stormpath/stormpath-express-api-auth-sample
+
+oauth2:
+- https://stormpath.com/blog/the-problem-with-api-authentication-in-express/

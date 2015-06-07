@@ -1,0 +1,4 @@
+source: http://www.programwitherik.com/ember-js-components-examples/
+
+history:
+- 05/25/2015: nice example

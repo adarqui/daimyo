@@ -1,0 +1,1 @@
+source: http://mikegerwitz.com/papers/coope/coope.pdf

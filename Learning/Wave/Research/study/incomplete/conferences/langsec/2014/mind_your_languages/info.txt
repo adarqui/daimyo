@@ -1,0 +1,4 @@
+source: http://spw14.langsec.org/papers/MindYourLanguages.pdf
+
+history:
+- 05/29/2015: notes

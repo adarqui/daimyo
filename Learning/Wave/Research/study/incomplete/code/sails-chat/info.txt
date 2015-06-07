@@ -1,0 +1,1 @@
+source: https://github.com/sethetter/sails-chat/blob/master/config/routes.js

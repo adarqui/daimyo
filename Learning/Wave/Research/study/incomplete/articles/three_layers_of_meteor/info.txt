@@ -1,0 +1,4 @@
+source: https://medium.com/@stubailo/data-flow-from-the-database-to-the-ui-three-layers-of-meteor-d5e208b466c3
+
+history:
+- 06/07/2015: notes

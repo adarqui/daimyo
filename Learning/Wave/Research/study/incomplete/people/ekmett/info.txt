@@ -1,0 +1,4 @@
+youtube: https://www.youtube.com/user/edwardkmett/videos
+
+github: github.com/ekmett
+

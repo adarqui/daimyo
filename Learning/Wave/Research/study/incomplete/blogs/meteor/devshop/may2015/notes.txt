@@ -1,0 +1,57 @@
+meteor's "latency compensation" also known as:
+- optimistic UI
+- client side prediction
+- dead reckoning (in gaming)
+- speculative mutations <-- nice
+
+oplog:
+- changes / timestamps
+
+mongo pipeline:
+- piping aggregation operations:
+
+    $match | $group | $sort
+    stream of documents ---> result document(s)
+
+pipeline operators:
+- $match
+- $project
+- $group
+- $unwind
+- $sort
+- $limit
+- $skip
+
+examples of different models of dbs:
+- document store: users/products
+- graph: recommendations
+- key/value: shopping cart
+
+polyglot persistence: use the best database for the job
+
+multi-model database:
+- puts all models together
+- requirements: joins, ACID transactions, uniform query language combining all worlds
+
+aql example is nice
+
+benefits of multi-model database:
+- no data-model lock-in
+- more flexible queries
+- less client side implementations
+- no data syncing
+
+arangoDB:
+- multi model db
+- working on integrating into meteor
+- https://www.arangodb.com/documentation/
+
+hive lightning talk:
+- hiveteams.com
+- teams all need three things:
+    - actions, messages, files
+    - asana, slack, box
+    - hiveteams combines everything
+
+https://cloak.ly
+- cool!!!

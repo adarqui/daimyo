@@ -1,0 +1,48 @@
+POST
+Call
+var record = Model.createRecord({...});
+record.get('store').commit();
+HTTP Method
+POST
+URL
+/<plural model>
+Example Request
+POST /members
+Example Body
+{"member":{"name":"Billy","org_id":0}} 
+    
+Example Response
+{"member":{"name":"Billy","org_id":0, "id": 7}} 
+    
+PUT
+Call
+var record = Model.find(:id);
+record.set(:name, :value);
+record.get('store').commit();
+HTTP Method
+PUT
+URL
+/<plural model>/:id
+Example Request
+PUT /members/7
+Example Body
+{"member":{"name":"William","org_id":0}}
+Example Response
+{"member":{"name":"William","org_id":0}}
+One thing to note is that DELETE MUST return valid json, or you will get an error. I consider this a bug, so hopefully it changes in the future.
+
+DELETE
+Call
+var record = Model.find(:id);
+  
+record.deleteRecord();
+record.get('store').commit();
+HTTP Method
+DELETE
+URL
+/<plural model>/:id
+Example Request
+DELETE /members/7
+Example Response
+{}
+

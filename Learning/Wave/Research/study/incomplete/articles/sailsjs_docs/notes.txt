@@ -1,0 +1,959 @@
+assets
+======
+
+assets:
+- placed in assets/
+- synced to .tmp/public when you lift the app
+- sails serves .tmp/public
+
+static middleware:
+- express middleware
+- configured in config/http.js
+- installed AFTER the sails router
+- custom routes precede static middleware
+
+static pages:
+- assets/foo.html
+- assets/foo/bar.html
+
+asset pipeline:
+- set of grunt tasks, conventional defaults
+- frontend asset workflow is entirely customizable
+
+default grunt tasks:
+- clean: cleans out .tmp/public
+- coffee: compiles coffeescript files from assets/js and places them into .tmp/public/js/
+- concat: concatenates javascript and css files, saves in .tmp/public/concat
+- copy: copies all directories and files (except coffee/less) from assets into .tmp/public
+- cssmin: minifies css files and puts them into .tmp/public/min
+- jst: precompiles underscore templates to .jst file, can speed up rendering/reduce bandwidth
+- less: compiles less into css
+- sails-linker: automatically inject <script> tags for js files and <link> tags for css
+- sync: keep directories in sync, copies only those files that have changed
+- uglify: minifies client-side js assets
+- watch: runs predefined tasks whenever watched file patterns are added, changed or deleted.
+
+disabling grunt:
+- delete Gruntfile (and/or tasks/)
+- can also disable the grunt hook in .sailsrc: { "hooks": { "grunt": false } }
+
+grunt tasks:
+- found in tasks/
+- mainly useful for bundling front-end assets
+
+grunt task configuration:
+- found in ./tasks/config
+
+grunt plugins: http://gruntjs.com/plugins
+
+
+configuration
+=============
+
+configured via:
+- env variables
+- command line arguments
+- changing the local or global .sailsrc file
+- modifying/creating files in config/
+
+sails.config
+- final merged-together configuration used by your app
+- available anywhere from the app
+
+environment specific files:
+- config/env/<environment-name>, ie config/env/dev, config/env/production
+- used only when sails is lifted with: sails lift <environment-name>
+- config/env/production.js will take precedence over config/env/production/
+
+local.js:
+- config/local.js
+- not tracked
+- take precedence over all other config files except .sailsrc
+
+custom configs:
+- config/blah.js: module.exports.blah = { }
+- accessed via sails.config.blah.
+
+.sailsrc
+- can be used to configure the sails cli
+- can put .sailsrc in ~/, sails bubbles up parent directories from the cwd
+
+
+controllers
+===========
+
+controllers:
+- principle object responsible for responding to web requests
+- acts as middleware between models and views
+- contain the bulk of the business logic
+- comprised of a collection of methods called actions
+- action methods can be bound to routes
+- defined in api/controllers
+- files in api/controllers must end in Controller.js to be loaded
+- Pascal-cased: MyController.js
+- can organize controllers into subfolders, api/controllers/sub/folders/MyController.js
+
+controller file:
+- api/controllers/MyController.js
+- module.exports = { action1: function(req, res) { }, ... }
+- keys are action names
+- values are action methods
+- notice no next argument: function(req, res, next); controllers should always be the last stop
+- middleware methods have the next argument
+- sails creates a blueprint action route for each action in a controller
+
+routing:
+- can manually bind routes to controller actions using config/routes.js
+
+when to use explicit routes:
+- when you want to use separation actions to handle the same route path
+- when you want an action to be available at a custom URL
+- vanity urls
+- ex: 'POST /foo/bar/blah': 'BlahController.someAction'
+
+"So the goal of the "thin controller" philosophy is to encourage decoupling of reusable code from any related scope entanglements."
+
+^^ can achieve thin controllers a few ways:
+- write a custom model method to encapsule some code that performs a particular task relating to a particular model
+- write a service as a function to encapsulate some code that performs a particular application-specific task
+- extract code that is useful across multiple different applications, into a node module
+
+generating controllers:
+- sails generate controller
+- sails generate controller action1 action2 action3 action4 ..
+
+
+custom responses
+================
+
+customizable server responses:
+- found in api/responses
+- any file in there can be called using res: res.blah()
+
+writing custom responses:
+- create/edit files in api/responses
+- for example, api/responses/badRequest.js, res.badRequest('blah')
+- allows for:
+    normalized format: can keep the same format since this response is centrally located
+    abstracted: don't need to copy/paste the code in other controllers
+    content-negotiated: can easily return data in json, html etc
+    logging: production vs development logging is taken into account
+    error codes: consistent
+
+default responses:
+- res.badRequest(validationErrors, redirectTo)
+- res.notFound()
+- res.forbidden(message)
+
+
+deployment
+==========
+
+TODO
+
+
+scale:
+------
+
+Sails.js server
+                             ....                 
+                    /  Sails.js server  \      /  Database (e.g. Mongo, Postgres, etc)
+Load Balancer  <-->    Sails.js server    <-->    Socket store (Redis)
+                    \  Sails.js server  /      \  Session store (Redis)
+                             ....                 
+                       Sails.js server
+
+
+
+file uploads
+============
+
+nice example in here: http://sailsjs.org/#!/documentation/concepts/File-Uploads
+
+skipper:
+- can implement streaming file uploads to local fs, s3, mongodb's gridfs, and more.
+- default uploads: .tmp/uploads
+- skipper-s3
+- skipper-gridfs
+
+
+file uploads:
+- uploaded to http web servers as file parameters
+- should be uploaded inside of an action in a controller
+
+ie: api/controllers/UserController.js
+
+uploadAvatar: function(req, res) {
+
+    req.file('avatar').upload(function (err, uploadedFiles) {
+    // ...
+    }, function whenDone(err, uploadedFiles) {
+    });
+}
+
+
+globals
+=======
+
+default globals:
+- models (User)
+- services (SomeService)
+- sails object (sails.config)
+- nothing in sails core relies on global
+- can be turned off in sails.config.globals (config/global.js)
+- if you disable all globals, you can access the sails object in req: req.sails
+
+sails exposes:
+- async: async
+- lodash: _
+
+
+internationalization
+====================
+
+i18n:
+- sails provides support using i18n-node
+- detect user language preferences
+- translating static words/sentences
+- __('Hello')
+- i18n('Hello')
+- req.__('Hello');
+
+locales:
+- i18n hook reads json formatted translation files from config/locales/
+- can override localte with: req.setLocale('<language>');
+- can set it dynamically based on the session: req.setLocale(req.session.languagePreference)
+
+
+logging
+=======
+
+captains-log:
+- built in sails.js logger: https://github.com/balderdashy/captains-log
+- multiple log levels, colorized output, prefixed output
+
+logging configuration:
+- config/log.js
+- default log level is info
+- silly log level: outputs internal information
+- verbose: logs grunt output and much more info on the routes/models/hooks that were loaded
+
+sails.log()
+- sails.log()
+- sails.log.{error,warn,debug,info,verbose,silly}()
+
+
+middleware
+==========
+
+middleware compatibility:
+- fully compatible with express/connect middleware
+- much of the code you write in sails is effectively middleware: controller actions, policies
+
+http middleware:
+- only used for TRUE http requests
+- virtual requests (socket.io) ignored
+
+middleware bundled with sails:
+- startRequestTimer: allocates a var in memory to hold the timestamp when the req began
+- cookieParser*: parses cookie header into a clean object
+- session*: sets up unique session object using your session configuration
+- bodyParser: parse params and binary upstreams (streaming file uploads) from the http request body using skipper
+- compress: compress response data using gzip/defalte
+- methodOverride: provides faux http method support
+- poweredBy: attaches X-Powered-By header to outgoing responses
+- $custom: backward compatibility for a configuration option from sails 0.9.x
+- router*: bulk of app logic gets applied to any given request. runs before handlers in hooks, routes requests using your app's explicit routes in sails.config.routes and/or route blueprints
+- www*: services static files in app's public folder (sails.config.paths, .tmp/public), uses connect's static middleware
+- favicon: serves the browser favicon if provided in assets/favicon.ico
+- 404*: handles requests which do not many any routes, triggers res.notFound()
+- 500*: handles requests which trigger an internal error, triggers res.serverError()
+
+* - should almost never be modified or removed
+
+adding or overriding http middleware:
+- define a new http key, sails.config.http.middleware.FOO
+- then add "FOO" to sails.config.http.middleware.order array
+
+express routing middleware in sails:
+- config/policies.js
+- use policies to enforce middleware at the route/controller level:
+{
+    '*': ['Middleware1', 'Middlewrae2'],
+    UserController: 'Middleware3',
+}
+
+modles/orm
+==========
+
+orm/odm:
+- waterline
+- datastore-agnostic tool
+- abstraction layer on top of the underlying database
+- schemaful db's: models represented by tables
+- schemaless: models represented collections
+- redis: models represneted by key/value pairs
+
+generating sails adapters:
+- https://github.com/balderdashy/sails-generate-adapter
+- sails generate adapter 
+
+connections:
+- represent particular database configuration
+- config/connections.js
+    adapter: 'sails-blah';
+- default database connection for a sails app is located in config/models.js
+- models can override the default by specifying a 'connection' attribute
+
+associations:
+- can associate models across multiple data stores
+- users can live in postgresql, photos live in mongo, interact as if they lived in the same DB
+
+dominance:
+- in any cross adapter model relationship, one side is assumed to be dominant
+- dominant: true
+- If a collection association does not have a via property, it is automatically dominant: true.
+- If both collections don't have via, then they are not related. Both are dominant, because they are separate relationship tables!
+- In all other types of associations, the dominant property is prohibited. Setting one side to dominant is only necessary for associations between two models which have an attribute like: { via: '...', collection: '...' } on both sides.
+
+many-to-many:
+- model can be associated with many other models and vice-versa
+- new join table will need to be created to keep track of relations
+- waterline builds up the join table
+
+models/pet.js:
+    module.exports = {
+        attributes: {
+            ...
+            owners: {
+                collection: 'user',
+                via: 'pets'
+            }
+        }
+    }
+
+models/user.js:
+    module.exports = {
+        attributes: {
+            ...
+            pets: {
+                collection: 'pet',
+                via: 'owners'
+            }
+        }
+    }
+
+one-way association:
+- model is associated with another model
+- "You could query that model and populate to get the associatED model. You can't however query the associated model and populate to get the associatING model."
+
+models/pet.js:
+    module.exports = {
+        attributes: {
+            ...
+        }
+    }
+
+models/user.js:
+    module.exports = {
+        attributes: {
+            ...
+            pony: {
+                model: 'pet'
+            }
+        }
+    }
+
+one-to-many association:
+- model can be associated with many other models
+
+models/pet.js:
+    module.exports = {
+        attributes: {
+            ...
+            owner: {
+                model: 'user'
+            }
+        }
+    }
+
+models/user.js:
+    module.exports = {
+        attributes: {
+            ...
+            pets: {
+                collection: 'pet',
+                via: 'owner'
+            }
+        }
+    }
+
+
+one-to-one association:
+- a model may only be associated with one other model
+- foreign key must be included in the record
+
+models/pet.js:
+    module.exports = {
+        attributes: {
+            ...
+            owner:{
+                model:'user'
+            }
+        }
+    }
+
+models/user.js:
+    module.exports = {
+        attributes: {
+            ...
+            pony:{
+                model: 'pet'
+            }
+        }
+    }
+
+through associations:
+- many-to-many through
+- behave the same way as many-to-many associations with the exception of the join table being automatically created
+- not supported yet
+
+attributes:
+- pieces of information about a model
+
+attribute options:
+- can be used to enforce various constraints and add special enhancements to model attributes
+- type
+- defaultsTo
+- autoIncrement
+- unique
+- primaryKey
+- enum
+- size
+- columnName
+
+type:
+- string
+- text
+- integer
+- float
+- date
+- datetime
+- boolean
+- binary
+- array
+- json
+- email
+
+defaultsTo:
+- when a record is created, if no value supplied, record will be crated with the specified defaultsTo value
+
+autoIncrement:
+- auto increment this column when a new record is added to the model
+
+unique:
+- ensures no two records will be allowed with the same value for the target attribute
+
+primaryKey:
+- use this attribute as the primary key for the record
+- only one attribute per model can be a primary key
+
+enum:
+- a special validation property which only saves data which matches a whitelistd set of values
+- enum: ['pending', 'approved', 'denied']
+
+size:
+- can be used to define the size of the attribute
+    name: {
+        type: 'string',
+        size: 24
+    }
+
+columnName:
+- force sails/waterline to store data for the attribute in a column named columnName
+
+lifecycle callbacks:
+- called before or after certain actions
+- callbacks for: create, update, destroy
+- specified in the model .js file: models/Blah.js
+
+create:
+- beforeValidate: fn(values, cb)
+- afterValidate: fn(values, cb)
+- beforeCreate: fn(values, cb)
+- afterCreate: fn(newlyInsertedRecord, cb)
+
+update:
+- beforeValidate: fn(valuesToUpdate, cb)
+- afterValidate: fn(valuesToUpdate, cb)
+- beforeUpdate: fn(valuesToUpdate, cb)
+- afterUpdate: fn(updatedRecord, cb)
+
+destroy:
+- beforeDestroy: fn(criteria, cb)
+- afterDestroy: fn(destroyedRecords, cb)
+
+model:
+- represents a collection of structured data, usually corresponding to a single table or collection in a database
+- created by having a file in api/models/ folder
+- can be accessed from controllers, policies, services, responses, tests, and in custom model methods
+
+builtin model methods (static/class methods):
+- find, create, update, destroy
+- returns deferred query object
+- execute a query by: .exec(cb) on the deferred object
+
+promises:
+- waterline supports promises
+- .then(), .spread(), .catch()
+
+custom model methods:
+- just define them as keys in models/Blah.js
+
+async model methods:
+- should be 2-ary functions, which accept an object of inputs as first arg (opts) and a node cb as the second argument (cb)
+
+best practice methods for static model methods:
+- make it so that it can accept either a record OR its primary key value
+- or
+- make it so that it can accept either an array of records OR an array of primary key values
+
+dynamic finders:
+- special static methods that are dynamically generated by sails when you lift your app
+- ie, if your model has firstName, it'll dynamically create findByFirstName
+
+built-in attribute methods:
+- toJSON()
+- .save()
+- .destroy()
+- .validate()
+
+custom attribute methods:
+- firstName, lastName, then, custom attrib: getFullName: function() { return firstName + ' ' + lastName }
+
+attribute methods:
+- almost always synchronous
+
+AVOID WRITING ASYNC ATTRIBUTE METHODS
+
+waterline query language:
+- can be used on any of the waterline adapters
+
+where, limit, skip:
+- Model.find({ where: { name: 'foo' }, skip: 20, limit: 10 })
+
+key pairs:
+- can be used to search records for values matching exactly what is specified
+- Model.find({ name: "waterline" })
+
+modified pairs:
+- contains
+- Model.find({ name: { 'contains': 'alt' }})
+
+in pairs:
+- IN queries work similarly to mysql 'in queries'. Each element in the array is treated as 'or'.
+- Model.find({ name: ['Walter', 'Skyler'] });
+
+not-in pairs:
+- Not-In queries work similar to in queries, except for the nested object criteria.
+- Model.find({ name: { '!' : ['Walter', 'Skyler'] }});
+
+or pairs:
+- Performing OR queries is done by using an array of query pairs
+- Model.find({ or: [ {name:'Walter'}, {occuptation:'teacher'} ] });
+
+criteria modifiers:
+'<' / 'lessThan'
+'<=' / 'lessThanOrEqual'
+'>' / 'greaterThan'
+'>=' / 'greaterThanOrEqual'
+'!' / 'not'
+'like'
+'contains'
+'startsWith'
+'endsWith'
+
+ie: Model.find({ age: { '<': 30 }});
+ie: Model.find({ date: { '>': new Date('2/4/2014'), '<': new Date('2/7/2014') } })
+
+query options:
+- limit
+- skip
+- sort
+
+pagination:
+- skip/limit can be used together to build up a pagination system
+- Model.find({ where: { name: 'foo' }, limit: 10, skip: 10 });
+- or
+- Model.find().paginate({page: 2, limit: 10});
+- paginate is a waterline helper
+
+all queries inside waterline are case-insensitive
+
+validations:
+- called whenever a record is update or created
+- data for each attribute will be checked against all of the predefined validation rules
+- handled by: 'Anchor' a thin layer on top of 'Validator'
+- anchor: https://github.com/balderdashy/anchor
+- validator: https://github.com/chriso/validator.js
+
+briefly, validators:
+- after
+- alpha
+- alphadashed
+- alphanumeric
+- alphanumericdashed
+- array
+- before
+- binary
+- boolean
+- contains
+- creditcard
+- date
+- datetime
+- decimal
+- email
+- empty
+- equals
+- falsey
+- finite
+- float
+- hexadecimal
+- hexColor
+- in
+- int
+- integer
+- ip
+- ipv4
+- ipv6
+- is
+- json
+- len
+- lowercase
+- max
+- maxLength
+- min
+- minLength
+- not
+- notContains
+- notempty
+- notIn
+- notNull
+- notRegex
+- null
+- number
+- numeric
+- object
+- regex
+- protected
+- required
+- string
+- text
+- truthy
+- undefined
+- unique
+- uppercase
+- url
+- urlish
+- uuid
+- uuidv3
+- uuidv4
+
+model settings:
+- to override defaults for models, edit config/models.js
+- migrate
+- schema
+- connection
+- identity
+- globalId
+- autoPK
+- autoCreatedAt
+- autoUpdatedAt
+- tableName
+- attributes
+
+
+policies
+========
+
+policies:
+- tools for authorization and access control
+- allow you to allow or deny access to controllers down to a fine level of granularity
+- only apply to controller actions, not views
+- defined in api/policies folder
+- connect/express middleware functions which run before controllers
+- can chain them together
+- each policy/middleware function should check just one thing
+
+NOTE: policies apply only to controller actions, not to views. If you define a route in your routes.js config file that points directly to a view, no policies will be applied to it. To make sure policies are applied, you can instead define a controller action which displays your view, and point your route to that action.
+
+config/policies.js:
+- declarative, describes what the permissions for your app should look like, not how they should work
+- can apply policies to specific controllers and actions
+    ProfileController: {
+        *: 'isLoggedIn',
+        create: ['isAdmin', 'isLoggedIn']
+    }
+
+^^ reason why specifying isLoggedIn twice:
+
+Note: Default policy mappings do not "cascade" or "trickle down." Specified mappings for the controller's actions will override the default mapping.
+
+build-in policies:
+- true: public access (allow anyone to get to the mapped controller/action)
+- false: no access (allow no one)
+- '*': true: default policy for all controllers and actions
+
+some other example policy uses:
+- cookie-based authentication
+- role-based access control
+- limiting file uploads based on MB quotas
+- any other kind of authentication scheme you can imagine
+
+
+routes
+======
+
+router:
+- sails provided
+- mechanism for mapping urls to controllers and views
+
+routes:
+- rules that tell sails what to do when faced with an incoming request
+- custom (explicit)
+- automatic (implicit) 
+
+custom routes:
+- config/routes.js
+- 'post /signup': 'AuthController.processSignup'
+
+automatic routes:
+- blueprint routes: provide your controllers/models with a full REST api
+- assets: images, js, stylesheets
+- csrf: if turned on, provides a /csrfToken route to your app that can be used to retrive the CSRF token
+
+router supported protocols:
+- protocol agnostic
+- knows how to handle HTTP request and messages sent via WebSockets
+- listens for socket.io messages sent to reserved event handlers in a simple format, JWR
+- urls are matched top down, order matters
+
+route address:
+- 'VERB PATH'
+- 'POST /foo/bar'
+- can contain wildcards: 'GET /foo/bar/*'
+- can contain named paramaters: 'GET /user/:name'
+- can contain regex: "r|^/\\d+/(\\w+)/(\\w+)$|foo,bar": "MessageController.myaction"
+
+route target:
+- FooController.action
+- {controller: 'Foo', action: 'action'}
+- {controller: 'FooController', action: 'action'}
+- {view: 'home/index'}
+- blueprint syntax:
+    'GET /findAllUsers': {model: 'user', blueprint: 'find'},
+    'GET /user/findAll': {blueprint: 'find'}
+- redirect syntax:
+    '/alias' : '/some/other/route'
+    'GET /google': 'http://www.google.com'
+- to responses:
+    '/foo': {response: 'notFound'}
+- policy target syntax:
+    '/foo': {policy: 'myPolicy'}
+
+other route target options:
+- skipAssets
+- skipRegex
+- locals
+- cors
+- populate
+- skip, limit, sort, where
+
+blueprints api adds several actions to controllers by default:
+- find
+- create
+- update
+- delete
+
+security
+========
+
+cors:
+- mechanism that allows browser scripts on pages server from other domains to talk to your server
+- secure method to circumvent the same-origin policy
+- unlike JSONP, it works with more than just GET requests
+- disabled by default
+- to allow it, edit: config/cors.js
+- enable CORS on everything: allRoutes: true
+- can be configured for individual routes:
+    "GET /foo": {
+        ...
+        cors: true
+    }
+- can override specific CORS configuration params too:
+    "GET /foo": {
+        ...
+        cors: {
+            origin: "http://blah1.com, http://blah2.com",
+            credentials: false
+        }
+    }
+
+securityLevel:
+- module.exports.cors = { ... securityLevel: 1 }
+- Security level 1 (high) will respond with a 403 status code to any request from a disallowed origin prefixed with the http or https protocol.
+- Security level 2 (very high) will do the same, but extended to all protocols (so things like Postman and curl won't work).
+
+csrf:
+- cross-site request forgery
+- forces an end user to execute unwanted actions on a web application backend with which he/she is currently authenticated
+- optional CSRF protection out of the box
+- to enable: config/csrf.js, csrf: true
+- when enabled: POST, PUT, DELETE requests etc need to supply a CSRF token.. also, virtual requests (socket.io) also need to provide the token
+- compatible with connect's CSRF protection middleware
+- middleware implements Synchronizer Token Pattern: all non GET requests must be accompanied by a special token identified by either a header or param in the query string or HTTP body
+
+"without protection, cookies stored in a browser like Google Chrome can be used to send requests to Chase.com from a user's computer whether that user is currently visiting Chase.com or Horrible-Hacker-Site.com."
+
+csrf tokens:
+- temporary
+- session specific
+- to get a token, ajax GET request to /csrfToken which returns json: { "_csrf": "..." }
+
+clickjacking:
+- an attacker manages to trick your users into triggering "unintended" UI events
+- prevent by enabling X-FRAME-OPTIONS header
+- use lusca, npm install lusca
+- in config/http.js: xframe: require('lusca').xframe('SAMEORIGIN'), order: [ ... , 'xframe', ...]
+
+ddos:
+- sessions can be configured to use separate session stores: redis for example
+    - can scale the sails api servers
+- socket.io connections can be configured to use a separate socket store (redis) for managing pubsub/message queues. eliminates the need for sticky sessions.
+
+p3p:
+- platform for privacy preferences
+- P3P is a combined protocol and architecture designed to inform Web users of the data-collection practices of Web sites.
+- node-p3p, lusca
+
+socket hijacking:
+- websocket hijacking (CSWSH)
+- commonly overlooked vuln in most realtime applications
+- protect against CSWSH attacks by enabling csrf
+
+sts: http strict transport security
+- lusca
+- strictTransportSecurity: require('lusca').hsts({ maxAge: 31536000 })
+
+xss:
+- malicious agent manages to inject client-side javascript into your website, so that it runs in the trusted environment of your users' browsers
+
+
+services
+========
+
+services:
+- libraries which contain functions that you might want to use in many places of your application
+- EmailService, etc
+- services are globalized
+- create by adding js in api/services/ folder
+
+
+testing
+=======
+
+test suite:
+- sails uses mocha
+
+test directory layout:
+./myApp
+├── api
+├── assets
+├── ...
+├── test
+│  ├── unit
+│  │  ├── controllers
+│  │  │  └── UsersController.test.js
+│  │  ├── models
+│  │  │  └── Users.test.js
+│  │  └── ...
+│  ├── fixtures
+│  ├── ...
+│  ├── bootstrap.test.js
+│  └── mocha.opts
+└── views
+
+bootstrap.test.js:
+- useful if you want to run code before and after running tests
+
+testing models:
+describe.only('UsersModel', function() {
+
+  describe('#find()', function() {
+    it('should check find function', function (done) {
+      Users.find()
+        .then(function(results) {
+          // some tests
+          done();
+        })
+        .catch(done);
+    });
+  });
+
+});
+
+testing controllers:
+- can use supertest which provides several useful methods for testing HTTP requests
+
+var request = require('supertest');
+
+describe('UsersController', function() {
+
+  describe('#login()', function() {
+    it('should redirect to /mypage', function (done) {
+      request(sails.hooks.http.app)
+        .post('/users/login')
+        .send({ name: 'test', password: 'test' })
+        .expect(302)
+        .expect('location','/mypage', done);
+    });
+  });
+
+});
+
+running tests:
+mocha test/bootstrap.test.js test/unit/**/*.test.j
+
+npm test:
+- package.json:
+    "scripts": { "test": "mocha test/bootstrap.test.js test/unit/**/*.test.js" }
+
+
+code coverage:
+- mocha and istanbul
+istanbul cover -x "**/config/**" _mocha -- --timeout 5000
+istanbul report html
+
+
+extending sails
+===============
+
+misc
+====
+
+sails console
+
+sails body parser: skipper
+- https://github.com/balderdashy/skipper
+
+next(err):
+module.exports = function canWrite (req, res, next) {
+  var targetFolderId = req.param('id');
+  var userId = req.session.user.id;
+
+  Permission
+  .findOneByFolderId( targetFolderId )
+  .exec( function foundPermission (err, permission) {
+
+    // Unexpected error occurred-- skip to the app's default error (500) handler
+    if (err) return next(err);
