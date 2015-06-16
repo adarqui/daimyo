@@ -1,4 +1,0 @@
-source: http://sailsjs.org/#!/documentation/concepts
-
-history:
-- 05/16/2015: nots

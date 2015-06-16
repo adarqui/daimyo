@@ -1,6 +1,0 @@
-sources:
-- langsec 2014: http://spw14.langsec.org/papers.html
-- langsec 2015: http://spw15.langsec.org/papers.html
-
-history:
-- 05/29/2015: 2014/mind_your_languages, Mind your Language(s) - A Discussion about languages and security: http://spw14.langsec.org/papers/MindYourLanguages.pdf

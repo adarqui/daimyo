@@ -1,5 +1,0 @@
-node.js:
-- locomotive: http://locomotivejs.org/
-
-go:
-- beego

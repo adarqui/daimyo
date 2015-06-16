@@ -1,1 +1,0 @@
-source: http://blog.thesparktree.com/post/77311774912/creating-a-sails-application-using-passport

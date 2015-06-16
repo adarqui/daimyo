@@ -1,5 +1,0 @@
-**Errors as Values**
-- source: http://blog.golang.org/errors-are-values
-
-history:
-- 04/25/2015

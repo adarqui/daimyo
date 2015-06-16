@@ -1,1 +1,0 @@
-source: http://research.microsoft.com/en-us/um/people/gray/

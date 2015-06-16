@@ -1,1 +1,0 @@
-source: http://www.ita-software.com/papers/borup_ruby_published.pdf

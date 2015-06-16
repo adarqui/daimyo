@@ -1,1 +1,0 @@
-source: http://java.dzone.com/articles/dark-side-java-8

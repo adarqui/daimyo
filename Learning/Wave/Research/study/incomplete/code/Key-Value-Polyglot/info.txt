@@ -1,2 +1,0 @@
-http://www.darkcoding.net/software/in-memory-key-value-store-in-c-go-and-python/
-https://github.com/grahamking/Key-Value-Polyglot

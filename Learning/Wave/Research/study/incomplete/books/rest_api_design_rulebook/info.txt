@@ -1,1 +1,0 @@
-source: http://precious.hu/b/Oreilly.REST.API.Design.Rulebook.Oct.2011.pdf

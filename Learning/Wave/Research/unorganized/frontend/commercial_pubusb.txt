@@ -1,2 +1,0 @@
-pubnub.com
-firebase.com

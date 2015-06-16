@@ -1,9 +1,0 @@
-installing:
-- https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get
-
-changing java versions:
-sudo update-alternatives --config java
-
-ant: http://ant.apache.org
-
-maven: http://maven.apache.org

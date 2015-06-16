@@ -1,3 +1,0 @@
-sources:
-- https://github.com/kriskowal/q
-- https://github.com/kriskowal/q/wiki/API-Reference#interfacing-with-nodejs-callbacks

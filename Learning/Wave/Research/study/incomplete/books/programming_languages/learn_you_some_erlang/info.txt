@@ -1,5 +1,0 @@
-source: http://learnyousomeerlang.com/content
-- http://learnyousomeerlang.com/mnesia
-
-history:
- 05/03/2015: 

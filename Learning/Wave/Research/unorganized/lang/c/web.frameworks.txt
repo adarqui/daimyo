@@ -1,7 +1,0 @@
-kore:
-https://github.com/jorisvink/kore
-
-duda:
-https://github.com/monkey/duda
-https://github.com/monkey/duda-examples/
-https://github.com/monkey/dudac

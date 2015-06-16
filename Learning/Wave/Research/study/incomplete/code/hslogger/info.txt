@@ -1,1 +1,0 @@
-source: https://hackage.haskell.org/package/hslogger-1.0.7/docs/src/System-Log-Logger.html

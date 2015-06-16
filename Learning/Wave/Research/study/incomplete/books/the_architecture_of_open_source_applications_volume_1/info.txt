@@ -1,3 +1,0 @@
-source: http://aosabook.org/en/index.html
-
-history:

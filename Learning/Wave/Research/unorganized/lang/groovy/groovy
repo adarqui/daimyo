@@ -1,6 +1,0 @@
-documentation: http://groovy-lang.org/documentation.html
-- spa: http://groovy-lang.org/single-page-documentation.html
-
-
-groovy shell:
-- groovysh

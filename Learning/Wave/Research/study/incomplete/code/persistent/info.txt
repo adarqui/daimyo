@@ -1,5 +1,0 @@
-sources:
-- https://github.com/yesodweb/persistent
-
-history:
--- 05/01/2015: quick look

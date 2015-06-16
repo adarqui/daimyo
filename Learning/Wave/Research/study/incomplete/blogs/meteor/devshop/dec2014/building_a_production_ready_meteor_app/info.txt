@@ -1,5 +1,0 @@
-source: https://www.youtube.com/watch?v=gfFGjmiKfnA
-- slides: http://www.slideshare.net/RitikM/building-a-production-ready-meteor-app
-
-history:
-- 06/03/2015: watched

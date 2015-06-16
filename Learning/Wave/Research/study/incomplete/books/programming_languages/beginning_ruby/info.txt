@@ -1,1 +1,0 @@
-source: http://peterhurford.com/tilde/files/beginningruby.pdf

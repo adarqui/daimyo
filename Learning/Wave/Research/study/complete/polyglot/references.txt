@@ -1,7 +1,0 @@
-minimalprogramming:
-- http://www.minimalprogramming.org/
-- nice book comparing different languages
-
-langref:
-- http://langref.org
-- exercises in different languages

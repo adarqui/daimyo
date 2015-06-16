@@ -12,6 +12,7 @@
 *.idr
 *.class
 *.bak
+*.pyc
 .cabal-sandbox/
 bin/
 dist/

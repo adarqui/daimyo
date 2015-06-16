@@ -1,3 +1,0 @@
-source: https://github.com/rdegges/simpleq
-
-sqs style

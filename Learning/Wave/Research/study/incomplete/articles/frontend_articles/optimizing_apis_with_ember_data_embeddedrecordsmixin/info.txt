@@ -1,4 +1,0 @@
-source: http://miguelcamba.com/blog/2015/03/15/optimizing-apis-with-ember-data-and-embeddedrecordsmixin/
-
-history:
-- 05/20/2015: read

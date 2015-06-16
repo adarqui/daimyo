@@ -1,4 +1,0 @@
-source: http://guides.rubygems.org/make-your-own-gem/
-
-history:
-- 05/08/2015: read

@@ -1,3 +1,0 @@
-sources:
-- https://www.fpcomplete.com/blog
-- https://www.fpcomplete.com/school

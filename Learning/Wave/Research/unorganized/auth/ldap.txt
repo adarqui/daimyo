@@ -1,1 +1,0 @@
-apacheds: https://directory.apache.org/apacheds/

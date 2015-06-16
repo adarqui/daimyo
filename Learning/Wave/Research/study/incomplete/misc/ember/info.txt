@@ -1,5 +1,0 @@
-ember-try: test against multiple versions of ember
-- https://www.youtube.com/watch?v=fVEzc_hKOV4
-
-emberobserver.com
-emberaddons.com

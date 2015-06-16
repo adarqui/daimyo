@@ -1,4 +1,0 @@
-source: http://mikegerwitz.com/papers/coope/coope.pdf
-
-history:
-- 05/31/2015: notes

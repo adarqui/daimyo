@@ -1,4 +1,0 @@
-source: http://www.thetechcofounder.com/getting-on-like-a-yacht-on-fire-sail-js-ember-js/
-
-history:
-- 05/13/2015: notes

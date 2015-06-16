@@ -1,4 +1,0 @@
-**Facts and Fallacies of Software Engineering**
-- source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Addison%20Wesley%20-%20Robert%20L%20Glass%20-%20Facts%20and%20Fallacies%20of%20Software%20Engineering.pdf
-
-history:

@@ -1,8 +1,0 @@
-sources:
-- https://github.com/yesodweb/benchmarks
-- https://github.com/yesodweb/benchmarks/tree/master/pong
-
-some nice benchmarks/frameworks in here
-
-history:
-- 04/30/2015: quick look over

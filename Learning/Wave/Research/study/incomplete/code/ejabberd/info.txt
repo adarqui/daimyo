@@ -1,7 +1,0 @@
-source: https://www.ejabberd.im/
-
-phoenix + ejabberd:
-- https://blog.process-one.net/embedding-ejabberd-into-an-elixir-phoenix-web-application/
-
-history:
-- 05/06/2015: curious

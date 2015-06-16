@@ -1,5 +1,0 @@
-api's to learn from:
-
-foursquare: https://developer.foursquare.com
-
-google's tasks list: https://developers.google.com/google-apps/tasks/v1/reference/

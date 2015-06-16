@@ -1,5 +1,0 @@
-**Concurrent Programming in Erlang**
-- source: http://erlang.org/download/erlang-book-part1.pdf
-
-history:
-

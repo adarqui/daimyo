@@ -1,4 +1,0 @@
-**Structure and Interpretation of Computer Programs**
-- source: https://github.com/sarabander/sicp-pdf
-
-history:

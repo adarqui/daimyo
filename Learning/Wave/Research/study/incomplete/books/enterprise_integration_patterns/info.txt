@@ -1,4 +1,0 @@
-source: http://smitsdj.home.xs4all.nl/temp/Addison%20Wesley%20-%20Enterprise%20Integration%20Patterns%20-%20Designing,%20Building%20And%20Deploying%20Messaging%20Solutions%20-%20With%20Notes.pdf
-
-history:
-- 04/15/2015: Preface, Introduction

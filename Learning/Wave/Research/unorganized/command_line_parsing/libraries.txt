@@ -1,3 +1,0 @@
-docopt:
-- http://docopt.org/
-- build cli via the help doc

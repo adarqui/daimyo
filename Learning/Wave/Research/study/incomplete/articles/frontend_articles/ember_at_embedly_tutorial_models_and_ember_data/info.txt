@@ -1,4 +1,0 @@
-source: http://blog.embed.ly/post/50012690904/ember-at-embedly-tutorial-models-and-ember-data
-
-history:
-- 05/19/2015: notes

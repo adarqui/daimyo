@@ -1,1 +1,0 @@
-source: https://cure53.de/es6-for-penetration-testers.pdf

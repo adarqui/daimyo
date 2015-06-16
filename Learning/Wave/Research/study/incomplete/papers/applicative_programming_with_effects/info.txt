@@ -1,1 +1,0 @@
-source: http://staff.city.ac.uk/~ross/papers/Applicative.pdf

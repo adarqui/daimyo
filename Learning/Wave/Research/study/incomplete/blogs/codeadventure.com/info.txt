@@ -1,5 +1,0 @@
-source: http://www.codeadventure.com/blog
-
-history:
-- 06/07/2015: http://www.codeadventure.com/blog/why-you-should-use-value-objects
-- 06/07/2015: http://www.codeadventure.com/blog/how-to-build-solid-apis-in-meteor

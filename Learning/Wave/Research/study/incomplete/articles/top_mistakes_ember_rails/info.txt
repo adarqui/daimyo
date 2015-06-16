@@ -1,1 +1,0 @@
-source: https://www.airpair.com/ember.js/posts/top-mistakes-ember-rails

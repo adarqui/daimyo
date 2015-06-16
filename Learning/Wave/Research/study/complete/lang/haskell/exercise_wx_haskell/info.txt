@@ -1,4 +1,0 @@
-source: http://foswiki.cs.uu.nl/foswiki/Afp0607/ExerciseWXHaskell 
-
-history:
-- 05/01/2015: read

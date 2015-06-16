@@ -1,3 +1,0 @@
-haskell:
-- silk: https://github.com/silkapp/rest
-- servant: https://github.com/haskell-servant

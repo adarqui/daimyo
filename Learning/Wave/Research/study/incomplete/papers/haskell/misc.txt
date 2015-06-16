@@ -1,2 +1,0 @@
-state/error monad transformers: http://stackoverflow.com/questions/4063592/how-can-i-write-a-state-monad-that-does-error-handling-as-well
-- https://hackage.haskell.org/package/mtl-1.1.0.2/docs/Control-Monad-Error.html

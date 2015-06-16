@@ -1,3 +1,0 @@
-sources:
-- stack overflow questions: https://twitter.com/meteorAtSO
-- https://crater.io

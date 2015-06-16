@@ -1,5 +1,0 @@
-source: http://mrc.meteor.com/
-
-meteor relay chat
-
-https://github.com/alisalaah/meteor-mrc

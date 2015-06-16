@@ -1,4 +1,0 @@
-skillsmatter.com
-
-history:
-- 05/25/2015, 05/12/2015: an_introduction_to_emberjs, An introduction to ember.js: https://skillsmatter.com/skillscasts/6362-an-introduction-to-ember-js

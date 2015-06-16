@@ -1,1 +1,0 @@
-source: http://kysmykseka.net/koti/wizardry/Programming/Misc/Apress.Practical.API.Design.Confessions.of.a.Java.Framework.Architect.Jul.2008.pdf

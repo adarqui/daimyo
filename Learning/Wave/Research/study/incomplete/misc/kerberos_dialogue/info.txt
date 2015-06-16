@@ -1,4 +1,0 @@
-**Kerberos Dialogue**
-- source: http://web.mit.edu/kerberos/dialogue.html
-
-history:

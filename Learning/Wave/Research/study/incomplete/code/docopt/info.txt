@@ -1,6 +1,0 @@
-sources:
-- https://github.com/docopt
-- https://github.com/docopt/docopt.go/tree/master/examples
-
-history:
-- 05/02/2015: checking out examples

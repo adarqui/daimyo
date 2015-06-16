@@ -1,2 +1,0 @@
-http://marxsoftware.blogspot.com/2014/04/compiling-and-running-java-without-ide.html
-https://github.com/skeeto/sample-java-project

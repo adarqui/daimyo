@@ -1,6 +1,0 @@
-source: https://github.com/devinus/sh
-
-dope..
-
-Sh.echo "Hello World!"
-Sh.curl "http://example.com/", o: "page.html", silent: true

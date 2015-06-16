@@ -1,1 +1,0 @@
-source: http://nfarina.com/post/9868516270/git-is-simpler

@@ -1,5 +1,0 @@
-sources:
-- https://scotch.io/tutorials/building-a-slack-clone-in-meteor-js-getting-started
-
-history:
-- 05/30/2015: notes

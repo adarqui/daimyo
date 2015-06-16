@@ -1,2 +1,0 @@
-source: https://github.com/discourse/discourse/tree/master/app/assets/javascripts/discourse
-- http://try.discourse.org/

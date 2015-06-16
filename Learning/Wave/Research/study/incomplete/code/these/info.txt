@@ -1,3 +1,0 @@
-source: https://hackage.haskell.org/package/these-0.4.2/docs/Control-Monad-Chronicle.html
-
-interesting monad.

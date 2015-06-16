@@ -1,2 +1,0 @@
-https://github.com/facebookarchive/huxley
-- A testing system for catching visual regressions in Web applications

@@ -1,4 +1,0 @@
-source: https://github.com/javierjulio/ember-cli-todomvc
-
-history:
-- 05/09/2015: notes

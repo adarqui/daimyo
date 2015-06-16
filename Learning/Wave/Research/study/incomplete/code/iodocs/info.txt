@@ -1,5 +1,0 @@
-sources:
-- http://support.mashery.com/files/Mashery_IO_Docs_Configuration_Guide_009242013.pdf
-
-history:
-- 05/20/2015: notes

@@ -1,4 +1,0 @@
-source: https://github.com/gimbo/observer.hs
-
-history:
-- 05/01/2015: read in depth

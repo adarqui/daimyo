@@ -1,2 +1,0 @@
-iperf:
-- http://www.slashroot.in/iperf-how-test-network-speedperformancebandwidth

@@ -1,2 +1,0 @@
-http://vertx.io/
-https://github.com/vert-x/vertx-examples/tree/master/src/raw

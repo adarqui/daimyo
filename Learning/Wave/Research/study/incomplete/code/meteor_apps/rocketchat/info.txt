@@ -1,3 +1,0 @@
-sources:
-- https://github.com/RocketChat/Rocket.Chat
-- http://rocket.chat/login

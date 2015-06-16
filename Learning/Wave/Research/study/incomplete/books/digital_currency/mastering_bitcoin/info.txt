@@ -1,1 +1,0 @@
-source: http://files.brendafernandez.com/Mastering%20Bitcoin/Mastering%20Bitcoin.pdf

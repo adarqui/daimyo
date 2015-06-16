@@ -1,4 +1,0 @@
-**The Future of Software Delivery**
-- source: ftp://ftp.software.ibm.com/software/tw/down/Future_of_software_delivery.pdf
-
-history:

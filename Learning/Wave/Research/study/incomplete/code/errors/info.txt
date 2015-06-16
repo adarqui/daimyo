@@ -1,4 +1,0 @@
-sources:
-- http://hackage.haskell.org/package/errors-1.4.7/docs/Control-Error-Safe.html
-- http://www.haskellforall.com/2012/07/errors-10-simplified-error-handling.html
-

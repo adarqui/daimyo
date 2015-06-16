@@ -1,3 +1,0 @@
-pmd:
-- http://pmd.sourceforge.net/
-- mutliple langs.. finds flaws and copy-paste detector etc

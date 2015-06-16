@@ -1,4 +1,0 @@
-**The C++ Programming Language: 4th Edition**
-- source: http://www.erlang.org/download/getting_started-5.4.pdf
-
-history:

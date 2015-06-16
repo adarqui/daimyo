@@ -1,4 +1,0 @@
-source: http://tomdale.net
-
-history:
-- 05/25/2015: our_approach_to_routing_in_emberjs, Our Approach to Routing in Ember.js: http://tomdale.net/2012/05/ember-routing/

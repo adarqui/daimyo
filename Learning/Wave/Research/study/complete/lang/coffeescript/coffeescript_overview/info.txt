@@ -1,4 +1,0 @@
-source: http://coffeescript.org/#overview
-
-hitory:
-- 05/28/2015: notes

@@ -1,1 +1,0 @@
-source: http://blog.trackets.com/2013/01/27/ember-data-in-depth.html

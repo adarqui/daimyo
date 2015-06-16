@@ -1,4 +1,0 @@
-**Google's MapReduce Revisited**
-- source: http://logic.cse.unt.edu/tarau/teaching/scala_docs/mapReduce.pdf
-
-history:

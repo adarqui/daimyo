@@ -1,2 +1,0 @@
-app/routes.js:
-- resources 'todos', path /, with subroute: active, completed

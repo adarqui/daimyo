@@ -1,1 +1,0 @@
-jboss: https://github.com/jboss-developer/ticket-monster && http://www.jboss.org/ticket-monster/

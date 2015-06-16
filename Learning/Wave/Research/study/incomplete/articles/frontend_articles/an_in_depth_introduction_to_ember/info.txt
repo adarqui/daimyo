@@ -1,3 +1,0 @@
-source: http://www.smashingmagazine.com/2013/11/07/an-in-depth-introduction-to-ember-js/
-- http://discuss.emberjs.com/t/whats-the-difference-between-ember-helpers-components-and-views/2201
-- http://stackoverflow.com/questions/18593424/views-vs-components-in-ember-js

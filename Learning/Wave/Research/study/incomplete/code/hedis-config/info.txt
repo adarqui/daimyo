@@ -1,1 +1,0 @@
-https://hackage.haskell.org/package/hedis-config-0.0.1

@@ -1,3 +1,0 @@
-source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Addison%20Wesley%20-%20UML%20Reference%20Manual.pdf
-
-

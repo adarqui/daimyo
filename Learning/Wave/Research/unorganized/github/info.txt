@@ -1,6 +1,0 @@
-gitignore:
-- https://github.com/github/gitignore
-
-
-dmca:
-- https://github.com/github/dmca

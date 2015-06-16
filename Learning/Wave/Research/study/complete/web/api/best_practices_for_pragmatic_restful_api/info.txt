@@ -1,4 +1,0 @@
-source: http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#requirements
-
-history:
-- 05/26/2015: notes

@@ -1,4 +1,0 @@
-source: https://ocaml.org/learn/tutorials/setting_up_with_oasis.html
-
-history:
-- 05/24/2015: read

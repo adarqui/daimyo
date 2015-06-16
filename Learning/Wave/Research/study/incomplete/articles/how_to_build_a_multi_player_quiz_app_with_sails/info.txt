@@ -1,1 +1,0 @@
-source: http://joanmira.com/tutorial-how-to-build-a-multi-player-quiz-app-with-sails-js/

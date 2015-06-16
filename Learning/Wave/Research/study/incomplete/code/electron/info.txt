@@ -1,6 +1,0 @@
-source:
-- ttps://github.com/atom/electron
-- https://github.com/atom/electron/blob/master/docs/tutorial/quick-start.md
-
-history:
-- 05/03/2015: quick tutorial

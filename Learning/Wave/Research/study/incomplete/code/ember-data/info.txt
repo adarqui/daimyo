@@ -1,2 +1,0 @@
-sources:
-- https://github.com/emberjs/data/blob/master/TRANSITION.md

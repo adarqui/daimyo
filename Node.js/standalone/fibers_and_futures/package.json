@@ -1,0 +1,14 @@
+{
+  "name": "fibers_and_futures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generator_fiber.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fibers": "^1.0.5"
+  }
+}

@@ -1,3 +1,0 @@
-sources:
-- https://github.com/CodeAdventure/meteor-space
-- https://github.com/CodeAdventure/space-messaging

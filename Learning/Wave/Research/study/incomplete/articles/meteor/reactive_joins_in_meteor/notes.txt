@@ -1,9 +1,0 @@
-mongodb encourages denormalization and using a limited number of collections
-
-A database cursor is a control structure that enables traversal over the records in a database.
-
-More specifically, in MongoDB (and by extension, in Meteor apps) a cursor is a pointer to the result set of a Collection.find() query.
-
-reactivity means different things on the client and server
-
-on the server, meteor's reactivity is limited to cursors returned by Meteor.publish()

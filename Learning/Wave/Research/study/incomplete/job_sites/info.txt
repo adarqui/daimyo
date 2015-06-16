@@ -1,8 +1,0 @@
-http://gun.io
-http://hackhands.com
-
-other:
-http://www.teamups.net/
-
-meteor:
-- https://www.meteor.com/jobs

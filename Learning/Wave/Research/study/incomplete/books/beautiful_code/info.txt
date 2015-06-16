@@ -1,4 +1,0 @@
-**Beautiful Code**
-- source: http://www.renci.org/wp-content/pub/tutorials/BeautifulCode.pdf
-
-history:

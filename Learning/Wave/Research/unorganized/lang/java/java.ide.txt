@@ -1,3 +1,0 @@
-eclipse: eclipse.org
-
-intellij: https://www.jetbrains.com

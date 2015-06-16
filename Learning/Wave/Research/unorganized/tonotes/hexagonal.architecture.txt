@@ -1,3 +1,0 @@
-source: `http://alistair.cockburn.us/Hexagonal+architecture
-
-

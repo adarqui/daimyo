@@ -1,4 +1,0 @@
-source: https://www.discovermeteor.com/blog/reactive-joins-in-meteor/
-
-history:
-- 06/07/2015: notes

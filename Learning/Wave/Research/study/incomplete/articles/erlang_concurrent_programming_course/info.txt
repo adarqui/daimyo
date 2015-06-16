@@ -1,1 +1,0 @@
-source: http://www.erlang.org/course/concurrent_programming.html#select

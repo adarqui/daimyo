@@ -1,4 +1,0 @@
-sources:
-- https://github.com/queso/SpaceTalk
-- https://github.com/SpaceTalk/SpaceTalk
-- http://www.spacetalkapp.com/

@@ -1,4 +1,0 @@
-**IO Inside**
-- source: https://wiki.haskell.org/IO_inside
-
-history:

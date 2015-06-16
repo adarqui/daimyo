@@ -1,5 +1,0 @@
-**Software Engineering Best Practices: Lessons from Successful Projects in the Top Companies**
-- source: http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/Software%20Engineering%20Best%20Practices.%20Lessons%20from%20Successful%20Projects%20in%20the%20Top%20Companies%20(McGraw-Hill,%202010).pdf
-
-history:
-- 04/18/2015: Forward

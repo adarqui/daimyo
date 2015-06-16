@@ -1,4 +1,0 @@
-**Design Patterns in Dynamic Programming**
-- source: http://www.norvig.com/design-patterns/design-patterns.pdf
-
-history:

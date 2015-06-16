@@ -1,1 +1,0 @@
-source: http://www.pdfiles.com/pdf/files/English/Desktop_Apps_Programming/Computer_Science_Programming_Basics_In_Ruby.pdf

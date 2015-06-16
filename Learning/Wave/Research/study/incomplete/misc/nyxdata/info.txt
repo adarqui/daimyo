@@ -1,3 +1,0 @@
-ftp://ftp.nyxdata.com/Historical%20Data%20Samples/Daily%20TAQ/
-
-ftp://ftp.nyxdata.com/

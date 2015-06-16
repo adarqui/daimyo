@@ -1,4 +1,0 @@
-**The C Programming Language: 2nd Edition**
-- source: http://www.iups.org/media/meeting_minutes/C.pdf
-
-history:

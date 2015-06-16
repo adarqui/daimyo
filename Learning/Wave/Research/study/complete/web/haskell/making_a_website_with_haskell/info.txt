@@ -1,4 +1,0 @@
-source: http://adit.io/posts/2013-04-15-making-a-website-with-haskell.html
-
-history:
-- 04-30-2015

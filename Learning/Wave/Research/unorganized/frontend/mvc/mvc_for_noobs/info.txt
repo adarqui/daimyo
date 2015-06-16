@@ -1,4 +1,0 @@
-source: http://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488
-
-history:
-- 05/06/2015: notes

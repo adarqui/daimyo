@@ -1,5 +1,0 @@
-source: http://cssor.com/wp-content/uploads/2012/10/Backbone-Tutorials.pdf
-
-history:
-- 05/04/2015: x
-- 05/05/2015: x

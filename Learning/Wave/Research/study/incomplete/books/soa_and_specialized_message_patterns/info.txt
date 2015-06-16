@@ -1,4 +1,0 @@
-**Service Oriented Architecture (SOA) and Specialized Messaging Patterns**
-- source: http://www.adobe.com/enterprise/pdfs/Services_Oriented_Architecture_from_Adobe.pdf
-
-history:

@@ -1,5 +1,0 @@
-momet, fromNow()
-showdown markdown
-
-really nice way to add 'editing' using a partial: using a view with the model attributes
-- incorporate this!

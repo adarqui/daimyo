@@ -1,5 +1,0 @@
-**Scala by Example**
-- source: http://www.scala-lang.org/docu/files/ScalaByExample.pdf
-
-history:
-- 04/21/2015:

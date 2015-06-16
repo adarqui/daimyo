@@ -1,4 +1,0 @@
-**Getting Started with Erlang**
-- source: http://www.erlang.org/download/getting_started-5.4.pdf
-
-history:

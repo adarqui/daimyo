@@ -1,1 +1,0 @@
-everything i'm doing in ember is currently deprecated.

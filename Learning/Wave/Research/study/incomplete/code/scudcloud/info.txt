@@ -1,2 +1,0 @@
-source: https://github.com/raelgc/scudcloud
-- slack for linux

@@ -1,5 +1,0 @@
-source: http://joshowens.me/
-
-history:
-- 06/07/2015: what is meteor.js?
-- 06/07/2015: http://joshowens.me/adding-comments-to-your-meteor-js-app/

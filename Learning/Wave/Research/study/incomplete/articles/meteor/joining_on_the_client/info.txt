@@ -1,4 +1,0 @@
-source: http://meteorcapture.com/joining-on-the-client/
-
-history:
-- 06/07/2015: notes

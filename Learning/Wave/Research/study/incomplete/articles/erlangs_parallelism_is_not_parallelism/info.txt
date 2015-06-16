@@ -1,4 +1,0 @@
-source: http://jlouisramblings.blogspot.com/2011/07/erlangs-parallelism-is-not-parallelism.html
-
-history:
-- 05/26/2015: notes

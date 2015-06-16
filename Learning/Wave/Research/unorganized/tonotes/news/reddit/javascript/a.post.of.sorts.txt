@@ -1,7 +1,0 @@
-source: https://medium.com/@assertchris/a-post-of-sorts-879dd047f3ee
-
-Array.prototype.sort without a custom comparison function will cause the elements to be converted to strings.
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-
-If compareFunction is not supplied, elements are sorted by converting them to strings and comparing strings in Unicode code point order. For example, "Cherry" comes before "banana". In a numeric sort, 9 comes before 80, but because numbers are converted to strings, "80" comes before "9" in Unicode order.

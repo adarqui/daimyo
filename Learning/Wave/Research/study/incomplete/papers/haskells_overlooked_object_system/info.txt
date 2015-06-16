@@ -1,4 +1,0 @@
-**Haskell's Overlooked Object System**
-- source: http://logic.cse.unt.edu/tarau/teaching/scala_docs/HaskellObjects.pdf
-
-history:

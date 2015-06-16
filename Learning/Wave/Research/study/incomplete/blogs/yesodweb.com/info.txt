@@ -1,1 +1,0 @@
-source: http://www.yesodweb.com/blog

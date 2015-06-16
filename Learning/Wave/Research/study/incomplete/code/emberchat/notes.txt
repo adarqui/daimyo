@@ -1,9 +1,0 @@
-        unAuthenticate: function() {
-            EmberChat.Socket.get('socket').close();
-            EmberChat.Session.unAuthenticate();
-            this.transitionToRoute('connect');
-        },
-
-
-EmberChat.Participant = Ember.Object.extend({
-EmberChat.User = EmberChat.Participant.extend({

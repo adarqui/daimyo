@@ -1,5 +1,0 @@
-source: https://www.sics.se/~joe/thesis/armstrong_thesis_2003.pdf
-
-history:
-- 05/27/2015: notes: abstract, introduction
-- 05/28/2015: notes: architecture

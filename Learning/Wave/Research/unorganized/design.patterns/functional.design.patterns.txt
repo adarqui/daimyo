@@ -1,1 +1,0 @@
-https://github.com/nyergler/strange-loop-2012/blob/master/monday/functional-design-patterns.rst

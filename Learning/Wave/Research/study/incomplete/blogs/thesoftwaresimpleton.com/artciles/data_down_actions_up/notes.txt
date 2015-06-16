@@ -1,5 +1,0 @@
-data down and actions up
-
-Child components will get their data from parent components, so when the parent component changes, the child component’s UI is updated. Data will flow down to the child components and the child components will notify their parent components of data changes by calling actions or pushing data up. The parent component should have the responsibility of persisting the changes and pushing those changes to the children.
-
-
