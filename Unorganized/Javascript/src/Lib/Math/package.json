@@ -1,8 +1,0 @@
-{
-  "name": "darqios-pe-misc-math",
-  "description": "Misc simple math stuff",
-  "author": "Andrew Darqui <andrew.darqui@gmail.com>",
-  "dependencies": {
-    "vows": ">= 0.7.0"
-  }
-}

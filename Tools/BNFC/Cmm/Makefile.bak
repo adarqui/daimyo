@@ -1,2 +1,0 @@
-all:
-	bnfc -m -haskell Cmm.cf

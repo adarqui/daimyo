@@ -1,9 +1,0 @@
-An attempt to translate various books programmatically.
-
-Once a translation is initially complete, github separately.
-
-stuff:
-    lhs documents
-    ascii diagramso
-
-

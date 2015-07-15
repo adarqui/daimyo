@@ -1,6 +1,0 @@
-interface Math where {
-import Prelude;
-hiding data Prelude.Int;
-fact 1 :: Prelude.Int -> Prelude.Int;
-fib 1 :: Prelude.Int -> Prelude.Int
-}
