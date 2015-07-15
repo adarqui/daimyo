@@ -13,6 +13,7 @@
 *.class
 *.bak
 *.pyc
+*.DS_Store
 .cabal-sandbox/
 bin/
 dist/
