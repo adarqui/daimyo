@@ -1,4 +1,8 @@
 {-
+- HackerRank doesn't have transformers with ExceptT, thus, this code.
+-}
+
+{-
 source: https://www.hackerrank.com/challenges/funny-string
 
 Problem Statement
@@ -32,22 +36,23 @@ Not Funny
 
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-import           Control.Applicative        (Applicative)
-import           Control.Monad              (forever)
-import           Control.Monad.IO.Class     (MonadIO)
-import           Control.Monad.Trans.Class  (MonadTrans, lift)
-import           Control.Monad.Trans.Except (ExceptT, runExceptT, throwE)
-import           Control.Monad.Trans.State  (StateT, evalState, get, modify)
-import           Data.ByteString.Char8      (ByteString)
-import qualified Data.ByteString.Char8      as C
-import           Data.Char                  (ord)
-import           Prelude                    hiding (break, mapM, mapM_,
-                                             sequence, void)
+import           Control.Applicative       (Applicative)
+import           Control.Monad             (forever)
+import           Control.Monad.IO.Class    (MonadIO)
+import           Control.Monad.Trans.Class (MonadTrans, lift)
+import           Control.Monad.Trans.Error (Error, ErrorT, runErrorT,
+                                            throwError)
+import           Control.Monad.Trans.State (StateT, evalState, get, modify)
+import           Data.ByteString.Char8     (ByteString)
+import qualified Data.ByteString.Char8     as C
+import           Data.Char                 (ord)
+import           Prelude                   hiding (break, mapM, mapM_, sequence,
+                                            void)
 -------------------------------------------------------------------------------
 -- Break - mostly from the https://hackage.haskell.org/package/break library --
 -------------------------------------------------------------------------------
 
-newtype Break r m a = Break { unBreak :: ExceptT r m a }
+newtype Break r m a = Break { unBreak :: ErrorT r m a }
     deriving
     ( Functor
     , Applicative
@@ -57,17 +62,17 @@ newtype Break r m a = Break { unBreak :: ExceptT r m a }
     )
 
 break :: Monad m => r -> Break r m a
-break r = Break (throwE r)
+break r = Break (throwError r)
 
-breakIf :: Monad m => Bool -> r -> Break r m ()
+breakIf :: (Monad m, Error r) => Bool -> r -> Break r m ()
 breakIf cond r =
   if cond
-    then Break (throwE r)
+    then Break (throwError r)
     else return ()
 
-loop :: Monad m => Break r m () -> m r
+loop :: (Monad m, Error r) => Break r m () -> m r
 loop m = do
-    x <- runExceptT (unBreak (forever m))
+    x <- runErrorT (unBreak (forever m))
     either return return x
 
 ----------------------------------------
@@ -120,6 +125,8 @@ data Amusing = Funny | NotFunny
 instance Show Amusing where
   show Funny = "Funny"
   show NotFunny = "Not Funny"
+
+instance Error Amusing where
 
 -- | amusingString evaluates the supplied bytestring to Funny or NotFunny
 --
