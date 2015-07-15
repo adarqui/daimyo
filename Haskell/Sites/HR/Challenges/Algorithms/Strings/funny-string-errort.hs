@@ -61,7 +61,7 @@ newtype Break r m a = Break { unBreak :: ErrorT r m a }
     , MonadTrans
     )
 
-break :: Monad m => r -> Break r m a
+break :: (Monad m, Error r) => r -> Break r m a
 break r = Break (throwError r)
 
 breakIf :: (Monad m, Error r) => Bool -> r -> Break r m ()
