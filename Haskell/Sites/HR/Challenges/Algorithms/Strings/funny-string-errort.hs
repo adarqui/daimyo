@@ -136,7 +136,9 @@ instance Error Amusing where
 -- >>> amusingString "bcxz"
 -- Not Funny
 amusingString :: ByteString -> Amusing
-amusingString bs = evalState go 1
+amusingString bs
+  | C.length bs < 2 = NotFunny
+  | otherwise       = evalState go 1
   where
   go = loop $ do
     i <- lift get
@@ -144,7 +146,7 @@ amusingString bs = evalState go 1
     let
       (c1, c2)   = (,) (ord $ bs `C.index` i) (ord $ bs `C.index` (i-1))
       (rc1, rc2) = (,) (ord $ bs `rindex` i)  (ord $ bs `rindex` (i+1))
-    if (c1 - c2 == rc1 - rc2)
+    if (abs (c1 - c2) == abs (rc1 - rc2))
       then lift $ modify (+1)
       else break NotFunny
 
