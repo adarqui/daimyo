@@ -1,4 +1,4 @@
-import Control.Monad
+import           Control.Monad
 
 main :: IO ()
 main = do
@@ -8,7 +8,7 @@ main = do
    y <- getLine
    return (x,y)
   ) [0..(_N`div`2)]
- print _C 
+ print _C
 
 {-
 SECRT
@@ -45,11 +45,11 @@ JHQSU XFXBQ
 CRYPT OLOGY
 
 6 3 2 4 1 5
-W E A R E D 
-I S C O V E 
-R E D F L E 
-E A T O N C 
-E 
+W E A R E D
+I S C O V E
+R E D F L E
+E A T O N C
+E
 
 SPORT
 42135

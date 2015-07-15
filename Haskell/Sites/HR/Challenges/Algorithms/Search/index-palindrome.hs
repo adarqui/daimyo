@@ -1,5 +1,5 @@
 {-# OPTIONS -O2 #-}
-import Control.Monad
+import           Control.Monad
 
 main :: IO ()
 main = do

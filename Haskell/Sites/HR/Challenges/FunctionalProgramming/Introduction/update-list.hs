@@ -1,6 +1,6 @@
 {-# OPTIONS -O2 #-}
 
-import Prelude hiding (lines, map, mapM_)
+import           Prelude hiding (lines, map, mapM_)
 
 data List a = Empty | Node a (List a) deriving (Show)
 

@@ -1,5 +1,5 @@
-import Data.Char
-import Control.Monad
+import           Control.Monad
+import           Data.Char
 
 main :: IO ()
 main = do

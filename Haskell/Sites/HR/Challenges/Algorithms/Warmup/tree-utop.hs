@@ -1,9 +1,9 @@
-import Control.Monad
-import Data.Maybe
+import           Control.Monad
+import           Data.Maybe
 
 main :: IO ()
 main = do
- t <- readLn 
+ t <- readLn
  case (1 <= t && t <= 10) of
   True -> do
    m <- mapM (\x -> readLn) [1..t]

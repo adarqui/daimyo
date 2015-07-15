@@ -2,22 +2,22 @@
 x, y ∈ Var (variables)
 n ∈ Num (numerals/integers)
 
-opa ∈ Opa (arithmetic operators) 
+opa ∈ Opa (arithmetic operators)
 oba ::= + | - | * | /
 
-opb ∈ Opb (boolean operators) 
+opb ∈ Opb (boolean operators)
 opb ::= and | or
 
-opr ∈ Opr (relational operators) 
+opr ∈ Opr (relational operators)
 opr ::= > | <
 
-a ∈ AExp (arithmetic expressions) 
+a ∈ AExp (arithmetic expressions)
 a ::= x | n | a1 opa a2 | ( a )
 
-b ∈ BExp (boolean expressions) 
+b ∈ BExp (boolean expressions)
 b ::= true | false | b1 opb b2 | a1 opr a2 | ( b )
 
-S ∈ Stmt (statements) 
+S ∈ Stmt (statements)
 S ::= x := a | S1 ; S2 | if b then { S1 } else { S2 } | while b do { S }
 -}
 
@@ -52,7 +52,7 @@ data OrdBinOp = GT | LT deriving (Show)
 data BExpr =
       BBinary NumBinOp BExpr BExpr
       deriving (Show)
---    | OBinary OrdBinOp 
+--    | OBinary OrdBinOp
 
 data AExpr =
       Var String

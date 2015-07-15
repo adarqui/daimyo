@@ -30,7 +30,7 @@ main = do
  case (_N `rem` 2 > 0) of
   True -> putStrLn $ output $ uniques $ fromList _A
   False -> error "Constraint error: N is not odd"
- 
+
 input = do
  _N <- readLn :: IO Int
  getLine >>= \line -> return (_N, map (\w -> read w :: Int) $ words line)

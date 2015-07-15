@@ -1,5 +1,5 @@
-import Data.List
-import Control.Monad
+import           Control.Monad
+import           Data.List
 
 fac :: Integer -> Integer
 fac 0 = 1

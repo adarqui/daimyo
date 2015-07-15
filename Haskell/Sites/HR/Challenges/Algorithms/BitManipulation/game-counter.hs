@@ -2,8 +2,8 @@
  - source: https://www.hackerrank.com/challenges/counter-game
  -}
 
-import Control.Monad
-import Data.Bits hiding (rotate)
+import           Control.Monad
+import           Data.Bits     hiding (rotate)
 
 data Player = Louise | Richard deriving (Show, Read, Eq, Enum)
 
@@ -28,7 +28,7 @@ game' player n =
   rot = rotate player
 
 rotate :: Player -> Player
-rotate Louise = Richard 
+rotate Louise = Richard
 rotate Richard = Louise
 
 ceilPowerOfTwo n = 1 + foldl (\acc i -> acc .|. (acc `shiftR` i)) (n - 1) [1,2,4,8,16,32,64]

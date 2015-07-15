@@ -1,7 +1,7 @@
 {-# OPTIONS -O2 #-}
-import Data.List
-import Data.Bits
-import Control.Monad
+import           Control.Monad
+import           Data.Bits
+import           Data.List
 
 main :: IO ()
 main = do

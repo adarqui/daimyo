@@ -9,14 +9,14 @@
    print the steps to reach N if it exists
    otherwise print -1
 
-  Constraints 
+  Constraints
    1 ≤ N ≤ 10^9
-   1 ≤ K ≤ 20 
-   2 ≤ ai ≤ 20, where i ∈ [1..K] 
+   1 ≤ K ≤ 20
+   2 ≤ ai ≤ 20, where i ∈ [1..K]
    ai ≠ aj, where 1 <= i, j <= K AND i ≠ j
 -}
 
-import Data.List
+import           Data.List
 
 main :: IO ()
 main = do
@@ -32,9 +32,9 @@ reverse'fac n k a = subseqs a
 -- sortBy (\x y -> compare (length x) (length y)) $ subseqs [2,3,4]
 
 --t1 = reverse'fac 12 3 $ filter (\n -> isFactor n 12) [2,3,4]
- 
+
 getNumTup s = let w = words s in (read (w !! 0), read (w !! 1))
-getNums s = map read . words $ s 
+getNums s = map read . words $ s
 isPrime n = n > 1 && foldr (\p r -> p*p > n || ((n `rem` p) /= 0 && r)) True primes
 primes = 2 : filter isPrime [3,5..]
 isFactor fac n = n `rem` fac == 0

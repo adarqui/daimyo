@@ -1,7 +1,7 @@
-import Data.Bits
-import Data.List
-import GHC.Integer
-import Prelude hiding (mapM_)
+import           Data.Bits
+import           Data.List
+import           GHC.Integer
+import           Prelude     hiding (mapM_)
 
 data RoundTree a = Empty | Node (RoundTree a) a (RoundTree a) deriving (Show)
 
@@ -20,7 +20,7 @@ fromList ks round = fromList' ks round Empty
 fromList' :: (Ord a) => [a] -> Int -> RoundTree (a, Integer) -> RoundTree (a, Integer)
 fromList' [] _ rt = rt
 fromList' (k:ks) round rt = update k round (fromList' ks round rt)
-        
+
 update :: (Ord a) => a -> Int -> RoundTree (a, Integer) -> RoundTree (a, Integer)
 update k round Empty = Node Empty (k, setBit 0 round) Empty
 update k round (Node lb (k', round') rb)

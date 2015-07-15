@@ -1,5 +1,5 @@
-import Data.List
-import Prelude hiding (mapM_)
+import           Data.List
+import           Prelude   hiding (mapM_)
 
 data Tree a = Empty | Node (Tree a) a (Tree a) deriving (Show)
 

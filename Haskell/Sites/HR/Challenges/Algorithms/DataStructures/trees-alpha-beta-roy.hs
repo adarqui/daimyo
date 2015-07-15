@@ -1,13 +1,13 @@
 {-# OPTIONS -O2 #-}
 {-# LANGUAGE RecordWildCards #-}
 
-import Data.List
+import           Data.List
 
 data TCase = TCase {
- _n :: Integer,
+ _n     :: Integer,
  _alpha :: Integer,
- _beta :: Integer,
- _nums :: [Integer]
+ _beta  :: Integer,
+ _nums  :: [Integer]
 } deriving (Show)
 
 data Tree a = Empty | Node a (Tree a) (Tree a) deriving (Show, Eq)

@@ -1,6 +1,6 @@
-import Control.Monad
-import Data.List
-import Text.Printf
+import           Control.Monad
+import           Data.List
+import           Text.Printf
 
 fac 0 = 1
 fac n = n * fac (n-1)

@@ -1,6 +1,6 @@
 {-# OPTIONS -O2 #-}
-import qualified Data.Map as M
-import Data.List
+import           Data.List
+import qualified Data.Map  as M
 
 main :: IO ()
 main = do

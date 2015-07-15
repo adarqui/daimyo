@@ -1,5 +1,5 @@
-import Data.List
-import Data.Char
+import           Data.Char
+import           Data.List
 
 main :: IO ()
 main = do

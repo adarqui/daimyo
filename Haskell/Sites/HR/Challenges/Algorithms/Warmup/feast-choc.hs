@@ -1,4 +1,4 @@
-import Prelude hiding (mapM_)
+import           Prelude hiding (mapM_)
 
 data Trip = Trip (Int,Int,Int) deriving (Show)
 

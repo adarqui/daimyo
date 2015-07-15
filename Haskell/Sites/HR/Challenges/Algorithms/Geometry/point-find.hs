@@ -1,9 +1,9 @@
-import Control.Monad
-import Data.Maybe
+import           Control.Monad
+import           Data.Maybe
 
 main :: IO ()
 main = do
- _T <- readLn 
+ _T <- readLn
  case (1 <= _T && _T <= 15) of
   True -> do
    m <- mapM (\x -> getLine >>= \line -> return $ parse line) [1.._T]

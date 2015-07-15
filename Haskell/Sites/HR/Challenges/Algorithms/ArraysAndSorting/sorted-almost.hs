@@ -1,4 +1,4 @@
-import Data.List
+import           Data.List
 
 main :: IO ()
 main = do
@@ -11,7 +11,7 @@ main = do
 
 as'str n s = as n (read ("[" ++ (map (\n -> if n == ' ' then ',' else n) s) ++ "]") :: [Int])
 
-as n p = 
+as n p =
  length $
   filter (\y -> isAs y) $
    subseqs $

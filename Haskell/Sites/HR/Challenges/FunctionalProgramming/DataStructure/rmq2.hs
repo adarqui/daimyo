@@ -1,10 +1,10 @@
 {-# LANGUAGE NamedFieldPuns #-}
 
-import qualified Prelude as P
-import Prelude hiding (elem, map, foldr, null, foldl, length)
-import Data.Foldable hiding (elem)
-import Data.Monoid
-import Data.Maybe
+import           Data.Foldable hiding (elem)
+import           Data.Maybe
+import           Data.Monoid
+import           Prelude       hiding (elem, foldl, foldr, length, map, null)
+import qualified Prelude       as P
 
 data Tree a = Nil
     | Leaf {
@@ -13,7 +13,7 @@ data Tree a = Nil
     | Junction {
         value :: a,
         nodes :: Int,
-        left :: Tree a,
+        left  :: Tree a,
         right :: Tree a
     } deriving (Show, Read, Eq)
 

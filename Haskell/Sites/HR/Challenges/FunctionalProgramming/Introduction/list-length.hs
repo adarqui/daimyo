@@ -1,6 +1,6 @@
 {-# OPTIONS -O2 #-}
 
-import Prelude hiding (filter, lines)
+import           Prelude hiding (filter, lines)
 
 data List a = Empty | Node a (List a) deriving (Show)
 
