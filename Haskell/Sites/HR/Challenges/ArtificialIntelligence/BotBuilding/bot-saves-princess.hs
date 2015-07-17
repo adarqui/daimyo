@@ -296,8 +296,8 @@ findPrincess' g grid = do
       vs <- findPrincess' g' grid'
       return $ (move, grid) : vs
 
-main :: IO ()
-main = do
+main' :: IO ()
+main' = do
   rows_cols <- readLn :: IO Int
   input <- liftM (filter (/= '\n')) getContents
   random_seed <- randomIO :: IO Int
@@ -311,10 +311,13 @@ getList :: Int -> IO[String]
 getList n = if n==0 then return [] else do i <- getLine; is <- getList(n-1); return (i:is)
 displayPathtoPrincess :: Int -> [String] -> String
 displayPathtoPrincess rows_cols input =
-    gameOutput4HackerRank $ init $ gameMoves $ findPrincess 3 $ overlayGrid (emptyGrid rows_cols) $ unlines input
+    gameOutput4HackerRank $ init $ gameMoves $ findPrincess rows_cols $ overlayGrid (emptyGrid rows_cols) $ concat input
 
-main' = do
+main :: IO ()
+main = do
     n <- getLine
     let i = read n
     grid <- getList i
+    putStrLn $ show grid
+    putStrLn $ show i
     putStrLn.displayPathtoPrincess i $ grid
