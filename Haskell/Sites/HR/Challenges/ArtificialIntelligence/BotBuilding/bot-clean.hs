@@ -74,7 +74,7 @@ createGame (x, y) (ReducedGrid grid) =
     bot = Cell Bot $ Point x y
   in
   Game {
-    gameBot  = maybe (error "No Bot") id (find isBot grid),
+    gameBot  = bot,
     gameGrid = ReducedGrid $ filter (not . isBot) grid
   }
 
