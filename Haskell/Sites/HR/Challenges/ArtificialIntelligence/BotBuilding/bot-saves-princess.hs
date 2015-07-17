@@ -95,6 +95,7 @@ replace from to (x:xs)
 -- >>> init [1..3]
 -- [1,2]
 init :: [a] -> [a]
+init []         = []
 init (x:[])     = []
 init (x:xs) = x : init xs
 
@@ -301,3 +302,19 @@ main = do
   input <- liftM (filter (/= '\n')) getContents
   random_seed <- randomIO :: IO Int
   putStr $ gameOutput4HackerRank $ init $ gameMoves $ findPrincess random_seed $ overlayGrid (emptyGrid rows_cols) input
+
+--
+-- didn't realize they had their own main
+--
+
+getList :: Int -> IO[String]
+getList n = if n==0 then return [] else do i <- getLine; is <- getList(n-1); return (i:is)
+displayPathtoPrincess :: Int -> [String] -> String
+displayPathtoPrincess rows_cols input =
+    gameOutput4HackerRank $ init $ gameMoves $ findPrincess 3 $ overlayGrid (emptyGrid rows_cols) $ unlines input
+
+main' = do
+    n <- getLine
+    let i = read n
+    grid <- getList i
+    putStrLn.displayPathtoPrincess i $ grid
