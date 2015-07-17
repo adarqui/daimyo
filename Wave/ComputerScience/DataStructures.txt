@@ -1,0 +1,5 @@
+Purely Functional Data Structures
+- source: http://www.cs.cmu.edu/~rwh/theses/okasaki.pdf
+
+List of Data Structures
+- source: http://en.wikipedia.org/wiki/List_of_data_structures

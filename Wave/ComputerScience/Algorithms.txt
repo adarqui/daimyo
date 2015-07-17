@@ -1,0 +1,17 @@
+Algorithms - A Functional Approach
+- source: http://00000books.googlecode.com/git/Programming/Algorithms..%20a%20functional%20programming%20approach%20(AW,%201999).pdf
+- history:
+
+The Algorithm Design Manual
+- source: http://mimoza.marmara.edu.tr/~msakalli/cse706_12/SkienaTheAlgorithmDesignManual.pdf
+- source: http://www3.cs.stonybrook.edu/~algorith/
+- history:
+- 10/31/2014: C1
+- 11/01/2014: C2
+- 11/02/2014: C3
+
+List of Algorithms
+- source: http://en.wikipedia.org/wiki/List_of_algorithms
+
+Dictionary of Algorithms and Dada Structures
+- source: http://xlinux.nist.gov/dads
