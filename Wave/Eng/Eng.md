@@ -1,0 +1,52 @@
+**Misc URLS**
+- http://ff.tu-sofia.bg/~bogi/France/SoftEng/books/
+- http://soapatterns.org
+
+**MISC**
+- 04/08/2015: Open Source (almost) Everything. http://tom.preston-werner.com/2011/11/22/open-source-everything.html
+- 04/10/2015: Tomcat Performance: https://tomcat.apache.org/articles/performance.pdf
+- 04/16/2015: Starbucks Async: http://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html
+- 04/18/2015: Hipchat/React/Flux: https://developer.atlassian.com/blog/2015/02/rebuilding-hipchat-with-react/
+- 04/18/2015: Getting Started with SOA: http://www.sei.cmu.edu/library/assets/whitepapers/SOA_Terminology.pdf
+- 04/19/2015: Haskell Design Patterns: http://blog.ezyang.com/2010/05/design-patterns-in-haskel/
+- 04/20/2015: Is Go Object Oriented? http://spf13.com/post/is-go-object-oriented/
+- 04/20/2015: Composition over Inheritance part 1: http://codingdelight.com/2014/01/16/favor-composition-over-inheritance-part-1/
+- 04/20/2015: Composition over Inheritance part 2: http://codingdelight.com/2014/01/17/favor-composition-over-inheritance-part-2/
+- 04/21/2015: Takeaways from Service Architectures At Scales Lessons from Google and Ebay: http://theburningmonk.com/2015/03/qcon-london-2015takeaways-from-service-architectures-at-scale-lessons-from-google-and-ebay/
+- 04/21/2015: Patterns for fine-grain access-controlled business objects: http://www.hillside.net/plop/2014/papers/Security/rubis_2.pdf
+- 04/21/2015: Dont do Role-Based Authorization Checks; Do Activity-Based Checks: https://lostechies.com/derickbailey/2011/05/24/dont-do-role-based-authorization-checks-do-activity-based-checks/
+- 04/21/2015: React To The Future With Isomorphic Apps: http://www.smashingmagazine.com/2015/04/21/react-to-the-future-with-isomorphic-apps/
+- 04/23/2015: All About Monads: https://wiki.haskell.org/All_About_Monads#The_Identity_monad
+- 04/25/2015: Summary of Go Generics Discussions: https://docs.google.com/document/d/1vrAy9gMpMoS3uaVphB32uVXX4pi-HnNjkMEgyAHX4N4/edit?pli=1#
+- 04/25/2015: Rust: Testing: https://doc.rust-lang.org/book/testing.html
+- 04/25/2015: Rust: Crates and Modules: https://doc.rust-lang.org/book/crates-and-modules.html
+- 04/25/2015: Rust: Closures: https://doc.rust-lang.org/book/closures.html
+- 04/26/2015: Servant Slides: http://haskell-servant.github.io/getting-started/#(1)
+
+**Misc: TODO**
+- http://research.microsoft.com/en-us/um/people/simonpj/Haskell/guards.html
+- http://alistair.cockburn.us/Hexagonal+architecture
+- http://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf
+- http://fsharpforfunandprofit.com/posts/monoids-without-tears/
+- domain model: https://msdn.microsoft.com/en-us/magazine/ee236415.aspx
+- is your programming language unreasonable: http://fsharpforfunandprofit.com/posts/is-your-language-unreasonable/
+- fowler microservices: http://martinfowler.com/articles/microservices.html
+- apache shiro: http://www.infoq.com/articles/apache-shiro
+- rbac: http://csrc.nist.gov/rbac/sandhu-ferraiolo-kuhn-00.pdf
+- rbac: https://stormpath.com/blog/new-rbac-resource-based-access-control/
+- rbac: http://sangeeth.github.io/java/shiro/rbac-using-shiro.html
+- apache fortress: https://directory.apache.org/fortress/user-guide/1-intro-rbac.html
+- fortress demo: https://github.com/shawnmckinney/apache-fortress-demo
+- jboss tutorial: https://github.com/jboss-developer/ticket-monster && http://www.jboss.org/ticket-monster/
+- lift cookbook: http://chimera.labs.oreilly.com/books/1234000000030/
+- future of software delivery: ftp://ftp.software.ibm.com/software/tw/down/Future_of_software_delivery.pdf
+- Rust for functional programmers: http://science.raphael.poss.name/rust-for-functional-programmers.pdf
+- OCaml for haskellers: http://blog.ezyang.com/2010/10/ocaml-for-haskellers/
+- Haskell for OCaml programmers: http://science.raphael.poss.name/haskell-for-ocaml-programmers.html
+- sbt: http://www.scala-sbt.org/release/tutorial/Setup.html
+- diehl: http://dev.stephendiehl.com/hask/
+- diehl basicS: http://dev.stephendiehl.com/fun/basics.html
+- scotty: http://adit.io/posts/2013-04-15-making-a-website-with-haskell.html
+- http://www.darkcoding.net/software/continuous-delivery-my-notes/#more-2123
+- http://www.cafepress.com/haskell_books
+- http://logic.cse.unt.edu/tarau/teaching/scala_docs/mapreduce-osdi04.pdf
