@@ -1,0 +1,2 @@
+Mathemtical Foundations of Automata Theory
+- source: http://www.liafa.jussieu.fr/~jep/PDF/MPRI/MPRI.pdf

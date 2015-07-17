@@ -1,0 +1,8 @@
+Problem Solving Strategies
+- source: http://micheleandreoli.org/public/Didattica/olimat/Libri/Engel_A._Problem-solving_strategies_for_math_olympiads__1998.pdf
+- history:
+- 11/20/2014: 1 E1 (RR)
+- 11/25/2014: 1 E1 (RR)
+- 12/01/2014: 1 E1 (RR)
+- 12/15/2014: 1 E1 (RR)
+- 12/15/2014: 1 E1 (RR), 1 E2 (Daimyo.PSS.C1.E2)

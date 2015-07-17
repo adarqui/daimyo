@@ -1,0 +1,5 @@
+Introduction to Differential Equations
+- source: http://www.math.ust.hk/~machas/differential-equations.pdf
+- haskell:
+- sage: http://wdjoyner.com/teach/DiffyQ/des-book.pdf , http://www.sagemath.org/doc/reference/calculus/sage/calculus/desolvers.html
+- history:

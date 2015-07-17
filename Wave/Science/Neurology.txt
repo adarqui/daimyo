@@ -1,0 +1,10 @@
+Introduction To Computational NeuroScience
+- source: http://www.utsa.edu/troyerlab/Troyer_CompNeuro.pdf
+
+
+Computational Neuroscience: A Comprehensive Approach
+- source: http://www.fulviofrisone.com/attachments/article/412/Computational%20Neuroscience.pdf
+
+
+Dynamical Systems In Neuroscience
+- source: http://www.izhikevich.org/publications/dsn.pdf

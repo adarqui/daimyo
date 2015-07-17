@@ -1,0 +1,2 @@
+The Art of Software Security Assessment
+- source: https://leaksource.files.wordpress.com/2014/08/the-art-of-software-security-assessment.pdf

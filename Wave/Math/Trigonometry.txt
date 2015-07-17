@@ -1,0 +1,14 @@
+Trigonometry
+- source: http://mecmath.net/trig/trigbook.pdf
+- haskell:
+- sage: http://www.sagemath.org/doc/reference/functions/sage/functions/trig.html
+- history:
+- 12/07/2014: Notes, 1.1
+- 12/25/2014: 1.2
+- 12/26/2014: RN: 1.3-rest, 2
+
+
+Crash Course In Trigonometry
+- source: http://facultyfp.salisbury.edu/despickler/personal/Resources/Other/TrigCC.pdf
+- history:
+- 01/12/2015: all

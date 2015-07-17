@@ -1,0 +1,12 @@
+FAU:
+- Calculus 1,2,3
+- Discrete Mathematics
+- Differential Equations
+- Introduction to Computational Math
+- Matrix Theory or Linear Algebra
+- Mathematical Problem Solving
+- Modern Analysis
+- Introduction to Complex Analysis
+- Linear Algebra 2
+- Modern Algebra
+- Probability & Statistics

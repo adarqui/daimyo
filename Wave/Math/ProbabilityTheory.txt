@@ -1,0 +1,14 @@
+Elementary Probability Theory
+- source: http://www.orianhealth.com/files/public-docs/Books/Math/UTM%20Chung%20K.L.%20Aitsahlia%20F.%20Elementary%20probability%20theory%20with%20stochastic%20processes%20and%20an%20introduction%20to%20mathematical%20finance%20(4ed%20Springer%202006).pdf
+- haskell: http://hackage.haskell.org/package/probability
+- sage: http://www.sagemath.org/pdf/en/reference/probability/probability.pdf, http://www.sagemath.org/doc/reference/probability/
+- history:
+- 12/05/2014: 1, 2
+
+
+A Tutorial on Probability Theory
+- source: http://www.sci.utah.edu/~gerig/CS6640-F2010/prob-tut.pdf
+
+
+A Short Introduction to Probability
+- source: http://www.maths.uq.edu.au/~kroese/asitp.pdf

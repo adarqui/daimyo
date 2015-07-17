@@ -1,0 +1,12 @@
+Mathematics for Finance: An introduction to financial engineering
+- source: http://poincare.matf.bg.ac.rs/~kmiljan/UFM.pdf
+- haskell:
+- sage:
+- history:
+- 12/10/2014: 1 (leftoff: 1.3)
+
+
+Financial Mathematics and its Applications
+- source: http://www.ftvs.cuni.cz/hendl/metodologie/financial-mathematics-and-its-applications.pdf
+- history:
+- 01/25/2015: Preface

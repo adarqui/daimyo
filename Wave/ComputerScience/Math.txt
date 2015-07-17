@@ -1,0 +1,5 @@
+Mathematics For Computer Science
+- source: http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2010/readings/MIT6_042JS10_notes.pdf
+- history:
+- 12/08/2014: 1
+- 12/20/2014: 2, 3 (Daimyo.Logic.Table, Daimyo.Logic.Exercises)

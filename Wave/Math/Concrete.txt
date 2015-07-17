@@ -1,0 +1,5 @@
+Concrete Mathematics
+- source: http://www.matematica.net/portal/e-books/Graham%20-%20Knuth%20-%20Patashnik%20-%20%20Concrete%20Mathematics.pdf
+- history:
+- 11/30/2014: (PEX, NN) 1 (Recurrent Problems)
+- 12/20/2014: 2.1 (Daimyo.ConcreteMathematics.Sums), 2.2 (Daimyo.ConcreteMathematics.Recurrences) - didnt finish

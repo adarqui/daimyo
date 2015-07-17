@@ -1,0 +1,17 @@
+AMSCOS GEOMETRY
+- source: http://www.vcsd.k12.ny.us/cms/lib/NY24000141/Centricity/Domain/105/AMSCOGeometry.pdf
+- answer key: http://www.commack.k12.ny.us/chs/depts/new/math/geometrysolutions.pdf
+- history:
+
+
+An Introduction to Geometry
+- source: http://www.math.nus.edu.sg/~matwyl/Notes_MA2219.pdf
+- haskell: https://hackage.haskell.org/package/hgeometry
+- sage:
+- history:
+- 12/08/2014: 1, 2
+- hold off until completing a more introductor text
+
+
+A Quick Introduction to Non-Euclidean Geometry
+- source: https://faculty.etsu.edu/gardnerr/noneuclidean/non-Euclid-highschool.pdf

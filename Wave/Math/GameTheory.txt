@@ -1,0 +1,10 @@
+Game Theory (intro)
+- source: http://www.cdam.lse.ac.uk/Reports/Files/cdam-2001-09.pdf
+- history:
+- 01/22/2015: 1, 2
+- 01/23/2015: 3
+
+
+Game Theory
+- source: http://pioneer.netserv.chula.ac.th/~ptanapo1/gamebook.pdf
+- solutions: http://cramton.umd.edu/econ414/osborne-public-solutions.pdf

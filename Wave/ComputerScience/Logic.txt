@@ -1,0 +1,2 @@
+Logic in Computer Science
+- source: http://www.eserna.com/Logica/5%20Lectura%202.pdf

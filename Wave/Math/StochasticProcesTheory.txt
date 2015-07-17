@@ -1,0 +1,2 @@
+A Crash course on stochastic process theory and applications
+- source: http://web.atmos.ucla.edu/~bstevens/Teaching/MAMAOS/Vanden-Eijnden.pdf

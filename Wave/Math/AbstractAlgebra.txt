@@ -1,0 +1,20 @@
+A Gentle Introduction to Abstract Algebra
+- source: http://www.csun.edu/~asethura/giaa/giaa.pdf
+
+
+Elementary Abstract Algebra
+- source: http://shell.cas.usf.edu/~wclark/Elem_abs_alg.pdf
+- 12/21/2014: Preface, 1
+- 01/09/2015: 2
+- 01/10/2015: 3
+
+
+Intro to Abstract Algebra
+- source: http://www.math.umn.edu/~garrett/m/intro_algebra/notes.pdf
+- haskell: https://hackage.haskell.org/package/algebra
+- sage: http://abstract.ups.edu/download/aata-20111223-sage-4.8.pdf , http://www.sagemath.org/doc/prep/Quickstarts/Abstract-Algebra.html
+- history:
+- 12/09/2014: 1
+- 12/11/2014: 2
+- 12/14/2014: 3
+- 12/14/2014: 4

@@ -1,0 +1,5 @@
+All in one mathematics cheat sheet
+- source: v2.10: http://www.alexspartalis.com/uploads/3/5/9/8/3598073/all_in_one_cheat_sheet_v2.10_-_web.pdf
+- source: http://www.alexspartalis.com/cheat-sheet.html
+- history:
+- 01/18/2015: 195 pages

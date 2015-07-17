@@ -1,0 +1,5 @@
+NO = Notes only
+EO = Exercises only
+NN = No Notes
+RR = Re-Read
+RN = Rapid Notes
