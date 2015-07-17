@@ -106,8 +106,8 @@ init (x:xs) = x : init xs
 --
 
 data Game = Game {
-  gameSeed   :: Int,
-  gameStates :: [(Move, Grid)]
+  gameSeed   :: !Int,
+  gameStates :: ![(Move, Grid)]
 } deriving (Show)
 
 data Move = MoveLeft | MoveRight | MoveUp | MoveDown | MoveNone
