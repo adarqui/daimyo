@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -O2 #-}
+
 {-
 -
 - this code is weird.... don't read much into it
@@ -318,6 +320,4 @@ main = do
     n <- getLine
     let i = read n
     grid <- getList i
-    putStrLn $ show grid
-    putStrLn $ show i
     putStrLn.displayPathtoPrincess i $ grid
