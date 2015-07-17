@@ -1,0 +1,17 @@
+Stanford Encyclopedia of Philosophy
+- source: lato.stanford.edu
+
+Lambda Calculus
+- source: http://plato.stanford.edu/entries/lambda-calculus/
+
+Combinatory Logic
+- source: http://plato.stanford.edu/entries/logic-combinatory/
+
+Constructive Mathematics
+- source: http://plato.stanford.edu/entries/mathematics-constructive/
+
+Intuitionistic Logic
+- source: http://plato.stanford.edu/entries/intuitionistic-logic-development/
+
+Frege
+- source: http://plato.stanford.edu/entries/frege/
