@@ -162,6 +162,7 @@ showMove MoveLeft  = "LEFT"
 showMove MoveRight = "RIGHT"
 showMove MoveDown  = "DOWN"
 showMove MoveUp    = "UP"
+showMove MoveNone  = ""
 
 -- | randomElem
 --
@@ -256,6 +257,7 @@ calculateMove MoveDown (Point x y) = Just $ Point (x+1) y
 calculateMove MoveUp (Point x y)
   | x - 1 < 1 = Nothing
   | otherwise = Just $ Point x (y+1)
+calculateMove MoveNone _ = Nothing
 
 -- | swapCells
 --
@@ -269,7 +271,7 @@ gameMoves :: Game -> [Move]
 gameMoves game = map fst $ gameStates game
 
 gameOutput4HackerRank :: [Move] -> String
-gameOutput4HackerRank [] = "\n"
+gameOutput4HackerRank [] = ""
 gameOutput4HackerRank (x:xs) = showMove x ++ "\n" ++ gameOutput4HackerRank xs
 
 --  | findPrincess
@@ -311,8 +313,39 @@ main' = do
 
 getList :: Int -> IO[String]
 getList n = if n==0 then return [] else do i <- getLine; is <- getList(n-1); return (i:is)
+
+
+getPoint :: Cell -> Point
+getPoint (Cell _ point) = point
+
+--
+-- simple solution just to get some points
+-- ick
+--
+
 displayPathtoPrincess :: Int -> [String] -> String
 displayPathtoPrincess rows_cols input =
+  let
+    grid = overlayGrid (emptyGrid rows_cols) $ concat input
+    (Just princess) = findElem Princess grid
+    (Just bot) = findElem Bot grid
+  in
+    gameOutput4HackerRank $ displayPathtoPrincess'' bot princess
+
+displayPathtoPrincess'' bot princess =
+  let
+    (Just moves) = calculateMoves (getPoint bot) (getPoint princess)
+    new_bot_point = calculateMove (head moves) (getPoint bot)
+  in
+    case new_bot_point of
+      Nothing -> []
+      _  -> head moves : displayPathtoPrincess'' (Cell Bot (fromJust new_bot_point)) princess
+
+
+--    gameOutput4HackerRank $ init $ gameMoves $ findPrincess rows_cols $ overlayGrid (emptyGrid rows_cols) $ concat input
+
+displayPathtoPrincess' :: Int -> [String] -> String
+displayPathtoPrincess' rows_cols input =
     gameOutput4HackerRank $ init $ gameMoves $ findPrincess rows_cols $ overlayGrid (emptyGrid rows_cols) $ concat input
 
 main :: IO ()
