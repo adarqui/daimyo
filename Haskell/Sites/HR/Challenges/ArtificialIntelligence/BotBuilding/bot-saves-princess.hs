@@ -256,7 +256,7 @@ calculateMove MoveRight (Point x y) = Just $ Point x (y+1)
 calculateMove MoveDown (Point x y) = Just $ Point (x+1) y
 calculateMove MoveUp (Point x y)
   | x - 1 < 1 = Nothing
-  | otherwise = Just $ Point x (y+1)
+  | otherwise = Just $ Point (x-1) y
 calculateMove MoveNone _ = Nothing
 
 -- | swapCells
@@ -323,6 +323,10 @@ getPoint (Cell _ point) = point
 -- ick
 --
 
+-- | displayPathtoPrincess
+--
+-- >>> displayPathtoPrincess 3 ["p--","-m-","---"]
+--
 displayPathtoPrincess :: Int -> [String] -> String
 displayPathtoPrincess rows_cols input =
   let
@@ -335,14 +339,12 @@ displayPathtoPrincess rows_cols input =
 displayPathtoPrincess'' bot princess =
   let
     (Just moves) = calculateMoves (getPoint bot) (getPoint princess)
-    new_bot_point = calculateMove (head moves) (getPoint bot)
+    move = head moves
+    new_bot_point = calculateMove move (getPoint bot)
   in
     case new_bot_point of
       Nothing -> []
-      _  -> head moves : displayPathtoPrincess'' (Cell Bot (fromJust new_bot_point)) princess
-
-
---    gameOutput4HackerRank $ init $ gameMoves $ findPrincess rows_cols $ overlayGrid (emptyGrid rows_cols) $ concat input
+      _  -> move : displayPathtoPrincess'' (Cell Bot (fromJust new_bot_point)) princess
 
 displayPathtoPrincess' :: Int -> [String] -> String
 displayPathtoPrincess' rows_cols input =
