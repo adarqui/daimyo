@@ -20,6 +20,7 @@ b---d
 import           Control.Monad
 import           Data.Function
 import           Data.List
+import           Data.Maybe
 
 data Move = MoveLeft | MoveRight | MoveDown | MoveUp | Clean
   deriving (Eq, Show)
@@ -65,21 +66,38 @@ reduceGrid (Grid cells) = ReducedGrid $ filter (\(Cell p _) -> p /= Empty) cells
 
 -- | createGame
 --
--- >>> createGame $ reduceGrid $ createGrid ["b---d"]
+-- >>> createGame (1, 1) $ reduceGrid $ createGrid ["b---d"]
 -- Game {gameBot = Cell Bot (Point 1 1), gameGrid = ReducedGrid [Cell Dirty (Point 1 5)]}
-createGame :: ReducedGrid -> Game
-createGame (ReducedGrid grid) =
+createGame :: (Int, Int) -> ReducedGrid -> Game
+createGame (x, y) (ReducedGrid grid) =
   let
-    bot = find isBot grid
+    bot = Cell Bot $ Point x y
   in
   Game {
     gameBot  = maybe (error "No Bot") id (find isBot grid),
     gameGrid = ReducedGrid $ filter (not . isBot) grid
   }
 
+-- | runSingleGame
+--
+-- >>> runSingleGame $ createGame (1, 1) $ reduceGrid $ createGrid ["b---d", "-d--d", "--dd-", "--d--", "----d"]
+runSingleGame :: Game -> Maybe Move
+runSingleGame Game{..} =
+  if null rgrid
+     then Nothing
+     else
+      let
+        sorted_grid = map snd $ sortBy (compare `on` fst) $ map (\cell -> (numberOfMoves gameBot cell, cell)) rgrid
+        next_cell = head sorted_grid
+        moves = calculateMoves gameBot next_cell
+      in
+      Just $ head moves
+  where
+    rgrid = fromReducedGrid gameGrid
+
 -- | runGame
 --
--- >>> runGame $ createGame $ reduceGrid $ createGrid ["b---d", "-d--d", "--dd-", "--d--", "----d"]
+-- >>> runGame $ createGame (1, 1) $ reduceGrid $ createGrid ["b---d", "-d--d", "--dd-", "--d--", "----d"]
 runGame :: Game -> [Move]
 runGame Game{..} =
   if null rgrid
@@ -118,7 +136,9 @@ runGame Game{..} =
 -- >>> calculateMoves (Cell Bot (Point 2 2)) (Cell Dirty (Point 5 3))
 -- [MoveRight,MoveDown,MoveDown,MoveDown]
 calculateMoves :: Cell -> Cell -> [Move]
-calculateMoves (Cell p1 (Point x1 y1)) (Cell p2 (Point x2 y2)) = calculateMovesHorizontal (y2 - y1) ++ calculateMovesVertical (x1 - x2)
+calculateMoves (Cell p1 (Point x1 y1)) (Cell p2 (Point x2 y2))
+  | x1 == x2 && y1 == y2 = [Clean]
+  | otherwise            = calculateMovesHorizontal (y2 - y1) ++ calculateMovesVertical (x1 - x2)
 
 -- | calculateMoveX
 --
@@ -171,8 +191,19 @@ showMove MoveDown  = "DOWN"
 showMove MoveUp    = "UP"
 showMove Clean     = "CLEAN"
 
+-- original main: plays the whole game. But, challenge only wants one move
+main' :: IO ()
+main' = do
+  (x', y') <- liftM (\line -> (takeWhile (/= ' ') line, tail $ dropWhile (/= ' ') line)) getLine
+  let
+    (x, y) = (read x' :: Int, read y' :: Int)
+  input <- liftM lines getContents
+  putStrLn $ prettifyMoves $ runGame $ createGame (x, y) $ reduceGrid $ createGrid input
+
 main :: IO ()
 main = do
-  void $ getLine
+  (x', y') <- liftM (\line -> (takeWhile (/= ' ') line, tail $ dropWhile (/= ' ') line)) getLine
+  let
+    (x, y) = (read x' :: Int, read y' :: Int)
   input <- liftM lines getContents
-  putStrLn $ prettifyMoves $ runGame $ createGame $ reduceGrid $ createGrid input
+  putStrLn $ showMove $ fromJust $ runSingleGame $ createGame (x+1, (y+1)) $ reduceGrid $ createGrid input
