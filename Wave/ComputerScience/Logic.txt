@@ -1,2 +1,6 @@
 Logic in Computer Science
 - source: http://www.eserna.com/Logica/5%20Lectura%202.pdf
+
+
+Handbook of Practical Logic and Automated Reasoning
+- source: https://drive.google.com/file/d/0B3DOH8_Gko0GRlRLek9ZZzlyOFk/edit
