@@ -12,3 +12,4 @@ Type Systems for Programming Languages
 
 Types for Programming and Reasoning
 - source: http://www.janis-voigtlaender.eu/papers/TypesForProgrammingAndReasoning.pdf
+- 07/18/2015: C1-7, re-read this later on
