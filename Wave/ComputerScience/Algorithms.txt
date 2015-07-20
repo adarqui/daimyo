@@ -1,6 +1,8 @@
 Algorithms - A Functional Approach
 - source: http://00000books.googlecode.com/git/Programming/Algorithms..%20a%20functional%20programming%20approach%20(AW,%201999).pdf
+- code: http://www.iro.umontreal.ca/-lapalme/Algorithms-functional.html
 - history:
+- 07/19/2015: Preface, 1-Intro
 
 
 The Algorithm Design Manual
@@ -22,3 +24,7 @@ Dictionary of Algorithms and Dada Structures
 
 Data Structures & Algorithm Analysis in C
 - source: http://svslibrary.pbworks.com/f/Data+Structures+and+Algorithm+Analysis+in+C+-+Mark+Allen+Weiss.pdf
+
+
+Fundamentals of Algorithmics
+- source: https://cerocks.files.wordpress.com/2011/03/fundamentals-of-algorithmics-brassard_ingles.pdf
