@@ -1,14 +1,16 @@
-Name:       Daimyo
-Version:    0.1
-Author:     andrew.darqui@gmail.com
-Maintainer:     andrew.darqui@gmail.com
-Synopsis:   Daimyo
-Description:    Daimyo
-Category:   Daimyo
-Build-Type: Simple
-Cabal-Version:  >= 1.8
-tested-with:    GHC == 7.6.2
-extra-source-files: README.md
+Name:                Daimyo
+Version:             0.1
+Author:              andrew.darqui@gmail.com
+Maintainer:          andrew.darqui@gmail.com
+Synopsis:            Daimyo
+Description:         Daimyo
+license:             MIT
+license-file:        LICENSE
+Category:            Daimyo
+Build-Type:          Simple
+Cabal-Version:       >= 1.8
+tested-with:         GHC == 7.6.2
+extra-source-files:  README.md
 
 Source-Repository head
  Type:               git
@@ -28,6 +30,7 @@ Library
                      Daimyo.List.Pattern
                      Daimyo.Stack
                      Daimyo.Queue,
+                     Daimyo.Tree.BaseTree
                      Daimyo.Tree.Node
                      Daimyo.Tree.BST
                      Daimyo.Tree.Interval
@@ -192,5 +195,4 @@ Library
                      Daimyo.Quiz
                      Daimyo.Athletics.Run
  Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, AC-Angle, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, numbers, gamma
--- diagrams, diagrams-core, diagrams-svg, diagrams-lib, Chart-diagrams, constructive-algebra
  GHC-Options:        -Wall
