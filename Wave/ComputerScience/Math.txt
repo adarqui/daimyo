@@ -8,6 +8,7 @@ Mathematics For Computer Science
 The Haskell Road to Logic, Math, and Programming
 - source: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.137.9312&rep=rep1&type=pdf
 - 07/17/2015: Preface
+- 07/19/2015: 1-Intro
 
 
 Practical Foundations for Programming Languages

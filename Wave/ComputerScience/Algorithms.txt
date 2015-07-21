@@ -3,6 +3,7 @@ Algorithms - A Functional Approach
 - code: http://www.iro.umontreal.ca/-lapalme/Algorithms-functional.html
 - history:
 - 07/19/2015: Preface, 1-Intro
+- 07/20/2015: 2-Haskell
 
 
 The Algorithm Design Manual
