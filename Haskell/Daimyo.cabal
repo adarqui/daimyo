@@ -83,7 +83,6 @@ Library
                      Daimyo.Algebra.Congruence.Solving
                      Daimyo.Algebra.Divisibility
                      Daimyo.Algebra.Divisibility.Common
-                     Daimyo.Algebra.Divisibility.Examples
                      Daimyo.Algebra.LCM
                      Daimyo.Algebra.GCD
                      Daimyo.Algebra.NthRoot
