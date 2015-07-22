@@ -144,7 +144,7 @@ removeSubTree e t@(Node a l r)
 --
 -- foldl :: (b -> a -> b) -> b -> [a] -> b
 --
--- >>> tfold (+) 0 $ fromList [1..4]
+-- >>> tfold (+) 0 (fromList [1..4] :: Tree Int)
 -- 10
 tfold :: (b -> a -> b) -> b -> Tree a -> b
 tfold _ acc Empty = acc
