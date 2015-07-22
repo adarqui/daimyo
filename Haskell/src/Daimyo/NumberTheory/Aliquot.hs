@@ -7,7 +7,7 @@ module Daimyo.NumberTheory.Aliquot (
 
 import Daimyo.Algebra.Divisibility
 
-aliquot'parts = proper'divisors
+aliquot'parts = properDivisors
 
 amicable'pair = undefined
 
