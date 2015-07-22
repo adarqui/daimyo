@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleInstances #-}
+
 module Daimyo.Tree.Node (
   Tree (..),
   fromList,
@@ -22,10 +24,44 @@ module Daimyo.Tree.Node (
   pp
 ) where
 
+import           Control.Applicative
+import           Control.Monad
+import           System.Random
+
 data Tree a
   = Empty
   | Node a (Tree a) (Tree a)
   deriving (Eq, Show)
+
+-- | Functor
+--
+-- >>> fmap not $ Node True Empty Empty
+-- Node False Empty Empty
+--
+instance Functor Tree where
+  fmap f = tmap f
+
+-- | Applicative
+--
+-- >>> not <$> Node False Empty Empty
+-- Node True Empty Empty
+--
+instance Applicative Tree where
+  pure a = Node a Empty Empty
+  f <*> Empty = Empty
+  node@(Node f _ _) <*> Node v l r = Node (f v) (node <*> l) (node <*> r)
+
+-- | Random
+--
+-- should just create a list using randoms g :: [Blah] and then fromList it into a Tree
+--
+-- >>> take 2 (randoms (mkStdGen 5) :: [Tree Bool])
+-- [Node True Empty Empty,Node True Empty Empty]
+--
+instance Random (Tree Bool) where
+  random g = (Node a Empty Empty, g')
+    where
+      (a, g') = random g
 
 -- | toList
 --
@@ -172,7 +208,7 @@ remove e (Node a l r)
 --
 removeSubTree :: (Eq a, Ord a) => a -> Tree a -> Tree a
 removeSubTree e Empty = Empty
-removeSubTree e t@(Node a l r)
+removeSubTree e (Node a l r)
  | e == a = Empty
  | e < a = Node a (removeSubTree e l) r
  | e > a = Node a l (removeSubTree e r)
