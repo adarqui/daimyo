@@ -37,7 +37,7 @@ toList = preOrder
 
 -- | leaf
 --
--- >>> Leaf True
+-- >>> leaf True
 -- Node True Empty Empty
 --
 leaf :: a -> Tree a
