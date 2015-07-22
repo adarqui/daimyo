@@ -1,14 +1,15 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 
 module Daimyo.Logic.Bool (
-  not,
+--  not,
   negation,
-  and,
+--  and,
   conjunction,
-  (&&),
+  (¬),
+--  (&&),
   or,
   disjunction,
-  (||),
+--  (||),
   xor,
   (<+>),
   implies,
@@ -23,10 +24,13 @@ module Daimyo.Logic.Bool (
   valid4,
   logicalEquivalence1,
   logicalEquivalence2,
-  logicalEquivalence3
+  logicalEquivalence3,
+  contradiction1,
+  contradiction2,
+  contradiction3
 ) where
 
-import Prelude (Eq, Show, Bool (..))
+import Prelude (Eq, Show, Bool (..), ($), (==))
 import qualified Prelude as P
 
 -- data Bool
@@ -40,6 +44,7 @@ disjunction = or
 implication = implies
 equivalence = equiv
 
+(¬)   = not
 (&&)  = and
 (||)  = or
 (<=>) = equiv
@@ -227,6 +232,48 @@ logicalEquivalence3 ::
 logicalEquivalence3 bf1 bf2 = P.and [bf1 p q r <=> bf2 p q r | p <- [True, False],
                                                               q <- [True, False],
                                                               r <- [True, False]]
+
+
+
+-- | contradiction1
+--
+-- 2^1 possibilities
+--
+-- >>> contradiction1 (\p -> p && not p)
+-- True
+--
+contradiction1 :: (Bool -> Bool) -> Bool
+contradiction1 bf = (not $ bf True) && (not $ bf False)
+
+-- | contradiction2
+--
+-- 2^2 possibilities
+--
+contradiction2 :: (Bool -> Bool -> Bool) -> Bool
+contradiction2 bf =  (not $ bf True True)
+                  && (not $ bf True False)
+                  && (not $ bf False True)
+                  && (not $ bf False False)
+
+-- | contradiction3
+--
+-- 2^3 possibilities
+--
+contradiction3 :: (Bool -> Bool -> Bool -> Bool) -> Bool
+contradiction3 bf = P.all (==False) [ bf p q r | p <- [True, False],
+                                                 q <- [True, False],
+                                                 r <- [True, False]]
+
+-- | contradiction4
+--
+-- 2^4 possibilities
+--
+contradiction4 :: (Bool -> Bool -> Bool -> Bool -> Bool) -> Bool
+contradiction4 bf = P.all (==False) [ bf p q r s | p <- [True, False],
+                                                   q <- [True, False],
+                                                   r <- [True, False],
+                                                   s <- [True, False]]
+
 -- | Examples
 --
 -- >>> let (p, q) = (True, False) in (not p) `and` (p `implies` q) `equiv` not (q `and` (not p))
@@ -234,3 +281,119 @@ logicalEquivalence3 bf1 bf2 = P.and [bf1 p q r <=> bf2 p q r | p <- [True, False
 -- >>> let formula2 p q = ((not p) && (p ==> q) <=> not (q && (not p))) in valid2 formula2
 -- ?
 --
+
+-- | Laws
+--
+-- Law of double negation:
+-- P ≡ ¬¬P
+--
+-- >>> logicalEquivalence1 (\p -> p) (\p -> not (not p))
+-- True
+--
+--
+-- Laws of idempotence:
+-- P ∧ P ≡ P
+-- P ∨ P ≡ P
+--
+-- >>> logicalEquivalence1 (\p -> p && p) (\p -> p)
+-- True
+--
+-- >>> logicalEquivalence1 (\p -> p || p) (\p -> p)
+-- True
+--
+--
+-- Rewrite:
+-- (P ⇒ Q) ≡ ¬P ∨ Q
+-- ¬(P ⇒ Q) ≡ P ∧ ¬Q
+--
+-- >>> logicalEquivalence2 (\p q -> p ==> q) (\p q -> not p || q)
+-- True
+--
+--
+-- Laws of contraposition:
+-- (¬P ⇒ ¬Q) ≡ (Q ⇒ P)
+-- (P ⇒ ¬Q) ≡ (Q ⇒ ¬P)
+-- (¬P ⇒ Q) ≡ (¬Q ⇒ P)
+--
+-- >>> logicalEquivalence2 (\p q -> not p ==> not q) (\p q -> q ==> p)
+-- True
+--
+-- >>> logicalEquivalence2 (\p q -> p ==> not q) (\p q -> q ==> not p)
+-- True
+--
+-- >>> logicalEquivalence2 (\p q -> not p ==> q) (\p q -> not q ==> p)
+-- True
+--
+--
+-- Rewrite:
+-- (P ⇔ Q) ≡ ((P ⇒ Q) ∧ (Q ⇒ P))
+-- (P ⇔ Q) ≡ ((P ∧ Q) ∨ (¬P ∧ ¬Q))
+--
+-- >>> logicalEquivalence2 (\p q -> p <=> q) (\p q -> (p ==> q) & (q ==> p))
+-- True
+--
+-- >>> logicalEquivalence2 (\p q -> p <=> q) (\p q -> (p && q) || (not p && not q))
+-- True
+--
+--
+-- Laws of commutativity:
+-- P ∧ Q ≡ Q ∧ P
+-- P ∨ Q ≡ Q ∨ P
+--
+-- >>> logicalEquivalence2 (\p q -> p && q) (\p q -> q && p)
+-- True
+--
+-- >>> logicalEquivalence2 (\p q -> p || q) (\p q -> q || p)
+-- True
+--
+--
+-- DeMorgan's laws:
+-- ¬(P ∧ Q) ≡ ¬P ∨ ¬Q
+-- ¬(P ∨ Q) ≡ ¬P ∧ ¬Q
+--
+-- >>> logicalEquivalence2 (\p q -> not (p && q)) (\p q -> not p || not q)
+-- True
+--
+-- >>> logicalEquivalence2 (\p q -> not (p || q)) (\p q -> not p && not q)
+-- True
+--
+--
+-- Laws of associativity:
+-- P ∧ (Q ∧ R) ≡ (P ∧ Q) ∧ R
+-- P ∨ (Q ∨ R) ≡ (P ∨ Q) ∨ R
+--
+-- >>> logicalEquivalence3 (\p q r -> p && (q && r)) (\p q r -> (p && q) && r)
+-- True
+--
+-- >>> logicalEquivalence3 (\p q r -> p || (q || r)) (\p q r -> (p || q) || r)
+-- True
+--
+--
+-- Distribution laws:
+-- P ∧ (Q ∨ R) ≡ (P ∧ Q) ∨ (P ∧ R)
+-- P ∨ (Q ∧ R) ≡ (P ∨ Q) ∧ (P ∨ R)
+--
+-- >>> logicalEquivalence3 (\p q r -> p && (q || r)) (\p q r -> (p && q) || (p && r))
+-- True
+--
+-- >>> logicalEquivalence3 (\p q r -> p || (q && r)) (\p q r -> (p || q) && (p || r))
+-- True
+--
+--
+-- ¬T ≡ ⊥; ¬⊥ ≡ T
+-- P ⇒ ⊥ ≡ ¬P
+--
+--
+-- Dominance laws:
+-- P ∨ T ≡ T
+-- P ∧ ⊥ ≡ ⊥
+--
+-- Identity laws:
+-- P ∨ ⊥ ≡ P
+-- P ∧ T ≡ P
+--
+-- Law of Excluded Middle:
+-- P ∨ ¬P ≡ T
+--
+-- Contradiction:
+-- P ∧ ¬P ≡ ⊥
