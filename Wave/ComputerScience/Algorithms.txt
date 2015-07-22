@@ -4,6 +4,8 @@ Algorithms - A Functional Approach
 - history:
 - 07/19/2015: Preface, 1-Intro
 - 07/20/2015: 2-Haskell
+- 07/21/2015: 3
+- 07/22/2015: 4
 
 
 The Algorithm Design Manual
