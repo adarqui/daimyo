@@ -1,6 +1,6 @@
 module Daimyo.Algebra.GCD (
-    module Daimyo.NumberTheory.GCD,
-    euclid
+  module Daimyo.NumberTheory.GCD,
+  euclid
 ) where
 
 import           Daimyo.NumberTheory.GCD

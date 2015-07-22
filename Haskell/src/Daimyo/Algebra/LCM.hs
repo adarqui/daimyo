@@ -2,8 +2,8 @@ module Daimyo.Algebra.LCM (
     lcm
 ) where
 
-import Daimyo.NumberTheory.GCD
-import Prelude hiding (gcd, lcm)
+import           Daimyo.NumberTheory.GCD
+import           Prelude                 hiding (gcd, lcm)
 
 lcm a b = (a * b) `div` (gcd a b)
 
