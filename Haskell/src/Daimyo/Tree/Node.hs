@@ -4,6 +4,7 @@ module Daimyo.Tree.Node (
   toList,
   leaf,
   size,
+  depth,
   preOrder,
   inOrder,
   postOrder,
@@ -46,6 +47,17 @@ leaf a = Node a Empty Empty
 size :: Num a => Tree b -> a
 size Empty        = 0
 size (Node _ l r) = 1 + size l + size r
+
+-- | depth
+--
+-- >>> depth $ (Node 5 (Node 8 (Node 3 Empty Empty) (Node 1 Empty Empty)) (Node 6 Empty (Node 4 Empty Empty)) :: Tree Int)
+--
+depth :: Tree a -> Int
+depth Empty = 0
+depth (Node _ l r) = max (go 1 l) (go 1 r)
+  where
+    go d Empty        = 0
+    go d (Node _ l r) = 1 + go (d+1) l + go (d+1) r
 
 -- | fromList
 --
