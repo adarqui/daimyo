@@ -5,6 +5,7 @@ module Daimyo.Tree.Node (
   leaf,
   size,
   depth,
+  countEmpty,
   preOrder,
   inOrder,
   postOrder,
@@ -58,6 +59,17 @@ depth (Node _ l r) = max (go 1 l) (go 1 r)
   where
     go d Empty        = 0
     go d (Node _ l r) = 1 + go (d+1) l + go (d+1) r
+
+-- | countEmpty
+--
+-- >>> ountEmpty $ (Node 5 (Node 8 (Node 3 Empty Empty) (Node 1 Empty Empty)) (Node 6 Empty (Node 4 Empty Empty)) :: Tree Int)
+-- 7
+--
+countEmpty :: Tree a -> Int
+countEmpty = tfoldWithNodes f 0
+  where
+    f acc Empty        = acc + 1
+    f acc (Node _ _ _) = acc
 
 -- | fromList
 --
@@ -161,6 +173,16 @@ removeSubTree e t@(Node a l r)
 tfold :: (b -> a -> b) -> b -> Tree a -> b
 tfold _ acc Empty = acc
 tfold f acc (Node v l r) = f (tfold f (tfold f acc r) l) v
+
+-- | tfold
+--
+-- foldl :: (b -> a -> b) -> b -> [a] -> b
+--
+-- >>> tfold (+) 0 (fromList [1..4] :: Tree Int)
+-- 10
+tfoldWithNodes :: (b -> Tree a -> b) -> b -> Tree a -> b
+tfoldWithNodes f acc Empty = f acc Empty
+tfoldWithNodes f acc (Node v l r) = f (tfoldWithNodes f (tfoldWithNodes f acc r) l) (Node v l r)
 
 -- | tmap
 --
