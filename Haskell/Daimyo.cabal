@@ -39,6 +39,8 @@ Library
                      Daimyo.Tree.Misc
                      Daimyo.Tree.Instances.Node
                      Daimyo.Tree.Instances.BST
+                     Daimyo.Optimizations
+                     Daimyo.Optimizations.List
                      Daimyo.Measure.Time
                      Daimyo.Measure.Metric
                      Daimyo.Measure.Bandwidth
