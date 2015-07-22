@@ -8,10 +8,12 @@ module Daimyo.Tree.Node (
   countEmpty,
   preOrder,
   inOrder,
+  inOrderOptimized,
   postOrder,
   levelOrder,
   find,
   insert,
+  tflip,
   tfold,
   tmap,
 -- union,
@@ -100,6 +102,17 @@ inOrder :: Tree a -> [a]
 inOrder Empty        = []
 inOrder (Node a l r) = inOrder l ++ [a] ++ inOrder r
 
+-- | inOrderOptimized
+--
+-- >>> inOrderOptimized (fromList [1,5,2,7,3,8] :: Tree Int)
+-- [1,2,3,5,7,8]
+--
+inOrderOptimized :: Tree a -> [a]
+inOrderOptimized t = go t []
+  where
+    go Empty acc        = acc
+    go (Node v l r) acc = go l (v : go r acc)
+
 -- | postOrder
 --
 -- >>> postOrder (fromList [1,5,2,7,3,8] :: Tree Int)
@@ -163,6 +176,15 @@ removeSubTree e t@(Node a l r)
  | e == a = Empty
  | e < a = Node a (removeSubTree e l) r
  | e > a = Node a l (removeSubTree e r)
+
+-- | tflip
+--
+-- >>> inOrderOptimized $ tflip (fromList [1,5,2,7,3,8] :: Tree Int)
+-- [8,7,5,3,2,1]
+--
+tflip :: Tree a -> Tree a
+tflip Empty = Empty
+tflip (Node v l r) = Node v (tflip r) (tflip l)
 
 -- | tfold
 --
