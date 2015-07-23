@@ -49,7 +49,7 @@ getLower = getString [isAscii, isLower]
 getUpper = getString [isAscii, isUpper]
 getDigits = getString [isAscii, isDigit]
 
-getBits n = concatMap (\b -> char2bits (ord b)) (getRaw n)
+getBits n = concatMap (\b -> charToBits (ord b)) (getRaw n)
 
 listOfWord64 = do
     empty <- Bin.isEmpty
