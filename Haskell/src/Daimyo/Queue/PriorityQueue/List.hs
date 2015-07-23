@@ -5,7 +5,9 @@ module Daimyo.Queue.PriorityQueue.List (
   empty,
   isEmpty,
   enqueue,
-  dequeue
+  enqueueBy,
+  dequeue,
+  bottom
 ) where
 
 -- | ExamplePriority
@@ -45,18 +47,23 @@ isEmpty _           = False
 -- PQueue [EPNode EPSevere "servere1",EPNode EPHigh "high1",EPNode EPHigh "high2",EPNode EPMedium "med1",EPNode EPLow "low1"]
 --
 enqueue :: Ord a => a -> PQueue a -> PQueue a
-enqueue x (PQueue q) = PQueue (insert x q)
+enqueue = enqueueBy (\a b -> a <= b)
+
+-- | enqueueBy
+--
+enqueueBy :: (a -> a -> Bool) -> a -> PQueue a -> PQueue a
+enqueueBy cmp x (PQueue q) = PQueue (insert q)
   where
-    insert x [] = [x]
-    insert x qall@(e:es)
-      | x <= e    = x : qall
-      | otherwise = e : insert x es
+    insert [] = [x]
+    insert qall@(e:es)
+      | cmp x e   = x : qall
+      | otherwise = e : insert es
 
 -- | dequeue
 --
 dequeue :: PQueue a -> Maybe (PQueue a)
 dequeue (PQueue [])     = Nothing
-dequeue (PQueue (x:xs)) = Just $ PQueue xs
+dequeue (PQueue (_:xs)) = Just $ PQueue xs
 
 -- | bottom
 --
