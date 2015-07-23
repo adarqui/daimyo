@@ -1,8 +1,8 @@
 module Daimyo.Algorithm.Growth.Detective (
-    detect,
-    detect'N,
-    detect'compare,
-    tests
+  detect,
+  detectN,
+  detectCompare,
+  detectTests
 ) where
 
 import Daimyo.Algorithm.Growth
@@ -11,47 +11,54 @@ import Daimyo.NumberTheory.Factorial
 import Daimyo.NumberTheory.Fibonacci
 import Data.List
 
-{-
-    experimental functions for finding the O(...) growth of a function
--}
+-- | detectN
+--
+-- experimental functions for finding the O(...) growth of a function
+--
+-- >>>
+--
+detectN :: (Double -> Double) -> Double -> (String, Double)
+detectN f n = detect f [1..n]
 
-detect'N f n = detect f [1..n]
+-- | detect
+--
+--
+detect :: (Double -> Double) -> [Double] -> (String, Double)
+detect f interval = minimumBy (\(name1,sum1) (name2,sum2) -> compare sum1 sum2) sums
+  where
+    comparisons = map (detectCompare f interval) growthFunctions
+    sums        = map (\(name,values) -> (name, sum values)) comparisons
+    z           = sum $ map f interval
 
-detect f interval =
-    let
-        comparisons = map (\g -> detect'compare f interval g) growthFunctions
-        sums = map (\(name,values) -> (name, sum values)) comparisons
-        z = sum $ map f interval
-    in
-        minimumBy (\(name1,sum1) (name2,sum2) -> compare sum1 sum2) sums
---        (minimumBy (\(name1,sum1) (name2,sum2) -> compare sum1 sum2) sums, z, sums)
+-- | detectCompare
+--
+-- compare a function, up to n values, against g (a growth function structure)
+--
+-- >>>
+--
+detectCompare :: (Double -> Double) -> [Double] -> Growth -> (String, [Double])
+detectCompare f interval g = (_name g, testGrowthFunctionResults results g_results)
+  where
+    results = gaps $ map f interval
+    g_results = (_growthFn g) interval
 
-{-
-    compare a function, up to n values, against g (a growth function structure)
--}
-detect'compare f interval g =
-    let
-        results = gaps $ map f interval
-        g'results = (_growthFn g) interval
-    in
-        (_name g, testGrowthFunctionResults results g'results)
-
-
-tests =
-    let
-        interval = [10..100]
-    in
-        [
-            detect (\x -> 3*x+100) interval,
-            detect (\x -> 3*x) interval,
-            detect (\x -> 3*(x*x)+100) interval,
-            detect (\x -> 3*2**x) interval,
-            detect (\x -> 3*(fac x)+100) interval,
-            detect (\x -> 3*(fromIntegral (fibonacciNumbers !! (truncate x)) :: Double)+100) interval,
-            detect (\x -> 3*(log x)+100) interval,
-            detect (\x -> 3*(log (log x))+100) interval,
-            detect (\x -> 10+sin x) interval,
-            detect (\x -> 10+cos x) interval,
-            detect (\x -> 10+tan x) interval,
-            detect (\x -> 3+(fromIntegral (primes !! (truncate x)) :: Double)+100) interval
-        ]
+-- | detectTests
+--
+detectTests :: [(String, Double)]
+detectTests =
+  [
+    detect (\x -> 3*x+100) interval,
+    detect (\x -> 3*x) interval,
+    detect (\x -> 3*(x*x)+100) interval,
+    detect (\x -> 3*2**x) interval,
+    detect (\x -> 3*(fac x)+100) interval,
+    detect (\x -> 3*(fromIntegral (fibonacciNumbers !! (truncate x)) :: Double)+100) interval,
+    detect (\x -> 3*(log x)+100) interval,
+    detect (\x -> 3*(log (log x))+100) interval,
+    detect (\x -> 10+sin x) interval,
+    detect (\x -> 10+cos x) interval,
+    detect (\x -> 10+tan x) interval,
+    detect (\x -> 3+(fromIntegral (primes !! (truncate x)) :: Double)+100) interval
+  ]
+  where
+    interval = [10..100]
