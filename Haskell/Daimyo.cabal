@@ -54,6 +54,8 @@ Library
                      Daimyo.Set.List
                      Daimyo.Set.NodeTree
                      Daimyo.Set.Naive
+                     Daimyo.Table.Naive
+                     Daimyo.Table.List
                      Daimyo.Bits
                      Daimyo.Math.Primes
                      Daimyo.Math.Powers
