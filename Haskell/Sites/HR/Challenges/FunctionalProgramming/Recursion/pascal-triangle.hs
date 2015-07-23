@@ -35,7 +35,7 @@ binomial x y n = map formula [0..n]
 -- [[5,5],[25,50,25],[125,375,375,125],[625,2500,3750,2500,625],[3125,15625,31250,31250, 15625,3125]]
 --
 pascalData :: Integral a => a -> a -> a -> [[a]]
-pascalData x y n = map (binomial x y) [1..n]
+pascalData x y n = [x] : map (binomial x y) [1..n]
 
 -- | choose
 --
