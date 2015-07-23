@@ -4,7 +4,8 @@ module Daimyo.Stack.List (
   pop,
   top,
   empty,
-  isEmpty
+  isEmpty,
+  size
 ) where
 
 -- | Stack
@@ -40,3 +41,9 @@ empty = Stack []
 isEmpty :: Stack a -> Bool
 isEmpty (Stack []) = True
 isEmpty _          = False
+
+-- | size
+--
+size :: Stack a -> Int
+size (Stack [])     = 0
+size (Stack (_:xs)) = 1 + (size (Stack xs))

@@ -31,7 +31,7 @@ isEmpty (Queue _)  = False
 --
 size :: Queue a -> Int
 size (Queue [])     = 0
-size (Queue (_:xs)) = size (Queue xs)
+size (Queue (_:xs)) = 1 + size (Queue xs)
 
 -- | enqueue
 --
