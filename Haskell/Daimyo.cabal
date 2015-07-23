@@ -29,7 +29,8 @@ Library
                      Daimyo.List.Misc
                      Daimyo.List.Pattern
                      Daimyo.Stack.Naive
-                     Daimyo.Queue,
+                     Daimyo.Stack.List
+                     Daimyo.Queue.Naive,
                      Daimyo.Tree.BaseTree
                      Daimyo.Tree.Node
                      Daimyo.Tree.BST
