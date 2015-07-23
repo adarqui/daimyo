@@ -1,101 +1,146 @@
--- MAJOR TODO FIXME: turn these into BIG NUMS. Double is too small.
-
 module Daimyo.Algorithm.Growth (
-    Growth (..),
-    gaps,
-    gaps'n,
-    gaps'n2,
-    gaps'logn,
-    gaps'log'logn,
-    gaps'nfac,
-    gaps'fib,
-    gaps'2expn,
-    gaps'sin,
-    gaps'cos,
-    gaps'tan,
-    gaps'primes,
-    growth'n,
-    growth'n2,
-    growth'logn,
-    growth'log'logn,
-    growth'nfac,
-    growth'2expn,
-    growth'fib,
-    growth'sin,
-    growth'cos,
-    growth'tan,
-    growth'primes,
-    growthFunctions,
-    testGrowthFunctionResults
+  Growth (..),
+  gaps,
+  gapsN,
+  gapsNSquared,
+  gapsLog,
+  gapsLogLog,
+  gapsFac,
+  gapsFib,
+  gaps2Expn,
+  gapsSin,
+  gapsCos,
+  gapsTan,
+  gapsPrimes,
+  growthN,
+  growthNSquared,
+  growthLog,
+  growthLogLog,
+  growthFac,
+  growth2Expn,
+  growthFib,
+  growthSin,
+  growthCos,
+  growthTan,
+  growthPrimes,
+  growthFunctions,
+  testGrowthFunctionResults
 ) where
 
-import Daimyo.NumberTheory.Prime
-import Daimyo.NumberTheory.Factorial
-import Daimyo.NumberTheory.Fibonacci
+import           Daimyo.NumberTheory.Factorial
+import           Daimyo.NumberTheory.Fibonacci
+import           Daimyo.NumberTheory.Prime
 
-import Data.List
-
+-- | Growth
+--
 data Growth = Growth {
-    _name :: String,
+    _name     :: String,
     _growthFn :: [Double] -> [Double]
 }
 
-gaps [] = []
-gaps (ij:[]) = []
+-- | gaps
+--
+-- >>> gaps [1,2,3,4] :: [Int]
+-- [1,1,1]
+--
+-- >>> gaps [3,6,12,24] :: [Int]
+-- [3,6,12]
+--
+gaps :: Num t => [t] -> [t]
+gaps []         = []
+gaps (_:[])     = []
 gaps (ij:ik:is) = (ik - ij) : gaps (ik : is)
 
-gaps'n interval = gaps [ n | n <- interval ]
-gaps'n2 interval = gaps [ n*n | n <- interval ]
-gaps'logn interval = gaps [ log n | n <- interval ]
-gaps'log'logn interval = gaps [ log (log n) | n <- interval ]
-gaps'nfac interval = gaps [ fac n | n <- interval ]
+-- | gapsN
+--
+gapsN :: Num t => [t] -> [t]
+gapsN interval = gaps [ n | n <- interval ]
 
+-- | gapsNSquared
+--
+gapsNSquared :: Num t => [t] -> [t]
+gapsNSquared interval = gaps [ n*n | n <- interval ]
+
+-- | gapsLog
+--
+gapsLog :: Floating t => [t] -> [t]
+gapsLog interval = gaps [ log n | n <- interval ]
+
+-- | gapsLogLog
+--
+gapsLogLog :: Floating t => [t] -> [t]
+gapsLogLog interval = gaps [ log (log n) | n <- interval ]
+
+-- | gapsFac
+--
+gapsFac :: (Num t, Eq t) => [t] -> [t]
+gapsFac interval = gaps [ fac n | n <- interval ]
+
+-- | gapsFib
+--
 -- using this method because fibonacci is so slow
-gaps'fib interval =
-    let
-        fibs' = map (\n -> fromIntegral (fibonacciNumbers !! (truncate n)) :: Double) interval
-    in
-        gaps fibs'
-gaps'2expn interval = gaps [ 2**n | n <- interval ]
-gaps'sin interval = gaps [ sin n | n <- interval ]
-gaps'cos interval = gaps [ cos n | n <- interval ]
-gaps'tan interval = gaps [ tan n | n <- interval ]
-gaps'primes interval =
-    let
-        -- noob
-        primes' = map (\n -> fromIntegral (primes !! (truncate n)) :: Double) interval
-    in
-        gaps primes'
+--
+gapsFib :: RealFrac a => [a] -> [Double]
+gapsFib interval = gaps fibs'
+  where
+    fibs' = map (\n -> fromIntegral (fibonacciNumbers !! (truncate n)) :: Double) interval
 
-growth'n = Growth "n" gaps'n
-growth'n2 = Growth "n^2" gaps'n2
-growth'logn = Growth "logn" gaps'logn
-growth'log'logn = Growth "log(logn)" gaps'log'logn
-growth'nfac = Growth "n!" gaps'nfac
-growth'fib = Growth "fib" gaps'fib
-growth'2expn = Growth "2^n" gaps'2expn
-growth'sin = Growth "sin" gaps'sin
-growth'cos = Growth "cos" gaps'cos
-growth'tan = Growth "tan" gaps'tan
-growth'primes = Growth "primes" gaps'primes
+-- | gaps2Expn
+--
+gaps2Expn :: Floating t => [t] -> [t]
+gaps2Expn interval = gaps [ 2**n | n <- interval ]
 
+-- | gapsSin
+--
+gapsSin :: Floating t => [t] -> [t]
+gapsSin interval = gaps [ sin n | n <- interval ]
+
+-- | gapsCos
+--
+gapsCos :: Floating t => [t] -> [t]
+gapsCos interval = gaps [ cos n | n <- interval ]
+
+-- | gapsTan
+--
+gapsTan :: Floating t => [t] -> [t]
+gapsTan interval = gaps [ tan n | n <- interval ]
+
+-- | gapsPrimes
+--
+gapsPrimes :: RealFrac a => [a] -> [Double]
+gapsPrimes interval = gaps indexedPrimes
+  where
+    indexedPrimes = map (\n -> fromIntegral (primes !! (truncate n)) :: Double) interval
+
+growthN        = Growth "n" gapsN
+growthNSquared = Growth "n^2" gapsNSquared
+growthLog      = Growth "logn" gapsLog
+growthLogLog   = Growth "log(logn)" gapsLogLog
+growthFac      = Growth "n!" gapsFac
+growthFib      = Growth "fib" gapsFib
+growth2Expn    = Growth "2^n" gaps2Expn
+growthSin      = Growth "sin" gapsSin
+growthCos      = Growth "cos" gapsCos
+growthTan      = Growth "tan" gapsTan
+growthPrimes   = Growth "primes" gapsPrimes
+
+growthFunctions :: [Growth]
 growthFunctions =
-    [
-        growth'n,
-        growth'n2,
-        growth'logn,
-        growth'log'logn,
-        growth'nfac,
-        growth'fib,
-        growth'2expn,
-        growth'sin,
-        growth'cos,
-        growth'tan,
-        growth'primes
-    ]
+  [
+    growthN,
+    growthNSquared,
+    growthLog,
+    growthLogLog,
+    growthFac,
+    growthFib,
+    growth2Expn,
+    growthSin,
+    growthCos,
+    growthTan,
+    growthPrimes
+  ]
 
-testGrowthFunctionResults ns gs = 
-    let
-        nsgs = zip ns gs
-    in
-        map (\(n,g) -> abs (abs n - abs g)) nsgs
+testGrowthFunctionResults :: Num b => [b] -> [b] -> [b]
+testGrowthFunctionResults ns gs = map (\(n,g) -> abs (n - g)) nsgs
+  where
+    nsgs = zip ns gs
