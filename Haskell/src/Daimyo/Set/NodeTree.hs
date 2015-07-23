@@ -1,4 +1,4 @@
-module Daimyo.Set (
+module Daimyo.Set.NodeTree (
  Set,
  fromList,
  toList,
