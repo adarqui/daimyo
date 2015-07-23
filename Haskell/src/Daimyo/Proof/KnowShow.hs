@@ -28,7 +28,7 @@ knowShow title ps qs =
             m = fromLists $ [firstRow] ++ ps' ++ qs'
         }
 
-printit ks = print'table 5 $ toLists $ m ks
+printit ks = printSimpleTable 5 $ toLists $ m ks
 
 
 t_knowShow =
