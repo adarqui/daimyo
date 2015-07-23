@@ -24,11 +24,10 @@ detectN f n = detect f [1..n]
 --
 --
 detect :: (Double -> Double) -> [Double] -> (String, Double)
-detect f interval = minimumBy (\(name1,sum1) (name2,sum2) -> compare sum1 sum2) sums
+detect f interval = minimumBy (\(_,sum1) (_,sum2) -> compare sum1 sum2) sums
   where
     comparisons = map (detectCompare f interval) growthFunctions
     sums        = map (\(name,values) -> (name, sum values)) comparisons
-    z           = sum $ map f interval
 
 -- | detectCompare
 --
