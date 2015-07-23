@@ -6,7 +6,7 @@ import           Text.Printf
 main :: IO ()
 main = do
   [x, y] :: [Int] <- (map read . words) <$> getLine
-  putStrLn $ format x y (myGcd x y)
+  putStrLn $ show $ myGcd x y
 
 -- | myGcd
 --
