@@ -1,7 +1,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
-import Control.Applicative
-import Text.Printf
+import           Control.Applicative
+import           Text.Printf
 
 main :: IO ()
 main = do
