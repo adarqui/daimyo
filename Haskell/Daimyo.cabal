@@ -33,6 +33,7 @@ Library
                      Daimyo.Queue.Naive,
                      Daimyo.Queue.List,
                      Daimyo.Queue.Burton,
+                     Daimyo.Queue.PriorityQueue.List,
                      Daimyo.Tree.BaseTree
                      Daimyo.Tree.Node
                      Daimyo.Tree.BST
