@@ -10,6 +10,7 @@ The Haskell Road to Logic, Math, and Programming
 - 07/17/2015: Preface
 - 07/19/2015: 1-Intro
 - 07/21/2015: 2.1
+- 07/22/2015: 2.2
 
 
 Practical Foundations for Programming Languages
