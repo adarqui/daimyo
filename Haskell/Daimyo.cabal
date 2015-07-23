@@ -50,6 +50,7 @@ Library
                      Daimyo.Measure.Metric
                      Daimyo.Measure.Bandwidth
                      Daimyo.Set.Bit
+                     Daimyo.Set.Bits
                      Daimyo.Set.List
                      Daimyo.Set.NodeTree
                      Daimyo.Set.Naive
