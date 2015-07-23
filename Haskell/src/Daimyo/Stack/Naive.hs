@@ -1,4 +1,4 @@
-module Daimyo.Stack (
+module Daimyo.Stack.Naive (
  Stack,
  empty,
  size,

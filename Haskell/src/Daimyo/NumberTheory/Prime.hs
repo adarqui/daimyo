@@ -77,7 +77,7 @@ coprimes = cosieve 4 [6..]
 
 cosieve p (x:xs) =
     let
-        xs' = [ x' | x' <- xs, not $ isPrime x' ] 
+        xs' = [ x' | x' <- xs, not $ isPrime x' ]
     in
         p : cosieve x xs'
 
@@ -192,7 +192,7 @@ prime'number'theorem'approx x =
 t_prime'number'theorem'approx = map prime'number'theorem'approx [100,200..1000]
 
 limit'prime'number'theorem =
-    lim
+    limit
         (\x ->
             (fromIntegral (prime'number'theorem (truncate x)) :: Double) / prime'number'theorem'approx (truncate x))
 
