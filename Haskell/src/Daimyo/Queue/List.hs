@@ -3,7 +3,7 @@ module Daimyo.Queue.List (
   size,
   enqueue,
   dequeue,
-  bottom,
+  front,
   empty,
   isEmpty,
   fromList,
@@ -44,11 +44,11 @@ dequeue :: Queue a -> Maybe (Queue a)
 dequeue (Queue [])     = Nothing
 dequeue (Queue (_:xs)) = Just $ Queue xs
 
--- | bottom
+-- | front
 --
-bottom :: Queue a -> Maybe a
-bottom (Queue [])    = Nothing
-bottom (Queue (x:_)) = Just x
+front :: Queue a -> Maybe a
+front (Queue [])    = Nothing
+front (Queue (x:_)) = Just x
 
 -- | fromList
 --

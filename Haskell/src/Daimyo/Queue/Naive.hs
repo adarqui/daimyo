@@ -4,7 +4,7 @@ module Daimyo.Queue.Naive (
   size,
   enqueue,
   dequeue,
-  bottom,
+  front,
   fromList,
   toList
 ) where
@@ -37,13 +37,13 @@ enqueue a (Node a' r') = Node a' (enqueue a r')
 --
 dequeue :: Queue a -> Maybe (Queue a)
 dequeue Empty      = Nothing
-dequeue (Node a r) = Just r
+dequeue (Node _ r) = Just r
 
--- | bottom
+-- | front
 --
-bottom :: Queue a -> Maybe a
-bottom Empty      = Nothing
-bottom (Node a _) = Just a
+front :: Queue a -> Maybe a
+front Empty      = Nothing
+front (Node a _) = Just a
 
 -- | fromList
 --

@@ -7,7 +7,7 @@ module Daimyo.Queue.PriorityQueue.List (
   enqueue,
   enqueueBy,
   dequeue,
-  bottom
+  front
 ) where
 
 -- | ExamplePriority
@@ -65,8 +65,8 @@ dequeue :: PQueue a -> Maybe (PQueue a)
 dequeue (PQueue [])     = Nothing
 dequeue (PQueue (_:xs)) = Just $ PQueue xs
 
--- | bottom
+-- | front
 --
-bottom :: PQueue a -> Maybe a
-bottom (PQueue [])    = Nothing
-bottom (PQueue (x:_)) = Just x
+front :: PQueue a -> Maybe a
+front (PQueue [])    = Nothing
+front (PQueue (x:_)) = Just x

@@ -3,7 +3,7 @@ module Daimyo.Queue.Burton (
   size,
   enqueue,
   dequeue,
-  bottom,
+  front,
   empty,
   isEmpty,
   fromList,
@@ -47,11 +47,11 @@ dequeue (Queue ([], []))     = Nothing
 dequeue (Queue ([], ys))     = Just $ Queue (tail (reverse ys), [])
 dequeue (Queue ((_:xs), ys)) = Just $ Queue (xs, ys)
 
--- | bottom
+-- | front
 --
-bottom :: Queue a -> Maybe a
-bottom (Queue ([], []))   = Nothing
-bottom (Queue ((x:_), _)) = Just x
+front :: Queue a -> Maybe a
+front (Queue ([], []))   = Nothing
+front (Queue ((x:_), _)) = Just x
 
 -- | fromList
 --

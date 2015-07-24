@@ -38,5 +38,4 @@ findTable i (Table arr) = arr ! i
 -- "hello"
 --
 updateTable :: Ix i => (i,x) -> Table x i -> Table x i
-updateT
-able p (Table arr) = Table (arr // [p])
+updateTable p (Table arr) = Table (arr // [p])
