@@ -78,6 +78,7 @@ Library
                      Daimyo.Sorting.Insert
                      Daimyo.Sorting.OddEven
                      Daimyo.Sorting.InsertionSort.Naive
+                     Daimyo.Sorting.InsertionSort.Fold
                      Daimyo.Sorting.MergeSort.Naive
                      Daimyo.Sorting.SelectionSort.Naive
                      Daimyo.Sorting.QuickSort.Naive
