@@ -33,7 +33,8 @@ Library
                      Daimyo.Queue.Naive,
                      Daimyo.Queue.List,
                      Daimyo.Queue.Burton,
-                     Daimyo.Queue.PriorityQueue.List,
+                     Daimyo.Queue.PriorityQueue.List
+                     Daimyo.Queue.PriorityQueue.LeftistHeap
                      Daimyo.Tree.BaseTree
                      Daimyo.Tree.Node
                      Daimyo.Tree.BST
@@ -43,6 +44,7 @@ Library
                      Daimyo.Tree.Misc
                      Daimyo.Tree.Instances.Node
                      Daimyo.Tree.Instances.BST
+                     Daimyo.Heap.Leftist
                      Daimyo.Optimizations
                      Daimyo.Optimizations.List
                      Daimyo.Optimizations.Tree
