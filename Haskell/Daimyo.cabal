@@ -38,6 +38,7 @@ Library
                      Daimyo.Queue.Burton,
                      Daimyo.Queue.PriorityQueue.List
                      Daimyo.Queue.PriorityQueue.LeftistHeap
+                     Daimyo.Tree.AVL
                      Daimyo.Tree.BaseTree
                      Daimyo.Tree.Node
                      Daimyo.Tree.BST

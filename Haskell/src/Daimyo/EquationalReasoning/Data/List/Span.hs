@@ -1,4 +1,6 @@
 module Daimyo.EquationalReasoning.Data.List.Span (
+  span_test,
+  span_eqr
 ) where
 
 import           Prelude hiding (span)
@@ -32,7 +34,7 @@ span_test = span (< 3) [1,2,3] == span_eqr
 -- >>> span_eqr
 -- ([1,2],[3])
 --
-span_eqr :: [(Integer, Integer)]
+span_eqr :: ([Integer], [Integer])
 span_eqr = span_eqr1 [1,2,3]
   where
     span_eqr1 (1:[2,3])
