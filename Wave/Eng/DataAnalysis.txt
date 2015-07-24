@@ -1,0 +1,6 @@
+Haskell Data Analysis Cookbook
+- source:
+
+
+Haskell Financial Data Modeling and Predictive Analytics
+- source:
