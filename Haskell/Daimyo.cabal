@@ -77,6 +77,10 @@ Library
                      Daimyo.Math.Mean.Generalized
                      Daimyo.Sorting.Insert
                      Daimyo.Sorting.OddEven
+                     Daimyo.Sorting.InsertionSort.Naive
+                     Daimyo.Sorting.MergeSort.Naive
+                     Daimyo.Sorting.SelectionSort.Naive
+                     Daimyo.Sorting.QuickSort.Naive
                      Daimyo.Encryption.Transposition
                      Daimyo.Permutation.Heaps
                      Daimyo.Fun.Binary
