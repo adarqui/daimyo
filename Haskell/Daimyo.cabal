@@ -42,6 +42,7 @@ Library
                      Daimyo.Tree.AVL
                      Daimyo.Tree.BaseTree
                      Daimyo.Tree.Node
+                     Daimyo.Tree.Node.Dups
                      Daimyo.Tree.BST
                      Daimyo.Tree.Interval
                      Daimyo.Tree.Segment
