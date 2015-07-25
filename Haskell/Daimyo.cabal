@@ -184,6 +184,7 @@ Library
                      Daimyo.NumberTheory.Brier
                      Daimyo.NumberTheory.Consecutive
                      Daimyo.NumberTheory.Fibonacci
+                     Daimyo.NumberTheory.Fibonacci.Array
                      Daimyo.NumberTheory.Binet
                      Daimyo.NumberTheory.Lucas
                      Daimyo.NumberTheory.GoldenRatio
