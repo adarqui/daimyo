@@ -2,11 +2,15 @@ module Daimyo.Stack.List (
   Stack,
   push,
   pop,
+  pop',
   top,
+  top',
   empty,
   isEmpty,
   size
 ) where
+
+import           Data.Maybe
 
 -- | Stack
 --
@@ -25,11 +29,25 @@ pop :: Stack a -> Maybe (Stack a)
 pop (Stack [])     = Nothing
 pop (Stack (_:xs)) = Just $ Stack xs
 
+-- | pop'
+--
+-- dangerous: assumes Stack is not empty
+--
+pop' :: Stack a -> Stack a
+pop' = fromJust . pop
+
 -- | top
 --
 top :: Stack a -> Maybe a
 top (Stack [])    = Nothing
 top (Stack (x:_)) = Just x
+
+-- | top'
+--
+-- dangerous: assumes Stack is not empty
+--
+top' :: Stack a -> a
+top' = fromJust . top
 
 -- | empty
 --

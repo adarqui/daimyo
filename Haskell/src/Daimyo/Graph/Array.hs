@@ -10,9 +10,14 @@ module Daimyo.Graph.Array (
   weight,
   edges,
   edgesU,
-  sparsity
+  sparsity,
+  dfsList,
+  dfsStackList,
+  bfsList,
+  bfsQueueList
 ) where
 
+import qualified Daimyo.Stack.List as Stack
 import           GHC.Arr
 
 -- | Graph
@@ -120,3 +125,48 @@ sparsity g
     e = fromIntegral $ length $ edges g
     v = fromIntegral $ length $ vertices g
     z = v*log v
+
+-- | dfsList
+--
+-- >>> dfsList 1 (mkGraph (1,6) [(1,2,0),(1,3,0),(1,4,0),(3,6,0),(6,2,0),(6,5,0),(5,4,0)] :: Graph Int Double)
+-- [1,4,3,6,5,2]
+--
+dfsList :: Ix a => a -> Graph a w -> [a]
+dfsList start (Graph g) = reverse $ go [start] []
+  where
+    go [] visited      = visited
+    go (c:cs) visited
+      | elem c visited = go cs visited
+      | otherwise      = go (adjacent c (Graph g) ++ cs) (c:visited)
+
+-- | dfsStackList
+--
+-- >>> dfsStackList 1 (mkGraph (1,6) [(1,2,0),(1,3,0),(1,4,0),(3,6,0),(6,2,0),(6,5,0),(5,4,0)] :: Graph Int Double)
+-- [1,4,3,6,5,2]
+--
+dfsStackList :: Ix a => a -> Graph a w -> [a]
+dfsStackList start (Graph g) = reverse $ go (Stack.push start Stack.empty) []
+  where
+    go stack visited
+      | Stack.isEmpty stack             = visited
+      | elem (Stack.top' stack) visited = go (Stack.pop' stack) visited
+      | otherwise                       = go candidates (c:visited)
+        where
+          c          = Stack.top' stack
+          candidates = foldr Stack.push (Stack.pop' stack) (adjacent c (Graph g))
+
+-- | bfsList
+--
+
+-- | bfsQueueList
+--
+dfsQueueList :: Ix a => a -> Graph a w -> [a]
+dfsQueueList start (Graph g) = reverse $ go (Queue.enqueue start Queue.empty) []
+  where
+    go q visited
+      | Queue.isEmpty q               = visited
+      | elem (Queue.front' q) visited = go (Stack.pop' stack) visited
+      | otherwise                = go candidates (c:visited)
+        where
+          c          = Stack.top' stack
+          candidates = foldr Stack.push (Stack.pop' stack) (adjacent c (Graph g))
