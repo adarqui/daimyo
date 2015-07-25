@@ -1,12 +1,15 @@
 module Daimyo.Graph.AdjacencyMatrix (
   Graph (..),
+  Sparsity (..),
   mkGraph,
   mkUndirectedAssocs,
   adjacent,
   nodes,
+  vertices,
   weight,
   edgeIn,
-  edges
+  edges,
+  sparsity
 ) where
 
 import           Data.Maybe
@@ -17,6 +20,13 @@ import           GHC.Arr
 newtype Graph a w
   = Graph { runGraph :: Array (a,a) (Maybe w) }
   deriving (Show)
+
+-- | Sparsity
+--
+data Sparsity
+  = Sparse Double
+  | Dense Double
+  deriving (Eq, Show)
 
 -- | mkGraph
 --
@@ -52,6 +62,11 @@ nodes (Graph g) = range (l,u)
   where
     ((l,_),(u,_)) = bounds g
 
+-- | vertices
+--
+vertices :: Ix a => Graph a w -> [a]
+vertices = nodes
+
 -- | edgeIn
 --
 -- >>> edgeIn (1,2) (mkGraph (1,3) [((1,2),5.5),((2,1),10.9),((1,3),56.3)] :: Graph Int Double)
@@ -78,3 +93,20 @@ weight x y (Graph g) = fromJust (g ! (x,y))
 --
 edges :: (Ix a, Eq w) => Graph a w -> [((a, a), w)]
 edges (Graph g) = [ ((v1,v2),fromJust (g!(v1,v2))) | v1 <- nodes (Graph g), v2 <- nodes (Graph g), edgeIn (v1, v2) (Graph g) ]
+
+-- | sparsity
+--
+-- >>> sparsity (mkGraph (1,3) [((1,2),5.5),((2,1),10.9),((1,3),56.3)] :: Graph Int Double)
+-- Sparse 3.295836866004329
+--
+-- >>> parsity (mkGraph (1,3) [((1,2),5.5),((2,1),10.9),((1,3),56.3),((3,1),1.0)] :: Graph Int Double)
+-- Dense 3.295836866004329
+--
+sparsity :: (Ix a, Eq w) => Graph a w -> Sparsity
+sparsity g
+  | e < z      = Sparse z
+  | otherwise  = Dense z
+  where
+    e = fromIntegral $ length $ edges g
+    v = fromIntegral $ length $ vertices g
+    z = v*log v

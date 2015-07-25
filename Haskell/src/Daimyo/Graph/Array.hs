@@ -5,10 +5,12 @@ module Daimyo.Graph.Array (
   mkEdges,
   adjacent,
   nodes,
+  vertices,
   edgeIn,
   weight,
-  edgesD,
-  edgesU
+  edges,
+  edgesU,
+  sparsity
 ) where
 
 import           GHC.Arr
@@ -19,26 +21,33 @@ newtype Graph a w
   = Graph { runGraph :: Array a [(a, w)] }
   deriving (Show)
 
+-- | Sparsity
+--
+data Sparsity
+  = Sparse Double
+  | Dense Double
+  deriving (Eq, Show)
+
 -- | mkGraph
 --
 -- >>> mkGraph (1,3) [(1,2,5.5),(2,1,10.9),(1,3,56.3)] :: Graph Int Double
 -- Graph {runGraph = array (1,3) [(1,[(3,56.3),(2,5.5)]),(2,[(1,10.9)]),(3,[])]}
 --
 mkGraph :: Ix a => (a, a) -> [(a, a, w)] -> Graph a w
-mkGraph bounds' edges = Graph $ (accumArray accfn [] bounds' edges')
+mkGraph bounds' es = Graph $ (accumArray accfn [] bounds' es')
   where
     accfn xs x = x:xs
-    edges' = [ (x1,(x2,w)) | (x1,x2,w) <- edges ]
+    es' = [ (x1,(x2,w)) | (x1,x2,w) <- es ]
 
 -- | mkUndirectedAssocs
 --
 mkUndirectedAssocs :: Eq a => [(a, a, t)] -> [(a, (a, t))]
-mkUndirectedAssocs edges = mkEdges edges ++ [ (x2,(x1,w)) | (x1,x2,w) <- edges, x1 /= x2 ]
+mkUndirectedAssocs es = mkEdges es ++ [ (x2,(x1,w)) | (x1,x2,w) <- es, x1 /= x2 ]
 
 -- | mkEdges
 --
 mkEdges :: [(a, a, t)] -> [(a, (a, t))]
-mkEdges edges = [ (x1,(x2,w)) | (x1, x2, w) <- edges ]
+mkEdges es = [ (x1,(x2,w)) | (x1, x2, w) <- es ]
 
 -- | adjacent
 --
@@ -55,6 +64,11 @@ adjacent v (Graph g) = map fst (g!v)
 --
 nodes :: Ix a => Graph a w -> [a]
 nodes (Graph g) = indices g
+
+-- | vertices
+--
+vertices :: Ix a => Graph a w -> [a]
+vertices = nodes
 
 -- | edgeIn
 --
@@ -75,13 +89,13 @@ edgeIn (x,y) (Graph g) = elem y (adjacent x (Graph g))
 weight :: Ix a => a -> a -> Graph a w -> w
 weight x y (Graph g) = head [ c | (a,c) <- g!x, a == y ]
 
--- | edgesD
+-- | edges
 --
--- >>> edgesD (mkGraph (1,3) [(1,2,5.5),(2,1,10.9),(1,3,56.3)] :: Graph Int Double)
+-- >>> edges (mkGraph (1,3) [(1,2,5.5),(2,1,10.9),(1,3,56.3)] :: Graph Int Double)
 -- [(1,3,56.3),(1,2,5.5),(2,1,10.9)]
 --
-edgesD :: Ix a => Graph a w -> [(a, a, w)]
-edgesD (Graph g) = [ (v1,v2,w) | v1 <- nodes (Graph g), (v2,w) <- g!v1 ]
+edges :: Ix a => Graph a w -> [(a, a, w)]
+edges (Graph g) = [ (v1,v2,w) | v1 <- nodes (Graph g), (v2,w) <- g!v1 ]
 
 -- | edgesU
 --
@@ -89,3 +103,20 @@ edgesD (Graph g) = [ (v1,v2,w) | v1 <- nodes (Graph g), (v2,w) <- g!v1 ]
 --
 edgesU :: Ix a => Graph a w -> [(a, a, w)]
 edgesU (Graph g) = [ (v1,v2,w) | v1 <- nodes (Graph g), (v2,w) <- g!v1, v1<v2 ]
+
+-- | sparsity
+--
+-- >>> sparsity (mkGraph (1,3) [(1,2,5.5),(2,1,10.9),(1,3,56.3)] :: Graph Int Double)
+-- Sparse 3.295836866004329
+--
+-- >>> sparsity (mkGraph (1,3) [(1,2,5.5),(2,1,10.9),(1,3,56.3),(3,1,1.0)] :: Graph Int Double)
+-- Dense 3.295836866004329
+--
+sparsity :: (Ix a, Eq w) => Graph a w -> Sparsity
+sparsity g
+  | e < z      = Sparse z
+  | otherwise  = Dense z
+  where
+    e = fromIntegral $ length $ edges g
+    v = fromIntegral $ length $ vertices g
+    z = v*log v
