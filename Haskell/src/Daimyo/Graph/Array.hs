@@ -11,7 +11,7 @@ module Daimyo.Graph.Array (
   edgesU
 ) where
 
-import GHC.Arr
+import           GHC.Arr
 
 -- | Graph
 --
