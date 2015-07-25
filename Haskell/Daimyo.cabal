@@ -84,6 +84,7 @@ Library
                      Daimyo.Sorting.MergeSort.Naive
                      Daimyo.Sorting.SelectionSort.Naive
                      Daimyo.Sorting.QuickSort.Naive
+                     Daimyo.Sorting.TreeSort.Node
                      Daimyo.Encryption.Transposition
                      Daimyo.Permutation.Heaps
                      Daimyo.Fun.Binary
