@@ -28,6 +28,7 @@ Library
                      Daimyo.EquationalReasoning.Data.List.Permutations
                      Daimyo.EquationalReasoning.Data.List.Span
                      Daimyo.Graph.AdjacencyList
+                     Daimyo.Graph.AdjacencyMatrix
                      Daimyo.Graph.Array
                      Daimyo.List.Safe
                      Daimyo.List.Single
