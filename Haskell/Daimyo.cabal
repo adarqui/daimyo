@@ -87,6 +87,7 @@ Library
                      Daimyo.Sorting.HeapSort.Tree
                      Daimyo.Sorting.InsertionSort.Fold
                      Daimyo.Sorting.InsertionSort.Naive
+                     Daimyo.Sorting.InsertionSort.DivideAndConquer
                      Daimyo.Sorting.MergeSort.Naive
                      Daimyo.Sorting.MergeSort.DivideAndConquer
                      Daimyo.Sorting.Radix.Array
