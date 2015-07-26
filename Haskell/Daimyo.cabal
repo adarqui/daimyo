@@ -92,6 +92,7 @@ Library
                      Daimyo.Sorting.Radix.Array
                      Daimyo.Sorting.SelectionSort.Naive
                      Daimyo.Sorting.QuickSort.Naive
+                     Daimyo.Sorting.QuickSort.DivideAndConquer
                      Daimyo.Sorting.TreeSort.Node
                      Daimyo.Encryption.Transposition
                      Daimyo.Permutation.Heaps
