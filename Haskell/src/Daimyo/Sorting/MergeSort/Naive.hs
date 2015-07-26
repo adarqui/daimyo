@@ -1,5 +1,6 @@
 module Daimyo.Sorting.MergeSort.Naive (
-  msort
+  msort,
+  merge
 ) where
 
 -- | msort
@@ -18,8 +19,18 @@ msort xs  = merge (msort xs1) (msort xs2)
     xs1 = take k xs
     xs2 = drop k xs
     k   = length xs `div` 2
-    merge [] zs = zs
-    merge ys [] = ys
-    merge a@(y:ys) b@(z:zs)
-      | y < z     = y : merge ys b
-      | otherwise = z : merge a zs
+
+-- | merge
+--
+-- >>> merge [4,5,6] [1,2,3] :: [Int]
+-- [1,2,3,4,5,6]
+--
+-- >>> merge [1,2,3] [4,5,6] :: [Int]
+-- [1,2,3,4,5,6]
+--
+merge :: Ord a => [a] -> [a] -> [a]
+merge [] zs = zs
+merge ys [] = ys
+merge a@(y:ys) b@(z:zs)
+  | y < z     = y : merge ys b
+  | otherwise = z : merge a zs

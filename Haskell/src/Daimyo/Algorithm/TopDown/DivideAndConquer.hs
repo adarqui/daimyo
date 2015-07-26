@@ -2,10 +2,6 @@
 -- really cool!
 
 module Daimyo.Algorithm.TopDown.DivideAndConquer (
-  ind,
-  solve,
-  divide,
-  combine,
   divideAndConquer
 ) where
 
