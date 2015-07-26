@@ -7,6 +7,7 @@ module Daimyo.Graph.Array (
   nodes,
   vertices,
   edgeIn,
+  inDegree,
   weight,
   edges,
   edgesU,
@@ -14,7 +15,8 @@ module Daimyo.Graph.Array (
   dfsList,
   dfsStackList,
   bfsList,
-  bfsQueueList
+  bfsQueueList,
+  tsort
 ) where
 
 import qualified Daimyo.Queue.List as Queue
@@ -86,6 +88,14 @@ vertices = nodes
 --
 edgeIn :: Ix a => (a, a) -> Graph a w -> Bool
 edgeIn (x,y) (Graph g) = elem y (adjacent x (Graph g))
+
+-- | inDegree
+--
+-- >>> inDegree 4 (mkGraph (1,4) [(1,2,5.5),(2,1,10.9),(1,3,56.3),(4,3,0.0)] :: Graph Int Double)
+-- 0
+--
+inDegree :: Ix a => a -> Graph a w -> Int
+inDegree n (Graph g) = length [ t | v <- vertices (Graph g), t <- adjacent v (Graph g), n == t ]
 
 -- | weight
 --
@@ -175,3 +185,16 @@ bfsQueueList start (Graph g) = reverse $ go (Queue.enqueue start Queue.empty) []
         where
           c          = Queue.front' q
           candidates = foldr Queue.enqueue (Queue.dequeue' q) (adjacent c (Graph g))
+
+-- | tsort
+--
+-- >>> tsort (mkGraph (1,6) [(1,2,0),(1,3,0),(1,4,0),(3,6,0),(5,4,0),(6,2,0), (6,5,0)] :: Graph Int Int)
+-- [1,3,6,2,5,4]
+--
+tsort :: Ix a => Graph a w -> [a]
+tsort (Graph g) = go [ n | n <- vertices (Graph g), inDegree n (Graph g) == 0 ] []
+  where
+    go [] r = r
+    go (c:cs) visited
+      | elem c visited = go cs visited
+      | otherwise      = go cs (c:(go (adjacent c (Graph g)) visited))
