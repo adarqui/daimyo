@@ -1,75 +1,119 @@
 module Daimyo.Tree.BST (
- BST,
- size,
- fromList,
- update,
- find,
- union,
- intersection,
- difference,
- pp
+  BST,
+  size,
+  fromList,
+  toList,
+  update,
+  find,
+  union,
+  intersection,
+  difference,
+  pp,
+  inOrder,
+  preOrder,
+  postOrder
 ) where
 
-import Data.List hiding (insert, find, union, filter)
+import           Data.List hiding (filter, find, insert, union)
 
-data BST k v = Empty | Node k v (BST k v) (BST k v) deriving (Eq, Show)
+-- | BST
+--
+data BST k v
+  = Empty
+  | Node k v (BST k v) (BST k v)
+  deriving (Eq, Show)
 
+-- | size
+--
 size :: (Num a) => BST k v -> a
-size Empty = 0
-size (Node k v l r) = 1 + size l + size r
+size Empty          = 0
+size (Node _ v l r) = 1 + size l + size r
 
+-- | fromList
+--
 fromList :: Ord k => [(k,v)] -> BST k v
-fromList [] = Empty
+fromList []         = Empty
 fromList ((k,v):xs) = update k v (fromList xs)
 
+-- | toList
+--
+-- >>> toList $ fromList ([(1,2),(3,4),(1,3),(6,7),(8,1),(4,9)] :: [(Int, Int)])
+-- [(4,9),(1,2),(3,4),(8,1),(6,7)]
+--
+toList :: BST k v -> [(k,v)]
 toList = preOrder
 
+-- | preOrder
+--
 preOrder :: BST k v -> [(k,v)]
-preOrder Empty = []
+preOrder Empty          = []
 preOrder (Node k v l r) = (k,v) : preOrder l ++ preOrder r
 
+-- | inOrder
+--
 inOrder :: BST k v -> [(k,v)]
-inOrder Empty = []
+inOrder Empty          = []
 inOrder (Node k v l r) = inOrder l ++ [(k,v)] ++ inOrder r
 
+-- | postOrder
 postOrder :: BST k v -> [(k,v)]
-postOrder Empty = []
+postOrder Empty          = []
 postOrder (Node k v l r) = postOrder l ++ postOrder r ++ [(k,v)]
 
+-- | insert
+--
 insert :: Ord k => k -> v -> BST k v -> BST k v
 insert = update
 
+-- | remove
+--
 remove :: (Eq k, Ord k) => k -> BST k v -> BST k v
 remove k Empty = Empty
 remove k' (Node k v l r)
  | k' == k = Empty
- | k' < k = Node k v (remove k l) r
- | k' > k = Node k v l (remove k r)
+ | k' < k  = Node k v (remove k l) r
+ | k' > k  = Node k v l (remove k r)
 
+-- | update
+--
+-- >>> update 1 4 $ fromList ([(1,2),(3,4),(1,3),(3,5),(6,7)] :: [(Int, Int)])
+-- Node 6 7 (Node 3 4 (Node 1 4 Empty Empty) Empty) Empty
+--
 update :: Ord k => k -> v -> BST k v -> BST k v
 update k v Empty = Node k v Empty Empty
 update k' v' (Node k v l r)
  | k' == k = Node k' v' l r
- | k' < k = Node k v (update k' v' l) r
- | k' > k = Node k v l (update k' v' r)
+ | k' < k  = Node k v (update k' v' l) r
+ | k' > k  = Node k v l (update k' v' r)
 
+-- | find
+--
+-- >>> find 3 $ update 1 4 $ fromList ([(1,2),(3,4),(1,3),(3,5),(6,7)] :: [(Int, Int)])
+-- Just 4
+--
 find :: Ord k => k -> BST k v -> Maybe v
 find _ Empty = Nothing
 find k' (Node k v l r)
  | k' == k = Just v
- | k' < k = find k' l
- | k' > k = find k' r
+ | k' < k  = find k' l
+ | k' > k  = find k' r
 
+-- | member
+--
 member :: Ord k => k -> BST k v -> Bool
 member _ Empty = False
 member k' (Node k v l r)
  | k' == k = True
- | k' < k = member k' l
- | k' > k = member k' r
+ | k' < k  = member k' l
+ | k' > k  = member k' r
 
+-- | union
+--
 union :: (Ord k) => BST k v -> BST k v -> BST k v
 union m n = foldl' (\acc (k,v) -> insert k v acc) m $ toList n
 
+-- | intersection
+--
 intersection :: (Ord k) => BST k v -> BST k v -> BST k v
 intersection m n = foldl' (\acc (k,v) -> inter k v m acc) Empty $ toList n
  where
@@ -78,6 +122,8 @@ intersection m n = foldl' (\acc (k,v) -> inter k v m acc) Empty $ toList n
     then insert k v t2
     else t2
 
+-- | difference
+--
 difference :: (Ord k) => BST k v -> BST k v -> BST k v
 difference m n = foldl' (\acc (k, v) -> diff k v m acc) Empty $ toList n
  where
@@ -93,6 +139,8 @@ join m Empty = m
 join m n@(Node k' v' l' r') = update k' v' m
 -}
 
+-- | pp
+--
 pp :: (Show k, Show v) => BST k v -> IO ()
 pp = (mapM_ putStrLn) . mapIndent
  where
