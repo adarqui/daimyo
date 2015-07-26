@@ -46,5 +46,5 @@ divideAndConquer :: Ind p -> Solve p s -> Divide p -> Combine p s -> Problem p -
 divideAndConquer ind' solve' divide' combine' init = go init
   where
     go pb
-      | ind' pb   = solve pb
-      | otherwise = combine pb (map go (divide' pb))
+      | ind' pb   = solve' pb
+      | otherwise = combine' pb (map go (divide' pb))
