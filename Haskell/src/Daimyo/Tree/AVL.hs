@@ -6,7 +6,12 @@ module Daimyo.Tree.AVL (
   rotateRight,
   doubleRotateRightLeft,
   doubleRotateLeftRight,
-  insert
+  insert,
+  inOrder,
+  preOrder,
+  postOrder,
+  fromList,
+  toList
 ) where
 
 -- | AVLTree
@@ -59,13 +64,14 @@ doubleRotateLeftRight (AVLNode v (AVLNode lv lflf (AVLNode lfrv lfrtlf lfrtrt)) 
 --
 insert :: Ord a => a -> AVLTree a -> AVLTree a
 insert x AVLEmpty = AVLNode x AVLEmpty AVLEmpty
-insert x (AVLNode v lf rt)
+insert x t@(AVLNode v lf rt)
   | x < v =
     if ((height newlf - height rt) == 2)
        then if x < newlfv
           then rotateLeft (AVLNode v newlf rt)
           else doubleRotateLeftRight (AVLNode v newlf rt)
        else (AVLNode v newlf rt)
+  | x == v = t
   | otherwise =
     if ((height newrt - height lf) == 2)
        then if x > newrtv
@@ -75,3 +81,40 @@ insert x (AVLNode v lf rt)
   where
       newlf@(AVLNode newlfv _ _) = insert x lf
       newrt@(AVLNode newrtv _ _) = insert x rt
+
+-- | fromList
+--
+fromList :: Ord a => [a] -> AVLTree a
+fromList = foldr insert AVLEmpty
+
+-- | toList
+--
+-- >>> toList (fromList [9,0,2,1,0,4,8] :: AVLTree Int)
+-- [0,1,2,4,8,9]
+--
+toList :: AVLTree a -> [a]
+toList = inOrder
+
+-- | preOrder
+--
+-- >>> preOrder (fromList [9,0,2,1,0,4,8] :: AVLTree Int)
+-- [4,1,0,2,8,9]
+--
+preOrder :: AVLTree a -> [a]
+preOrder AVLEmpty = []
+preOrder (AVLNode v l r) = v : preOrder l ++ preOrder r
+
+-- | inOrder
+--
+-- >>> inOrder (fromList [9,0,2,1,0,4,8] :: AVLTree Int)
+-- [0,1,2,4,8,9]
+--
+inOrder :: AVLTree a -> [a]
+inOrder AVLEmpty = []
+inOrder (AVLNode v l r) = inOrder l ++ [v] ++ inOrder r
+
+-- | postOrder
+--
+postOrder :: AVLTree a -> [a]
+postOrder AVLEmpty = []
+postOrder (AVLNode v l r) = postOrder l ++ postOrder r ++ [v]
