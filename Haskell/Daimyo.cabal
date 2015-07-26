@@ -30,6 +30,7 @@ Library
                      Daimyo.Graph.AdjacencyList
                      Daimyo.Graph.AdjacencyMatrix
                      Daimyo.Graph.Array
+                     Daimyo.Graph.Array.Examples
                      Daimyo.List.Safe
                      Daimyo.List.Single
                      Daimyo.List.Misc
@@ -87,6 +88,7 @@ Library
                      Daimyo.Sorting.InsertionSort.Fold
                      Daimyo.Sorting.InsertionSort.Naive
                      Daimyo.Sorting.MergeSort.Naive
+                     Daimyo.Sorting.MergeSort.DivideAndConquer
                      Daimyo.Sorting.Radix.Array
                      Daimyo.Sorting.SelectionSort.Naive
                      Daimyo.Sorting.QuickSort.Naive
@@ -218,6 +220,7 @@ Library
                      Daimyo.Algorithm.Growth.Detective
                      Daimyo.Algorithm.Examples.USChange
                      Daimyo.Algorithm.Examples.Hanoi
+                     Daimyo.Algorithm.TopDown.DivideAndConquer
                      Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.PSS.C1.E1
