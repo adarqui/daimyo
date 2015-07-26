@@ -92,6 +92,7 @@ Library
                      Daimyo.Sorting.MergeSort.DivideAndConquer
                      Daimyo.Sorting.Radix.Array
                      Daimyo.Sorting.SelectionSort.Naive
+                     Daimyo.Sorting.SelectionSort.DivideAndConquer
                      Daimyo.Sorting.QuickSort.Naive
                      Daimyo.Sorting.QuickSort.DivideAndConquer
                      Daimyo.Sorting.TreeSort.Node
