@@ -145,6 +145,7 @@ Library
                      Daimyo.GroupTheory.Tables
                      Daimyo.CategoryTheory
                      Daimyo.Statistics
+                     Daimyo.Statistics.Examples
                      Daimyo.Statistics.Exercises
                      Daimyo.ProbabilityTheory
                      Daimyo.ProbabilityTheory.Birthday
