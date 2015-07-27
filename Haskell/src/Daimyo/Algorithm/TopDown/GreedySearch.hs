@@ -11,6 +11,8 @@ type Solution n  = [n]
 
 -- | searchGreedy
 --
+-- mostly taken from AAFA
+--
 searchGreedy :: Ord node => Successor node -> Goal node -> Initial node -> Solution node
 searchGreedy successor goal initial = go (PQ.enqueue initial PQ.empty)
   where

@@ -11,6 +11,8 @@ type Solution n  = [n]
 
 -- | searchDFS
 --
+-- mostly taken from AAFA
+--
 searchDFS :: Eq node => Successor node -> Goal node -> Initial node -> Solution node
 searchDFS successor goal initial = go (S.push initial S.empty)
   where

@@ -1,6 +1,3 @@
--- mostly taken from AAFA
--- really cool!
-
 module Daimyo.Algorithm.TopDown.DivideAndConquer (
   divideAndConquer
 ) where
@@ -41,6 +38,8 @@ combine :: p -> [s] -> s
 combine = undefined
 
 -- | divideAndConquer
+--
+-- mostly taken from AAFA
 --
 divideAndConquer :: Ind p -> Solve p s -> Divide p -> Combine p s -> Problem p -> Solution s
 divideAndConquer ind' solve' divide' combine' init = go init

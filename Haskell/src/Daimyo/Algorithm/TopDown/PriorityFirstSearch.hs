@@ -11,6 +11,8 @@ type Solution n  = [n]
 
 -- | searchPFS
 --
+-- mostly taken from AAFA
+--
 searchPFS :: Ord node => Successor node -> Goal node -> Initial node -> Solution node
 searchPFS successor goal initial = go (PQ.enqueue initial PQ.empty)
   where
