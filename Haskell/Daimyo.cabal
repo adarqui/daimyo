@@ -219,6 +219,7 @@ Library
                      Daimyo.Algorithm.Growth
                      Daimyo.Algorithm.Growth.Detective
                      Daimyo.Algorithm.Examples.USChange
+                     Daimyo.Algorithm.Examples.Coins
                      Daimyo.Algorithm.Examples.Hanoi
                      Daimyo.Algorithm.TopDown.BacktrackSearch
                      Daimyo.Algorithm.TopDown.DivideAndConquer
