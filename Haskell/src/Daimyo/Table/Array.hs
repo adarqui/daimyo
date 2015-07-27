@@ -2,7 +2,8 @@ module Daimyo.Table.Array (
   Table,
   newTable,
   findTable,
-  updateTable
+  updateTable,
+  toList
 ) where
 
 import           GHC.Arr
@@ -39,3 +40,10 @@ findTable i (Table arr) = arr ! i
 --
 updateTable :: Ix i => (i,x) -> Table x i -> Table x i
 updateTable p (Table arr) = Table (arr // [p])
+
+-- | toList
+--
+-- >>> toList (newTable [(1, "a"), (2, "bb"), (3, "ccc")] :: Table String Int)
+--
+toList :: Ix i => Table x i -> [(i,x)]
+toList (Table t) = assocs t
