@@ -105,9 +105,7 @@ Library
                      Daimyo.Expressions.ShuntingYard
                      Daimyo.Expressions.BoolTree
                      Daimyo.Expressions.IncDec
-                     Daimyo.State
-                     Daimyo.DMoz
-                     Daimyo.Delrik
+                     Daimyo.Control.State
                      Daimyo.Print
                      Daimyo.Logic.Proposition
                      Daimyo.Logic.Table
