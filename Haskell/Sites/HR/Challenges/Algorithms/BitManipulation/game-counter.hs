@@ -32,6 +32,7 @@ rotate Richard = Louise
 --
 -- >>> ceilPowerOfTwo 5
 -- 8
+--
 ceilPowerOfTwo :: (Bits a, Num a) => a -> a
 ceilPowerOfTwo n = 1 + foldl f (n - 1) [1,2,4,8,16,32,64]
   where f acc i = acc .|. (acc `shiftR` i)
