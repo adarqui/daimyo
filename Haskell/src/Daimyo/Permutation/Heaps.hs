@@ -1,101 +1,67 @@
-{-# LANGUAGE RankNTypes#-}
+{-# LANGUAGE RankNTypes #-}
 
 module Daimyo.Permutation.Heaps (
-    heaps,
-    heaps'ST
+  heaps,
+  heapsST,
+  heapsSTLoop,
+  swap
 ) where
 
-import GHC.Arr
-import GHC.ST
-import Control.Monad
-import Control.Monad.ST
-import Data.List
+import           Control.Monad
+import           Control.Monad.ST
+import           Data.List
+import           GHC.Arr
+import           GHC.ST
 
+-- | heaps
+--
+-- >>> heaps [1,2,3] :: [[Int]]
+-- [[1,2,3],[2,1,3],[3,2,1],[2,3,1],[3,1,2],[1,3,2]]
+--
+heaps :: [a] -> [[a]]
+heaps = heapsST
 
+-- | heapsST
+--
+-- >>> heapsST [1,2,3] :: [[Int]]
+-- [[1,2,3],[2,1,3],[3,2,1],[2,3,1],[3,1,2],[1,3,2]]
+--
+heapsST :: [a] -> [[a]]
+heapsST l = do
+  runSTArray $ do
+    st <- unsafeThawSTArray $ listArray (0,sz) l
+    heapsSTLoop l sz st
+  where
+    sz = (length l) - 1
 
-heaps l = heaps'ST l
+-- | heapsSTLoop
+--
+heapsSTLoop :: Ix i => t -> Int -> STArray s i e -> ST s [[e]]
+heapsSTLoop _ 0 st = do
+  array' <- freezeSTArray st
+  let v = [elems array']
+  thawSTArray array'
+  return v
+heapsSTLoop l n st = do
+  m <- mapM
+       (\i -> do
+         k <- heapsSTLoop l (n-1) st
+         let j = if (odd n) then 0 else i
+         swap st j n
+         return k
+       ) [0..n]
+  return $ concat m
 
-heaps'ST l = do
-    runSTArray $ do
-        st <- unsafeThawSTArray $ listArray (0,sz) l
-        heaps'ST'loop l sz st
-    where
-        sz = (length l) - 1
-
-heaps'ST'loop l 0 st = do
-    array' <- freezeSTArray st
-    let v = [elems array']
-    thawSTArray array'
-    return v
-{-
-    array' <- unsafeFreezeSTArray st
-    let v = [elems array']
-    unsafeThawSTArray array'
-    return v
--}
-
-heaps'ST'loop l n st = do
-    m <- mapM
-            (\i -> do
-                k <- heaps'ST'loop l (n-1) st
-                let j = if (odd n) then 0 else i
-                swap st j n
-                return k
-            )
-        [0..n]
-    return $ concat m
-
+-- | swap
+--
+swap :: Ix i => STArray s i e -> Int -> Int -> ST s ()
 swap st i j = do
- i' <- unsafeReadSTArray st i
- j' <- unsafeReadSTArray st j
- unsafeWriteSTArray st i j'
- unsafeWriteSTArray st j i'
+  i' <- unsafeReadSTArray st i
+  j' <- unsafeReadSTArray st j
+  unsafeWriteSTArray st i j'
+  unsafeWriteSTArray st j i'
 
+-- | runSTArray
+--
 runSTArray :: (forall s . ST s [[e]]) -> [[e]]
-runSTArray st = runST st
-
-{-
-heaps l = heaps'ST l
-
-heaps'ST l = do
-    runSTArray $ do
-        st <- unsafeThawSTArray $ listArray (0,sz) l
-        heaps'ST'loop l sz st
-        return st
-    where
-        sz = (length l) - 1
-
-heaps'ST'loop l n st = return []
-heaps'ST'loop (x:xs) n st = return []
--}
-   
-
-{-
-heaps l = heaps'ST l
-
-heaps'ST l = do
-    runSTArray $ do
-        st <- thawSTArray $ listArray (0,sz) l
---        st <- unsafeThawSTArray $ listArray (0,sz) l
-        heaps'ST'loop l sz st
-    where
-        sz = (length l) - 1
--}
-
-{-
-heaps'ST'loop l 0 st = do
-    st' <- unsafeFreezeSTArray st
-    return [elems st']
-
-heaps'ST'loop l n st = do
-    m <- foldM
-            (\(st'acc, l'acc) i -> do
-                k <- heaps'ST'loop l (n-1) st'acc
-                let j = if (odd n) then 0 else i
-                swap st'acc j (n - 1)
-                return (st'acc, l'acc ++ k)
-            )
-        (st, [])
-        [0..n]
-    return $ snd m
--}
+runSTArray = runST
