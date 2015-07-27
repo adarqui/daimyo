@@ -223,6 +223,8 @@ Library
                      Daimyo.Algorithm.TopDown.DivideAndConquer
                      Daimyo.Algorithm.TopDown.BacktrackSearch
                      Daimyo.Crypto.Frequency
+                     Daimyo.Encoding.Base64
+                     Daimyo.Encoding.Base64.ByteString
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.PSS.C1.E1
                      Daimyo.PSS.C1.E2
