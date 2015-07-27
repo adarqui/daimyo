@@ -1,10 +1,16 @@
 module Daimyo.String (
-    split
+  split
 ) where
 
-split c s = split' [] c s
-
-split' acc c [] = ([], [])
-split' acc c (x:xs)
-    | c == x = (acc, xs)
-    | otherwise = split' (acc++[x]) c xs
+-- | split
+--
+-- >>> split ',' "hey,sup"
+-- ("hey","sup")
+--
+split :: Eq t => t -> [t] -> ([t], [t])
+split c s = go [] c s
+  where
+    go _ _ []     = ([], [])
+    go acc c (x:xs)
+      | c == x    = (reverse acc, xs)
+      | otherwise = go (x:acc) c xs
