@@ -224,6 +224,7 @@ Library
                      Daimyo.Algorithm.Examples.USChange
                      Daimyo.Algorithm.Examples.Hanoi
                      Daimyo.Algorithm.TopDown.DivideAndConquer
+                     Daimyo.Algorithm.TopDown.BacktrackSearch
                      Daimyo.Crypto.Frequency
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.PSS.C1.E1
@@ -232,6 +233,7 @@ Library
                      Daimyo.Boxes
                      Daimyo.Game.Chess
                      Daimyo.Game.Checkers
+                     Daimyo.Game.TileN
                      Daimyo.Security.Stanford
                      Daimyo.Quiz
                      Daimyo.Athletics.Run
