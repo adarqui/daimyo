@@ -1,10 +1,10 @@
 module Daimyo.Print (
-    showVar,
-    showVarP,
-    indentSp
+  showVar,
+  showVarP,
+  indentSp
 ) where
 
-import Data.List
+import           Data.List
 
 showVar :: (Show a) => String -> a -> String
 showVar var a = var ++ "=" ++ show a
