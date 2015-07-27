@@ -23,7 +23,6 @@ Library
                      Daimyo.String
                      Daimyo.Number
                      Daimyo.Knowledge.Time
-                     Daimyo.Input
                      Daimyo.EquationalReasoning.Prelude
                      Daimyo.EquationalReasoning.Data.List.Permutations
                      Daimyo.EquationalReasoning.Data.List.Span
