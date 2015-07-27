@@ -11,7 +11,7 @@ magicSquare = undefined
 {-
 TODO FIXME
 
-Decimal portions get wrecked from my decimalPart'to'Integer. 1/19 should be 05.., not 5..
+Decimal portions get wrecked from my decimalPartToInteger. 1/19 should be 05.., not 5..
 
 The decimal periods of 1/19, 2/19, . . . , 18/19, however, do form a
 true magic square.
@@ -35,8 +35,8 @@ true magic square.
 18/19 = 947368421052631578
 -}
 
-magicSquare'18x19 = 
+magicSquare'18x19 =
     let
-        recips = map (\n -> show $ decimalPart'to'Integer (n/19)) [1..18]
+        recips = map (\n -> show $ decimalPartToInteger (n/19)) [1..18]
     in
         fromLists recips

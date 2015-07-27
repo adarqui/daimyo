@@ -8,4 +8,4 @@ import Daimyo.List.Pattern
 
 import Data.List
 
-circular = filter (\p -> all (isPrime . digits'to'num) (rotations $ digits p)) primes
+circular = filter (\p -> all (isPrime . digitsToNumber) (rotations $ digits p)) primes

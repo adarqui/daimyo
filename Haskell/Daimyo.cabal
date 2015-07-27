@@ -222,6 +222,7 @@ Library
                      Daimyo.Algorithm.Examples.Hanoi
                      Daimyo.Algorithm.TopDown.DivideAndConquer
                      Daimyo.Algorithm.TopDown.BacktrackSearch
+                     Daimyo.Algorithm.TopDown.PriorityFirstSearch
                      Daimyo.Crypto.Frequency
                      Daimyo.Encoding.Base64
                      Daimyo.Encoding.Base64.ByteString
