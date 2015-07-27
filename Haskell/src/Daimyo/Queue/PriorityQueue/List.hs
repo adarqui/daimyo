@@ -7,8 +7,12 @@ module Daimyo.Queue.PriorityQueue.List (
   enqueue,
   enqueueBy,
   dequeue,
-  front
+  dequeue',
+  front,
+  front'
 ) where
+
+import           Data.Maybe
 
 -- | ExamplePriority
 --
@@ -65,8 +69,20 @@ dequeue :: PQueue a -> Maybe (PQueue a)
 dequeue (PQueue [])     = Nothing
 dequeue (PQueue (_:xs)) = Just $ PQueue xs
 
+-- | dequeue'
+--
+-- dangerous: assumes queue is not empty
+--
+dequeue' :: PQueue a -> PQueue a
+dequeue' = fromJust . dequeue
+
 -- | front
 --
 front :: PQueue a -> Maybe a
 front (PQueue [])    = Nothing
 front (PQueue (x:_)) = Just x
+
+-- | front'
+--
+front' :: PQueue a -> a
+front' = fromJust . front
