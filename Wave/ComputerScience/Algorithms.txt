@@ -10,6 +10,7 @@ Algorithms - A Functional Approach
 - 07/24/2015: rest of 5
 - 07/24/2015: 6 and part of 7
 - 07/25/2015: 7, some-day: reread spanning tree/depth first search trees
+- 07/26/2015: 8, some-day: reread
 
 
 The Algorithm Design Manual
@@ -35,3 +36,7 @@ Data Structures & Algorithm Analysis in C
 
 Fundamentals of Algorithmics
 - source: https://cerocks.files.wordpress.com/2011/03/fundamentals-of-algorithmics-brassard_ingles.pdf
+
+
+Algorithmic Skeletons: Structured Management of Parallel Computation
+- source: http://homepages.inf.ed.ac.uk/mic/Pubs/skeletonbook.pdf
