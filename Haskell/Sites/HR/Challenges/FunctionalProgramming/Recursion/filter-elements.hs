@@ -2,6 +2,7 @@
 
 import           Data.List hiding (filter, find, insert, union)
 import           Control.Monad
+import           Data.Maybe
 
 -- | BST
 --
@@ -205,7 +206,12 @@ solveChallengeIO :: IO ()
 solveChallengeIO = do
   [num_numbers, duplicates] :: [Int] <- fmap (map read . words) getLine
   numbers :: [Int] <- fmap (map read . words) getLine
-  putStrLn $ show numbers
+  let
+    result  = solveChallenge duplicates numbers
+    resultS = unwords $ map show $ (fromJust result)
+  if result == Nothing
+     then putStrLn "-1"
+     else putStrLn resultS
   return ()
 
 main :: IO ()
