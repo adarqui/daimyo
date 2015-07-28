@@ -24,7 +24,7 @@ digits = go []
 smartDigits :: Integer -> Integer -> [Integer]
 smartDigits number replication = dropZeros $ digits (sum' * replication)
   where
-    sum' = sum $ digits number
+    sum' = foldl' (+) 0 $ digits number
 
 -- | dropZeros
 --
@@ -33,6 +33,13 @@ smartDigits number replication = dropZeros $ digits (sum' * replication)
 --
 dropZeros :: [Integer] -> [Integer]
 dropZeros = filter (/=0)
+
+-- | sanitize
+--
+sanitize :: [Integer] -> [Integer]
+sanitize xs
+  | elem 9 xs = 9 : filter (/= 9) xs
+  | otherwise = xs
 
 -- | solution
 --
@@ -48,7 +55,7 @@ dropZeros = filter (/=0)
 solution :: Integer -> Integer -> Integer
 solution number replication = go $ digits (replication * go initial)
   where
-    initial = smartDigits number 1
+    initial = sanitize (smartDigits number 1)
     go []                = 0
     go list
       | length list == 1 = head list
