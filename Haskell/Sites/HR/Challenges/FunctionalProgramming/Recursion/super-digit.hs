@@ -62,7 +62,12 @@ solution' number replication = go $ digits (replication * go initial)
 -- | something keeps timing out, feh
 --
 solution :: Integer -> Integer -> Integer
-solution number replication = (number * replication) `mod` 9
+solution number replication =
+  if answer == 0
+     then 9
+     else answer
+  where
+    answer = (number * replication) `mod` 9
 
 main :: IO ()
 main = do
