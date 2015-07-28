@@ -12,6 +12,8 @@
 pentagonal :: Int -> Int
 pentagonal n = (3*(n^2) - n) `div` 2
 
+-- | main
+--
 main :: IO ()
 main = do
   test_cases <- readLn :: IO Int
