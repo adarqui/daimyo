@@ -2,7 +2,7 @@ import Data.List
 
 -- | digits
 --
--- >>> digits 1234 :: [Int]
+-- >>> digits 1234 :: [Integer]
 -- [1,2,3,4]
 --
 digits :: Integral a => a -> [a]
@@ -19,10 +19,13 @@ digits = go []
 -- >>> solution 9875 1
 -- 2
 --
-solution :: Int -> Int -> Int
+-- >>> solution 148 100
+-- 4
+--
+solution :: Integer -> Integer -> Integer
 solution number replication = go initial
   where
-    initial = concat $ replicate replication (digits number)
+    initial = concat $ replicate (fromIntegral replication :: Int) (digits number)
     go list
       | length list == 1 = head list
       | otherwise        = go (digits (sum list))
