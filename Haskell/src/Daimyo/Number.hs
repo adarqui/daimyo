@@ -106,16 +106,28 @@ by10 = scanl (\acc y -> acc * 10) 10 [1..]
 oneBy10 :: [Integer]
 oneBy10 = 1 : by10
 
-
 -- | digits
 --
+-- >>> digits 1234 :: [Int]
+-- [1,2,3,4]
+--
+digits :: Integral a => a -> [a]
+digits n = go n []
+  where
+    go 0 acc = acc
+    go n acc = go (n `div` 10) (n `mod` 10 : acc)
+
+-- | digits'
+--
 -- whoa this is disgusting.. atrocious
+--
+-- leaving this for historical value.. ABSOLUTELY INSANE!!!
 --
 -- >>> digits (12345 :: Int) :: [Int]
 -- [1,2,3,4,5]
 --
-digits :: (Integral a, Integral b) => a -> [b]
-digits n =
+digits' :: (Integral a, Integral b) => a -> [b]
+digits' n =
   map truncate $
   reverse $
   catMaybes $
