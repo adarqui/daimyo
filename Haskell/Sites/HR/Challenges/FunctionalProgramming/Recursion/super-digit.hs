@@ -20,17 +20,17 @@ digits = go []
 -- [2,9]
 --
 smartDigits :: Integer -> Integer -> [Integer]
-smartDigits number replication = dropTrailingZeros $ digits (sum' * replication)
+smartDigits number replication = dropZeros $ digits (sum' * replication)
   where
     sum' = sum $ digits number
 
--- | dropTrailingZeros
+-- | dropZeros
 --
--- >>> dropTrailingZeros [6,0,0,0]
+-- >>> dropZeros [6,0,0,0]
 -- [6]
 --
-dropTrailingZeros :: [Integer] -> [Integer]
-dropTrailingZeros = reverse . dropWhile (==0) . reverse
+dropZeros :: [Integer] -> [Integer]
+dropZeros = filter (/=0)
 
 -- | solution
 --
