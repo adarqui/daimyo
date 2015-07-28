@@ -15,7 +15,6 @@
 *.pyc
 *.DS_Store
 .cabal-sandbox/
-bin/
 dist/
 vendor/
 dev/
