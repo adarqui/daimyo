@@ -112,10 +112,10 @@ oneBy10 = 1 : by10
 -- [1,2,3,4]
 --
 digits :: Integral a => a -> [a]
-digits n = go n []
+digits = go []
   where
-    go 0 acc = acc
-    go n acc = go (n `div` 10) (n `mod` 10 : acc)
+    go acc 0 = acc
+    go acc n = go (n `mod` 10 : acc) (n `div` 10)
 
 -- | digits'
 --
