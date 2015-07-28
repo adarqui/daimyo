@@ -2,8 +2,10 @@ module Daimyo.Tree.BST (
   BST,
   size,
   fromList,
+  fromListWith,
   toList,
   update,
+  updateWith,
   find,
   union,
   intersection,
@@ -11,7 +13,9 @@ module Daimyo.Tree.BST (
   pp,
   inOrder,
   preOrder,
-  postOrder
+  postOrder,
+  withKvOld,
+  withKvNew
 ) where
 
 import           Data.List hiding (filter, find, insert, union)
@@ -31,9 +35,20 @@ size (Node _ v l r) = 1 + size l + size r
 
 -- | fromList
 --
+-- >>> fromList ([(1,2),(3,4),(1,3),(6,7),(8,1),(4,9),(3,5)] :: [(Int, Int)])
+-- Node 1 3 Empty (Node 3 5 Empty (Node 6 7 (Node 4 9 Empty Empty) (Node 8 1 Empty Empty)))
+--
 fromList :: Ord k => [(k,v)] -> BST k v
-fromList []         = Empty
-fromList ((k,v):xs) = update k v (fromList xs)
+--fromList = foldl' (\acc (k,v) -> update k v acc) Empty
+fromList = fromListWith withKvNew
+
+-- | fromListWith
+--
+-- >>> fromListWith withKvOld ([(1,2),(3,4),(1,3),(6,7),(8,1),(4,9),(3,5)] :: [(Int, Int)])
+-- Node 1 2 Empty (Node 3 4 Empty (Node 6 7 (Node 4 9 Empty Empty) (Node 8 1 Empty Empty)))
+--
+fromListWith :: Ord k => (k -> v -> v -> v) -> [(k,v)] -> BST k v
+fromListWith with = foldl' (\acc (k,v) -> updateWith with k v acc) Empty
 
 -- | toList
 --
@@ -77,14 +92,29 @@ remove k' (Node k v l r)
 -- | update
 --
 -- >>> update 1 4 $ fromList ([(1,2),(3,4),(1,3),(3,5),(6,7)] :: [(Int, Int)])
--- Node 6 7 (Node 3 4 (Node 1 4 Empty Empty) Empty) Empty
+-- Node 1 4 Empty (Node 3 5 Empty (Node 6 7 Empty Empty))
 --
 update :: Ord k => k -> v -> BST k v -> BST k v
-update k v Empty = Node k v Empty Empty
-update k' v' (Node k v l r)
- | k' == k = Node k' v' l r
- | k' < k  = Node k v (update k' v' l) r
- | k' > k  = Node k v l (update k' v' r)
+update = updateWith withKvNew
+
+-- | withKvOld
+--
+withKvOld :: a -> b -> c -> b
+withKvOld _ old _ = old
+
+-- | withKvNew
+--
+withKvNew :: a -> b -> c -> c
+withKvNew _ _ new = new
+
+-- | updateWith
+--
+updateWith :: Ord k => (k -> v -> v -> v) -> k -> v -> BST k v -> BST k v
+updateWith with k v Empty = Node k v Empty Empty
+updateWith with k v (Node k' v' l' r')
+ | k == k' = Node k' (with k' v' v) l' r'
+ | k < k'  = Node k' v' (updateWith with k v l') r'
+ | k > k'  = Node k' v' l' (updateWith with k v r')
 
 -- | find
 --
