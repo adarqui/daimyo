@@ -228,6 +228,8 @@ Library
                      Daimyo.Algorithm.TopDown.DivideAndConquer
                      Daimyo.Algorithm.TopDown.GreedySearch
                      Daimyo.Algorithm.TopDown.PriorityFirstSearch
+                     Daimyo.Algorithm.Network.ProcessNetwork
+                     Daimyo.Algorithm.Network.Pipeline
                      Daimyo.Crypto.Frequency
                      Daimyo.Encoding.Base64
                      Daimyo.Encoding.Base64.ByteString
