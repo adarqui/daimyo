@@ -1,2 +1,6 @@
 Thinking Functionally with Haskell
 - source: https://pdf.yt/d/9mSqnvZwb98w41N8/embed?sparse=%7BSPARSE%7D
+
+
+An Introduction to Functional Programming Through Lambda Calculus
+- source: https://cs.fit.edu/~ryan/library/functional_programming/gjm.lambook88.pdf
