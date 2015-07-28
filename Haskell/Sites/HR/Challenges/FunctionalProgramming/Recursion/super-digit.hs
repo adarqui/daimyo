@@ -1,5 +1,3 @@
-{-# GHC_OPTIONS -O2 #-}
-
 import Data.List
 
 -- | digits
@@ -64,7 +62,7 @@ solution' number replication = go $ digits (replication * go initial)
 -- | something keeps timing out, feh
 --
 solution :: Integer -> Integer -> Integer
-solution number replication = number `mod` 9
+solution number replication = (number * replication) `mod` 9
 
 main :: IO ()
 main = do
