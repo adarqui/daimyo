@@ -1,7 +1,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
-import           Data.List hiding (filter, find, insert, union)
 import           Control.Monad
+import           Data.List     hiding (filter, find, insert, union)
 import           Data.Maybe
 
 -- | BST
