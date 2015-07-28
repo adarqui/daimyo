@@ -1,5 +1,16 @@
 import Data.List
 
+-- | replicate'
+--
+-- >>> replicate' 5 'a'
+-- "aaaaa"
+--
+replicate' :: Integer -> a -> [a]
+replicate' n c = go n
+  where
+    go 0 = []
+    go n = c : go (n-1)
+
 -- | digits
 --
 -- >>> digits 1234 :: [Integer]
@@ -25,7 +36,8 @@ digits = go []
 solution :: Integer -> Integer -> Integer
 solution number replication = go initial
   where
-    initial = concat $ replicate (fromIntegral replication :: Int) (digits number)
+    initial = concat $ replicate' replication (digits number)
+    go []                = 0
     go list
       | length list == 1 = head list
       | otherwise        = go (digits (sum list))
