@@ -1,16 +1,5 @@
 import Data.List
 
--- | replicate'
---
--- >>> replicate' 5 'a'
--- "aaaaa"
---
-replicate' :: Integer -> a -> [a]
-replicate' n c = go n
-  where
-    go 0 = []
-    go n = c : go (n-1)
-
 -- | digits
 --
 -- >>> digits 1234 :: [Integer]
@@ -21,6 +10,19 @@ digits = go []
   where
     go acc 0 = acc
     go acc n = go (n `mod` 10 : acc) (n `div` 10)
+
+-- | smartDigits
+--
+-- >>> smartDigits 148 3
+-- [3,9]
+--
+-- >>> smartDigits 9875 1
+-- [2,9]
+--
+smartDigits :: Integer -> Integer -> [Integer]
+smartDigits number replication = digits (sum' * replication)
+  where
+    sum' = sum $ digits number
 
 -- | solution
 --
@@ -36,7 +38,7 @@ digits = go []
 solution :: Integer -> Integer -> Integer
 solution number replication = go initial
   where
-    initial = concat $ replicate' replication (digits number)
+    initial = smartDigits number replication
     go []                = 0
     go list
       | length list == 1 = head list
