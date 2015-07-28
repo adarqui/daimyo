@@ -1,3 +1,5 @@
+{-# GHC_OPTIONS -O2 #-}
+
 import Data.List
 
 -- | digits
@@ -44,9 +46,9 @@ dropZeros = filter (/=0)
 -- 4
 --
 solution :: Integer -> Integer -> Integer
-solution number replication = go initial
+solution number replication = go $ digits (replication * go initial)
   where
-    initial = smartDigits number replication
+    initial = smartDigits number 1
     go []                = 0
     go list
       | length list == 1 = head list
