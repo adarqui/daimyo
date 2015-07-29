@@ -15,7 +15,6 @@ import           Daimyo.Algebra.Exponent
 import           Daimyo.NumberTheory.Factorial
 import           Daimyo.NumberTheory.Prime
 import           Data.Number.BigFloat
-import           Data.Number.Fixed
 
 -- | bernoullis
 --
