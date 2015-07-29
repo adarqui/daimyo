@@ -190,9 +190,10 @@ Library
                      Daimyo.NumberTheory.Brier
                      Daimyo.NumberTheory.Consecutive
                      Daimyo.NumberTheory.Fibonacci
-                     Daimyo.NumberTheory.Fibonacci.Variations
                      Daimyo.NumberTheory.Fibonacci.Array
+                     Daimyo.NumberTheory.Fibonacci.ClosedForm
                      Daimyo.NumberTheory.Fibonacci.Dynamic
+                     Daimyo.NumberTheory.Fibonacci.Variations
                      Daimyo.NumberTheory.Binet
                      Daimyo.NumberTheory.Lucas
                      Daimyo.NumberTheory.GoldenRatio
