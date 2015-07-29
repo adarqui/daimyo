@@ -3,7 +3,6 @@ module Daimyo.NumberTheory.Nines (
 ) where
 
 import           Daimyo.Number
-import           Data.List
 
 -- | nines
 --
