@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-incomplete-patterns #-}
+
 module Daimyo.Sorting.MergeSort.DivideAndConquer (
   msort,
   msortReverse
@@ -12,7 +14,7 @@ import qualified Daimyo.Sorting.MergeSort.Naive            as M
 -- [0,1,2,3,4,5,7,9]
 --
 msort :: Ord a => [a] -> [a]
-msort xs = divideAndConquer ind solve divide combine xs
+msort l = divideAndConquer ind solve divide combine l
   where
     ind xs    = length xs <= 1
     solve     = id
@@ -26,7 +28,7 @@ msort xs = divideAndConquer ind solve divide combine xs
 -- [7,4,9,3,1,5,2,0]
 --
 msortReverse :: Ord a => [a] -> [a]
-msortReverse xs = divideAndConquer ind solve divide combine xs
+msortReverse l = divideAndConquer ind solve divide combine l
   where
     ind xs    = length xs <= 1
     solve     = id
