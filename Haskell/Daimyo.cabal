@@ -241,4 +241,4 @@ Library
                      Daimyo.Quiz
                      Daimyo.Athletics.Run
  Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, AC-Angle, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, numbers, gamma
- GHC-Options:        -Wall
+ GHC-Options:        -Wall -Werror
