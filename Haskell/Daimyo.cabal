@@ -205,6 +205,8 @@ Library
                      Daimyo.NumberTheory.Odd
                      Daimyo.NumberTheory.Even
                      Daimyo.NumberTheory.Square
+                     Daimyo.NumberTheory.Polygonal
+                     Daimyo.NumberTheory.Polygonal.ClosedForm
                      Daimyo.Combinatorics
                      Daimyo.Combinatorics.Examples
                      Daimyo.Combinatorics.Permutation
