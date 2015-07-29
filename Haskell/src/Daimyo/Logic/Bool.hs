@@ -16,6 +16,7 @@ module Daimyo.Logic.Bool (
   implication,
   (==>),
   equiv,
+  equivalence,
   (<=>),
   excludedMiddle,
   valid1,
@@ -27,10 +28,11 @@ module Daimyo.Logic.Bool (
   logicalEquivalence3,
   contradiction1,
   contradiction2,
-  contradiction3
+  contradiction3,
+  contradiction4
 ) where
 
-import Prelude (Eq, Show, Bool (..), ($), (==))
+import Prelude (Bool (..), ($), (==))
 import qualified Prelude as P
 
 -- data Bool
@@ -38,15 +40,31 @@ import qualified Prelude as P
 --   | False
 --   deriving (Eq, Show)
 
+negation :: Bool -> Bool
 negation    = not
+
+conjunction :: Bool -> Bool -> Bool
 conjunction = and
+
+disjunction :: Bool -> Bool -> Bool
 disjunction = or
+
+implication :: Bool -> Bool -> Bool
 implication = implies
+
+equivalence :: Bool -> Bool -> Bool
 equivalence = equiv
 
+(¬) :: Bool -> Bool
 (¬)   = not
+
+(&&) :: Bool -> Bool -> Bool
 (&&)  = and
+
+(||) :: Bool -> Bool -> Bool
 (||)  = or
+
+(<=>) :: Bool -> Bool -> Bool
 (<=>) = equiv
 
 -- | not
