@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-incomplete-patterns #-}
+
 module Daimyo.Sorting.QuickSort.DivideAndConquer (
   qsort
 ) where
@@ -10,7 +12,7 @@ import           Daimyo.Algorithm.TopDown.DivideAndConquer
 -- [0,1,2,3,4,5,7,9]
 --
 qsort :: Ord a => [a] -> [a]
-qsort xs = divideAndConquer ind solve divide combine xs
+qsort l = divideAndConquer ind solve divide combine l
   where
     ind xs        = length xs <= 1
     solve         = id
