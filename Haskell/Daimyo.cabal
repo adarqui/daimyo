@@ -214,9 +214,6 @@ Library
                      Daimyo.Calculus.Limit
                      Daimyo.ConcreteMathematics.Sums
                      Daimyo.ConcreteMathematics.Recurrences
-                     Daimyo.Proof.Basic
-                     Daimyo.Proof.KnowShow
-                     Daimyo.Proof.Exercises.Misc
 --                     Daimyo.Graphs.Circles
 --                     Daimyo.Graphs.T1
                      Daimyo.Algorithm.Growth
