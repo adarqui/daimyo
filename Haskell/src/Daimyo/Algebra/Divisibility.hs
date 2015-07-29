@@ -7,6 +7,7 @@ module Daimyo.Algebra.Divisibility (
   divisibleBy2,
   divisibleBy5,
   divisibleBy3,
+  divisibleBy7,
   divisibleBy9,
   fractionToDe,
   divides,
@@ -20,7 +21,6 @@ module Daimyo.Algebra.Divisibility (
   properDivisors
 ) where
 
-import           Daimyo.Algebra.Fraction
 import           Daimyo.NumberTheory.Prime
 import           Daimyo.String
 import           Text.Printf
@@ -39,9 +39,12 @@ numberToDecimalExpansion = map (read . flip (:) []) . show
 -- 1234
 --
 decimalExpansionToNumber :: [Int] -> Int
-decimalExpansionToNumber = sum . flip (zipWith (\n k -> n*(10^k))) [0..] . reverse
+decimalExpansionToNumber = sum . flip (zipWith (\n k -> n*(10^k))) ([0..] :: [Int]) . reverse
 
+n2de :: Int -> [Int]
 n2de = numberToDecimalExpansion
+
+de2n :: [Int] -> Int
 de2n = decimalExpansionToNumber
 
 -- | fractionToDe
@@ -137,7 +140,7 @@ unit = 1
 -- non-trivial: n = kl, n /= 0, k nor l is a unit
 --
 isNonTrivial :: t -> Integer -> Integer -> Bool
-isNonTrivial n k l = (abs k /= unit && abs l /= unit)
+isNonTrivial _ k l = (abs k /= unit && abs l /= unit)
 
 -- | divisionAlgorithm
 --
@@ -145,12 +148,13 @@ isNonTrivial n k l = (abs k /= unit && abs l /= unit)
 -- If a and b are integers with b /= 0, then there exist unique integers q and r such that a = bq + r and 0 ≤ r < |b|
 --
 divisionAlgorithm :: Integral a => a -> a -> (a, a)
-divisionAlgorithm a 0 = error "b /= 0"
+divisionAlgorithm _ 0 = error "b /= 0"
 divisionAlgorithm a b = quotRem a b
 
 -- | divisionAlgorithmShow
 --
-divisionAlgorithmShow a 0 = error "b /= 0"
+divisionAlgorithmShow :: (PrintfArg t, PrintfType t1, Integral t) => t -> t -> t1
+divisionAlgorithmShow _ 0 = error "b /= 0"
 divisionAlgorithmShow a b = printf "(a=%d) = (b=%d)*(q=%d) + (r=%d)" a b q r
   where
     (q, r) = quotRem a b
