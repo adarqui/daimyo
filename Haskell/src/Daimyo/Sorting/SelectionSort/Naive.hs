@@ -19,7 +19,7 @@ ssort = ssortBy minimum
 -- [9,7,4,3,1,0]
 --
 ssortBy :: Ord a => ([a] -> a) -> [a] -> [a]
-ssortBy by [] = []
+ssortBy _ []  = []
 ssortBy by xs = m : ssortBy by (delete m xs)
   where
     m = by xs
