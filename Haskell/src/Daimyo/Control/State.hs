@@ -7,6 +7,9 @@ module Daimyo.Control.State (
   modify
 ) where
 
+import           Control.Applicative
+import           Control.Monad
+
 -- | State
 --
 newtype State s a = State { runState :: s -> (a, s) }
@@ -38,6 +41,10 @@ modify f = State $ \s' -> ((), f s')
 
 instance Functor (State s) where
   fmap f m = State $ \s -> let (a, s') = runState m s in (f a, s')
+
+instance Applicative (State s) where
+  pure = return
+  (<*>) = ap
 
 instance Monad (State s) where
   return a = State $ \s -> (a, s)
