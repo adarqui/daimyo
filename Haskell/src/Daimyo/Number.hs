@@ -19,7 +19,7 @@ import           Data.Maybe
 -- | Number
 --
 data Number = Number {
-    n          :: Double,
+    numberN    :: Double,
     integer    :: Integer,
     fractional :: Integer,
     decimal    :: Double
@@ -62,7 +62,7 @@ isCounting x = x > 0 && isInteger x
 --
 number :: Double -> Number
 number n' = Number {
-  n          = n',
+  numberN          = n',
   integer    = truncate n',
   fractional = decimalPartToInteger n',
   decimal    = decimalPart n'
