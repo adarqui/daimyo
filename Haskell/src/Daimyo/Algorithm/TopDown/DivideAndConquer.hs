@@ -13,36 +13,32 @@ type Combine p s = Problem p -> Solution [s] -> Solution s
 --
 -- returns True if an instance of the problem is indivisible and False otherwise
 --
-ind :: p -> Bool
-ind = undefined
+-- ind :: p -> Bool
 
 -- | solve
 --
 -- solves an indivisible problem instance
 --
-solve :: p -> s
-solve = undefined
+-- solve :: p -> s
 
 -- | divide
 --
 -- divides a problem into a list of subproblems
 --
-divide :: p -> [p]
-divide = undefined
+-- divide :: p -> [p]
 
 -- | combine
 --
 -- given the original problem and solution of its subproblems, this function combines them into a single solution
 --
-combine :: p -> [s] -> s
-combine = undefined
+-- combine :: p -> [s] -> s
 
 -- | divideAndConquer
 --
 -- mostly taken from AAFA
 --
 divideAndConquer :: Ind p -> Solve p s -> Divide p -> Combine p s -> Problem p -> Solution s
-divideAndConquer ind' solve' divide' combine' init = go init
+divideAndConquer ind' solve' divide' combine' initial = go initial
   where
     go pb
       | ind' pb   = solve' pb
