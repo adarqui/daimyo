@@ -1,11 +1,12 @@
 module Daimyo.NumberTheory.MagicSquare (
-    magicSquare,
-    magicSquare'18x19
+  magicSquare,
+  magicSquare18x19
 ) where
 
 import Daimyo.Number
 import Data.Matrix
 
+magicSquare :: t
 magicSquare = undefined
 
 {-
@@ -35,8 +36,29 @@ true magic square.
 18/19 = 947368421052631578
 -}
 
-magicSquare'18x19 =
-    let
-        recips = map (\n -> show $ decimalPartToInteger (n/19)) [1..18]
-    in
-        fromLists recips
+-- | magicSquare18x19
+--
+-- >>> magicSquare18x19
+-- ( 5 2 6 3 1 5 7 8 9 4 7 3 6 8 4 1 )
+-- ( 1 0 5 2 6 3 1 5 7 8 9 4 7 3 6 8 )
+-- ( 1 5 7 8 9 4 7 3 6 8 4 2 1 0 5 2 )
+-- ( 2 1 0 5 2 6 3 1 5 7 8 9 4 7 3 6 )
+-- ( 2 6 3 1 5 7 8 9 4 7 3 6 8 4 2 0 )
+-- ( 3 1 5 7 8 9 4 7 3 6 8 4 2 1 0 5 )
+-- ( 3 6 8 4 2 1 0 5 2 6 3 1 5 7 8 9 )
+-- ( 4 2 1 0 5 2 6 3 1 5 7 8 9 4 7 2 )
+-- ( 4 7 3 6 8 4 2 1 0 5 2 6 3 1 5 6 )
+-- ( 5 2 6 3 1 5 7 8 9 4 7 3 6 8 4 1 )
+-- ( 5 7 8 9 4 7 3 6 8 4 2 1 0 5 2 8 )
+-- ( 6 3 1 5 7 8 9 4 7 3 6 8 4 2 1 1 )
+-- ( 6 8 4 2 1 0 5 2 6 3 1 5 7 8 9 5 )
+-- ( 7 3 6 8 4 2 1 0 5 2 6 3 1 5 7 8 )
+-- ( 7 8 9 4 7 3 6 8 4 2 1 0 5 2 6 4 )
+-- ( 8 4 2 1 0 5 2 6 3 1 5 7 8 9 4 5 )
+-- ( 8 9 4 7 3 6 8 4 2 1 0 5 2 6 3 1 )
+-- ( 9 4 7 3 6 8 4 2 1 0 5 2 6 3 1 2 )
+--
+magicSquare18x19 :: Matrix Integer
+magicSquare18x19 = fromLists recips
+  where
+    recips = map (\n -> digits (decimalPartToInteger (n/19) :: Integer)) [1..18]
