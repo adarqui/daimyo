@@ -1,34 +1,50 @@
 module Daimyo.NumberTheory.Aliquot (
-    aliquot'parts,
-    amicable'pair,
-    aliquot'sequence,
-    aliquot'perfect
+  aliquotParts,
+  amicablePair,
+  aliquotSequence,
+  aliquotPerfect
 ) where
 
-import Daimyo.Algebra.Divisibility
+import           Daimyo.Algebra.Divisibility
 
-aliquot'parts = properDivisors
+-- | aliquotParts
+--
+-- >>> aliquotParts 28
+-- [1,2,4,7,14]
+--
+aliquotParts :: Integer -> [Integer]
+aliquotParts = properDivisors
 
-amicable'pair = undefined
+-- | amicablePair
+--
+amicablePair :: t
+amicablePair = undefined
 
-aliquot'sequence n
-    | n == 1 = [1]
-    | otherwise =
-        let
-            ap = sum $ aliquot'parts n
-        in
-            n : aliquot'sequence ap
+-- | aliquotSequence
+--
+-- >>> aliquotSequence 24
+-- [24,36,55,17,1]
+--
+-- >>> take 10 $ aliquotSequence 28
+-- [28,28,28,28,28,28,28,28,28,28]
+--
+aliquotSequence :: Integer -> [Integer]
+aliquotSequence n
+  | n == 1 = [1]
+  | otherwise = n : aliquotSequence (sum $ aliquotParts n)
 
-aliquot'perfect n =
-    let
-        as = aliquot'sequence n
-        len = length $ take 2 $ takeWhile (==n) as
-    in
-        case len of
-            2 -> True
-            otherwise -> False
-
-
-t_aliquot'parts'28 = aliquot'parts 28
-t_aliquot'sequence'24 = aliquot'sequence 24
-t_aliquot'sequence'28 = aliquot'sequence 28
+-- | aliquotPerfect
+--
+-- >>> aliquotPerfect 28
+-- True
+--
+-- >>> aliquotPerfect 27
+-- False
+--
+aliquotPerfect :: Integer -> Bool
+aliquotPerfect n
+  | len == 2  = True
+  | otherwise = False
+  where
+    as  = aliquotSequence n
+    len = length $ take 2 $ takeWhile (==n) as
