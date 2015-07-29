@@ -14,7 +14,6 @@ import           Prelude hiding (span)
 -- > span (< 0) [1,2,3] == ([],[1,2,3])
 --
 -- 'span' @p xs@ is equivalent to @('takeWhile' p xs, 'dropWhile' p xs)@
-
 span                    :: (a -> Bool) -> [a] -> ([a],[a])
 span _ xs@[]            =  (xs, xs)
 span p xs@(x:xs')
