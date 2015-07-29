@@ -65,7 +65,6 @@ Library
                      Daimyo.Set.Bits
                      Daimyo.Set.List
                      Daimyo.Set.NodeTree
-                     Daimyo.Set.Naive
                      Daimyo.Table.Array
                      Daimyo.Table.List
                      Daimyo.Table.Naive

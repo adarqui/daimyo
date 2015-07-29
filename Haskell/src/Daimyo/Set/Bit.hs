@@ -11,8 +11,6 @@ module Daimyo.Set.Bit (
   toList
 ) where
 
-import           Data.Maybe
-
 -- | Set
 --
 newtype Set
