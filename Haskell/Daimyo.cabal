@@ -135,7 +135,6 @@ Library
                      Daimyo.Geometry.Triangle
                      Daimyo.Geometry.Pythagorean
                      Daimyo.Geometry.Quiz.Pythagorean
-                     Daimyo.Matrix
                      Daimyo.SetTheory
                      Daimyo.GroupTheory
                      Daimyo.GroupTheory.Tables
