@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-incomplete-patterns #-}
+
 module Daimyo.Sorting.SelectionSort.DivideAndConquer (
   ssort
 ) where
@@ -11,7 +13,7 @@ import           Data.List
 -- [0,1,2,3,4,5,7,9]
 --
 ssort :: Ord a => [a] -> [a]
-ssort xs = divideAndConquer ind solve divide combine xs
+ssort l = divideAndConquer ind solve divide combine l
   where
     ind xs    = length xs <= 1
     solve     = id
