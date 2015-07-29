@@ -98,7 +98,6 @@ Library
                      Daimyo.Encryption.Transposition
                      Daimyo.Permutation.Heaps
                      Daimyo.Fun.Binary
-                     Daimyo.Desugar
                      Daimyo.Patterns.Palindrome
                      Daimyo.Expressions.ShuntingYard
                      Daimyo.Expressions.BoolTree
