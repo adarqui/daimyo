@@ -24,7 +24,7 @@ rsort p _bounds l = rsort p' _bounds (concatA (split p' _bounds l))
 split :: Ix a => Int -> (a, a) -> [Key a] -> Buckets a
 split k _bounds l = accumArray f [] _bounds [ (x!!k,x) | x <- l]
   where
-    f l key = key : l
+    f l' key = key : l'
 
 -- | concatA
 --
