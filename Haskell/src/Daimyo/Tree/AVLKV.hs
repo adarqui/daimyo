@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-incomplete-patterns #-}
+
 module Daimyo.Tree.AVLKV (
   AVLTree (..),
   empty,
@@ -64,7 +66,7 @@ doubleRotateLeftRight (AVLNode k v (AVLNode lk lv lflf (AVLNode lfrk lfrv lfrtlf
 --
 insert :: Ord k => k -> v -> AVLTree k v -> AVLTree k v
 insert k v AVLEmpty = AVLNode k v AVLEmpty AVLEmpty
-insert k v t@(AVLNode k' v' lf rt)
+insert k v t@(AVLNode k' _ lf rt)
   | k < k' =
     if ((height newlf - height rt) == 2)
        then if k < newlfk
@@ -79,8 +81,8 @@ insert k v t@(AVLNode k' v' lf rt)
           else doubleRotateRightLeft (AVLNode k v lf newrt)
        else (AVLNode k v lf newrt)
   where
-      newlf@(AVLNode newlfk newlfv _ _) = insert k v lf
-      newrt@(AVLNode newrtk newrtv _ _) = insert k v rt
+      newlf@(AVLNode newlfk _ _ _) = insert k v lf
+      newrt@(AVLNode newrtk _ _ _) = insert k v rt
 
 -- | fromList
 --
