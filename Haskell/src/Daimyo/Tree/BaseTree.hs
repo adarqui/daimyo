@@ -90,9 +90,6 @@ postOrder :: Tree a -> [a]
 postOrder Empty        = []
 postOrder (Node a l r) = postOrder l ++ postOrder r ++ [a]
 
-levelOrder :: Tree a -> [a]
-levelOrder (Node a l r) = []
-
 -- | find
 --
 -- >>> find 7 (fromList [1,5,2,7,3,8] :: Tree Int)
@@ -115,9 +112,9 @@ find e (Node a l r)
 insert :: (Eq a, Ord a) => a -> Tree a -> Tree a
 insert e Empty = Node e Empty Empty
 insert e t@(Node a l r)
- | e == a = t
- | e < a = Node a (insert e l) r
- | e > a = Node a l (insert e r)
+ | e < a     = Node a (insert e l) r
+ | e > a     = Node a l (insert e r)
+ | otherwise = t
 
 -- | remove
 --
@@ -125,11 +122,11 @@ insert e t@(Node a l r)
 -- Node 8 (Node 3 (Node 2 (Node 1 Empty Empty) Empty) (Node 7 (Node 5 Empty Empty) Empty)) Empty
 --
 remove :: (Eq a, Ord a) => a -> Tree a -> Tree a
-remove e Empty = Empty
+remove _ Empty = Empty
 remove e (Node a l r)
- | e == a = Empty
- | e < a  = Node a (remove e l) r
- | e > a  = Node a l (remove e r)
+ | e < a     = Node a (remove e l) r
+ | e > a     = Node a l (remove e r)
+ | otherwise = Empty
 
 -- | removeSubTree
 --
@@ -137,11 +134,11 @@ remove e (Node a l r)
 -- [6,7,8,9,10]
 --
 removeSubTree :: (Eq a, Ord a) => a -> Tree a -> Tree a
-removeSubTree e Empty = Empty
-removeSubTree e t@(Node a l r)
- | e == a = Empty
- | e < a  = Node a (removeSubTree e l) r
- | e > a  = Node a l (removeSubTree e r)
+removeSubTree _ Empty = Empty
+removeSubTree e (Node a l r)
+ | e < a     = Node a (removeSubTree e l) r
+ | e > a     = Node a l (removeSubTree e r)
+ | otherwise = Empty
 
 -- | pp Pretty Printer
 --
