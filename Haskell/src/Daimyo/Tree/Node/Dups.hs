@@ -2,6 +2,8 @@
 
 module Daimyo.Tree.Node.Dups (
   Tree (..),
+  remove,
+  removeSubTree,
   fromList,
   toList,
   leaf,
@@ -12,20 +14,15 @@ module Daimyo.Tree.Node.Dups (
   inOrder,
   inOrderOptimized,
   postOrder,
-  levelOrder,
   find,
   insert,
   tflip,
   tfold,
   tmap,
--- union,
--- intersection,
--- difference,
   pp
 ) where
 
 import           Control.Applicative
-import           Control.Monad
 import           System.Random
 
 data Tree a
@@ -48,7 +45,8 @@ instance Functor Tree where
 --
 instance Applicative Tree where
   pure a = Node a Empty Empty
-  f <*> Empty = Empty
+  _ <*> Empty = Empty
+  Empty <*> _ = Empty
   node@(Node f _ _) <*> Node v l r = Node (f v) (node <*> l) (node <*> r)
 
 -- | Random
@@ -62,6 +60,7 @@ instance Random (Tree Bool) where
   random g = (Node a Empty Empty, g')
     where
       (a, g') = random g
+  randomR (_, _) g = (Empty, g)
 
 -- | toList
 --
@@ -95,8 +94,9 @@ depth :: Tree a -> Int
 depth Empty = 0
 depth (Node _ l r) = max (go 1 l) (go 1 r)
   where
-    go d Empty        = 0
-    go d (Node _ l r) = 1 + go (d+1) l + go (d+1) r
+    go :: Int -> Tree a -> Int
+    go _ Empty        = 0
+    go d (Node _ l' r') = 1 + go (d+1) l' + go (d+1) r'
 
 -- | countEmpty
 --
@@ -158,11 +158,6 @@ postOrder :: Tree a -> [a]
 postOrder Empty        = []
 postOrder (Node a l r) = postOrder l ++ postOrder r ++ [a]
 
--- | levelOrder
---
-levelOrder :: Tree a -> [a]
-levelOrder (Node a l r) = []
-
 -- | find
 --
 -- >>> find 7 (fromList [1,5,2,7,3,8] :: Tree Int)
@@ -184,10 +179,10 @@ find e (Node a l r)
 --
 insert :: (Eq a, Ord a) => a -> Tree a -> Tree a
 insert e Empty = Node e Empty Empty
-insert e t@(Node a l r)
- | e == a = Node a (insert e l) r
- | e < a  = Node a (insert e l) r
- | e > a  = Node a l (insert e r)
+insert e (Node a l r)
+ | e < a     = Node a (insert e l) r
+ | e > a     = Node a l (insert e r)
+ | otherwise = Node a (insert e l) r
 
 -- | remove
 --
@@ -195,11 +190,11 @@ insert e t@(Node a l r)
 -- Node 8 (Node 3 (Node 2 (Node 1 Empty Empty) Empty) (Node 7 (Node 5 Empty Empty) Empty)) Empty
 --
 remove :: (Eq a, Ord a) => a -> Tree a -> Tree a
-remove e Empty = Empty
+remove _ Empty = Empty
 remove e (Node a l r)
- | e == a = Empty
- | e < a  = Node a (remove e l) r
- | e > a  = Node a l (remove e r)
+ | e < a     = Node a (remove e l) r
+ | e > a     = Node a l (remove e r)
+ | otherwise = Empty
 
 -- | removeSubTree
 --
@@ -207,11 +202,11 @@ remove e (Node a l r)
 -- [6,7,8,9,10]
 --
 removeSubTree :: (Eq a, Ord a) => a -> Tree a -> Tree a
-removeSubTree e Empty = Empty
+removeSubTree _ Empty = Empty
 removeSubTree e (Node a l r)
- | e == a = Empty
- | e < a = Node a (removeSubTree e l) r
- | e > a = Node a l (removeSubTree e r)
+ | e < a     = Node a (removeSubTree e l) r
+ | e > a     = Node a l (removeSubTree e r)
+ | otherwise = Empty
 
 -- | tflip
 --
@@ -253,11 +248,6 @@ tfoldWithNodes f acc (Node v l r) = f (tfoldWithNodes f (tfoldWithNodes f acc r)
 tmap :: (a -> b) -> Tree a -> Tree b
 tmap _ Empty        = Empty
 tmap f (Node v l r) = Node (f v) (tmap f l) (tmap f r)
-
--- | union
---
-union :: (Ord a) => Tree a -> Tree a -> Tree a
-union = undefined
 
 -- | pp
 --
