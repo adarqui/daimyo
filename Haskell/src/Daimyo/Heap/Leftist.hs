@@ -37,7 +37,7 @@ isEmpty _     = False
 --
 find :: Ord a => Heap a -> a
 find Empty          = error "empty"
-find (Heap x _ a b) = x
+find (Heap x _ _ _) = x
 
 -- | rank
 --
@@ -81,4 +81,4 @@ insert x h = merge (Heap x 1 Empty Empty) h
 --
 delete :: (Ord a) => Heap a -> Heap a
 delete Empty          = error "empty"
-delete (Heap x _ a b) = merge a b
+delete (Heap _ _ a b) = merge a b
