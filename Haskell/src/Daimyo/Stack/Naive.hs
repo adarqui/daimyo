@@ -28,7 +28,7 @@ empty = Empty
 --
 size :: Num a => Stack b -> a
 size Empty = 0
-size (Node a r) = 1 + size r
+size (Node _ r) = 1 + size r
 
 -- | push
 --
@@ -46,7 +46,7 @@ push a (Node a' r) = Node a (Node a' r)
 --
 pop :: Stack a -> Stack a
 pop Empty = error "pop on an empty stack"
-pop (Node a r) = r
+pop (Node _ r) = r
 
 -- | top
 --
@@ -55,7 +55,7 @@ pop (Node a r) = r
 --
 top :: Stack a -> a
 top Empty = error "top on an empty stack"
-top (Node a r) = a
+top (Node a _) = a
 
 -- | fromList
 --
