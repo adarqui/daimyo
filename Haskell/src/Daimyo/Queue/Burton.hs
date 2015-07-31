@@ -33,9 +33,13 @@ isEmpty (Queue _)        = False
 
 -- | size
 --
+-- >>> size (fromList [1,2,3,4] :: Queue Int) :: Int
+-- 4
+--
 size :: Queue a -> Int
 size (Queue ([], []))         = 0
 size (Queue ([], (_:xs)))     = 1 + size (Queue ([], xs))
+size (Queue ((_:xs), []))     = 1 + size (Queue (xs, []))
 size (Queue ((_:xs), (_:ys))) = 1 + size (Queue (xs, ys))
 
 -- | enqueue
@@ -63,6 +67,7 @@ dequeue' = fromJust . dequeue
 front :: Queue a -> Maybe a
 front (Queue ([], []))   = Nothing
 front (Queue ((x:_), _)) = Just x
+front (Queue (_, (y:_))) = Just y
 
 -- | front'
 --
@@ -73,8 +78,20 @@ front' = fromJust . front
 
 -- | fromList
 --
-fromList = undefined
+-- >>> fromList [1,2,3,4] :: Queue Int
+-- Node 1 (Node 2 (Node 3 (Node 4 Empty)))
+--
+fromList :: [a] -> Queue a
+fromList = foldr enqueue empty
 
 -- | toList
 --
-toList = undefined
+-- >>> toList (fromList [1,2,3,4] :: Queue Int)
+-- [1,2,3,4]
+--
+toList :: Queue a -> [a]
+toList q = go q
+  where
+  go q'
+    | isEmpty q' = []
+    | otherwise = front' q' : go (dequeue' q')
