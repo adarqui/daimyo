@@ -70,8 +70,14 @@ front' = fromJust . front
 
 -- | fromList
 --
-fromList = undefined
+fromList :: [a] -> Queue a
+fromList = foldr enqueue empty
 
 -- | toList
 --
-toList = undefined
+toList :: Queue a -> [a]
+toList q = go q
+  where
+  go q'
+    | isEmpty q' = []
+    | otherwise  = front' q : go q'
