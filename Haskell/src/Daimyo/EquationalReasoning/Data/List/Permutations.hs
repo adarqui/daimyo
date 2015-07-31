@@ -1,4 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -Wwarn #-}
 
 module Daimyo.EquationalReasoning.Data.List.Permutations (
 ) where
