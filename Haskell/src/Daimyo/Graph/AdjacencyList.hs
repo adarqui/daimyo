@@ -1,6 +1,7 @@
 module Daimyo.Graph.AdjacencyList (
+  {-
   Graph,
-  mkGraph {-,
+  mkGraph,
   mkUndirectedAssocs,
   mkEdges,
   adjacent,
@@ -18,6 +19,7 @@ module Daimyo.Graph.AdjacencyList (
   -}
 ) where
 
+{-
 import qualified Daimyo.Tree.AVL as Tree
 import qualified Daimyo.Queue.List as Queue
 import qualified Daimyo.Stack.List as Stack
@@ -55,3 +57,4 @@ mkGraph bounds' es = Graph $ (accumArray accfn [] bounds' es')
     accfn xs x = x:xs
     es' = [ (x1,(x2,w)) | (x1,x2,w) <- es ]
     -}
+-}
