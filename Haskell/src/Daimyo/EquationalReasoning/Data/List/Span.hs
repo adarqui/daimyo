@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wwarn #-}
+
 module Daimyo.EquationalReasoning.Data.List.Span (
   span_test,
   span_eqr
