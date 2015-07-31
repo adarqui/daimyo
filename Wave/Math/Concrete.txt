@@ -5,3 +5,7 @@ Concrete Mathematics
 - 11/30/2014: (PEX, NN) 1 (Recurrent Problems)
 - 12/20/2014: 2.1 (Daimyo.ConcreteMathematics.Sums), 2.2 (Daimyo.ConcreteMathematics.Recurrences) - didnt finish
 - 07/27/2015: 1.1
+
+
+Connected Mathematics - Building Concrete Relationships with Mathematical Knowledge
+- source: https://ccl.northwestern.edu/papers/download/Wilensky-thesis.pdf

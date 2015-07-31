@@ -6,3 +6,11 @@ Problem Solving Strategies
 - 12/01/2014: 1 E1 (RR)
 - 12/15/2014: 1 E1 (RR)
 - 12/15/2014: 1 E1 (RR), 1 E2 (Daimyo.PSS.C1.E2)
+
+
+Mathematical Thinking - 2nd edition
+- source: https://p4mriundana.files.wordpress.com/2011/10/mathematical-thinking-2ed.pdf
+
+
+How to Solve It
+- source: https://notendur.hi.is/hei2/teaching/Polya_HowToSolveIt.pdf
