@@ -14,7 +14,6 @@ module Daimyo.Graph.Array (
   sparsity,
   dfsList,
   dfsStackList,
-  bfsList,
   bfsQueueList,
   tsort
 ) where
@@ -165,10 +164,6 @@ dfsStackList start (Graph g) = reverse $ go (Stack.push start Stack.empty) []
         where
           c          = Stack.top' s
           candidates = foldr Stack.push (Stack.pop' s) (adjacent c (Graph g))
-
--- | bfsList
---
-bfsList = undefined
 
 -- | bfsQueueList
 --
