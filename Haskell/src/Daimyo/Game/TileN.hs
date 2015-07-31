@@ -1,7 +1,6 @@
 module Daimyo.Game.TileN (
-  Board (..),
-  Position,
   Board,
+  Position,
   manDist,
   isAdjacent,
   allMoves,
@@ -56,21 +55,24 @@ allMoves sz b = [ b // [(0,b!i),(i,b!0) ] | i <- range (0,sz), isAdjacent (b!0) 
 -- | succs
 --
 succs :: Int -> Boards -> [Boards]
+succs _ (Boards [])          = []
 succs sz (Boards (n@(b:bs))) = filter (notIn bs) [ Boards (b':n) | b' <- allMoves sz b ]
     where
-      notIn bs (Boards (b:_)) = not (elem (elems b) (map elems bs))
+      notIn _ (Boards [])     =  True
+      notIn xs (Boards (x:_)) = not (elem (elems x) (map elems xs))
 
 -- | goal8T
 --
 goal :: Board -> Boards -> Bool
+goal _ (Boards [])        = False
 goal board (Boards (n:_)) = elems n == elems board
 
 -- | dfs8T
 --
 dfsNT :: Board -> Board -> (Board -> Boards -> Bool) -> (Boards -> [Boards]) -> [[Position]]
-dfsNT start_board goal_board goal succs = map elems ls
+dfsNT start_board goal_board goalFn succsFn = map elems ls
   where
-    ((Boards ls):_) = searchDFS succs (goal goal_board) (Boards [start_board])
+    ((Boards ls):_) = searchDFS succsFn (goalFn goal_board) (Boards [start_board])
 
 -- | g8T
 --
@@ -106,5 +108,8 @@ s4T = array (0,4) board
     board = [(0,(2,2)),(1,(1,2)),
              (2,(1,1)),(3,(2,1))]
 
+dfs4T :: [[Position]]
 dfs4T = dfsNT s4T g4T goal (succs 4)
+
+dfs8T :: [[Position]]
 dfs8T = dfsNT s8T g8T goal (succs 8)
