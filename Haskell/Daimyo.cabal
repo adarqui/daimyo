@@ -232,7 +232,6 @@ Library
                      Daimyo.Encoding.Base64.ByteString
                      Daimyo.Pearls.SmallestFreeNumber
                      Daimyo.GEB.MIU
-                     Daimyo.Boxes
                      Daimyo.Game.Chess
                      Daimyo.Game.Checkers
                      Daimyo.Game.TileN
