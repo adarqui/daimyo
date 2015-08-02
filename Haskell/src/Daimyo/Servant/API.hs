@@ -57,7 +57,6 @@ writeJSFiles = do
 -- http://localhost:8080
 --
 -- connects to temporary redis (ardb) on:
--- redis-cli -h leuro.net -p 16379
 --
 runServer :: IO ()
 runServer = do
