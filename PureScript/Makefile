@@ -1,2 +1,2 @@
 all:
-	pulp browserify > dist/all.js
+	pulp browserify -O --to dist/all.js
