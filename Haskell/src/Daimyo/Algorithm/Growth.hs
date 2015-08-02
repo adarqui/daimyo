@@ -74,7 +74,7 @@ gapsLogLog interval = gaps [ log (log n) | n <- interval ]
 -- | gapsFac
 --
 gapsFac :: (Num t, Eq t) => [t] -> [t]
-gapsFac interval = gaps [ fac n | n <- interval ]
+gapsFac interval = gaps [ factorial n | n <- interval ]
 
 -- | gapsFib
 --

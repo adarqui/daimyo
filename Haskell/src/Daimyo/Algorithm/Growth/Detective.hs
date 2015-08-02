@@ -50,7 +50,7 @@ detectTests =
     detect (\x -> 3*x) interval,
     detect (\x -> 3*(x*x)+100) interval,
     detect (\x -> 3*2**x) interval,
-    detect (\x -> 3*(fac x)+100) interval,
+    detect (\x -> 3*(factorial x)+100) interval,
     detect (\x -> 3*(fromIntegral (fibonacciNumbers !! (truncate x)) :: Double)+100) interval,
     detect (\x -> 3*(log x)+100) interval,
     detect (\x -> 3*(log (log x))+100) interval,

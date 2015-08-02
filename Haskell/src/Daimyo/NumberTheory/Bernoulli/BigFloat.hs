@@ -47,7 +47,7 @@ bernoulli x = bm x
 -- | k
 --
 k :: BigFloat Prec50 -> BigFloat Prec50
-k m = (2*fac m)/((2*pi)**m)
+k m = (2*factorial m)/((2*pi)**m)
 
 -- | d
 --

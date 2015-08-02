@@ -237,5 +237,33 @@ Library
                      Daimyo.Game.TileN
                      Daimyo.Security.Stanford
                      Daimyo.Athletics.Run
- Build-Depends:      base == 4.*, bytestring, matrix, vector, containers, AC-Angle, binary, random, array, mtl, text, statistics, time, hatt, boxes, scotty, numbers, gamma
- GHC-Options:        -Wall
+                     Daimyo.Servant.Shared
+                     Daimyo.Servant.API
+                     Daimyo.Servant.API.Ping
+ Build-Depends:      base == 4.*,
+                     AC-Angle,
+                     aeson,
+                     array,
+                     binary,
+                     bytestring,
+                     containers,
+                     either,
+                     gamma,
+                     hatt,
+                     js-jquery,
+                     matrix,
+                     mtl,
+                     numbers,
+                     random,
+                     servant == 0.5.*,
+                     servant-server == 0.5.*,
+                     servant-client == 0.5.*,
+                     statistics,
+                     time,
+                     transformers,
+                     text,
+                     vector,
+                     wai >= 3.0.2.3,
+                     warp >= 3.0.13.1
+ ghc-options:        -Wall
+ default-extensions:

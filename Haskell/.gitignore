@@ -6,3 +6,5 @@ vendor
 dev
 ext
 test-cases
+build/js/*
+!build/js/.empty

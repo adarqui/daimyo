@@ -1,25 +1,20 @@
 module Daimyo.NumberTheory.Factorial (
-    fac,
-    fac'product,
-    fac'hist,
-    fac'list,
-    ratFac
+  factorial,
+  factorialProduct,
+  rationalFactorial
 ) where
 
-fac 0 = 1
-fac n = n * fac (n-1)
+-- | factorial
+--
+factorial :: (Eq a, Num a) => a -> a
+factorial 0 = 1
+factorial n = n * factorial (n-1)
 
-fac'product n = product [1..n]
+-- factorialProduct
+--
+factorialProduct :: (Enum a, Num a) => a -> a
+factorialProduct n = product [1..n]
 
-fac'hist 0 = (1, [1])
-fac'hist n =
-    let
-        (r,l) = fac'hist (n-1)
-    in
-        (r*n, l ++ [r*n])
-
-fac'list n = let (_, l) = fac'hist n in l
-
-ratFac n
-    | n < 1 = 1
-    | otherwise = n * ratFac (n-1)
+rationalFactorial n
+  | n < 1 = 1
+  | otherwise = n * rationalFactorial (n-1)
