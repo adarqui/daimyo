@@ -1,4 +1,5 @@
 :load src/Main.purs
+:load src/Pure/Hello.purs
 :load src/Pure/NumberTheory/Factorial.purs
 :load bower_components/purescript-aff/src/Control/Monad/Aff.purs
 :load bower_components/purescript-aff/src/Control/Monad/Aff/AVar.purs

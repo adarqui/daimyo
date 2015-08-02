@@ -4,9 +4,15 @@
   <title>Hello</title>
 </head>
 <body>
+  <script src="/static/bower_components/requirejs/require.js"></script>
+  <!--  <script src="/static/bower_components/commonjs/common.js"></script> -->
+  <script type="text/javascript">
+requirejs.config({
+  baseUrl: '/static/output/',
+});
+  </script>
   <script src="/static/dist/all.js"></script>
-  <script type-"text/javascript">PureScript.Main.main();</script>
-  <div id="container">
-  </div>
+  <script src="/static/output/Pure.Hello/index.js"></script>
+  <script type-"text/javascript">PS["Pure.Hello"].main();</script>
 </body>
 </html>

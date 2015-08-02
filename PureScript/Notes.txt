@@ -1,3 +1,16 @@
 EH! FML!
 
 PS["Control.Monad.Eff.Console"].log("hi")()
+
+ '-o',
+ './output',
+ 'src/**/*.purs',
+ 'bower_components/purescript-*/src/**/*.purs',
+ '--ffi',
+ 'src/**/*.js',
+ '--ffi',
+ 'bower_components/purescript-*/src/**/*.js',
+ '--no-opts',
+ '-c' ]
+
+-o ./output src/**/*.purs bower_components/purescript-*/src/**/*.purs --ffi src/**/*.js --ffi bower_components/purescript-*/src/**/*.js --no-opts -c
