@@ -1,0 +1,3 @@
+EH! FML!
+
+PS["Control.Monad.Eff.Console"].log("hi")()
