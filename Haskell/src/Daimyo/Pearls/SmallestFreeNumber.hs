@@ -8,7 +8,8 @@ module Daimyo.Pearls.SmallestFreeNumber (
   search,
   checkList,
   checkListST,
-  countList
+  countList,
+  differenceProof
 ) where
 
 import           Data.Array
@@ -88,7 +89,7 @@ checkListST xs =
   runSTArray $ do
     let n = length xs
     a <- newArray (0, n) False
-    sequence [writeArray a x True | x <- xs, x <= n]
+    _ <- sequence [writeArray a x True | x <- xs, x <= n]
     return a
 
 -- | findSmallestDC
@@ -101,7 +102,10 @@ checkListST xs =
 findSmallestDC :: [Int] -> Int
 findSmallestDC = minFree'
 
+minFree' :: [Int] -> Int
 minFree' xs = minFrom 0 (length xs, xs)
+
+minFrom :: Int -> (Int, [Int]) -> Int
 minFrom a (n, xs)
   | n == 0 = a
   | m == b - a = minFrom b (n-m, vs)
@@ -111,7 +115,8 @@ minFrom a (n, xs)
     b = a + 1 + n `div` 2
     m = length us
 
-difference_proof as bs cs = [t1,t2,t3]
+differenceProof :: Eq a => [a] -> [a] -> [a] -> [Bool]
+differenceProof as bs cs = [t1,t2,t3]
   where
     t1 = ((as ++ bs) \\ cs) == ((as \\ cs) ++ (bs \\ cs))
     t2 = (as \\ (bs ++ cs)) == ((as \\ bs) \\ cs)
