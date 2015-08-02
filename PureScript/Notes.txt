@@ -14,3 +14,9 @@ PS["Control.Monad.Eff.Console"].log("hi")()
  '-c' ]
 
 -o ./output src/**/*.purs bower_components/purescript-*/src/**/*.purs --ffi src/**/*.js --ffi bower_components/purescript-*/src/**/*.js --no-opts -c
+
+zz('/Users/andrew/code/github/adarqui/daimyo/PureScript/output/Pure.Hello/index.js').helloMain()
+all.js:10 hello.
+Object {}
+zz('/Users/andrew/code/github/adarqui/daimyo/PureScript/output/Pure.NumberTheory.Factorial/index.js').factorial(5)
+120
