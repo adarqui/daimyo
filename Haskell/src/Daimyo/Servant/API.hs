@@ -29,7 +29,7 @@ daimyoAPI = Proxy
 server :: Store -> Server LnAPI
 server store =
   -- static
-       serveDirectory "../../PureScript/"
+       serveDirectory "../PureScript/"
   -- ping
   :<|> getPing store
 
