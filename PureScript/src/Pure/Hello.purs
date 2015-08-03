@@ -6,5 +6,3 @@ import Control.Monad.Eff.Console
 
 helloMain = do
   log "hello."
-
-main = helloMain

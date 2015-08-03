@@ -1,3 +1,13 @@
+# Notes
+
+## Javascript stuff
+
+keycodes:
+- https://css-tricks.com/snippets/javascript/javascript-keycodes/
+
+events:
+- http://www.w3schools.com/tags/ref_eventattributes.asp
+
 EH! FML!
 
 PS["Control.Monad.Eff.Console"].log("hi")()
