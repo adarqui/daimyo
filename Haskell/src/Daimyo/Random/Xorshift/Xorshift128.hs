@@ -36,8 +36,16 @@ xorshift128 = do
 
 -- | xorshifts128
 --
+-- >>> take 10 $ xorshifts128 seed128
+-- [252977563114,646616338854,476657867818,294684809458,517442357777055,1520438133548453,1708732760301528,1183697501400772,1062766255963462739,2713212276630031108]
+--
+-- >>> head $ drop 10000 $ xorshifts128 seed128
+-- 1767023184024352365
+--
 xorshifts128 :: Xorshift128 -> [Int]
-xorshifts128 seed = fst $ foldl (\(acc, g) _ -> let (a', g') = runState xorshift128 g in (a' : acc, g')) ([], seed) [1..]
+xorshifts128 seed = go seed
+  where
+  go g = let (a', g') = runState xorshift128 g in a' : go g'
 
 -- | seed128
 --
