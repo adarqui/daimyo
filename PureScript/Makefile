@@ -9,3 +9,6 @@ ui_thermite_factorial:
 
 ui_thermite_ping:
 	./bin/build_main.sh all_ui_thermite_ping.js Pure.UI.Thermite.Ping uiPingMain
+
+ui_halogen_ping:
+	./bin/build_main.sh all_ui_halogen_ping.js Pure.UI.Halogen.Ping uiHalogenPingMain
