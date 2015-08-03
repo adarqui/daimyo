@@ -60,6 +60,6 @@ writeJSFiles = do
 --
 runServer :: IO ()
 runServer = do
-  writeJSFiles
+  -- writeJSFiles
   let store = ()
   run 31415 $ app store

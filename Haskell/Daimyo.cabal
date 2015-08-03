@@ -227,7 +227,7 @@ Library
                      Daimyo.Algorithm.TopDown.PriorityFirstSearch
                      Daimyo.Algorithm.Network.ProcessNetwork
                      Daimyo.Algorithm.Network.Pipeline
-                     Daimyo.Crypto.Frequency
+                     Daimyo.Cryptography.Frequency
                      Daimyo.Encoding.Base64
                      Daimyo.Encoding.Base64.ByteString
                      Daimyo.Pearls.SmallestFreeNumber
