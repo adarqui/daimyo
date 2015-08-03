@@ -6,3 +6,6 @@ hello:
 
 ui_thermite_factorial:
 	./bin/build_main.sh all_ui_thermite_factorial.js Pure.UI.Thermite.Factorial uiThermiteFactorialMain
+
+ui_thermite_ping:
+	./bin/build_main.sh all_ui_thermite_ping.js Pure.UI.Thermite.Ping uiPingMain

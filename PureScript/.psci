@@ -1,6 +1,9 @@
 :load src/Main.purs
 :load src/Pure/Hello.purs
 :load src/Pure/NumberTheory/Factorial.purs
+:load src/Pure/UI/Thermite/Factorial.purs
+:load src/Pure/UI/Thermite/Ping.purs
+:load src/Pure/Misc/Ping.purs
 :load bower_components/purescript-aff/src/Control/Monad/Aff.purs
 :load bower_components/purescript-aff/src/Control/Monad/Aff/AVar.purs
 :load bower_components/purescript-aff/src/Control/Monad/Aff/Class.purs
@@ -202,3 +205,4 @@
 :foreign bower_components/purescript-thermite/src/Thermite/Types.js
 :foreign bower_components/purescript-unsafe-coerce/src/Unsafe/Coerce.js
 :foreign bower_components/purescript-bigints/src/Data/BigInt.js
+:foreign src/Pure/UI/Thermite/Factorial.js
