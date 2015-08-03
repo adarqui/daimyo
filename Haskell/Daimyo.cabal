@@ -21,6 +21,7 @@ Library
  Exposed-Modules:    Daimyo
                      Daimyo.Random
                      Daimyo.Random.Xorshift.Xorshift128
+                     Daimyo.Random.Xorshift.Xorshift64
                      Daimyo.String
                      Daimyo.Number
                      Daimyo.Knowledge.Time
