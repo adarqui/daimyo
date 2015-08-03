@@ -31,20 +31,31 @@ initialState = { input: 0, output: 1 }
 
 -- type Render eff state props action = Context state action -> state -> props -> Array (Html eff) -> Html eff
 render :: T.Render _ State Unit Action
-render ctx st props act = T.div' [input, output, buttons]
+render ctx st props act =
+  T.main (A.className "ui page grid")
+    [T.div (A.className "row")
+      [T.div (A.className "center aligned starter column")
+        [T.div' [header, input, output]]]]
   where
+  header :: T.Html _
+  header =
+    T.h1 (A.className "ui header")
+      [T.text "Factorial",
+        T.div (A.className "sub header")
+        [T.text "Calculate factorial"]]
   input :: T.Html _
   input =
-    T.p'
+    T.div (A.className "ui labeled input")
       [
-        T.input (T.onKeyUp ctx handleKeyPress) []
+        T.a (A.className "ui label") [T.text "Input"], T.input (A.placeholder "Enter a number.." <> (T.onKeyUp ctx handleKeyPress)) []
       ]
   output :: T.Html _
   output =
     T.p'
       [
-        T.text "result: ", T.text $ show st.output
+        T.h1' [ T.text "result: ", T.text $ show st.output ]
       ]
+  -- not needed
   buttons :: T.Html _
   buttons =
     T.p'
