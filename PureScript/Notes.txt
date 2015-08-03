@@ -8,6 +8,13 @@ keycodes:
 events:
 - http://www.w3schools.com/tags/ref_eventattributes.asp
 
+## UI
+
+semantic ui examples:
+- http://ehkoo.github.io/semantic-ui-examples/
+- http://semantic-ui.com/usage/layout.html
+- http://semantic-ui.com/examples/theming.html
+
 EH! FML!
 
 PS["Control.Monad.Eff.Console"].log("hi")()
