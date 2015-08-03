@@ -20,6 +20,7 @@ Library
  HS-Source-Dirs:     src
  Exposed-Modules:    Daimyo
                      Daimyo.Random
+                     Daimyo.Random.Xorshift.Xorshift128
                      Daimyo.String
                      Daimyo.Number
                      Daimyo.Knowledge.Time
