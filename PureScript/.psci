@@ -155,6 +155,7 @@
 :load bower_components/purescript-tuples/src/Data/Tuple/Nested.purs
 :load bower_components/purescript-unfoldable/src/Data/Unfoldable.purs
 :load bower_components/purescript-unsafe-coerce/src/Unsafe/Coerce.purs
+:load bower_components/purescript-bigints/src/Data/BigInt.purs
 :load test/Main.purs
 :foreign bower_components/purescript-aff/src/Control/Monad/Aff.js
 :foreign bower_components/purescript-aff/src/Control/Monad/Aff/AVar.js
@@ -200,3 +201,4 @@
 :foreign bower_components/purescript-thermite/src/Thermite/Internal.js
 :foreign bower_components/purescript-thermite/src/Thermite/Types.js
 :foreign bower_components/purescript-unsafe-coerce/src/Unsafe/Coerce.js
+:foreign bower_components/purescript-bigints/src/Data/BigInt.js
