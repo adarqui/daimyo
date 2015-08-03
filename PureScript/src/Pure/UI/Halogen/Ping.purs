@@ -35,7 +35,7 @@ import qualified Halogen.HTML.CSS as CSS
 import Control.Monad.Aff
 import Network.HTTP.Affjax
 
-import Pure.Misc.Ping
+import Pure.API.Ping
 
 data State = State (Maybe String)
 

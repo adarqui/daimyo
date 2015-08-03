@@ -25,8 +25,6 @@ import Network.HTTP.Affjax
 import Network.HTTP.Affjax.Request
 import Network.HTTP.Affjax.Response
 
-import Pure.Misc.Ping (pingAjax)
-
 type State = { resp :: String }
 
 initialState :: State

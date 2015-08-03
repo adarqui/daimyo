@@ -3,7 +3,8 @@
 :load src/Pure/NumberTheory/Factorial.purs
 :load src/Pure/UI/Thermite/Factorial.purs
 :load src/Pure/UI/Thermite/Ping.purs
-:load src/Pure/Misc/Ping.purs
+:load src/Pure/UI/Halogen/Ping.purs
+:load src/Pure/API/Ping.purs
 :load bower_components/purescript-aff/src/Control/Monad/Aff.purs
 :load bower_components/purescript-aff/src/Control/Monad/Aff/AVar.purs
 :load bower_components/purescript-aff/src/Control/Monad/Aff/Class.purs

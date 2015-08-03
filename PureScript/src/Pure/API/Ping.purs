@@ -1,4 +1,4 @@
-module Pure.Misc.Ping (
+module Pure.API.Ping (
   pingAjax,
   pingAjaxAff
 ) where
