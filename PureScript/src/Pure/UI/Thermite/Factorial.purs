@@ -3,6 +3,7 @@ module Pure.UI.Thermite.Factorial (
 ) where
 
 import Prelude
+import Data.BigInt
 import Control.Monad.Eff
 import Control.Monad.Eff.Console
 import Control.Monad.Eff.Class
@@ -15,8 +16,8 @@ import qualified Thermite.Events as T
 import qualified Thermite.Types as T
 import Pure.NumberTheory.Factorial
 
-data Action = Input Int | Run | Skip
-type State = { input :: Int, output :: Int }
+data Action = Input BigInt | Run | Skip
+type State = { input :: BigInt, output :: BigInt }
 
 foreign import getInt :: forall event. event -> Int
 foreign import getValue :: forall event. event -> String
@@ -24,10 +25,10 @@ foreign import getKeyCode :: T.KeyboardEvent -> Int
 
 handleKeyPress :: T.KeyboardEvent -> Action
 handleKeyPress e =
-  Input $ getInt e
+  Input $ fromInt (getInt e)
 
 initialState :: State
-initialState = { input: 0, output: 1 }
+initialState = { input: fromInt 0, output: fromInt 1 }
 
 -- type Render eff state props action = Context state action -> state -> props -> Array (Html eff) -> Html eff
 render :: T.Render _ State Unit Action
@@ -53,7 +54,7 @@ render ctx st props act =
   output =
     T.p'
       [
-        T.h1' [ T.text "result: ", T.text $ show st.output ]
+        T.h1' [ T.text "result: ", T.text $ toString st.output ]
       ]
   -- not needed
   buttons :: T.Html _
@@ -65,8 +66,8 @@ render ctx st props act =
 
 -- type PerformAction eff state props action = props -> action -> Action eff state Unit
 performAction :: T.PerformAction _ State Unit Action
-performAction _ Run = T.modifyState \st -> { input: st.input, output: factorial st.input }
-performAction _ (Input i) = T.modifyState \_ -> { input: i, output: factorial i }
+performAction _ Run = T.modifyState \st -> { input: st.input, output: factorialBig st.input }
+performAction _ (Input i) = T.modifyState \_ -> { input: i, output: factorialBig i }
 performAction _ Skip = T.modifyState id
 
 -- newtype Spec eff state props action = Spec (SpecRecord eff state props action)
