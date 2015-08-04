@@ -9,6 +9,7 @@ module Daimyo.Servant.API (
   runServer
 ) where
 
+import           Control.Concurrent.STM
 import           Daimyo.Servant.Shared
 import           Daimyo.Servant.API.Ping
 import qualified Language.Javascript.JQuery as JQ
@@ -20,6 +21,7 @@ import           Servant
 type LnAPI =
        "static"         :> Raw
   :<|> "ping"           :> Get '[JSON] String
+  -- application: todo simple
 
 daimyoAPI :: Proxy LnAPI
 daimyoAPI = Proxy
@@ -61,5 +63,5 @@ writeJSFiles = do
 runServer :: IO ()
 runServer = do
   -- writeJSFiles
-  let store = ()
+  store <- atomically $ newBigState
   run 31415 $ app store

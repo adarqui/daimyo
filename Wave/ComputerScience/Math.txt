@@ -15,3 +15,7 @@ The Haskell Road to Logic, Math, and Programming
 
 Practical Foundations for Programming Languages
 - http://www.cs.cmu.edu/~rwh/plbook/book.pdf
+
+
+Notation as a Tool of Thought
+- source: http://www.jsoftware.com/papers/tot.htm
