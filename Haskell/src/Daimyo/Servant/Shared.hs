@@ -64,6 +64,10 @@ appTodoSimpleSTM store cb = do
     writeTVar store (v { appTodoSimple = s })
     return a
 
+-- | appTodoSimpleSTM_Maybe
+--
+-- returns an error if our todo action returns Nothing
+--
 appTodoSimpleSTM_Maybe :: MonadIO m => Store -> State TodoApp (Maybe b) -> EitherT ServantErr m b
 appTodoSimpleSTM_Maybe store cb = do
   s <- appTodoSimpleSTM store cb
