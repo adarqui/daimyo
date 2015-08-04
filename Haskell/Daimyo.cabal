@@ -239,6 +239,7 @@ Library
                      Daimyo.Game.TileN
                      Daimyo.Security.Stanford
                      Daimyo.Athletics.Run
+                     Daimyo.Application.Todo.Simple
                      Daimyo.Servant.Shared
                      Daimyo.Servant.API
                      Daimyo.Servant.API.Ping

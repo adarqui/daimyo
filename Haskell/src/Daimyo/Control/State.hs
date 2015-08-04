@@ -3,6 +3,7 @@ module Daimyo.Control.State (
   evalState,
   execState,
   get,
+  gets,
   put,
   modify
 ) where
@@ -26,8 +27,17 @@ execState m s = snd $ runState m s
 
 -- | get
 --
-get :: State a a
+get :: State s s
 get = State $ \s -> (s, s)
+
+-- | gets
+--
+-- get specific component of the state using a projection function
+--
+gets :: (s -> a) -> State s a
+gets f = do
+  s <- get
+  return $ f s
 
 -- | put
 --
