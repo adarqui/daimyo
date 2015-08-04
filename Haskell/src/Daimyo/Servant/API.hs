@@ -18,13 +18,16 @@ import           Network.Wai.Handler.Warp   hiding (Connection)
 import           Servant
 -- import           Servant.JS
 
+{-
 type LnAPI =
        "static"         :> Raw
   :<|> "ping"           :> Get '[JSON] String
   -- application: todo simple
+  :<|> "applications/todo/simple/list" :> Get '[JSON] [Todo]
 
 daimyoAPI :: Proxy LnAPI
 daimyoAPI = Proxy
+-}
 
 -- | server
 --
@@ -34,6 +37,8 @@ server store =
        serveDirectory "../PureScript/"
   -- ping
   :<|> getPing store
+  -- application: todo simple
+  :<|> return []
 
 -- | app
 --
@@ -63,5 +68,5 @@ writeJSFiles = do
 runServer :: IO ()
 runServer = do
   -- writeJSFiles
-  store <- atomically $ newBigState
+  store <- newBigState
   run 31415 $ app store
