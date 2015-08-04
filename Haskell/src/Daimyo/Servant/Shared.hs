@@ -9,7 +9,9 @@ module Daimyo.Servant.Shared (
   Store,
   LnAPI,
   daimyoAPI,
-  newBigState
+  newBigState,
+  appTodoSimpleSTM,
+  appTodoSimpleSTM_Maybe
 ) where
 
 --
@@ -17,7 +19,10 @@ module Daimyo.Servant.Shared (
 --
 
 import           Control.Concurrent.STM
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Either
 import           Daimyo.Application.Todo.Simple
+import           Daimyo.Control.State
 import           Servant
 
 data BigState = BigState {
@@ -31,6 +36,8 @@ type LnAPI =
   :<|> "ping"           :> Get '[JSON] String
   -- application: todo simple
   :<|> "applications/todo/simple/list" :> Get '[JSON] [Todo]
+  :<|> "applications/todo/simple"      :> ReqBody '[JSON] Todo :> Post '[JSON] Todo
+  :<|> "applications/todo/simple"      :> Capture "todo_id" TodoId :> Delete '[JSON] (Maybe TodoId)
 
 daimyoAPI :: Proxy LnAPI
 daimyoAPI = Proxy
@@ -44,3 +51,22 @@ newBigState =
   newTVarIO $ BigState {
   appTodoSimple = newTodoApp
 }
+
+-- | appTodoSimpleSTM
+--
+-- simple todo application helper
+--
+appTodoSimpleSTM :: MonadIO m => Store -> State TodoApp b -> EitherT ServantErr m b
+appTodoSimpleSTM store cb = do
+  liftIO $ atomically $ do
+    v <- readTVar store
+    let (a, s) = runState cb (appTodoSimple v)
+    writeTVar store (v { appTodoSimple = s })
+    return a
+
+appTodoSimpleSTM_Maybe :: MonadIO m => Store -> State TodoApp (Maybe b) -> EitherT ServantErr m b
+appTodoSimpleSTM_Maybe store cb = do
+  s <- appTodoSimpleSTM store cb
+  case s of
+    Nothing -> left err400
+    Just v  -> return v

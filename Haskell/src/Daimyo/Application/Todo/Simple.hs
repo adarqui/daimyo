@@ -14,6 +14,7 @@ module Daimyo.Application.Todo.Simple (
   TodoState (..),
   TodoApp (..),
   TodoAppState,
+  TodoId,
   newTodoApp,
   defaultTodo,
   listTodos,
