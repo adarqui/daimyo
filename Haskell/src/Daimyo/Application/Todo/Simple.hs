@@ -38,6 +38,7 @@ import           Control.Applicative
 import           Control.Monad
 import           Daimyo.Control.State
 import           Daimyo.Tree.AVLKV
+import           Data.Aeson
 import           Data.List
 import           Data.Text            (Text)
 import qualified Data.Text            as T
@@ -93,26 +94,23 @@ data TodoApp = TodoApp {
 
 type TodoAppState a = State TodoApp a
 
+instance FromJSON Todo
+instance ToJSON Todo
+
+instance FromJSON TodoState
+instance ToJSON TodoState
+
 -- | newTodoApp
---
--- >>> newTodoApp
--- TodoApp {todoAppTodos = [], todoAppCounter = 0}
 --
 newTodoApp :: TodoApp
 newTodoApp = TodoApp [] 0
 
 -- | listTodos
 --
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> listTodos) newTodoApp
--- ([Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
---
 listTodos :: TodoAppState [Todo]
 listTodos = gets todoAppTodos >>= return
 
 -- | addTodo
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app")) newTodoApp
--- (Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active},TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
 --
 addTodo :: Todo -> TodoAppState Todo
 addTodo todo = do
@@ -123,9 +121,6 @@ addTodo todo = do
   return todo'
 
 -- | removeTodo
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> removeTodo 1) newTodoApp
--- (Just 1,TodoApp {todoAppTodos = [], todoAppCounter = 1})
 --
 removeTodo :: TodoId -> TodoAppState (Maybe TodoId)
 removeTodo tid = do
@@ -138,9 +133,6 @@ removeTodo tid = do
      else modify (\st -> st { todoAppTodos = todos' }) >> (return $ Just tid)
 
 -- | updateTodo
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >>= \todo' -> updateTodo 1 (todo'{todoTitle="hey"})) newTodoApp
--- (Just (Todo {todoId = 1, todoTitle = "hey", todoState = Active}),TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "hey", todoState = Active}], todoAppCounter = 1})
 --
 updateTodo :: TodoId -> Todo -> TodoAppState (Maybe Todo)
 updateTodo tid new_todo = do
@@ -156,16 +148,10 @@ updateTodo tid new_todo = do
 
 -- | setTodoActive
 --
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1 >> setTodoActive 1) newTodoApp
--- (Just (Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}),TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
---
 setTodoActive :: TodoId -> TodoAppState (Maybe Todo)
 setTodoActive = setTodoState Active
 
 -- | setTodoCompleted
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1) newTodoApp
--- (Just (Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}),TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}], todoAppCounter = 1})
 --
 setTodoCompleted :: TodoId -> TodoAppState (Maybe Todo)
 setTodoCompleted = setTodoState Completed
@@ -181,21 +167,12 @@ setTodoState tst tid = do
 
 -- | findTodoById
 --
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findTodoById 1) newTodoApp
--- (Just (Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}),TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
---
 findTodoById :: TodoId -> TodoAppState (Maybe Todo)
 findTodoById tid = do
   todos <- gets todoAppTodos
   return $ find (\todo -> todoId todo == tid) todos
 
 -- | findTodosByTitle
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findTodosByTitle "Pure") newTodoApp
--- ([Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findTodosByTitle "derp") newTodoApp
--- ([],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
 --
 findTodosByTitle :: Text -> TodoAppState [Todo]
 findTodosByTitle s = do
@@ -206,22 +183,10 @@ findTodosByTitle s = do
 
 -- | findActiveTodos
 --
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findActiveTodos) newTodoApp
--- ([Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findCompletedTodos) newTodoApp
--- ([],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
---
 findActiveTodos :: TodoAppState [Todo]
 findActiveTodos = findTodosByState Active
 
 -- | findCompletedTodos
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1 >> findCompletedTodos) newTodoApp
--- ([Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}], todoAppCounter = 1})
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1 >> findActiveTodos) newTodoApp
--- ([],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}], todoAppCounter = 1})
 --
 findCompletedTodos :: TodoAppState [Todo]
 findCompletedTodos = findTodosByState Completed
@@ -237,21 +202,12 @@ findTodosByState tst = do
 
 -- | clearTodos
 --
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> clearTodos) newTodoApp
--- (True,TodoApp {todoAppTodos = [], todoAppCounter = 1})
---
 clearTodos :: TodoAppState Bool
 clearTodos = do
   modify (\st -> st { todoAppTodos = [] })
   return True
 
 -- | clearCompletedTodos
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1 >> clearCompletedTodos) newTodoApp
--- (True,TodoApp {todoAppTodos = [], todoAppCounter = 1})
---
--- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> clearCompletedTodos) newTodoApp
--- (True,TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
 --
 clearCompletedTodos :: TodoAppState Bool
 clearCompletedTodos = do
@@ -296,6 +252,103 @@ runTodoGrammar ReqFindActiveTodos        = RespFindActiveTodos     <$> findTodos
 runTodoGrammar ReqFindCompletedTodos     = RespFindCompletedTodos  <$> findTodosByState Completed
 runTodoGrammar ReqClearTodos             = RespClearTodos          <$> clearTodos
 runTodoGrammar ReqClearCompletedTodos    = RespClearCompletedTodos <$> clearCompletedTodos
+
+
+-- | newTodoApp
+--
+-- >>> newTodoApp
+-- TodoApp {todoAppTodos = [], todoAppCounter = 0}
+--
+
+-- | listTodos
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> listTodos) newTodoApp
+-- ([Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
+
+-- | addTodo
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app")) newTodoApp
+-- (Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active},TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
+
+-- | removeTodo
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> removeTodo 1) newTodoApp
+-- (Just 1,TodoApp {todoAppTodos = [], todoAppCounter = 1})
+--
+
+-- | updateTodo
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >>= \todo' -> updateTodo 1 (todo'{todoTitle="hey"})) newTodoApp
+-- (Just (Todo {todoId = 1, todoTitle = "hey", todoState = Active}),TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "hey", todoState = Active}], todoAppCounter = 1})
+--
+
+-- | setTodoActive
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1 >> setTodoActive 1) newTodoApp
+-- (Just (Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}),TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
+
+-- | setTodoCompleted
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1) newTodoApp
+-- (Just (Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}),TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}], todoAppCounter = 1})
+--
+
+-- | setTodoState
+--
+
+-- | findTodoById
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findTodoById 1) newTodoApp
+-- (Just (Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}),TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
+
+-- | findTodosByTitle
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findTodosByTitle "Pure") newTodoApp
+-- ([Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findTodosByTitle "derp") newTodoApp
+-- ([],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
+
+-- | findTodosByState
+--
+
+-- | findActiveTodos
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findActiveTodos) newTodoApp
+-- ([Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> findCompletedTodos) newTodoApp
+-- ([],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
+
+-- | findCompletedTodos
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1 >> findCompletedTodos) newTodoApp
+-- ([Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}], todoAppCounter = 1})
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1 >> findActiveTodos) newTodoApp
+-- ([],TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Completed}], todoAppCounter = 1})
+--
+
+--
+-- | clearTodos
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> clearTodos) newTodoApp
+-- (True,TodoApp {todoAppTodos = [], todoAppCounter = 1})
+--
+
+-- | clearCompleted
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> setTodoCompleted 1 >> clearCompletedTodos) newTodoApp
+-- (True,TodoApp {todoAppTodos = [], todoAppCounter = 1})
+--
+-- >>> runState (addTodo (defaultTodo "write a purescript todo app") >> clearCompletedTodos) newTodoApp
+-- (True,TodoApp {todoAppTodos = [Todo {todoId = 1, todoTitle = "write a purescript todo app", todoState = Active}], todoAppCounter = 1})
+--
 
 -- | Examples
 --
