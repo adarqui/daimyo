@@ -80,7 +80,7 @@ ui = render <$> stateful (State [] Nothing) update
       H.section [class_ "todoapp"] [
         H.header [class_ "header"] [
           H.h1_ [H.text "todos"],
-          H.input [class_ "new-todo", A.placeholder "What needs to be done?", A.onValueChanged (A.input (RespInput <<< Just)), A.onKeyUp (\e -> pure (handleNewTodo e.keyCode new))] []
+          H.input [class_ "new-todo", A.placeholder "What needs to be done?", A.value $ maybe "" id new, A.onValueChanged (A.input (RespInput <<< Just)), A.onKeyUp (\e -> pure (handleNewTodo e.keyCode new))] []
         ],
         H.section [class_ "main"] [
           H.input [class_ "toggle-all", A.type_ "checkbox"] [H.label_ [H.text "Mark all as complete"]],
