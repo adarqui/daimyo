@@ -42,6 +42,11 @@ data TodoActionResponse
 
 type TodoApp = Array Todo
 
+instance todoStateEq :: Eq TodoState where
+  eq Active Active       = true
+  eq Completed Completed = true
+  eq _ _                 = false
+
 instance showTodoState :: Show TodoState where
   show Active    = "Active"
   show Completed = "Completed"

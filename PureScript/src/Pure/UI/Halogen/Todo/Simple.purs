@@ -19,6 +19,8 @@ import Control.Bind
 import Control.Monad.Eff
 import Control.Monad.Eff.Class
 import Control.Monad.Eff.Console
+import Control.Monad.Eff.Exception (EXCEPTION(), throwException)
+import Control.Monad.Aff
 
 import Halogen
 import Halogen.Signal
@@ -65,7 +67,7 @@ ui = render <$> stateful (State []) update
   where
   render :: State -> H.HTML (E.Event (HalogenEffects (ajax :: AJAX | eff)) Input)
 --  render (State v) = H.div_ [layoutHeader, layoutTodos v, layoutButtons]
-  render (State v) = appLayout
+  render (State todos) = appLayout
     where
     appLayout =
       H.section [class_ "todoapp"] [
@@ -75,9 +77,7 @@ ui = render <$> stateful (State []) update
         ],
         H.section [class_ "main"] [
           H.input [class_ "toggle-all", A.type_ "checkbox"] [H.label_ [H.text "Mark all as complete"]],
-          H.ul [class_ "todo-list"] [
-            todoListItem $ Todo { todoId: 0, todoTitle: "example", todoState: Active }
-          ],
+          H.ul [class_ "todo-list"] $ map todoListItem todos,
           H.footer [class_ "footer"] [
             H.span [class_ "todo-count"] [H.strong_ [H.text "000"], H.text " items left"],
             H.ul [class_ "filters"] [
@@ -95,14 +95,14 @@ ui = render <$> stateful (State []) update
         ]
       ]
 
-  todoListItem todo =
-    H.li [class_ "completed"] [
+  todoListItem (Todo{todoId=tid, todoTitle=title, todoState=state}) =
+    H.li [if state == Completed then class_ "completed" else class_ "active"] [
       H.div [class_ "view"] [
-        H.input [class_ "toggle", A.type_ "checkbox", A.checked true] [],
-        H.label_ [H.text "some label"],
+        H.input [class_ "toggle", A.type_ "checkbox", A.checked (state == Completed)] [],
+        H.label_ [H.text title],
         H.button [class_ "destroy"] []
       ],
-      H.input [class_ "edit", A.value "Create a TodoMVC Template"] []
+      H.input [class_ "edit", A.value title] []
     ]
 
   update :: State -> Input -> State
@@ -114,25 +114,17 @@ ui = render <$> stateful (State []) update
 --  layoutButtons  = H.p_ [ H.button [ A.onClick (\_ -> pure handleListTodos) ] [ H.text "list" ] ]
 
 handleListTodos :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
-handleListTodos = E.yield RespBusy `E.andThen` \_ -> E.async compileAff
-  where
-  compileAff :: Aff (HalogenEffects (ajax :: AJAX | eff)) Output
-  compileAff = do
-    res <- get "/applications/simple/todos"
-    liftEff $ log res.response
-    let todos = decode res.response :: Maybe (Array Todo)
-    return $ RespListTodos (fromMaybe [] todos)
+handleListTodos = E.yield RespBusy `E.andThen` \_ -> E.async affListTodos
 
-handleListTodos' :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Output
-handleListTodos' = E.yield RespBusy `E.andThen` \_ -> E.async compileAff
-  where
-  compileAff :: Aff (HalogenEffects (ajax :: AJAX | eff)) Output
-  compileAff = do
-    res <- get "/applications/simple/todos"
-    liftEff $ log res.response
-    return $ RespListTodos []
+affListTodos = do
+  res <- get "/applications/simple/todos"
+  liftEff $ log res.response
+  let todos = decode res.response :: Maybe (Array Todo)
+  return $ RespListTodos (fromMaybe [] todos)
 
 uiHalogenTodoSimpleMain = do
   -- runUI :: forall req eff. Component (Event (HalogenEffects eff)) req req -> Eff (HalogenEffects eff) (Tuple HTMLElement (Driver req eff))
   Tuple node driver <- runUI ui
   appendToBody node
+  runAff throwException driver $ do
+    affListTodos
