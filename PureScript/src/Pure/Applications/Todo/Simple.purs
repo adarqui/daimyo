@@ -7,6 +7,7 @@ module Pure.Applications.Todo.Simple where {- (
 -}
 
 import Prelude
+import Data.JSON
 
 type TodoId = Int
 
@@ -14,7 +15,7 @@ data TodoState
   = Active
   | Completed
 
-type Todo = {
+data Todo = Todo {
   todoId    :: TodoId,
   todoTitle :: String,
   todoState :: TodoState
@@ -41,4 +42,33 @@ data TodoActionResponse
 
 type TodoApp = Array Todo
 
-x = false
+instance showTodoState :: Show TodoState where
+  show Active    = "Active"
+  show Completed = "Completed"
+
+instance todoStateFromJSON :: FromJSON TodoState where
+  parseJSON (JString s) =
+    case s of
+      "Active"    -> return Active
+      "Completed" -> return Completed
+      _           -> fail "Unknown TodoState"
+
+instance todoStateToJSON :: ToJSON TodoState where
+  toJSON Active    = JString "Active"
+  toJSON Completed = JString "Completed"
+
+instance showTodo :: Show Todo where
+  show (Todo {todoId=tid, todoTitle=title, todoState=state}) =
+    "Todo { todoId = " ++show tid ++ ", todoTitle = \"" ++ title ++ "\", todoState = " ++ show state
+
+instance todoFromJSON :: FromJSON Todo where
+  parseJSON (JObject o) = do
+    tid <- o .: "todoId"
+    title <- o .: "todoTitle"
+    state <- o .: "todoState"
+    return $ Todo { todoId: tid, todoTitle: title, todoState: state }
+  parseJSON _ = fail "Invalid Todo"
+
+instance todoToJSON :: ToJSON Todo where
+  toJSON (Todo { todoId = tid, todoTitle = title, todoState = state }) =
+    object [ "todoId" .= tid, "todoTitle" .= title, "todoState" .= state ]

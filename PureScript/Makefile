@@ -12,3 +12,6 @@ ui_thermite_ping:
 
 ui_halogen_ping:
 	./bin/build_main.sh all_ui_halogen_ping.js Pure.UI.Halogen.Ping uiHalogenPingMain
+
+ui_halogen_todo_simple:
+	./bin/build_main.sh all_ui_halogen_todo_simple.js Pure.UI.Halogen.Todo.Simple uiHalogenTodoSimpleMain

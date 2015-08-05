@@ -5,6 +5,7 @@ module Pure.UI.Halogen.Todo.Simple (
 import Prelude
 import Data.Tuple
 import Data.Maybe
+import Data.JSON
 
 import DOM
 
@@ -61,14 +62,15 @@ ui :: forall eff. Component (E.Event (HalogenEffects (ajax :: AJAX | eff))) Inpu
 ui = render <$> stateful (State []) update
   where
   render :: State -> H.HTML (E.Event (HalogenEffects (ajax :: AJAX | eff)) Input)
-  render (State v) = H.div_ [layoutHeader, layoutList]
+  render (State v) = H.div_ [layoutHeader, layoutTodos v, layoutButtons]
 
   update :: State -> Input -> State
   update st RespBusy = st
   update st (RespListTodos xs) = State xs
 
-  layoutHeader   = H.p_ [ H.h1_ [ H.text "Ping" ] ]
-  layoutList     = H.p_ [ H.button [ A.onClick (\_ -> pure handleListTodos) ] [ H.text "list" ] ]
+  layoutHeader   = H.p_ [ H.h1_ [ H.text "Todo MVC" ] ]
+  layoutTodos v  = H.p_ [ H.text $ show v]
+  layoutButtons  = H.p_ [ H.button [ A.onClick (\_ -> pure handleListTodos) ] [ H.text "list" ] ]
 
 handleListTodos :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
 handleListTodos = E.yield RespBusy `E.andThen` \_ -> E.async compileAff
@@ -77,7 +79,8 @@ handleListTodos = E.yield RespBusy `E.andThen` \_ -> E.async compileAff
   compileAff = do
     res <- get "/applications-simple-todos"
     liftEff $ log res.response
-    return $ RespListTodos [] -- SetPing res.response
+    let todos = decode res.response :: Maybe (Array Todo)
+    return $ RespListTodos (fromMaybe [] todos)
 
 handleListTodos' :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Output
 handleListTodos' = E.yield RespBusy `E.andThen` \_ -> E.async compileAff
@@ -86,7 +89,7 @@ handleListTodos' = E.yield RespBusy `E.andThen` \_ -> E.async compileAff
   compileAff = do
     res <- get "/applications-simple-todos"
     liftEff $ log res.response
-    return $ RespListTodos [] -- SetPing res.response
+    return $ RespListTodos []
 
 uiHalogenTodoSimpleMain = do
   -- runUI :: forall req eff. Component (Event (HalogenEffects eff)) req req -> Eff (HalogenEffects eff) (Tuple HTMLElement (Driver req eff))
