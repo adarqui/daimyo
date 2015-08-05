@@ -134,5 +134,4 @@ uiHalogenTodoSimpleMain = do
   -- runUI :: forall req eff. Component (Event (HalogenEffects eff)) req req -> Eff (HalogenEffects eff) (Tuple HTMLElement (Driver req eff))
   Tuple node driver <- runUI ui
   appendToBody node
-  runAff throwException driver $ do
-    affListTodos
+  runAff throwException driver affListTodos
