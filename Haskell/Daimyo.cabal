@@ -240,12 +240,13 @@ Library
                      Daimyo.Security.Stanford
                      Daimyo.Athletics.Run
                      Daimyo.Application.Todo.Simple
+                     Daimyo.Wreq.Todo
                      Daimyo.Servant.Shared
                      Daimyo.Servant.API
                      Daimyo.Servant.API.Ping
  Build-Depends:      base == 4.*,
                      AC-Angle,
-                     aeson,
+                     aeson >= 0.9.0.1,
                      array,
                      binary,
                      bytestring,
