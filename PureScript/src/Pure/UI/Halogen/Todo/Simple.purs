@@ -1,11 +1,14 @@
 module Pure.UI.Halogen.Todo.Simple (
-  uiHalogenTodoSimpleMain
+  uiHalogenTodoSimpleMain,
+  todosActive,
+  todosActiveLength
 ) where
 
 import Prelude
 import Data.Tuple
 import Data.Maybe
 import Data.JSON
+import Data.Array (filter, length)
 
 import DOM
 
@@ -66,7 +69,6 @@ ui :: forall eff. Component (E.Event (HalogenEffects (ajax :: AJAX | eff))) Inpu
 ui = render <$> stateful (State []) update
   where
   render :: State -> H.HTML (E.Event (HalogenEffects (ajax :: AJAX | eff)) Input)
---  render (State v) = H.div_ [layoutHeader, layoutTodos v, layoutButtons]
   render (State todos) = appLayout
     where
     appLayout =
@@ -79,7 +81,7 @@ ui = render <$> stateful (State []) update
           H.input [class_ "toggle-all", A.type_ "checkbox"] [H.label_ [H.text "Mark all as complete"]],
           H.ul [class_ "todo-list"] $ map todoListItem todos,
           H.footer [class_ "footer"] [
-            H.span [class_ "todo-count"] [H.strong_ [H.text "000"], H.text " items left"],
+            H.span [class_ "todo-count"] [H.strong_ [H.text $ show $ todosActiveLength todos], H.text " items left"],
             H.ul [class_ "filters"] [
               H.li_ [H.text "selected"],
               H.li_ [H.text "active"],
@@ -108,6 +110,12 @@ ui = render <$> stateful (State []) update
   update :: State -> Input -> State
   update st RespBusy = st
   update st (RespListTodos xs) = State xs
+
+todosActiveLength :: Array Todo -> Int
+todosActiveLength = length <<< todosActive
+
+todosActive :: Array Todo -> Array Todo
+todosActive todos = filter (\(Todo{ todoState = state}) -> state == Active) todos
 
 --  layoutHeader   = H.p_ [ H.h1_ [ H.text "Todo MVC" ] ]
 --  layoutTodos v  = H.p_ [ H.text $ show v]
