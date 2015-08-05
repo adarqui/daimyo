@@ -35,6 +35,7 @@ import qualified Halogen.HTML.Events as A
 import qualified Halogen.HTML.Events.Forms as A
 import qualified Halogen.HTML.Events.Handler as E
 import qualified Halogen.HTML.Events.Monad as E
+import qualified Halogen.HTML.Events.Types as T
 
 import qualified Halogen.HTML.CSS as CSS
 
@@ -43,7 +44,7 @@ import Network.HTTP.Affjax
 
 import Pure.Applications.Todo.Simple
 
-data State = State TodoApp
+data State = State TodoApp (Maybe String)
 
 --type Input = TodoActionRequest
 type Input = TodoActionResponse
@@ -66,16 +67,16 @@ appendToBody e = document globalWindow >>= (body >=> flip appendChild e)
 class_ s = A.class_ $ A.className s
 
 ui :: forall eff. Component (E.Event (HalogenEffects (ajax :: AJAX | eff))) Input Input
-ui = render <$> stateful (State []) update
+ui = render <$> stateful (State [] Nothing) update
   where
   render :: State -> H.HTML (E.Event (HalogenEffects (ajax :: AJAX | eff)) Input)
-  render (State todos) = appLayout
+  render (State todos new) = appLayout
     where
     appLayout =
       H.section [class_ "todoapp"] [
         H.header [class_ "header"] [
           H.h1_ [H.text "todos"],
-          H.input [class_ "new-todo", A.placeholder "What needs to be done?"] []
+          H.input [class_ "new-todo", A.placeholder "What needs to be done?", A.onKeyUp (\e -> pure (handleNewTodo e.keyCode))] []
         ],
         H.section [class_ "main"] [
           H.input [class_ "toggle-all", A.type_ "checkbox"] [H.label_ [H.text "Mark all as complete"]],
@@ -108,13 +109,13 @@ ui = render <$> stateful (State []) update
     ]
 
   update :: State -> Input -> State
-  update st (RespListTodos xs)         = State xs
-  update (State xs) (RespAddTodo todo) = State (todo : xs)
-  update st (RespRemoveTodo tid)       = State []
-  update st RespClearTodos             = State []
-  update st RespClearCompletedTodos    = State []
-  update st RespNoOp                   = st
-  update st RespBusy                   = st
+  update (State todos new) (RespListTodos xs)      = State xs new
+  update (State todos new) (RespAddTodo todo)      = State (todo : todos) new
+  update (State todos new) (RespRemoveTodo tid)    = State [] new
+  update (State todos new) RespClearTodos          = State [] new
+  update (State todos new) RespClearCompletedTodos = State [] new
+  update st RespNoOp                               = st
+  update st RespBusy                               = st
 
 todosActiveLength :: Array Todo -> Int
 todosActiveLength = length <<< todosActive
@@ -128,6 +129,10 @@ todosActive todos = filter (\(Todo{ todoState = state}) -> state == Active) todo
 
 handleListTodos :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
 handleListTodos = E.yield RespBusy `E.andThen` \_ -> E.async affListTodos
+
+handleNewTodo :: forall eff. Number -> E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
+handleNewTodo 13.0 = return RespNoOp
+handleNewTodo _    = return RespNoOp
 
 handleAddTodo :: forall eff. Todo -> E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
 handleAddTodo todo = E.yield RespBusy `E.andThen` \_ -> E.async (affAddTodo todo)
