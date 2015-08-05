@@ -14,7 +14,7 @@ import           Network.Wreq
 
 postSimpleTodo :: Text -> IO (Maybe Todo)
 postSimpleTodo title = do
-  r <- post "http://localhost:31415/applications-simple-todos" (toJSON $ defaultTodo title)
+  r <- post "http://localhost:31415/applications/simple/todos" (toJSON $ defaultTodo title)
   let r' = decode (r ^. responseBody) :: Maybe Todo
   case r' of
     Nothing   -> return Nothing

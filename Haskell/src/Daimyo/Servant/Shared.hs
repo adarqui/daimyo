@@ -44,14 +44,14 @@ type LnAPI =
   -- PUT /applications/simple/todos/:todo_id , body = Todo
   -- PUT /applications/simple/todos/active/:todo_id
   -- PUT /applications/simple/todos/completed/:todo_id
-  :<|> "applications-simple-todos"                 :> Get '[JSON] [Todo]
-  :<|> "applications-simple-todos"                 :> ReqBody '[JSON] Todo :> Post '[JSON] Todo
-  :<|> "applications-simple-todos"                 :> Delete '[JSON] Bool
-  :<|> "applications-simple-todos"                 :> Capture "todo_id" TodoId :> Get '[JSON] Todo
-  :<|> "applications-simple-todos"                 :> Capture "todo_id" TodoId :> Delete '[JSON] TodoId
-  :<|> "applications-simple-todos"                 :> Capture "todo_id" TodoId :> ReqBody '[JSON] Todo :> Put '[JSON] Todo
-  :<|> "applications-simple-todos-state-active"    :> Capture "todo_id" TodoId :> Put '[JSON] Todo
-  :<|> "applications-simple-todos-state-completed" :> Capture "todo_id" TodoId :> Put '[JSON] Todo
+  :<|> "applications" :> "simple" :> "todos"                           :> Get '[JSON] [Todo]
+  :<|> "applications" :> "simple" :> "todos"                           :> ReqBody '[JSON] Todo :> Post '[JSON] Todo
+  :<|> "applications" :> "simple" :> "todos"                           :> Delete '[JSON] Bool
+  :<|> "applications" :> "simple" :> "todos"                           :> Capture "todo_id" TodoId :> Get '[JSON] Todo
+  :<|> "applications" :> "simple" :> "todos"                           :> Capture "todo_id" TodoId :> Delete '[JSON] TodoId
+  :<|> "applications" :> "simple" :> "todos"                           :> Capture "todo_id" TodoId :> ReqBody '[JSON] Todo :> Put '[JSON] Todo
+  :<|> "applications" :> "simple" :> "todos" :> "state" :> "active"    :> Capture "todo_id" TodoId :> Put '[JSON] Todo
+  :<|> "applications" :> "simple" :> "todos" :> "state" :> "completed" :> Capture "todo_id" TodoId :> Put '[JSON] Todo
 
 daimyoAPI :: Proxy LnAPI
 daimyoAPI = Proxy
