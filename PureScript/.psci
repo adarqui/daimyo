@@ -1,6 +1,7 @@
 :load src/Main.purs
 :load src/Pure/API/Ping.purs
 :load src/Pure/Applications/Todo/Simple.purs
+:load src/Pure/Applications/Todo/Simple2.purs
 :load src/Pure/Hello.purs
 :load src/Pure/NumberTheory/Factorial.purs
 :load src/Pure/UI/Halogen/Ping.purs
