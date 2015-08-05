@@ -254,6 +254,8 @@ Library
                      gamma,
                      hatt,
                      js-jquery,
+                     lens-aeson >= 1.0.0.4,
+                     lens,
                      matrix,
                      mtl,
                      numbers,
@@ -268,6 +270,7 @@ Library
                      text,
                      vector,
                      wai >= 3.0.2.3,
-                     warp >= 3.0.13.1
+                     warp >= 3.0.13.1,
+                     wreq >= 0.4.0.0
  ghc-options:        -Wall
  default-extensions:
