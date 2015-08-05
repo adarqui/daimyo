@@ -80,7 +80,7 @@ ui = render <$> stateful (State [] Nothing) update
       H.section [class_ "todoapp"] [
         H.header [class_ "header"] [
           H.h1_ [H.text "todos"],
-          H.input [class_ "new-todo", A.placeholder "What needs to be done?", A.value $ maybe "" id new, A.onValueChanged (A.input (RespInput <<< Just)), A.onKeyUp (\e -> pure (handleNewTodo e.keyCode new))] []
+          H.input [class_ "new-todo", A.placeholder "What needs to be done?", A.onValueChanged (A.input (RespInput <<< Just)), A.onKeyUp (\e -> pure (handleNewTodo e.keyCode new))] []
         ],
         H.section [class_ "main"] [
           H.input [class_ "toggle-all", A.type_ "checkbox"] [H.label_ [H.text "Mark all as complete"]],
@@ -115,7 +115,7 @@ ui = render <$> stateful (State [] Nothing) update
   update :: State -> Input -> State
   update (State todos new) (RespListTodos xs)      = State xs new
   update (State todos new) (RespAddTodo todo)      = State (todo : todos) new
-  update (State todos new) (RespRemoveTodo tid)    = State [] new
+  update (State todos new) (RespRemoveTodo tid)    = State (filter (\(Todo{todoId=tid'}) -> tid /= tid') todos) new
   update (State todos new) RespClearTodos          = State [] new
   update (State todos new) RespClearCompletedTodos = State [] new
   update (State todos new) (RespInput new')        = State todos new'
