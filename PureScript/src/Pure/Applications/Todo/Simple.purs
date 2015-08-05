@@ -44,6 +44,7 @@ data TodoActionResponse
   | RespClearTodos
   | RespClearCompletedTodos
   | RespBusy
+  | RespNoOp
 
 type TodoApp = Array Todo
 
@@ -51,6 +52,9 @@ instance todoStateEq :: Eq TodoState where
   eq Active Active       = true
   eq Completed Completed = true
   eq _ _                 = false
+
+--instance showTodoId :: Show TodoId where
+--  show tid = "tid"
 
 instance showTodoState :: Show TodoState where
   show Active    = "Active"
