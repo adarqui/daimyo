@@ -26,11 +26,17 @@ server store =
   -- static
        serveDirectory "../PureScript/"
   -- ping
+--  :<|> getPing store
   :<|> getPing store
   -- application: todo simple
   :<|> appTodoSimpleSTM store listTodos
   :<|> appTodoSimpleSTM store . addTodo
-  :<|> appTodoSimpleSTM store . removeTodo
+  :<|> appTodoSimpleSTM store clearTodos
+  :<|> appTodoSimpleSTM_Maybe store . findTodoById
+  :<|> appTodoSimpleSTM_Maybe store . removeTodo
+  :<|> apply2 updateTodo store -- bleh
+  :<|> appTodoSimpleSTM_Maybe store . setTodoActive
+  :<|> appTodoSimpleSTM_Maybe store . setTodoCompleted
 
 -- | app
 --

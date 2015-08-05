@@ -11,7 +11,8 @@ module Daimyo.Servant.Shared (
   daimyoAPI,
   newBigState,
   appTodoSimpleSTM,
-  appTodoSimpleSTM_Maybe
+  appTodoSimpleSTM_Maybe,
+  apply2
 ) where
 
 --
@@ -34,10 +35,23 @@ type Store = TVar BigState
 type LnAPI =
        "static"         :> Raw
   :<|> "ping"           :> Get '[JSON] String
-  -- application: todo simple
-  :<|> "applications/todo/simple/list" :> Get '[JSON] [Todo]
-  :<|> "applications/todo/simple"      :> ReqBody '[JSON] Todo :> Post '[JSON] Todo
-  :<|> "applications/todo/simple"      :> Capture "todo_id" TodoId :> Delete '[JSON] (Maybe TodoId)
+  -- application: simple todos
+  -- GET /applications/simple/todos
+  -- POST /applications/simple/todos , body = Todo
+  -- DELETE /applications/simple/todos
+  -- GET /applications/simple/todos/:todo_id
+  -- DELETE /applications/simple/todos/:todo_id
+  -- PUT /applications/simple/todos/:todo_id , body = Todo
+  -- PUT /applications/simple/todos/active/:todo_id
+  -- PUT /applications/simple/todos/completed/:todo_id
+  :<|> "applications-simple-todos"                 :> Get '[JSON] [Todo]
+  :<|> "applications-simple-todos"                 :> ReqBody '[JSON] Todo :> Post '[JSON] Todo
+  :<|> "applications-simple-todos"                 :> Delete '[JSON] Bool
+  :<|> "applications-simple-todos"                 :> Capture "todo_id" TodoId :> Get '[JSON] Todo
+  :<|> "applications-simple-todos"                 :> Capture "todo_id" TodoId :> Delete '[JSON] TodoId
+  :<|> "applications-simple-todos"                 :> Capture "todo_id" TodoId :> ReqBody '[JSON] Todo :> Put '[JSON] Todo
+  :<|> "applications-simple-todos-state-active"    :> Capture "todo_id" TodoId :> Put '[JSON] Todo
+  :<|> "applications-simple-todos-state-completed" :> Capture "todo_id" TodoId :> Put '[JSON] Todo
 
 daimyoAPI :: Proxy LnAPI
 daimyoAPI = Proxy
@@ -74,3 +88,9 @@ appTodoSimpleSTM_Maybe store cb = do
   case s of
     Nothing -> left err400
     Just v  -> return v
+
+-- | apply2
+--
+-- bleh: having some weird type errors
+--
+apply2 f s x y = appTodoSimpleSTM_Maybe s (f x y)
