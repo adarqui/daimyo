@@ -58,26 +58,67 @@ appendToBody e = document globalWindow >>= (body >=> flip appendChild e)
 -- stateful :: forall s i o. s -> (s -> i -> s) -> SF1 i s
 -- stateful' :: forall s i o. s -> (s -> i -> Tuple o s) -> SF i o
 
+class_ s = A.class_ $ A.className s
+
 ui :: forall eff. Component (E.Event (HalogenEffects (ajax :: AJAX | eff))) Input Input
 ui = render <$> stateful (State []) update
   where
   render :: State -> H.HTML (E.Event (HalogenEffects (ajax :: AJAX | eff)) Input)
-  render (State v) = H.div_ [layoutHeader, layoutTodos v, layoutButtons]
+--  render (State v) = H.div_ [layoutHeader, layoutTodos v, layoutButtons]
+  render (State v) = appLayout
+    where
+    appLayout =
+      H.section [class_ "todoapp"] [
+        H.header [class_ "header"] [
+          H.h1_ [H.text "todos"],
+          H.input [class_ "new-todo", A.placeholder "What needs to be done?"] []
+        ],
+        H.section [class_ "main"] [
+          H.input [class_ "toggle-all", A.type_ "checkbox"] [H.label_ [H.text "Mark all as complete"]],
+          H.ul [class_ "todo-list"] [
+            todoListItem $ Todo { todoId: 0, todoTitle: "example", todoState: Active }
+          ],
+          H.footer [class_ "footer"] [
+            H.span [class_ "todo-count"] [H.strong_ [H.text "000"], H.text " items left"],
+            H.ul [class_ "filters"] [
+              H.li_ [H.text "selected"],
+              H.li_ [H.text "active"],
+              H.li_ [H.text "completed"]
+            ],
+            H.button [class_ "clear-completed"] [H.text "Clear completed"]
+          ]
+        ],
+        H.footer [class_ "info"] [
+          H.p_ [H.text "Double-click to edit a todo"],
+          H.p_ [H.text "Created by ", H.a [A.href "https://github.com/adarqui/"] [H.text "adarqui"]],
+          H.p_ [H.text "Part of ", H.a [A.href "http://todomvc.com"] [H.text "TodoMVC"]]
+        ]
+      ]
+
+  todoListItem todo =
+    H.li [class_ "completed"] [
+      H.div [class_ "view"] [
+        H.input [class_ "toggle", A.type_ "checkbox", A.checked true] [],
+        H.label_ [H.text "some label"],
+        H.button [class_ "destroy"] []
+      ],
+      H.input [class_ "edit", A.value "Create a TodoMVC Template"] []
+    ]
 
   update :: State -> Input -> State
   update st RespBusy = st
   update st (RespListTodos xs) = State xs
 
-  layoutHeader   = H.p_ [ H.h1_ [ H.text "Todo MVC" ] ]
-  layoutTodos v  = H.p_ [ H.text $ show v]
-  layoutButtons  = H.p_ [ H.button [ A.onClick (\_ -> pure handleListTodos) ] [ H.text "list" ] ]
+--  layoutHeader   = H.p_ [ H.h1_ [ H.text "Todo MVC" ] ]
+--  layoutTodos v  = H.p_ [ H.text $ show v]
+--  layoutButtons  = H.p_ [ H.button [ A.onClick (\_ -> pure handleListTodos) ] [ H.text "list" ] ]
 
 handleListTodos :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
 handleListTodos = E.yield RespBusy `E.andThen` \_ -> E.async compileAff
   where
   compileAff :: Aff (HalogenEffects (ajax :: AJAX | eff)) Output
   compileAff = do
-    res <- get "/applications-simple-todos"
+    res <- get "/applications/simple/todos"
     liftEff $ log res.response
     let todos = decode res.response :: Maybe (Array Todo)
     return $ RespListTodos (fromMaybe [] todos)
@@ -87,7 +128,7 @@ handleListTodos' = E.yield RespBusy `E.andThen` \_ -> E.async compileAff
   where
   compileAff :: Aff (HalogenEffects (ajax :: AJAX | eff)) Output
   compileAff = do
-    res <- get "/applications-simple-todos"
+    res <- get "/applications/simple/todos"
     liftEff $ log res.response
     return $ RespListTodos []
 
