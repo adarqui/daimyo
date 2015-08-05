@@ -8,7 +8,7 @@ import Prelude
 import Data.Tuple
 import Data.Maybe
 import Data.JSON
-import Data.Array (filter, length)
+import Data.Array (filter, length, (:))
 
 import DOM
 
@@ -87,7 +87,7 @@ ui = render <$> stateful (State []) update
               H.li_ [H.text "active"],
               H.li_ [H.text "completed"]
             ],
-            H.button [class_ "clear-completed"] [H.text "Clear completed"]
+            H.button [class_ "clear-completed", A.onClick (\_ -> pure handleClearCompleted)] [H.text "Clear completed"]
           ]
         ],
         H.footer [class_ "info"] [
@@ -102,14 +102,18 @@ ui = render <$> stateful (State []) update
       H.div [class_ "view"] [
         H.input [class_ "toggle", A.type_ "checkbox", A.checked (state == Completed)] [],
         H.label_ [H.text title],
-        H.button [class_ "destroy"] []
+        H.button [class_ "destroy", A.onClick (\_ -> pure handleRemoveTodo)] []
       ],
       H.input [class_ "edit", A.value title] []
     ]
 
   update :: State -> Input -> State
-  update st RespBusy = st
-  update st (RespListTodos xs) = State xs
+  update st (RespListTodos xs)         = State xs
+  update (State xs) (RespAddTodo todo) = State (todo : xs)
+  update st (RespRemoveTodo tid)       = State []
+  update st RespClearTodos             = State []
+  update st RespClearCompletedTodos    = State []
+  update st RespBusy                   = st
 
 todosActiveLength :: Array Todo -> Int
 todosActiveLength = length <<< todosActive
@@ -124,11 +128,29 @@ todosActive todos = filter (\(Todo{ todoState = state}) -> state == Active) todo
 handleListTodos :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
 handleListTodos = E.yield RespBusy `E.andThen` \_ -> E.async affListTodos
 
+handleRemoveTodo :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
+handleRemoveTodo = E.yield RespBusy `E.andThen` \_ -> E.async affRemoveTodo
+
+handleClearCompleted :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
+handleClearCompleted = E.yield RespBusy `E.andThen` \_ -> E.async affClearCompleted
+
 affListTodos = do
   res <- get "/applications/simple/todos"
   liftEff $ log res.response
   let todos = decode res.response :: Maybe (Array Todo)
   return $ RespListTodos (fromMaybe [] todos)
+
+affRemoveTodo = do
+  res <- delete "/applications/simple/todos"
+  liftEff $ log res.response
+  let tid = decode res.response :: Maybe TodoId
+  return $ RespRemoveTodo (fromMaybe 0 tid)
+
+affClearCompleted = do
+  res <- delete "/applications/simple/todos"
+  liftEff $ log res.response
+  let tid = decode res.response :: Maybe Boolean
+  return $ RespClearCompletedTodos
 
 uiHalogenTodoSimpleMain = do
   -- runUI :: forall req eff. Component (Event (HalogenEffects eff)) req req -> Eff (HalogenEffects eff) (Tuple HTMLElement (Driver req eff))

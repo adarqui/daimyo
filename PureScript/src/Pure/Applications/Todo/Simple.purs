@@ -38,6 +38,11 @@ data TodoActionRequest
 
 data TodoActionResponse
   = RespListTodos (Array Todo)
+  | RespAddTodo Todo
+  | RespRemoveTodo TodoId
+  | RespUpdateTodo Todo
+  | RespClearTodos
+  | RespClearCompletedTodos
   | RespBusy
 
 type TodoApp = Array Todo
