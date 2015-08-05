@@ -3,6 +3,8 @@
 :load src/Pure/Applications/Todo/Simple.purs
 :load src/Pure/Applications/Todo/Simple2.purs
 :load src/Pure/Hello.purs
+:load src/Pure/Misc/State.purs
+:load src/Pure/Monad.purs
 :load src/Pure/NumberTheory/Factorial.purs
 :load src/Pure/UI/Halogen/Ping.purs
 :load src/Pure/UI/Halogen/Todo/Simple.purs
