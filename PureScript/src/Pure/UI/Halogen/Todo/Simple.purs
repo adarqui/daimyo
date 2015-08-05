@@ -41,6 +41,10 @@ import qualified Halogen.HTML.CSS as CSS
 
 import Control.Monad.Aff
 import Network.HTTP.Affjax
+import Network.HTTP.Method
+import Network.HTTP.MimeType
+import Network.HTTP.MimeType.Common
+import Network.HTTP.RequestHeader
 
 import Pure.Applications.Todo.Simple
 
@@ -149,7 +153,7 @@ affListTodos = do
   return $ RespListTodos (fromMaybe [] todos)
 
 affAddTodo todo = do
-  res <- post "/applications/simple/todos" (show $ toJSON (todo :: Todo))
+  res <- affjax $ defaultRequest { method = POST, url = "/applications/simple/todos", content = Just (encode (todo :: Todo)), headers = [ContentType applicationJSON] }
   liftEff $ log res.response
   let todo' = decode res.response :: Maybe Todo
   return $ case todo' of
