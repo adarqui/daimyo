@@ -2,12 +2,14 @@ module Pure.Applications.Todo.Simple where {- (
   Todo (..),
   TodoState (..),
   TodoActionRequest (..),
-  TodoId
+  TodoId,
+  defaultTodo
 ) where
 -}
 
 import Prelude
 import Data.JSON
+import Data.Maybe
 
 type TodoId = Int
 
@@ -43,6 +45,8 @@ data TodoActionResponse
   | RespUpdateTodo Todo
   | RespClearTodos
   | RespClearCompletedTodos
+  | RespInput (Maybe String)
+  | RespClearInput
   | RespBusy
   | RespNoOp
 
@@ -86,3 +90,8 @@ instance todoFromJSON :: FromJSON Todo where
 instance todoToJSON :: ToJSON Todo where
   toJSON (Todo { todoId = tid, todoTitle = title, todoState = state }) =
     object [ "todoId" .= tid, "todoTitle" .= title, "todoState" .= state ]
+
+-- | defaultTodo
+--
+defaultTodo :: String -> Todo
+defaultTodo s = Todo { todoId: 0, todoTitle: s, todoState: Active }

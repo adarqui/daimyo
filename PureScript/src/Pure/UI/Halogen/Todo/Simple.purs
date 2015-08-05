@@ -76,7 +76,7 @@ ui = render <$> stateful (State [] Nothing) update
       H.section [class_ "todoapp"] [
         H.header [class_ "header"] [
           H.h1_ [H.text "todos"],
-          H.input [class_ "new-todo", A.placeholder "What needs to be done?", A.onKeyUp (\e -> pure (handleNewTodo e.keyCode))] []
+          H.input [class_ "new-todo", A.placeholder "What needs to be done?", A.onValueChanged (A.input (RespInput <<< Just)), A.onKeyUp (\e -> pure (handleNewTodo e.keyCode new))] []
         ],
         H.section [class_ "main"] [
           H.input [class_ "toggle-all", A.type_ "checkbox"] [H.label_ [H.text "Mark all as complete"]],
@@ -114,6 +114,8 @@ ui = render <$> stateful (State [] Nothing) update
   update (State todos new) (RespRemoveTodo tid)    = State [] new
   update (State todos new) RespClearTodos          = State [] new
   update (State todos new) RespClearCompletedTodos = State [] new
+  update (State todos new) (RespInput new')        = State todos new'
+  update (State todos _)   RespClearInput          = State todos Nothing
   update st RespNoOp                               = st
   update st RespBusy                               = st
 
@@ -123,19 +125,16 @@ todosActiveLength = length <<< todosActive
 todosActive :: Array Todo -> Array Todo
 todosActive todos = filter (\(Todo{ todoState = state}) -> state == Active) todos
 
---  layoutHeader   = H.p_ [ H.h1_ [ H.text "Todo MVC" ] ]
---  layoutTodos v  = H.p_ [ H.text $ show v]
---  layoutButtons  = H.p_ [ H.button [ A.onClick (\_ -> pure handleListTodos) ] [ H.text "list" ] ]
-
 handleListTodos :: forall eff. E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
 handleListTodos = E.yield RespBusy `E.andThen` \_ -> E.async affListTodos
 
-handleNewTodo :: forall eff. Number -> E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
-handleNewTodo 13.0 = return RespNoOp
-handleNewTodo _    = return RespNoOp
+handleNewTodo :: forall eff. Number -> Maybe String -> E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
+handleNewTodo 13.0 Nothing  = return RespNoOp
+handleNewTodo 13.0 (Just s) = handleAddTodo $ defaultTodo s
+handleNewTodo _    _        = return RespNoOp
 
 handleAddTodo :: forall eff. Todo -> E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
-handleAddTodo todo = E.yield RespBusy `E.andThen` \_ -> E.async (affAddTodo todo)
+handleAddTodo todo = E.yield RespClearInput `E.andThen` \_ -> E.yield RespBusy `E.andThen` \_ -> E.async (affAddTodo todo)
 
 handleRemoveTodo :: forall eff. TodoId -> E.Event (HalogenEffects (ajax :: AJAX | eff)) Input
 handleRemoveTodo tid = E.yield RespBusy `E.andThen` \_ -> E.async (affRemoveTodo tid)
