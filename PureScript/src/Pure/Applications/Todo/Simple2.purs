@@ -6,6 +6,9 @@ import Data.JSON
 import Data.Maybe
 import Data.Tuple
 import Data.Functor
+import Control.Monad.Eff
+import Control.Monad.Eff.Class
+import Control.Monad.Maybe.Trans
 import Control.Monad.State
 import Control.Monad.State.Class
 import Control.Monad.State.Trans
@@ -57,6 +60,12 @@ instance todoStateEq :: Eq TodoState where
   eq Active Active       = true
   eq Completed Completed = true
   eq _ _                 = false
+
+instance todoEq :: Eq Todo where
+  eq (Todo t1) (Todo t2) =
+    t1.todoId == t2.todoId &&
+    t1.todoTitle == t2.todoTitle &&
+    t1.todoState == t2.todoState
 
 instance showTodoState :: Show TodoState where
   show Active    = "Active"
@@ -131,7 +140,12 @@ addTodo (Todo obj) = do
 --
 removeTodo :: forall eff a. TodoId -> TodoAppState (Maybe TodoId)
 removeTodo tid = do
-  id <$> findTodoById tid >> go
+--  runMaybeT <<< map go <<< MaybeT <<< findTodoById
+--  id <$> findTodoById tid >> go
+  todo <- findTodoById tid
+  if isNothing todo
+     then return Nothing
+     else go
   where
   go = do
     (TodoApp appObj) <- get
@@ -144,7 +158,11 @@ removeTodo tid = do
 --
 updateTodo :: forall eff a. TodoId -> Todo -> TodoAppState (Maybe Todo)
 updateTodo tid todo = do
-  id <$> findTodoById tid >> go
+--  id <$> findTodoById tid >> go
+  todo <- findTodoById tid
+  if isNothing todo
+     then return Nothing
+     else go
   where
   go = do
     (TodoApp appObj) <- get

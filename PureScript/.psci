@@ -29,6 +29,7 @@
 :load bower_components/purescript-arrays/src/Data/Array.purs
 :load bower_components/purescript-arrays/src/Data/Array/ST.purs
 :load bower_components/purescript-arrays/src/Data/Array/Unsafe.purs
+:load bower_components/purescript-assert/src/Test/Assert.purs
 :load bower_components/purescript-bifunctors/src/Control/Biapplicative.purs
 :load bower_components/purescript-bifunctors/src/Control/Biapply.purs
 :load bower_components/purescript-bifunctors/src/Data/Bifunctor.purs
@@ -234,6 +235,7 @@
 :load bower_components/purescript-unfoldable/src/Data/Unfoldable.purs
 :load bower_components/purescript-unsafe-coerce/src/Unsafe/Coerce.purs
 :load bower_components/purescript-void/src/Data/Void.purs
+:load test/Applications/Todo/Simple.purs
 :load test/Main.purs
 :foreign src/Pure/UI/Thermite/Factorial.js
 :foreign bower_components/purescript-aff/src/Control/Monad/Aff.js
@@ -243,6 +245,7 @@
 :foreign bower_components/purescript-arrays/src/Data/Array.js
 :foreign bower_components/purescript-arrays/src/Data/Array/ST.js
 :foreign bower_components/purescript-arrays/src/Data/Array/Unsafe.js
+:foreign bower_components/purescript-assert/src/Test/Assert.js
 :foreign bower_components/purescript-bigints/src/Data/BigInt.js
 :foreign bower_components/purescript-console/src/Control/Monad/Eff/Console.js
 :foreign bower_components/purescript-eff/src/Control/Monad/Eff.js

@@ -1,6 +1,7 @@
 module Test.Main where
 
 import Control.Monad.Eff.Console
+import Test.Applications.Todo.Simple
 
 main = do
-  log "You should add some tests."
+  testTodoSimple
