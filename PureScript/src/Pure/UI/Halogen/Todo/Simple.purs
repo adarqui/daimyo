@@ -116,7 +116,7 @@ ui = render <$> stateful (AppState newTodoApp Nothing) update
     ]
 
   update :: AppState -> Input -> AppState
-  update (AppState app new) (InputTodo (RespListTodos xs))          = AppState (execState (clearTodos >> mapM addTodo xs) app) new
+  update (AppState app new) (InputTodo (RespListTodos xs))          = AppState (execState (clearTodos >> mapM addTodoDirectly xs) app) new
   update (AppState app new) (InputTodo (RespAddTodo todo))          = AppState (execState (addTodoDirectly todo) app) new
   update (AppState app new) (InputTodo (RespRemoveTodo Nothing))    = AppState app new
   update (AppState app new) (InputTodo (RespRemoveTodo (Just tid))) = AppState (execState (removeTodo tid) app) new
