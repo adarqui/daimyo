@@ -151,24 +151,6 @@ addTodoDirectly todo = do
   put $ TodoApp { todoAppCounter: todoId todo, todoAppTodos: new_todos }
   return todo
 
--- | addTodosDirectly
---
--- i wrote this at 6am and i think my brain is going to die.
---
-addTodosDirectly :: forall eff a. Array Todo -> TodoAppState Unit
-addTodosDirectly [] = return unit
-addTodosDirectly xs = do
-  let
-    y  = head xs
-    ys = tail xs
-  case y of
-    Nothing -> return unit
-    Just y' -> do
-      void $ addTodoDirectly y'
-      case ys of
-        Nothing  -> return unit
-        Just ys' -> void $ addTodosDirectly ys'
-
 -- | removeTodo
 --
 removeTodo :: forall eff a. TodoId -> TodoAppState (Maybe TodoId)
