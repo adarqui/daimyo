@@ -1,7 +1,8 @@
 :load src/Main.purs
 :load src/Pure/API/Ping.purs
 :load src/Pure/Applications/Todo/Simple.purs
-:load src/Pure/Applications/Todo/Simple2.purs
+:load src/Pure/Data/List.purs
+:load src/Pure/Data/Map.purs
 :load src/Pure/Hello.purs
 :load src/Pure/Misc/State.purs
 :load src/Pure/Monad.purs

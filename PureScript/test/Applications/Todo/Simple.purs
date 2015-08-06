@@ -7,7 +7,7 @@ import Control.Monad.Trans
 import Data.Tuple
 import Data.List
 import Data.Maybe
-import Pure.Applications.Todo.Simple2
+import Pure.Applications.Todo.Simple
 import Pure.Monad
 import Test.Assert
 
@@ -28,5 +28,5 @@ testTodoSimple = do
   log "testing updateTodo: invalid update"
   assert $ (evalState (addTodo example_todo >> updateTodo 0 example_todo) newTodoApp) == Nothing
 
-  log "testing updateTodo: invalid update"
+  log "testing updateTodo: valid update"
   assert $ (evalState (addTodo example_todo >> updateTodo 1 (Todo{todoId:1,todoTitle:"ih",todoState:Completed})) newTodoApp) == (Just$Todo{todoId:1,todoTitle:"ih",todoState:Completed})
