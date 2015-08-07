@@ -22,6 +22,9 @@ Library
                      Daimyo.Random
                      Daimyo.Random.Xorshift.Xorshift128
                      Daimyo.Random.Xorshift.Xorshift64
+                     Daimyo.Random.LCG
+                     Daimyo.Random.LCG.BSD
+                     Daimyo.Random.LCG.MS
                      Daimyo.String
                      Daimyo.Number
                      Daimyo.Knowledge.Time
@@ -103,6 +106,7 @@ Library
                      Daimyo.Expressions.ShuntingYard
                      Daimyo.Expressions.BoolTree
                      Daimyo.Expressions.IncDec
+                     Daimyo.Control.Monad
                      Daimyo.Control.State
                      Daimyo.Print
                      Daimyo.Logic.Proposition
