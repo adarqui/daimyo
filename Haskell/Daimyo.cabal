@@ -239,6 +239,9 @@ Library
                      Daimyo.Game.TileN
                      Daimyo.Security.Stanford
                      Daimyo.Athletics.Run
+                     Daimyo.Pure.Prelude
+                     Daimyo.Pure.Data.Bifunctor
+                     Daimyo.Pure.Data.Profunctor
                      Daimyo.Application.Todo.Simple
                      Daimyo.Wreq.Todo
                      Daimyo.Servant.Shared
