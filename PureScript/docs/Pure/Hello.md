@@ -1,3 +1,0 @@
-## Module Pure.Hello
-
-
