@@ -1,4 +1,4 @@
-module Pure.UI.Halogen.Ping (
+module Daimyo.UI.Halogen.Ping (
   uiHalogenPingMain
 ) where
 
@@ -35,7 +35,7 @@ import qualified Halogen.HTML.CSS as CSS
 import Control.Monad.Aff
 import Network.HTTP.Affjax
 
-import Pure.API.Ping
+import Daimyo.API.Ping
 
 data State = State (Maybe String)
 

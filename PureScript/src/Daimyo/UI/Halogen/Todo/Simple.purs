@@ -1,4 +1,4 @@
-module Pure.UI.Halogen.Todo.Simple (
+module Daimyo.UI.Halogen.Todo.Simple (
   uiHalogenTodoSimpleMain
 ) where
 
@@ -47,10 +47,9 @@ import Network.HTTP.MimeType
 import Network.HTTP.MimeType.Common
 import Network.HTTP.RequestHeader
 
-import Pure.Monad
-import Pure.Control.Monad
-import Pure.Applications.Todo.Simple
-import qualified Pure.Data.Map as M
+import Daimyo.Control.Monad
+import Daimyo.Applications.Todo.Simple
+import qualified Daimyo.Data.Map as M
 
 data AppState = AppState TodoApp (Maybe String)
 

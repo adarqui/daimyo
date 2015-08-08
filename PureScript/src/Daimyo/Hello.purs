@@ -1,4 +1,4 @@
-module Pure.Hello (
+module Daimyo.Hello (
   helloMain
 ) where
 

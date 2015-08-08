@@ -1,6 +1,6 @@
 "use strict";
 
-// module Pure.UI.Thermite.Factorial
+// module Daimyo.UI.Thermite.Factorial
 
 exports.getInt = function(e) {
   return parseInt(e.target.value);

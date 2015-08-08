@@ -1,4 +1,4 @@
-module Pure.Data.List where
+module Daimyo.Data.List where
 
 import Prelude
 import Data.Array (reverse, (:))

@@ -1,4 +1,4 @@
-module Pure.Applications.Todo.Simple where
+module Daimyo.Applications.Todo.Simple where
 
 import Prelude
 import Data.Array
@@ -14,10 +14,10 @@ import Control.Monad.State.Class
 import Control.Monad.State.Trans
 import Control.Monad.Trans
 import qualified Data.Map as M
-import qualified Pure.Data.Map as M
+import qualified Daimyo.Data.Map as M
 
-import Pure.Monad
-import Pure.Data.List
+import Daimyo.Control.Monad
+import Daimyo.Data.List
 
 type TodoId = Int
 

@@ -1,4 +1,4 @@
-module Pure.UI.Thermite.Factorial (
+module Daimyo.UI.Thermite.Factorial (
   uiThermiteFactorialMain
 ) where
 
@@ -14,7 +14,7 @@ import qualified Thermite.Html.Attributes as A
 import qualified Thermite.Action as T
 import qualified Thermite.Events as T
 import qualified Thermite.Types as T
-import Pure.NumberTheory.Factorial
+import Daimyo.NumberTheory.Factorial
 
 data Action = Input BigInt | Run | Skip
 type State = { input :: BigInt, output :: BigInt }

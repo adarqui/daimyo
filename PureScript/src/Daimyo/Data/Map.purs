@@ -1,11 +1,11 @@
-module Pure.Data.Map where
+module Daimyo.Data.Map where
 
 import Prelude
 import Data.Array
 import Data.Tuple
 import qualified Data.Map as M
 
-import Pure.Data.List
+import Daimyo.Data.List
 
 -- | toArray
 --

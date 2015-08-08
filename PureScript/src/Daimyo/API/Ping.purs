@@ -1,4 +1,4 @@
-module Pure.API.Ping (
+module Daimyo.API.Ping (
   pingAjax,
   pingAjaxAff
 ) where

@@ -1,3 +1,5 @@
+module Daimyo.Data.Array where
+
 import Prelude
 import Data.Array hiding (reverse, (:))
 import Data.List (List (..), reverse, (:))

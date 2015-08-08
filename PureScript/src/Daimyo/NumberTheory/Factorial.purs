@@ -1,4 +1,4 @@
-module Pure.NumberTheory.Factorial (
+module Daimyo.NumberTheory.Factorial (
   factorial,
   factorialBig
 ) where

@@ -1,4 +1,4 @@
-module Pure.Control.Monad where
+module Daimyo.Control.Monad where
 
 import Prelude
 import Data.Array
@@ -16,3 +16,6 @@ mapM f xs = do
          y  <- f h'
          ys <- mapM f t'
          return (y : ys)
+
+(>>) :: forall m a b. (Bind m) => m a -> m b -> m b
+(>>) x y = x >>= const y

@@ -1,4 +1,4 @@
-module Test.Applications.Todo.Simple where
+module Test.Daimyo.Applications.Todo.Simple where
 
 import Prelude
 import Control.Monad.Eff.Console
@@ -7,9 +7,10 @@ import Control.Monad.Trans
 import Data.Tuple
 import Data.List
 import Data.Maybe
-import Pure.Applications.Todo.Simple
-import Pure.Monad
 import Test.Assert
+
+import Daimyo.Applications.Todo.Simple
+import Daimyo.Control.Monad
 
 testTodoSimple = do
 

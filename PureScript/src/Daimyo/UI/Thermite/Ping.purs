@@ -1,4 +1,4 @@
-module Pure.UI.Thermite.Ping (
+module Daimyo.UI.Thermite.Ping (
   uiPingMain
 ) where
 

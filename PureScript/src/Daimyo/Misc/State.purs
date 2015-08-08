@@ -1,4 +1,4 @@
-module Pure.Misc.State where
+module Daimyo.Misc.State where
 
 import Prelude
 import Data.JSON
@@ -12,7 +12,7 @@ import Control.Monad.State.Trans
 import Control.Monad.Trans
 import qualified Data.Map as M
 
-import Pure.Monad
+import Daimyo.Control.Monad
 
 -- Simple Counter
 --
