@@ -23,3 +23,8 @@ cabal.sandbox.config
 streams
 target
 core
+.DS_Store
+ext
+test-cases
+build/js/*
+!build/js/.empty
