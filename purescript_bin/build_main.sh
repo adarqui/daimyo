@@ -8,5 +8,5 @@ export file=$1
 export module=$2
 export function=$3
 
-pulp browserify -m ${module} --to dist/${file}
+pulp browserify -I purescript_src -m ${module} --to dist/${file}
 sed -i -e s/main\(\)/${function}\(\)/g dist/${file}

@@ -8,16 +8,16 @@ tests:
 	pulp -w test -I "purescript_src purescript_test"
 
 hello:
-	./purescript_bin/build_main.sh all_hello.js Pure.Hello helloMain
+	./purescript_bin/build_main.sh all_hello.js Daimyo.Hello helloMain
 
 ui_thermite_factorial:
-	./purescript_bin/build_main.sh all_ui_thermite_factorial.js Pure.UI.Thermite.Factorial uiThermiteFactorialMain
+	./purescript_bin/build_main.sh all_ui_thermite_factorial.js Daimyo.UI.Thermite.Factorial uiThermiteFactorialMain
 
 ui_thermite_ping:
-	./purescript_bin/build_main.sh all_ui_thermite_ping.js Pure.UI.Thermite.Ping uiPingMain
+	./purescript_bin/build_main.sh all_ui_thermite_ping.js Daimyo.UI.Thermite.Ping uiPingMain
 
 ui_halogen_ping:
-	./purescript_bin/build_main.sh all_ui_halogen_ping.js Pure.UI.Halogen.Ping uiHalogenPingMain
+	./purescript_bin/build_main.sh all_ui_halogen_ping.js Daimyo.UI.Halogen.Ping uiHalogenPingMain
 
 ui_halogen_todo_simple:
-	./purescript_bin/build_main.sh all_ui_halogen_todo_simple.js Pure.UI.Halogen.Todo.Simple uiHalogenTodoSimpleMain
+	./purescript_bin/build_main.sh all_ui_halogen_todo_simple.js Daimyo.UI.Halogen.Todo.Simple uiHalogenTodoSimpleMain
