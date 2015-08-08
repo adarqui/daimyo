@@ -1,12 +1,12 @@
-Name:                Daimyo
+Name:                daimyo
 Version:             0.1
 Author:              andrew.darqui@gmail.com
 Maintainer:          andrew.darqui@gmail.com
-Synopsis:            Daimyo
-Description:         Daimyo
+Synopsis:            daimyo
+Description:         daimyo
 license:             MIT
 license-file:        LICENSE
-Category:            Daimyo
+Category:            daimyo
 Build-Type:          Simple
 Cabal-Version:       >= 1.8
 tested-with:         GHC == 7.6.2
@@ -14,7 +14,7 @@ extra-source-files:  README.md
 
 Source-Repository head
  Type:               git
- Location:           https://github.com/adarqui/Daimyo
+ Location:           https://github.com/adarqui/daimyo
 
 Library
  HS-Source-Dirs:     src
