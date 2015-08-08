@@ -23,10 +23,3 @@ cabal.sandbox.config
 streams
 target
 core
-node_modules/
-output/
-bower_components/
-dist/
-node_modules/
-.psci_modules/
-.browserify-cache.json
