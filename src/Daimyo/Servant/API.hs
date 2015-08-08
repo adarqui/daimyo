@@ -24,7 +24,7 @@ import           Servant
 server :: Store -> Server LnAPI
 server store =
   -- static
-       serveDirectory "../"
+       serveDirectory "../purescript-daimyo"
   -- ping
 --  :<|> getPing store
   :<|> getPing store
