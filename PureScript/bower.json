@@ -1,9 +1,17 @@
 {
-  "name": "daimyo-purescript",
+  "name": "purescript-daimyo",
   "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "purescript"
+  ],
   "moduleType": [
     "node"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adarqui/daimyo.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
