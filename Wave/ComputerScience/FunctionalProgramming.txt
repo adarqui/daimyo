@@ -8,3 +8,7 @@ An Introduction to Functional Programming Through Lambda Calculus
 
 Reactive Objects and Functional Programming
 - source: https://pure.ltu.se/portal/files/400628/Thesis.pdf
+
+
+The Haskell School of Music
+- source: http://www.cs.yale.edu/homes/hudak/Papers/HSoM.pdf
