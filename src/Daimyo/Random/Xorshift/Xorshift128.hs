@@ -9,8 +9,8 @@ module Daimyo.Random.Xorshift.Xorshift128 (
   seed128
 ) where
 
-import Daimyo.Control.State
-import Data.Bits
+import           Daimyo.Control.State
+import           Data.Bits
 
 data Xorshift128
   = Xorshift128 Int Int Int Int
