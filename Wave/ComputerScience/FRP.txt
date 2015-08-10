@@ -1,0 +1,10 @@
+Push-Pull FRP
+- source: http://conal.net/papers/push-pull-frp/push-pull-frp.pdf
+
+
+Arrows, Robots, and FRP
+- source: http://www.cs.nott.ac.uk/~nhn/Publications/afp2002.pdf
+
+
+TimeFlies: Push-Pull Signal-Function FRP
+- source: http://www.cs.nott.ac.uk/~nhn/Publications/afp2002.pdf
