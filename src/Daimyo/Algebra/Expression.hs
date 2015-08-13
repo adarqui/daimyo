@@ -33,5 +33,7 @@ data Expr
 -- simplify :: Expr -> Expr
 -- eval :: Expr ->
 
-t_expr1 = Add (ConstTerm 5 1) (ConstTerm 2 2)
-t_expr2 = Add (VarTerm 1 X 2) (VarTerm 3 X 4)
+-- | Examples
+--
+-- Add (ConstTerm 5 1) (ConstTerm 2 2)
+-- Add (VarTerm 1 X 2) (VarTerm 3 X 4)

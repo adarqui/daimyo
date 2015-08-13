@@ -1,6 +1,6 @@
 module Daimyo.Algebra.Congruence (
     isCongruent,
-    congruence'Proof
+    congruenceProof
 ) where
 
 isCongruent a b n =
@@ -9,7 +9,7 @@ isCongruent a b n =
     in
         r == 0
 
-congruence'Proof a b c n =
+congruenceProof a b c n =
     let
         reflexive = isCongruent a a n && isCongruent b b n
         symmetric = isCongruent a b n && isCongruent b a n
@@ -17,7 +17,7 @@ congruence'Proof a b c n =
     in
         [("reflexive", reflexive), ("symmetric", symmetric), ("transitive", transitive)]
 
-congruence'Proof' a b c d n =
+congruenceProof' a b c d n =
     let
         additive = isCongruent a b n && isCongruent c d n && isCongruent (a + c) (b + d) n
         multiplicative = isCongruent a b n && isCongruent c d n && isCongruent (a*c) (b*d) n
@@ -29,5 +29,5 @@ t_isCongruent'2 = isCongruent 23 2 7
 t_isCongruent'3 = isCongruent 23 (-2) 25
 t_isCongruent'1'False = isCongruent 23 1 10
 
-t_congruence'Proof = congruence'Proof 23 1 12 11
-t_congruence'Proof' = congruence'Proof' 23 1 23 12 11
+t_congruenceProof = congruenceProof 23 1 12 11
+t_congruenceProof' = congruenceProof' 23 1 23 12 11
