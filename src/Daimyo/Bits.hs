@@ -67,7 +67,7 @@ balance l = intersperseL evens $ reverse odds
 -- ([1,3,5,7,9],[2,4,6,8,10])
 --
 splits :: [a] -> ([a], [a])
-splits l = foldl' f ([],[]) $ zip l [1..]
+splits l = foldl' f ([],[]) $ zip l ([1..] :: [Int])
   where
     f (odds, evens) (v, i)
       | odd i     = (odds ++ [v], evens)
@@ -78,6 +78,7 @@ splits l = foldl' f ([],[]) $ zip l [1..]
 -- >>> intersperseL [5,6,7] [1,2,3] :: [Int]
 -- [5,1,6,2,7,3]
 --
+intersperseL :: [t] -> [t] -> [t]
 intersperseL xs [] = xs
 intersperseL [] ys = ys
 intersperseL (x:xs) (y:ys) = x : y : intersperseL xs ys
@@ -92,9 +93,9 @@ intersperseL (x:xs) (y:ys) = x : y : intersperseL xs ys
 charToBits :: Int -> [Int]
 charToBits char = map f [0..7]
   where
-    f bit
-      | Bits.testBit char bit = 1
-      | otherwise             = 0
+    f bit'
+      | Bits.testBit char bit' = 1
+      | otherwise              = 0
 
 -- | ceilPowerOfTwo
 --
