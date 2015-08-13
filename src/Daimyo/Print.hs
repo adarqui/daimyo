@@ -4,8 +4,6 @@ module Daimyo.Print (
   indentSp
 ) where
 
-import           Data.List
-
 showVar :: (Show a) => String -> a -> String
 showVar var a = var ++ "=" ++ show a
 

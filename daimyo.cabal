@@ -111,7 +111,6 @@ Library
                      Daimyo.Print
                      Daimyo.Logic.Proposition
                      Daimyo.Logic.Table
-                     Daimyo.Logic.Examples
                      Daimyo.Logic.Bool
                      Daimyo.Algebra
                      Daimyo.Algebra.Exponent
