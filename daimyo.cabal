@@ -103,7 +103,6 @@ Library
                      Daimyo.Permutation.Heaps
                      Daimyo.Fun.Binary
                      Daimyo.Patterns.Palindrome
-                     Daimyo.Expressions.ShuntingYard
                      Daimyo.Expressions.BoolTree
                      Daimyo.Expressions.IncDec
                      Daimyo.Control.Monad
