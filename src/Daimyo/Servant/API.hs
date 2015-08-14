@@ -9,12 +9,9 @@ module Daimyo.Servant.API (
   runServer
 ) where
 
-import           Control.Concurrent.STM
-import           Control.Monad.Trans.Either
 import           Daimyo.Application.Todo.Simple
 import           Daimyo.Servant.Shared
 import           Daimyo.Servant.API.Ping
-import qualified Language.Javascript.JQuery as JQ
 import           Network.Wai
 import           Network.Wai.Handler.Warp   hiding (Connection)
 import           Servant
@@ -50,11 +47,11 @@ app store = serve daimyoAPI $ server store
 
 -- | writeJSFiles
 --
-writeJSFiles :: IO ()
-writeJSFiles = do
-  -- writeFile "build/js/api.js" apiJS
-  jq <- readFile =<< JQ.file
-  writeFile "build/js/jq.js" jq
+-- writeJSFiles :: IO ()
+-- writeJSFiles = do
+-- writeFile "build/js/api.js" apiJS
+-- jq <- readFile =<< JQ.file
+-- writeFile "build/js/jq.js" jq
 
 -- | runServer
 --
