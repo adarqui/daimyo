@@ -9,7 +9,6 @@ import           Daimyo.Application.Todo.Simple
 import           Data.Aeson
 --import           Data.Aeson.Len
 import           Data.Text                       (Text)
-import qualified Data.Text                       as T
 import           Network.Wreq
 
 postSimpleTodo :: Text -> IO (Maybe Todo)
@@ -18,4 +17,4 @@ postSimpleTodo title = do
   let r' = decode (r ^. responseBody) :: Maybe Todo
   case r' of
     Nothing   -> return Nothing
-    otherwise -> return r'
+    _         -> return r'

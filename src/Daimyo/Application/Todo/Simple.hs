@@ -35,10 +35,7 @@ module Daimyo.Application.Todo.Simple (
   incrTodoAppCounter
 ) where
 
-import           Control.Applicative
-import           Control.Monad
 import           Daimyo.Control.State
-import           Daimyo.Tree.AVLKV
 import           Data.Aeson
 import           Data.List
 import           Data.Text            (Text)
@@ -138,10 +135,10 @@ removeTodo tid = do
 updateTodo :: TodoId -> Todo -> TodoAppState (Maybe Todo)
 updateTodo tid new_todo = do
   let new_todo' = new_todo { todoId = tid }
-  todo <- findTodoById tid
-  case todo of
-    Nothing    -> return Nothing
-    Just todo' -> do
+  t <- findTodoById tid
+  case t of
+    Nothing -> return Nothing
+    Just _  -> do
       todos <- gets todoAppTodos
       let filtered = filter (\todo -> todoId todo /= tid) todos
       modify (\st -> st { todoAppTodos = new_todo' : filtered })

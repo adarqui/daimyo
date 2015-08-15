@@ -3,7 +3,7 @@ module Daimyo.Control.Monad (
   repeatM_
 ) where
 
-import           Control.Monad
+import           Control.Monad ()
 
 repeatM :: Monad m => m a -> m [a]
 repeatM f = sequence (repeat f)

@@ -8,7 +8,7 @@ module Daimyo.Control.State (
   modify
 ) where
 
-import           Control.Applicative
+import           Control.Applicative ()
 import           Control.Monad
 
 -- | State

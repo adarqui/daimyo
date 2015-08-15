@@ -10,7 +10,7 @@ import           Daimyo.Random.LCG
 -- | lcgMS
 --
 lcgMS :: State Int Int
-lcgMS = lcg (LCG 214013 2531011 (2^31))
+lcgMS = lcg (LCG 214013 2531011 (2^(31::Int)))
 
 -- | lcgsMS
 --

@@ -10,7 +10,7 @@ import           Daimyo.Random.LCG
 -- | lcgBSD
 --
 lcgBSD :: State Int Int
-lcgBSD = lcg (LCG 1103515245 12345 (2^31))
+lcgBSD = lcg (LCG 1103515245 12345 (2^(31::Int)))
 
 -- | lcgsBSD
 --
