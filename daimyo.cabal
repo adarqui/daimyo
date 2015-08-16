@@ -178,6 +178,7 @@ Library
                      Daimyo.NumberTheory.Euler
                      Daimyo.NumberTheory.Factor
                      Daimyo.NumberTheory.Factorial
+                     Daimyo.NumberTheory.Factorial.CPS
                      Daimyo.NumberTheory.GCD
                      Daimyo.NumberTheory.GCD.Analysis
                      Daimyo.NumberTheory.TheoremOfMathematics
