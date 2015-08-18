@@ -14,3 +14,9 @@ category theory for scientists:
 
 Category Theory and Programming
 - source: yogsototh.github.io/Category-Theory-Presentation/
+
+
+A Taste of Category Theory
+- source: http://repository.cmu.edu/cgi/viewcontent.cgi?article=2846&context=compsci
+- history:
+- 08/18/2015: C1, C2
