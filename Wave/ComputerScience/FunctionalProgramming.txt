@@ -12,3 +12,7 @@ Reactive Objects and Functional Programming
 
 The Haskell School of Music
 - source: http://www.cs.yale.edu/homes/hudak/Papers/HSoM.pdf
+
+
+Essential Haskell:
+- source: http://www.cs.uu.nl/groups/ST/Projects/ehc/ehc-book.pdf
