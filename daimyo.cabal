@@ -107,6 +107,7 @@ Library
                      Daimyo.Expressions.IncDec
                      Daimyo.Control.Monad
                      Daimyo.Control.State
+                     Daimyo.Control.FunctionsNotData.State
                      Daimyo.Print
                      Daimyo.Logic.Proposition
                      Daimyo.Logic.Table
