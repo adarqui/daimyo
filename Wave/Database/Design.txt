@@ -1,0 +1,2 @@
+Database Design - 2nd Edition
+- source: http://opentextbc.ca/dbdesign01/
