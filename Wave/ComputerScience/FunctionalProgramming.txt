@@ -16,3 +16,7 @@ The Haskell School of Music
 
 Essential Haskell:
 - source: http://www.cs.uu.nl/groups/ST/Projects/ehc/ehc-book.pdf
+
+
+Categorical Programming with Inductive and Coinductive Types
+- source: http://kodu.ut.ee/~varmo/papers/thesis.pdf

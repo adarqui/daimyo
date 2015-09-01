@@ -5,6 +5,18 @@ Game Theory (intro)
 - 01/23/2015: 3
 
 
-Game Theory
+A Course in Game Theory
 - source: http://pioneer.netserv.chula.ac.th/~ptanapo1/gamebook.pdf
+- source: http://zhangjun.weebly.com/uploads/2/8/1/8/2818435/martin.pdf
 - solutions: http://cramton.umd.edu/econ414/osborne-public-solutions.pdf
+- history:
+- 08/31/2015: c1, c2
+
+
+Games and Information, Third Edition
+- source: http://bb.shufe.edu.cn/bbcswebdav/institution/经济学院/teacherweb/2003000035/document/game%20theory%20and%20information-rasmueson.pdf
+
+
+Algorithmic Game Theory:
+- source: Nisan_Non-printable.pdf
+- Noam Nisan

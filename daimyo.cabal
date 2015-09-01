@@ -253,6 +253,7 @@ Library
                      Daimyo.Servant.API.Ping
  Build-Depends:      base == 4.*,
                      AC-Angle,
+                     attoparsec,
                      aeson >= 0.9.0.1,
                      array,
                      binary,
@@ -267,6 +268,7 @@ Library
                      matrix,
                      mtl,
                      numbers,
+                     parsec,
                      random,
                      servant == 0.5.*,
                      servant-server == 0.5.*,
