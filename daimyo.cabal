@@ -107,6 +107,7 @@ Library
                      Daimyo.Expressions.IncDec
                      Daimyo.Control.Monad
                      Daimyo.Control.State
+                     Daimyo.Control.State.NoTypes
                      Daimyo.Control.FunctionsNotData.State
                      Daimyo.Print
                      Daimyo.Logic.Proposition
@@ -247,6 +248,7 @@ Library
                      Daimyo.Pure.Data.Bifunctor
                      Daimyo.Pure.Data.Profunctor
                      Daimyo.Application.Todo.Simple
+                     Daimyo.Network.IPGen
                      Daimyo.Wreq.Todo
                      Daimyo.Servant.Shared
                      Daimyo.Servant.API
