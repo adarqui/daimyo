@@ -62,7 +62,7 @@ removeIndices' _ (acc,acc') _ [] = (acc,acc')
 removeIndices' iter (acc,acc') indices@(i:is) list@(x:xs)
     | iter == i = removeIndices'(iter+1) (acc++[x],acc') is xs
     | otherwise = removeIndices' (iter+1) (acc,acc'++[x]) indices xs
-    
+
 t_removeIndieces =
     let
         s = "hello world"
