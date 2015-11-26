@@ -285,5 +285,5 @@ Library
                      wai >= 3.0.2.3,
                      warp >= 3.0.13.1,
                      wreq >= 0.4.0.0
- ghc-options:        -Wall
+ ghc-options:        -Werror
  default-extensions:
