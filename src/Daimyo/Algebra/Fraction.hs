@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleInstances #-}
+{-# OPTIONS -fno-warn-missing-methods #-}
 
 module Daimyo.Algebra.Fraction (
   Fraction,
