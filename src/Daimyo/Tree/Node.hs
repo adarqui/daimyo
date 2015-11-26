@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleInstances #-}
+{-# OPTIONS -fno-warn-missing-methods #-}
 
 module Daimyo.Tree.Node (
   Tree (..),
