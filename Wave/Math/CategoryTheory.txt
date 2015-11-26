@@ -20,3 +20,7 @@ A Taste of Category Theory
 - source: http://repository.cmu.edu/cgi/viewcontent.cgi?article=2846&context=compsci
 - history:
 - 08/18/2015: C1, C2
+
+
+Category Theory: Oxford Logic Guides
+- source: http://www.mpi-sws.org/~dreyer/courses/catlogic/awodey.pdf
