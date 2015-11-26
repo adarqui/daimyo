@@ -66,3 +66,4 @@ instance Real Clock where
 
 instance Integral Clock where
   toInteger = runClock
+  quotRem = undefined
