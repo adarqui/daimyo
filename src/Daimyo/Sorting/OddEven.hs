@@ -44,7 +44,7 @@ oesort'ST l =
    results <- mapM (\n -> oesort'ST'swap True st n sz) [1..2]
    case (any (==False) results) of
     True -> go True st
-    False -> return st 
+    False -> return st
 
 oesort'ST'swap sorted st i j | (j-1) < i = return sorted
 oesort'ST'swap sorted st i j = do
@@ -54,14 +54,14 @@ oesort'ST'swap sorted st i j = do
    swap st (m,i) (n,i+1)
    oesort'ST'swap False st (i+2) j
   else oesort'ST'swap sorted st (i+2) j
-   
+
 swap st (m,i) (n,j) = do
  writeSTArray st i n
  writeSTArray st j m
 
 runSTArray :: (Ix i)
-	   => (forall s . ST s (STArray s i e))
-	   -> Array i e
+  => (forall s . ST s (STArray s i e))
+  -> Array i e
 runSTArray st = runST (st >>= unsafeFreezeSTArray)
 
 t2 = oesort'ST [1,4,2,4,9,2,4,2,1,1,100,2,4,2,1,4,6,7,4,2,2,5,7,4,2,1,4,6,7,8,8,99,100,1000,200,55]
