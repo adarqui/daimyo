@@ -4,7 +4,6 @@ module Daimyo.Algebra.NthRoot (
   nthRoot,
   rootFactors,
   simplifyRadical,
-  simplifyRadical,
   findRoot
 ) where
 
