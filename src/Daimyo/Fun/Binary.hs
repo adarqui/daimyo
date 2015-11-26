@@ -18,3 +18,9 @@ instance Enum XBinary where
   succ 0 = 1
   succ 1 = 0
   succ _ = error "Neither 1 nor 0"
+
+  toEnum 0 = XBinary 0
+  toEnum 1 = XBinary 1
+
+  fromEnum (XBinary 0) = 0
+  fromEnum (XBinary 1) = 1
