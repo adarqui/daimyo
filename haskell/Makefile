@@ -6,4 +6,3 @@ sandbox:
 	cabal sandbox add-source ~/code/github/haskell-servant/servant/servant-server
 	cabal sandbox add-source ~/code/github/haskell-servant/servant/servant-client
 	cabal sandbox add-source ~/code/github/haskell-servant/servant/servant
-
