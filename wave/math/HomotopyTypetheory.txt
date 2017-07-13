@@ -1,7 +1,0 @@
-A Primer on Homotopy Type Theory Part 1: The Formal Type System
-- source: http://www.bristol.ac.uk/media-library/sites/arts/research/homotopy-type/documents/hott-primer-part-one.pdf
-- 07/16/2015: ABSORB: intro, 1-Type Theory, 2-Functions, 3-Logic, 4-HoTT, 5-Logic-in-TT, 6-Quantifiers, 7-Identity-types
-
-
-HoTT: Homotopy Type Theory
-- source: https://hottheory.files.wordpress.com/2013/03/hott-online-611-ga1a258c.pdf

@@ -1,6 +1,0 @@
-Secrets of Mental Math
-- source: http://www.engineeringsurveyor.com/software/secrets%20of%20mental%20math.pdf
-- history:
-- 12/24/2014: Prologue, Introduction, 0
-- MM:
-- 12/29/2014: 1

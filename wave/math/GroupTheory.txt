@@ -1,6 +1,0 @@
-Group Theory
-- source: http://www.jmilne.org/math/CourseNotes/GT.pdf
-- haskell: https://hackage.haskell.org/package/groups-0.3.0.0/docs/Data-Group.html , https://hackage.haskell.org/package/glpk-hs-0.3.4/docs/Data-Algebra.html
-- sage: http://www.wdjoyner.org/papers/groups-sage4.pdf , http://www.sagemath.org/doc/reference/categories/sage/categories/groups.html
-- history:
-- 12/07/2014: Notes, 1 (leftoff: subgroups)
