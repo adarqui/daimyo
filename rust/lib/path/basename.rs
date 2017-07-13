@@ -16,12 +16,8 @@ pub fn basename(path: &str) -> &str {
 
 
 
-#[cfg(test)]
-mod tests {
-  use path::basename::*;
-  #[test]
-  fn test_basename() {
-    assert_eq!(basename("/tmp"), "tmp");
-    assert_eq!(basename("/tmp/1"), "1");
-  }
+#[test]
+fn test_basename() {
+  assert_eq!(basename("/tmp"), "tmp");
+  assert_eq!(basename("/tmp/1"), "1");
 }
