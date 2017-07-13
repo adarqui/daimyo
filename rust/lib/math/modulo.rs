@@ -13,6 +13,8 @@ static MOD_ARITH_DISJOINT_SETS: &'static str = "ModArith's do not belong to the 
  */
 #[derive(Eq)]
 #[derive(PartialEq, Debug)]
+#[derive(Copy)]
+#[derive(Clone)]
 pub struct ModArith {
   v: i64,
   m: u64
@@ -21,7 +23,7 @@ pub struct ModArith {
 
 
 impl ModArith {
-  fn new(v: i64, m: u64) -> Self {
+  pub fn new(v: i64, m: u64) -> Self {
     ModArith {
       v: v,
       m: m
