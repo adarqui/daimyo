@@ -1,1 +1,3 @@
 https://www.amazon.com/Algorithms-Functional-Programming-Approach-International/dp/0201596040
+
+completed: 2016
