@@ -1,6 +1,7 @@
 use num::Integer;
 use std::ops::Mul;
 use std::ops::Add;
+use std::ops::Sub;
 
 
 
@@ -11,10 +12,16 @@ static MOD_ARITH_DISJOINT_SETS: &'static str = "ModArith's do not belong to the 
 /*
  * A number belonging to some modulo arithmetic set
  */
-#[derive(Eq)]
-#[derive(PartialEq, Debug)]
+// https://doc.rust-lang.org/std/marker/trait.Copy.html
+// https://doc.rust-lang.org/core/clone/trait.Clone.html
+// https://doc.rust-lang.org/std/fmt/trait.Debug.html
+// https://doc.rust-lang.org/core/cmp/trait.Eq.html
+// https://doc.rust-lang.org/core/cmp/trait.PartialEq.html
 #[derive(Copy)]
 #[derive(Clone)]
+#[derive(Debug)]
+#[derive(Eq)]
+#[derive(PartialEq)]
 pub struct ModArith {
   v: i64,
   m: u64
@@ -66,6 +73,22 @@ impl Add for ModArith {
     ModArith::new(a_plus_b.modulo(self.m as i64), self.m)
   }
 }
+
+
+
+// https://doc.rust-lang.org/std/ops/trait.Sub.html
+impl Sub for ModArith {
+  type Output = ModArith;
+
+  fn sub(self, rhs: Self) -> Self {
+    if self.m != rhs.m {
+      panic!(MOD_ARITH_DISJOINT_SETS);
+    }
+    let a_sub_b = self.v - rhs.v;
+    ModArith::new(a_sub_b.modulo(self.m as i64), self.m)
+  }
+}
+
 
 
 
