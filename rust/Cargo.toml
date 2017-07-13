@@ -4,3 +4,8 @@ version = "0.1.0"
 authors = ["x <x>"]
 
 [dependencies]
+
+[lib]
+name = "daimyo"
+path = "lib/lib.rs"
+test = true
