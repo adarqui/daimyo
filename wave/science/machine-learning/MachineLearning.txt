@@ -1,6 +1,0 @@
-The Computational Complexity of Machine Learning
-- source: https://www.cis.upenn.edu/~mkearns/papers/thesis.pdf
-
-
-Machine Learning
-- source: http://personal.disco.unimib.it/Vanneschi/McGrawHill_-_Machine_Learning_-Tom_Mitchell.pdf
