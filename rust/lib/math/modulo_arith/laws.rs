@@ -114,6 +114,17 @@ fn test_p10_mod_arith_distributive_multiplication() {
 }
 
 #[test]
+fn test_mod_arith_subtraction() {
+  /*
+   * since additive inverses exist in Zm, we can also subtract elements in Zm.
+   * we define a - b in Zm to be (a - b)mod m.
+   */
+   let a = modulo::ModArith::new(11, 31);
+   let b = modulo::ModArith::new(18, 31);
+   assert_eq!(a-b, modulo::ModArith::new(24, 31))
+}
+
+#[test]
 fn test_mod_arith_group() {
   /*
    * properties p1, p3, p4, p5 say that Zm forms an algebraic structure called a:
