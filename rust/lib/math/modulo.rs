@@ -4,6 +4,10 @@ use std::ops::Add;
 
 
 
+static MOD_ARITH_DISJOINT_SETS: &'static str = "ModArith's do not belong to the same set modulo m";
+
+
+
 /*
  * A number belonging to some modulo arithmetic set
  */
@@ -23,6 +27,12 @@ impl ModArith {
       m: m
     }
   }
+  pub fn congruent(self, rhs: Self) -> bool {
+    if self.m != rhs.m {
+      panic!(MOD_ARITH_DISJOINT_SETS);
+    }
+    a_is_congruent_to_b_modulo_m(self.v, rhs.v, self.m as i64)
+  }
 }
 
 
@@ -33,7 +43,7 @@ impl Mul for ModArith {
 
   fn mul(self, rhs: Self) -> Self {
     if self.m != rhs.m {
-      panic!("ModArith's do not belong to the same set modulo m");
+      panic!(MOD_ARITH_DISJOINT_SETS);
     }
     let a_x_b = self.v * rhs.v;
     ModArith::new(a_x_b.modulo(self.m as i64), self.m)
@@ -48,7 +58,7 @@ impl Add for ModArith {
 
   fn add(self, rhs: Self) -> Self {
     if self.m != rhs.m {
-      panic!("ModArith's do not belong to the same set modulo m");
+      panic!(MOD_ARITH_DISJOINT_SETS);
     }
     let a_plus_b = self.v + rhs.v;
     ModArith::new(a_plus_b.modulo(self.m as i64), self.m)
@@ -106,6 +116,13 @@ pub fn a_is_congruent_to_b_modulo_m_(a: i64, b: i64, m: i64) -> bool {
 fn test_mod_arith_new() {
   assert_eq!(ModArith::new(101, 7), ModArith::new(101, 7));
   assert_ne!(ModArith::new(101, 7), ModArith::new(101, 8));
+}
+
+#[test]
+fn test_mod_arith_congruent() {
+  assert_eq!(ModArith::new(101, 7).congruent(ModArith::new(101, 7)), true);
+  assert_eq!(ModArith::new(5, 10).congruent(ModArith::new(15, 10)), true);
+  assert_ne!(ModArith::new(101, 7).congruent(ModArith::new(108, 7)), false);
 }
 
 #[test]
