@@ -15,7 +15,12 @@
 *.pyc
 *.DS_Store
 *.private
+*~
+*.Plo
+*.lai
+.DS_Store
 .cabal-sandbox/
+libtool
 dist/
 vendor/
 dev/
@@ -24,7 +29,6 @@ cabal.sandbox.config
 streams
 target
 core
-.DS_Store
 ext
 test-cases
 build/js/*
