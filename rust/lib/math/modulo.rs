@@ -1,7 +1,63 @@
 use num::Integer;
+use std::ops::Mul;
+use std::ops::Add;
 
 
 
+/*
+ * A number belonging to some modulo arithmetic set
+ */
+#[derive(Eq)]
+#[derive(PartialEq, Debug)]
+pub struct ModArith {
+  v: i64,
+  m: u64
+}
+
+
+
+impl ModArith {
+  fn new(v: i64, m: u64) -> Self {
+    ModArith {
+      v: v,
+      m: m
+    }
+  }
+}
+
+
+
+// https://doc.rust-lang.org/std/ops/trait.Mul.html
+impl Mul for ModArith {
+  type Output = Self;
+
+  fn mul(self, rhs: Self) -> Self {
+    if self.m != rhs.m {
+      panic!("ModArith's do not belong to the same set modulo m");
+    }
+    let a_x_b = self.v * rhs.v;
+    ModArith::new(a_x_b.modulo(self.m as i64), self.m)
+  }
+}
+
+
+
+// https://doc.rust-lang.org/std/ops/trait.Add.html
+impl Add for ModArith {
+  type Output = Self;
+
+  fn add(self, rhs: Self) -> Self {
+    if self.m != rhs.m {
+      panic!("ModArith's do not belong to the same set modulo m");
+    }
+    let a_plus_b = self.v + rhs.v;
+    ModArith::new(a_plus_b.modulo(self.m as i64), self.m)
+  }
+}
+
+
+
+// some arithmetic modulus I ripped
 pub trait ModuloSignedExt {
     fn modulo(&self, n: Self) -> Self;
 }
@@ -47,10 +103,27 @@ pub fn a_is_congruent_to_b_modulo_m_(a: i64, b: i64, m: i64) -> bool {
 
 
 #[test]
+fn test_mod_arith_new() {
+  assert_eq!(ModArith::new(101, 7), ModArith::new(101, 7));
+  assert_ne!(ModArith::new(101, 7), ModArith::new(101, 8));
+}
+
+#[test]
+fn test_mod_arith_mul() {
+  assert_eq!(ModArith::new(11, 16) * ModArith::new(13, 16), ModArith::new(15, 16));
+  assert_eq!(ModArith::new(5, 10) * ModArith::new(10, 10), ModArith::new(0, 10));
+}
+
+#[test]
+fn test_mod_arith_add() {
+  assert_eq!(ModArith::new(11, 16) + ModArith::new(13, 16), ModArith::new(8, 16));
+  assert_eq!(ModArith::new(5, 10) + ModArith::new(10, 10), ModArith::new(5, 10));
+}
+
+#[test]
 fn test_modulo() {
   assert_eq!(101.modulo(7), 3);
   assert_eq!((-101).modulo(7), 4);
-  // assert_eq!(-101 % 7, -3);
 }
 
 #[test]

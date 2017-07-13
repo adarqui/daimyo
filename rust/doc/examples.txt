@@ -1,0 +1,6 @@
+examples:
+
+  custom numerical types:
+
+    units: https://github.com/Boddlnagg/units
+    measurements: https://github.com/jocull/rust-measurements
