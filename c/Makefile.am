@@ -1,2 +1,2 @@
 AUTOMAKE_OPTIONS = foreign
-SUBDIRS = include lib bin
+SUBDIRS = include lib bin tests
