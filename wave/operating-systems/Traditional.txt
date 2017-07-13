@@ -1,2 +1,0 @@
-Modern Operating Systems
-- source: http://carment.ase.ro/so/Modern_Operating_Systems.pdf
