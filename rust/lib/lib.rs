@@ -2,6 +2,7 @@
 
 extern crate num;
 
-pub mod prim;
+pub mod crypto;
 pub mod math;
 pub mod path;
+pub mod prim;
