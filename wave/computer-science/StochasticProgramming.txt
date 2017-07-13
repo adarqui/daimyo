@@ -1,2 +1,0 @@
-Stochastic Programming
-- source: http://www.csee.wvu.edu/~xinl/library/books/stochastic_programming.pdf

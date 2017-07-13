@@ -1,8 +1,0 @@
-Discrete Mathematics using Haskell
-- source: http://www.x.edu.uy/inet/Springer.pdf
-- history:
-- 11/07/2014: C1
-- 11/13/2014: C1 (coding examples in haskell/ocaml)
-- 11/13/2014: C2
-- 11/24/2014: C3 (haskell/ocaml code)
-- 11/29/2014: C4

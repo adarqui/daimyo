@@ -1,4 +1,0 @@
-Pearls of functional algorithm design
-- source: http://www.clyce.net/wp-content/uploads/2013/02/Pearls-of-Functional-Algorithm-Design.pdf
-- history:
-- 11/30/2014: C1: (NN) The Smallest Free Number

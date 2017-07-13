@@ -1,0 +1,1 @@
+http://port70.net/~nsz/articles/book/pierce_types_and_programming_languages_2002.pdf

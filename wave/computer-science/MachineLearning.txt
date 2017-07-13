@@ -1,5 +1,0 @@
-The Art of Doing Science and Engineering: Learning to Learn
-- source: http://worrydream.com/refs/Hamming-TheArtOfDoingScienceAndEngineering.pdf
-- history:
-- 01/21/2015: Preface, Introduction, 1
-- 01/23/2015: 2
