@@ -21,6 +21,7 @@ pub mod ownership;
 pub mod patterns;
 pub mod pointers;
 pub mod slices;
+pub mod strings;
 pub mod structs;
 pub mod enums;
 pub mod traits;
