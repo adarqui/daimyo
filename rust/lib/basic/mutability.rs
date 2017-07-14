@@ -1,56 +1,45 @@
-// https://doc.rust-lang.org/book/first-edition/structs.html
-
-#![allow(dead_code)]
-#![allow(unused_variables)]
-
-
-#[allow(dead_code)]
-struct Nil;
-
-
-
-#[allow(dead_code)]
-struct Tuple(u8, bool);
-
-
-
-#[allow(dead_code)]
-struct Record {
-  member: u8
-}
-
-
-
-impl Record {
-  pub fn new(value: u8) -> Self {
-    Record {
-      member: value
-    }
-  }
-}
+// IMPORTANT:
+// https://doc.rust-lang.org/book/first-edition/mutability.html
 
 
 
 #[allow(dead_code)]
 #[allow(unused_variables)]
-fn basic_record() {
-  let rec = Record::new(0);
+#[allow(unused_assignments)]
+#[allow(unused_mut)]
+fn basic_mutability() {
+  let x = 5;
+  // x = 6 .. can't rebind x
+
+  let mut x = 5;
+  x = 6; // can rebind x
+
+  let mut x = 5;
+  let mut z = 7;
+  let y = &mut x;
+  *y = 6;
+  // fails: re-assignment of immutable variable y
+  // y = &mut z;
+
+  let mut x = 5;
+  let mut z = 7;
+  let mut y = &mut x;
+  *y = 6;
+  y = &mut z;
 }
 
 
 
-
-struct Inches(i32);
-
-
-fn basic_tuple_struct() {
-  let length = Inches(10);
-  let Inches(integer_length) = length;
-  let _ = integer_length * 100;
-}
+/*
+ * You may have one or the other of these two kinds of borrows, but not both at the same time:
+ *
+ * - one or more references (&T) to a resource,
+ * - exactly one mutable reference (&mut T).
+ */
 
 
 
+#[allow(dead_code)]
 #[allow(unused_variables)]
 struct Point {
   x: i32,

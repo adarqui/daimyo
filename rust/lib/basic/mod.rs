@@ -11,6 +11,7 @@ pub mod lifetimes;
 pub mod loops;
 pub mod matching;
 pub mod methods;
+pub mod mutability;
 pub mod ownership;
 pub mod pointers;
 pub mod slices;
