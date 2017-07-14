@@ -4,17 +4,14 @@
 #![allow(unused_variables)]
 
 
-#[allow(dead_code)]
 struct Nil;
 
 
 
-#[allow(dead_code)]
 struct Tuple(u8, bool);
 
 
 
-#[allow(dead_code)]
 struct Record {
   member: u8
 }
@@ -31,8 +28,6 @@ impl Record {
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_record() {
   let rec = Record::new(0);
 }
@@ -43,6 +38,7 @@ fn basic_record() {
 struct Inches(i32);
 
 
+
 fn basic_tuple_struct() {
   let length = Inches(10);
   let Inches(integer_length) = length;
@@ -51,7 +47,6 @@ fn basic_tuple_struct() {
 
 
 
-#[allow(unused_variables)]
 struct Point {
   x: i32,
   y: i32,
@@ -62,8 +57,6 @@ struct Point {
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 // structs can contain mutable references
 struct PointRef<'a> {
   x: &'a mut i32,
@@ -72,8 +65,6 @@ struct PointRef<'a> {
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_mutability_structs() {
   let mut point = Point { x: 0, y: 0 };
   {
