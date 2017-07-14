@@ -7,6 +7,7 @@ pub mod closures;
 pub mod comments;
 pub mod constants;
 pub mod functions;
+pub mod lifetimes;
 pub mod loops;
 pub mod matching;
 pub mod methods;
