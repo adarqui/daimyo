@@ -2,6 +2,7 @@
 #[allow(unused_variables)]
 fn basic_vectors() {
   // vectors always allocate their data on the heap
+  // behave like arrays but size may change by push()'ing more elements to them
   let vec_u8: Vec<u8> = vec![0,1,2];
 
   let _ = vec_u8.iter().any(|&x| x == 2);

@@ -1,5 +1,6 @@
 pub mod alias;
 pub mod arrays;
+pub mod borrowing;
 pub mod boxes;
 pub mod casting;
 pub mod closures;
@@ -9,6 +10,7 @@ pub mod functions;
 pub mod loops;
 pub mod matching;
 pub mod methods;
+pub mod ownership;
 pub mod pointers;
 pub mod slices;
 pub mod structs;
