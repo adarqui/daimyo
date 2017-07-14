@@ -1,5 +1,3 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_arrays() {
   // arrays have type [T; N] where N is the compile time length
   let arr_u8: [u8; 2] = [0, 1];
@@ -11,7 +9,6 @@ fn basic_arrays() {
 
 
 
-#[allow(dead_code)]
 fn basic_arrays_iteration() {
   let arr_41s: [u8; 1024] = [0x41; 1024];
   for c in arr_41s.iter() {

@@ -1,7 +1,5 @@
 // https://doc.rust-lang.org/book/first-edition/structs.html
 
-#![allow(dead_code)]
-#![allow(unused_variables)]
 
 
 struct Nil;

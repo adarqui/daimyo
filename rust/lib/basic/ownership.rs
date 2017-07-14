@@ -1,5 +1,3 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_ownership() {
   // variables "have ownership" of what they are bound to
   let v = vec![1,2,3];
@@ -18,15 +16,11 @@ fn basic_ownership() {
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn take<T>(v: Vec<T>) {
 }
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_ownership_primitives() {
 
   // All primitive types implement the Copy trait and their ownership

@@ -2,8 +2,6 @@ use std::iter::Iterator;
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_loops() {
   let mut i: u32 = 0;
   loop {
@@ -34,7 +32,6 @@ fn basic_loops() {
 
 
 
-#[allow(dead_code)]
 fn basic_nested_loops() {
   'loop1: loop {
     'loop2: loop {

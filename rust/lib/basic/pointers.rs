@@ -1,5 +1,3 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basics_pointers() {
   let ref_n: &i32 = &4;
   let n = *ref_n;

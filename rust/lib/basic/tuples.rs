@@ -1,8 +1,3 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
-
-
-
 fn basic_tuples() {
   let tup: (u8, bool) = (0, false);
   let tup_0 = tup.0;

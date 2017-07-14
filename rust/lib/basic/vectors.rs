@@ -1,5 +1,3 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_vectors() {
   // vectors always allocate their data on the heap
   // behave like arrays but size may change by push()'ing more elements to them
@@ -18,8 +16,6 @@ fn basic_vectors() {
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_vector_iteration() {
   // vectors always allocate their data on the heap
   let v: Vec<u8> = vec![0,1,2,3,4,5];

@@ -6,8 +6,6 @@ use std::mem;
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn create_box() {
   let box1 = Box::new(1024i32);
   let _ = mem::size_of_val(&box1);
@@ -16,8 +14,6 @@ fn create_box() {
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_boxes() {
   let box2 = Box::new(5i32);
 
@@ -33,7 +29,6 @@ fn basic_boxes() {
 
 
 
-#[allow(dead_code)]
 fn basic_boxes_ownership() {
   let immutable_box = Box::new(10u8);
   let mut mutable_box = immutable_box;
@@ -42,16 +37,12 @@ fn basic_boxes_ownership() {
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn eat_box_i32(v: Box<i32>) {
   // v is destroyed
 }
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 // borrows v via an immutable references
 fn borrow_i32(v: &i32) {
   // v is not destroyed, since it is borrowed
@@ -59,8 +50,6 @@ fn borrow_i32(v: &i32) {
 
 
 
-#[allow(dead_code)]
-#[allow(unused_variables)]
 // borrows v via a mutable reference
 fn mutable_borrow_i32(v: &mut i32) {
   // v is not destroyed, since it is borrowed

@@ -1,5 +1,3 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_casting() {
   let n32 = 12345678u32;
   let n64 = n32 as u64;

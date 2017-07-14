@@ -1,5 +1,3 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn basic_slices() {
   let array = [0,1,2,3,4,5];
 

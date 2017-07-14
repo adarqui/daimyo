@@ -1,7 +1,7 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_mut)]
 // https://doc.rust-lang.org/std/primitive.str.html
+
+
+
 fn basic_as_bytes() {
   let msg = "hello";
   let msg_bytes = msg.as_bytes();

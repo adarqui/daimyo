@@ -12,8 +12,6 @@
 /// #     x + 1
 /// # }
 /// ```
-#[allow(dead_code)]
-#[allow(unused_variables)]
 fn add_one(x: i32) -> i32 {
   x + 1
 }

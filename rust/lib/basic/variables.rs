@@ -1,7 +1,3 @@
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_assignments)]
-#[allow(unused_mut)]
 fn basic_variables() {
   let immutable_u8: u8 = 1;
   let mut mutable_u8: u8 = 0;
