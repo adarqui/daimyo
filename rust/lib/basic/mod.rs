@@ -1,3 +1,8 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
+
+
 pub mod alias;
 pub mod arrays;
 pub mod borrowing;
@@ -13,6 +18,7 @@ pub mod matching;
 pub mod methods;
 pub mod mutability;
 pub mod ownership;
+pub mod patterns;
 pub mod pointers;
 pub mod slices;
 pub mod structs;
