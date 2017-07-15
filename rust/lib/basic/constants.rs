@@ -1,3 +1,7 @@
+// https://doc.rust-lang.org/book/first-edition/const-and-static.html
+
+
+
 // static: not inlined.
 static LANGUAGE: &'static str = "rust";
 static mut COUNTER: u32 = 0;

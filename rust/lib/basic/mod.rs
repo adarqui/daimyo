@@ -8,6 +8,7 @@
 
 pub mod alias;
 pub mod arrays;
+pub mod attributes;
 pub mod borrowing;
 pub mod boxes;
 pub mod casting;
