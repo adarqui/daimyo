@@ -3,11 +3,13 @@
 #![allow(non_camel_case_types)]
 #![allow(unused_mut)]
 #![allow(unused_assignments)]
+#![allow(unused_unsafe)]
 
 
 
 pub mod alias;
 pub mod arrays;
+pub mod associated_types;
 pub mod attributes;
 pub mod borrowing;
 pub mod boxes;
