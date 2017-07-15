@@ -1,4 +1,4 @@
-#[allow(unused_imports)]
+#![allow(unused_imports)]
 use math::modulo;
 use std::io::Write;
 
@@ -13,6 +13,14 @@ pub struct ShiftCipher {
 
 
 
+/// Shift Cipher
+///
+/// Let P = C = _KS_ = Z_26; For 0 <= K <= 25, define
+///   e_K(x) = (x + K) mod 26
+///  and
+///   d_K(y) = (y - K) mod 26
+///  (x, y IN Z_26)
+///
 impl ShiftCipher {
   pub fn new(key: u8, m: u8) -> Self {
     ShiftCipher {
@@ -20,21 +28,15 @@ impl ShiftCipher {
       m: m
     }
   }
-  pub fn encrypt(self, plaintext: &[u8]) -> &[u8] {
-    /*
-    let mut ciphertext: &[u8] = plaintext;
-    for x in plaintext {
-      let c = plaintext[x];
-    }
-    */
-    let ciphertext: &[u8] = plaintext;
-    println_stderr!("{}", ciphertext[0]);
-    println_stderr!("{:?}", plaintext);
-    println_stderr!("{}", plaintext.len());
+  pub fn encrypt(self, plaintext: Vec<u8>) -> Vec<u8> {
     let v: Vec<u8> = plaintext.iter().map(|x| x ^ self.key).collect();
+    v
+  }
+  pub fn encrypt_broken(self, plaintext: &[u8]) -> &[u8] {
+    // let v: Vec<u8> = plaintext.iter().map(|x| x ^ self.key).collect();
     plaintext
   }
-  pub fn decrypt(self, ciphertext: &[u8]) -> &[u8] {
+  pub fn decrypt_broken(self, ciphertext: &[u8]) -> &[u8] {
     ciphertext
   }
 }
@@ -45,8 +47,14 @@ impl ShiftCipher {
 fn test_shift_cipher() {
   println_stderr!("HELLO");
   assert_eq!(true, true);
-  let shift = ShiftCipher::new(45, 13);
-  shift.encrypt("hello".as_bytes());
+  let shift = ShiftCipher::new(26, 13);
+  // shift.encryptBroken("hello".as_bytes());
+
+  let encrypted = shift.encrypt(vec![0,1,2,3,4,5,6,7,8]);
+  println_stderr!("{:?}", &encrypted);
+
+
+
 /*
   TODO: something like this
 
