@@ -26,6 +26,7 @@ pub mod loops;
 pub mod matching;
 pub mod methods;
 pub mod mutability;
+pub mod operator_overloading;
 pub mod ownership;
 pub mod patterns;
 pub mod pointers;
@@ -36,6 +37,7 @@ pub mod enums;
 pub mod _traits;
 pub mod traits;
 pub mod tuples;
+pub mod unsized_types;
 pub mod variables;
 pub mod vectors;
 
