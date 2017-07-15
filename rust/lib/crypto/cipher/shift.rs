@@ -37,7 +37,7 @@ impl ShiftCipher {
     let v: Vec<ModValue> =
       plaintext
       .into_iter()
-      .map(|x| (ModNum::new(x.clone(), self.m) - ModNum::new(self.key.clone() as ModValue, self.m)).v())
+      .map(|x| (ModNum::new(x.clone(), self.m) + ModNum::new(self.key.clone() as ModValue, self.m)).v())
       .collect();
     v
   }
@@ -61,24 +61,29 @@ fn test_shift_cipher_should_panic() {
 }
 
 #[test]
-fn test_shift_cipher() {
-  println_stderr!("HELLO");
-  assert_eq!(true, true);
+fn test_shift_cipher_1() {
+
   let shift = ShiftCipher::new(1, 26);
-  let encrypted = shift.encrypt(vec![0,5,10,15,20,25]);
-  println_stderr!("{:?}", &encrypted);
-  assert_eq!(encrypted, vec![25,4,9,14,19,24]);
+  let encrypted = shift.encrypt(vec![00,05,10,15,20,25]);
+  assert_eq!(encrypted, vec![01,06,11,16,21,00]);
+  // println_stderr!("{:?}", &encrypted);
+}
 
-/*
-  TODO: something like this
+#[test]
+fn test_shift_cipher_2() {
 
-  let shift = ShiftCipher::new(key, 26)
-  let plain = "wewillmeetatmidnight"
-  let plain_u8s = plain.to_u8s()
-  let e = shift.encrypt(plain_u8s);
-  let d = shift.decrypt(e);
-  assert_eq!(d, plain_u8s);
-  assert_eq!(d.from_u8s(), plain);
-  assert_eq!(shift.decrypt(shift.encrypt(plain_u8s)), plain_u8s);
-*/
+  let shift = ShiftCipher::new(11, 26);
+
+  // WEWILLMEETATMIDNIGHT
+  let mut v1 = vec![22,04,22,08,11,11,12,04,04,19];
+  let mut v2 = vec![00,19,12,08,03,13,08,06,07,19];
+  v1.append(&mut v2);
+
+  let encrypted = shift.encrypt(v1);
+
+  let mut v1 = vec![07,15,07,19,22,22,23,15,15,04];
+  let mut v2 = vec![11,04,23,19,14,24,19,17,18,04];
+  v1.append(&mut v2);
+
+  assert_eq!(encrypted, v1);
 }
