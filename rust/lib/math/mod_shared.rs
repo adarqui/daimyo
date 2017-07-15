@@ -1,2 +1,2 @@
-type ModNumValue = i64;
-type ModNumModulus = u64;
+pub type ModValue = i64;
+pub type ModModulus = u64;

@@ -3,6 +3,8 @@ use std::ops::Mul;
 use std::ops::Add;
 use std::ops::Sub;
 
+use math::mod_shared::{ModValue,ModModulus};
+
 
 
 static MOD_ARITH_DISJOINT_SETS: &'static str = "ModNum's do not belong to the same set modulo m";
@@ -23,14 +25,14 @@ static MOD_ARITH_DISJOINT_SETS: &'static str = "ModNum's do not belong to the sa
 #[derive(Eq)]
 #[derive(PartialEq)]
 pub struct ModNum {
-  v: i64,
-  m: u64
+  v: ModValue,
+  m: ModModulus
 }
 
 
 
 impl ModNum {
-  pub fn new(v: i64, m: u64) -> Self {
+  pub fn new(v: ModValue, m: ModModulus) -> Self {
     ModNum {
       v: v,
       m: m
@@ -40,7 +42,7 @@ impl ModNum {
     if self.m != rhs.m {
       panic!(MOD_ARITH_DISJOINT_SETS);
     }
-    a_is_congruent_to_b_modulo_m(self.v, rhs.v, self.m as i64)
+    a_is_congruent_to_b_modulo_m(self.v, rhs.v, self.m as ModValue)
   }
 }
 
@@ -55,7 +57,7 @@ impl Mul for ModNum {
       panic!(MOD_ARITH_DISJOINT_SETS);
     }
     let a_x_b = self.v * rhs.v;
-    ModNum::new(a_x_b.modulo(self.m as i64), self.m)
+    ModNum::new(a_x_b.modulo(self.m as ModValue), self.m)
   }
 }
 
@@ -70,7 +72,7 @@ impl Add for ModNum {
       panic!(MOD_ARITH_DISJOINT_SETS);
     }
     let a_plus_b = self.v + rhs.v;
-    ModNum::new(a_plus_b.modulo(self.m as i64), self.m)
+    ModNum::new(a_plus_b.modulo(self.m as ModValue), self.m)
   }
 }
 
@@ -85,7 +87,7 @@ impl Sub for ModNum {
       panic!(MOD_ARITH_DISJOINT_SETS);
     }
     let a_sub_b = self.v - rhs.v;
-    ModNum::new(a_sub_b.modulo(self.m as i64), self.m)
+    ModNum::new(a_sub_b.modulo(self.m as ModValue), self.m)
   }
 }
 
@@ -107,13 +109,13 @@ macro_rules! modulo_signed_ext_impl {
       }
   )*)
 }
-modulo_signed_ext_impl! { i8 i16 i32 i64 }
+modulo_signed_ext_impl! { i8 i16 i32 ModValue }
 
 
 
 /*
 use std::ops::Rem;
-pub fn modulo(a: i64, m: i64) -> i64 {
+pub fn modulo(a: ModValue, m: ModValue) -> ModValue {
   // a % m
   a.rem(m)
 }
@@ -121,7 +123,7 @@ pub fn modulo(a: i64, m: i64) -> i64 {
 
 
 
-pub fn a_is_congruent_to_b_modulo_m(a: i64, b: i64, m: i64) -> bool {
+pub fn a_is_congruent_to_b_modulo_m(a: ModValue, b: ModValue, m: ModValue) -> bool {
   let r1 = a.modulo(m);
   let r2 = b.modulo(m);
   r1 == r2
@@ -129,7 +131,7 @@ pub fn a_is_congruent_to_b_modulo_m(a: i64, b: i64, m: i64) -> bool {
 
 
 
-pub fn a_is_congruent_to_b_modulo_m_(a: i64, b: i64, m: i64) -> bool {
+pub fn a_is_congruent_to_b_modulo_m_(a: ModValue, b: ModValue, m: ModValue) -> bool {
   let (_, r1) = a.div_rem(&m);
   let (_, r2) = b.div_rem(&m);
   r1 == r2
