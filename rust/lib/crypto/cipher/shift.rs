@@ -1,5 +1,5 @@
 #![allow(unused_imports)]
-use math::modulo;
+use math::mod_num;
 use std::io::Write;
 
 

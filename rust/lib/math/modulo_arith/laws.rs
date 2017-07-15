@@ -1,5 +1,5 @@
 #[allow(unused_imports)]
-use math::modulo;
+use math::mod_num;
 
 #[test]
 fn test_p1_mod_num_closed_addition() {
