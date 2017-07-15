@@ -2,6 +2,11 @@
 
 
 
+use std;
+use std::io::Result;
+
+
+
 macro_rules! foo {
   (x => $e:expr) => (println!("mode X: {}", $e));
   (y => $e:expr) => (println!("mode Y: {}", $e));
@@ -23,7 +28,20 @@ macro_rules! my_vec {
 
 
 
-fn basic_macros() {
+fn basic_macros() -> std::io::Result<()> {
   foo!(y => 3);
   let v = my_vec![1,2,3];
+
+  // better than below
+  let r: Result<()> = Ok(());
+  let f = try!(r);
+
+  // messy
+  let _ = match r {
+     Ok(t) => t,
+     Err(e) => return Err(e),
+   };
+
+
+  Ok(())
 }
