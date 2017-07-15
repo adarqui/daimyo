@@ -32,5 +32,5 @@ fn test_expensive() {
 /// assert_eq!(4, basic::tests::add_two(2));
 /// ```
 pub fn add_two(a: i32) -> i32 {
-    a + 2
+  a + 2
 }

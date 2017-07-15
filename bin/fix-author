@@ -1,0 +1,11 @@
+#!/bin/sh
+
+incorrect_author="x@localhost"
+correct_author="andrew.darqui@gmail.com"
+correct_name="Andrew Darqui"
+
+git filter-branch --env-filter 'if [ "$GIT_AUTHOR_EMAIL" = "${incorrect_author}" ]; then
+     GIT_AUTHOR_EMAIL="${correct_author}";
+     GIT_AUTHOR_NAME="${correct_name}";
+     GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL;
+     GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"; fi' -- --all
