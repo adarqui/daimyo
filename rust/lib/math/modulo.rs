@@ -5,7 +5,7 @@ use std::ops::Sub;
 
 
 
-static MOD_ARITH_DISJOINT_SETS: &'static str = "ModArith's do not belong to the same set modulo m";
+static MOD_ARITH_DISJOINT_SETS: &'static str = "ModNum's do not belong to the same set modulo m";
 
 
 
@@ -22,16 +22,16 @@ static MOD_ARITH_DISJOINT_SETS: &'static str = "ModArith's do not belong to the 
 #[derive(Debug)]
 #[derive(Eq)]
 #[derive(PartialEq)]
-pub struct ModArith {
+pub struct ModNum {
   v: i64,
   m: u64
 }
 
 
 
-impl ModArith {
+impl ModNum {
   pub fn new(v: i64, m: u64) -> Self {
-    ModArith {
+    ModNum {
       v: v,
       m: m
     }
@@ -47,7 +47,7 @@ impl ModArith {
 
 
 // https://doc.rust-lang.org/std/ops/trait.Mul.html
-impl Mul for ModArith {
+impl Mul for ModNum {
   type Output = Self;
 
   fn mul(self, rhs: Self) -> Self {
@@ -55,14 +55,14 @@ impl Mul for ModArith {
       panic!(MOD_ARITH_DISJOINT_SETS);
     }
     let a_x_b = self.v * rhs.v;
-    ModArith::new(a_x_b.modulo(self.m as i64), self.m)
+    ModNum::new(a_x_b.modulo(self.m as i64), self.m)
   }
 }
 
 
 
 // https://doc.rust-lang.org/std/ops/trait.Add.html
-impl Add for ModArith {
+impl Add for ModNum {
   type Output = Self;
 
   fn add(self, rhs: Self) -> Self {
@@ -70,22 +70,22 @@ impl Add for ModArith {
       panic!(MOD_ARITH_DISJOINT_SETS);
     }
     let a_plus_b = self.v + rhs.v;
-    ModArith::new(a_plus_b.modulo(self.m as i64), self.m)
+    ModNum::new(a_plus_b.modulo(self.m as i64), self.m)
   }
 }
 
 
 
 // https://doc.rust-lang.org/std/ops/trait.Sub.html
-impl Sub for ModArith {
-  type Output = ModArith;
+impl Sub for ModNum {
+  type Output = ModNum;
 
   fn sub(self, rhs: Self) -> Self {
     if self.m != rhs.m {
       panic!(MOD_ARITH_DISJOINT_SETS);
     }
     let a_sub_b = self.v - rhs.v;
-    ModArith::new(a_sub_b.modulo(self.m as i64), self.m)
+    ModNum::new(a_sub_b.modulo(self.m as i64), self.m)
   }
 }
 
@@ -138,39 +138,39 @@ pub fn a_is_congruent_to_b_modulo_m_(a: i64, b: i64, m: i64) -> bool {
 
 
 #[test]
-fn test_mod_arith_new() {
-  assert_eq!(ModArith::new(101, 7), ModArith::new(101, 7));
-  assert_ne!(ModArith::new(101, 7), ModArith::new(101, 8));
+fn test_mod_num_new() {
+  assert_eq!(ModNum::new(101, 7), ModNum::new(101, 7));
+  assert_ne!(ModNum::new(101, 7), ModNum::new(101, 8));
 }
 
 #[test]
-fn test_mod_arith_congruent() {
-  assert_eq!(ModArith::new(101, 7).congruent(ModArith::new(101, 7)), true);
-  assert_eq!(ModArith::new(5, 10).congruent(ModArith::new(15, 10)), true);
-  assert_ne!(ModArith::new(101, 7).congruent(ModArith::new(108, 7)), false);
+fn test_mod_num_congruent() {
+  assert_eq!(ModNum::new(101, 7).congruent(ModNum::new(101, 7)), true);
+  assert_eq!(ModNum::new(5, 10).congruent(ModNum::new(15, 10)), true);
+  assert_ne!(ModNum::new(101, 7).congruent(ModNum::new(108, 7)), false);
 }
 
 #[test]
-fn test_mod_arith_mul() {
-  assert_eq!(ModArith::new(11, 16) * ModArith::new(13, 16), ModArith::new(15, 16));
-  assert_eq!(ModArith::new(5, 10) * ModArith::new(10, 10), ModArith::new(0, 10));
+fn test_mod_num_mul() {
+  assert_eq!(ModNum::new(11, 16) * ModNum::new(13, 16), ModNum::new(15, 16));
+  assert_eq!(ModNum::new(5, 10) * ModNum::new(10, 10), ModNum::new(0, 10));
 }
 
 #[test]
-fn test_mod_arith_add() {
-  assert_eq!(ModArith::new(11, 16) + ModArith::new(13, 16), ModArith::new(8, 16));
-  assert_eq!(ModArith::new(5, 10) + ModArith::new(10, 10), ModArith::new(5, 10));
+fn test_mod_num_add() {
+  assert_eq!(ModNum::new(11, 16) + ModNum::new(13, 16), ModNum::new(8, 16));
+  assert_eq!(ModNum::new(5, 10) + ModNum::new(10, 10), ModNum::new(5, 10));
 }
 
 #[test]
-fn test_mod_arith_subtraction() {
+fn test_mod_num_subtraction() {
   /*
    * since additive inverses exist in Zm, we can also subtract elements in Zm.
    * we define a - b in Zm to be (a - b)mod m.
    */
-   let a = ModArith::new(11, 31);
-   let b = ModArith::new(18, 31);
-   assert_eq!(a-b, ModArith::new(24, 31))
+   let a = ModNum::new(11, 31);
+   let b = ModNum::new(18, 31);
+   assert_eq!(a-b, ModNum::new(24, 31))
 }
 
 
