@@ -37,6 +37,7 @@ pub mod slices;
 pub mod strings;
 pub mod structs;
 pub mod enums;
+pub mod tests;
 pub mod _traits;
 pub mod traits;
 pub mod tuples;
