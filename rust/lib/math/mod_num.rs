@@ -44,6 +44,12 @@ impl ModNum {
     }
     a_is_congruent_to_b_modulo_m(self.v, rhs.v, self.m as ModValue)
   }
+  pub fn v(&self) -> ModValue {
+    self.v
+  }
+  pub fn m(&self) -> ModModulus {
+    self.m
+  }
 }
 
 
@@ -90,7 +96,6 @@ impl Sub for ModNum {
     ModNum::new(a_sub_b.modulo(self.m as ModValue), self.m)
   }
 }
-
 
 
 

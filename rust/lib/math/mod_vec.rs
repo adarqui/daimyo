@@ -3,6 +3,8 @@ use math::mod_num::{ModNum};
 
 
 
+// TODO FIXME
+#[allow(unused_variables)]
 #[derive(Clone)]
 #[derive(Debug)]
 #[derive(Eq)]
@@ -14,6 +16,8 @@ pub struct ModVec {
 
 
 
+// TODO FIXME
+#[allow(unused_variables)]
 impl ModVec {
   pub fn new(m: ModModulus) -> ModVec {
     ModVec {
