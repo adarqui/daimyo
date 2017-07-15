@@ -1,6 +1,6 @@
 #!/bin/sh
 
-incorrect_author="x@x"
+incorrect_author="x"
 correct_author="andrew.darqui@gmail.com"
 correct_name="Andrew Darqui"
 
