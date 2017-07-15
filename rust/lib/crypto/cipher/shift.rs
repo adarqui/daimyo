@@ -23,6 +23,9 @@ pub struct ShiftCipher {
 ///
 impl ShiftCipher {
   pub fn new(key: u8, m: u8) -> Self {
+    if key >= m || key == 0 || m == 0 {
+      panic!("ShiftCipher::new -> key {} >= m {}", key, m);
+    }
     ShiftCipher {
       key: key,
       m: m
@@ -44,16 +47,22 @@ impl ShiftCipher {
 
 
 #[test]
+#[should_panic]
+fn test_shift_cipher_should_panic() {
+  let _ = ShiftCipher::new(1, 0);
+  let _ = ShiftCipher::new(0, 1);
+  let _ = ShiftCipher::new(10, 9);
+}
+
+#[test]
 fn test_shift_cipher() {
   println_stderr!("HELLO");
   assert_eq!(true, true);
-  let shift = ShiftCipher::new(26, 13);
+  let shift = ShiftCipher::new(13, 26);
   // shift.encryptBroken("hello".as_bytes());
 
   let encrypted = shift.encrypt(vec![0,1,2,3,4,5,6,7,8]);
   println_stderr!("{:?}", &encrypted);
-
-
 
 /*
   TODO: something like this

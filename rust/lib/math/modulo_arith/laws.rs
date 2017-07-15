@@ -14,8 +14,8 @@ fn test_p2_mod_num_commutative_addition() {
   /*
    * addition is commutative, i.e., for any a, b in Zm, a + b = b + a
    */
-   let a = modulo::ModNum::new(5, 10);
-   let b = modulo::ModNum::new(77, 10);
+   let a = mod_num::ModNum::new(5, 10);
+   let b = mod_num::ModNum::new(77, 10);
 
    assert_eq!(a+b, b+a);
 }
@@ -26,9 +26,9 @@ fn test_p3_mod_num_associative_addition() {
   /*
    * addition is associative, i.e., for any a, b, c in Zm, (a + b) + c = a + (b + c)
    */
-   let a = modulo::ModNum::new(5, 10);
-   let b = modulo::ModNum::new(77, 10);
-   let c = modulo::ModNum::new(132, 10);
+   let a = mod_num::ModNum::new(5, 10);
+   let b = mod_num::ModNum::new(77, 10);
+   let c = mod_num::ModNum::new(132, 10);
 
    assert_eq!((a+b)+c, a+(b+c));
 }
@@ -38,8 +38,8 @@ fn test_p4_mod_num_0_additive_identity() {
   /*
    * 0 is an additive identity, i.e., for any a in Zm, a + 0 = 0 + a = a
    */
-   let zero = modulo::ModNum::new(0, 10);
-   let a = modulo::ModNum::new(5, 10);
+   let zero = mod_num::ModNum::new(0, 10);
+   let a = mod_num::ModNum::new(5, 10);
 
    assert_eq!(a+zero, zero+a);
    assert_eq!(a+zero, a);
@@ -69,8 +69,8 @@ fn test_p7_mod_num_commutative_multiplication() {
   /*
    * multiplication is commutative, i.e., for any a, b in Zm, ab = ba
    */
-   let a = modulo::ModNum::new(5, 10);
-   let b = modulo::ModNum::new(77, 10);
+   let a = mod_num::ModNum::new(5, 10);
+   let b = mod_num::ModNum::new(77, 10);
 
    assert_eq!(a*b, b*a);
 }
@@ -80,9 +80,9 @@ fn test_p8_mod_num_associative_multiplication() {
   /*
    * multiplication is associative, i.e., for any a, b, c in Zm, (ab)c = a(bc)
    */
-   let a = modulo::ModNum::new(5, 10);
-   let b = modulo::ModNum::new(77, 10);
-   let c = modulo::ModNum::new(132, 10);
+   let a = mod_num::ModNum::new(5, 10);
+   let b = mod_num::ModNum::new(77, 10);
+   let c = mod_num::ModNum::new(132, 10);
 
    assert_eq!((a*b)*c, a*(b*c));
 }
@@ -92,8 +92,8 @@ fn test_p9_mod_num_1_multiplicative_identity() {
   /*
    * 1 is a multiplicative identity, i.e., for any a in Zm, a x 1 = 1 x a = a
    */
-   let one = modulo::ModNum::new(1, 10);
-   let a = modulo::ModNum::new(5, 10);
+   let one = mod_num::ModNum::new(1, 10);
+   let a = mod_num::ModNum::new(5, 10);
 
    assert_eq!(a*one, one*a);
    assert_eq!(a*one, a);
@@ -105,9 +105,9 @@ fn test_p10_mod_num_distributive_multiplication() {
   /*
    * the distributative property is satisfied, i.e., for any a, b, c in Zm, (a + b)c = (ac) + (bc) and a(b + c) = (ab) + (ac)
    */
-   let a = modulo::ModNum::new(5, 10);
-   let b = modulo::ModNum::new(77, 10);
-   let c = modulo::ModNum::new(132, 10);
+   let a = mod_num::ModNum::new(5, 10);
+   let b = mod_num::ModNum::new(77, 10);
+   let c = mod_num::ModNum::new(132, 10);
 
    assert_eq!((a+b)*c, (a*c)+(b*c));
    assert_eq!(a*(b+c), (a*b)+(a*c));
@@ -119,9 +119,9 @@ fn test_mod_num_subtraction() {
    * since additive inverses exist in Zm, we can also subtract elements in Zm.
    * we define a - b in Zm to be (a - b)mod m.
    */
-   let a = modulo::ModNum::new(11, 31);
-   let b = modulo::ModNum::new(18, 31);
-   assert_eq!(a-b, modulo::ModNum::new(24, 31))
+   let a = mod_num::ModNum::new(11, 31);
+   let b = mod_num::ModNum::new(18, 31);
+   assert_eq!(a-b, mod_num::ModNum::new(24, 31))
 }
 
 #[test]
