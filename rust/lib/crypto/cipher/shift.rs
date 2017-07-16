@@ -7,6 +7,7 @@ use std::vec::Vec;
 
 
 #[allow(dead_code)]
+#[derive(Copy, Clone)]
 pub struct ShiftCipher {
   key: ModModulus,
   m: ModModulus 
@@ -24,6 +25,7 @@ pub struct ShiftCipher {
 ///  (x, y IN Z_26)
 ///
 impl ShiftCipher {
+
   pub fn new(key: ModModulus, m: ModModulus) -> Self {
     if key >= m || key == 0 || m == 0 {
       panic!("ShiftCipher::new -> key {} >= m {}", key, m);
@@ -33,6 +35,7 @@ impl ShiftCipher {
       m: m
     }
   }
+
   pub fn encrypt(self, plaintext: Vec<ModValue>) -> Vec<ModValue> {
     let v: Vec<ModValue> =
       plaintext
@@ -41,10 +44,20 @@ impl ShiftCipher {
       .collect();
     v
   }
+
+  pub fn decrypt(self, ciphertext: Vec<ModValue>) -> Vec<ModValue> {
+    let v: Vec<ModValue> =
+      ciphertext
+      .into_iter()
+      .map(|x| (ModNum::new(x.clone(), self.m) - ModNum::new(self.key.clone() as ModValue, self.m)).v())
+      .collect();
+    v
+  }
+
   pub fn encrypt_broken(self, plaintext: &[ModValue]) -> &[ModValue] {
-    // let v: Vec<u8> = plaintext.iter().map(|x| x ^ self.key).collect();
     plaintext
   }
+
   pub fn decrypt_broken(self, ciphertext: &[ModValue]) -> &[ModValue] {
     ciphertext
   }
@@ -64,9 +77,16 @@ fn test_shift_cipher_should_panic() {
 fn test_shift_cipher_1() {
 
   let shift = ShiftCipher::new(1, 26);
-  let encrypted = shift.encrypt(vec![00,05,10,15,20,25]);
-  assert_eq!(encrypted, vec![01,06,11,16,21,00]);
-  // println_stderr!("{:?}", &encrypted);
+  let p = vec![00,05,10,15,20,25];
+  let c = vec![01,06,11,16,21,00];
+
+  let encrypted = shift.encrypt(p.to_owned());
+  assert_eq!(encrypted, c);
+
+  let decrypted = shift.decrypt(c.to_owned());
+  assert_eq!(decrypted, p);
+
+  assert_eq!(shift.decrypt(shift.encrypt(p.clone())), p);
 }
 
 #[test]
@@ -75,15 +95,17 @@ fn test_shift_cipher_2() {
   let shift = ShiftCipher::new(11, 26);
 
   // WEWILLMEETATMIDNIGHT
-  let mut v1 = vec![22,04,22,08,11,11,12,04,04,19];
-  let mut v2 = vec![00,19,12,08,03,13,08,06,07,19];
-  v1.append(&mut v2);
+  let mut p = vec![22,04,22,08,11,11,12,04,04,19];
+  let mut p2 = vec![00,19,12,08,03,13,08,06,07,19];
+  p.append(&mut p2);
 
-  let encrypted = shift.encrypt(v1);
+  let encrypted = shift.encrypt(p.to_owned());
 
-  let mut v1 = vec![07,15,07,19,22,22,23,15,15,04];
-  let mut v2 = vec![11,04,23,19,14,24,19,17,18,04];
-  v1.append(&mut v2);
+  let mut c = vec![07,15,07,19,22,22,23,15,15,04];
+  let mut c2 = vec![11,04,23,19,14,24,19,17,18,04];
+  c.append(&mut c2);
 
-  assert_eq!(encrypted, v1);
+  assert_eq!(encrypted, c.to_owned());
+
+  assert_eq!(shift.decrypt(shift.encrypt(p.to_owned())), p);
 }
