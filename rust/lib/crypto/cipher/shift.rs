@@ -1,8 +1,9 @@
 #![allow(unused_imports)]
-use math::mod_num::{ModNum};
-use math::mod_shared::*;
 use std::io::Write;
 use std::vec::Vec;
+use math::mod_num::{ModNum};
+use math::mod_shared::*;
+use crypto::crypto_system::CryptoSystem;
 
 
 
@@ -24,9 +25,15 @@ pub struct ShiftCipher {
 ///   d_K(y) = (y - K) mod 26
 ///  (x, y IN Z_26)
 ///
-impl ShiftCipher {
+impl CryptoSystem for ShiftCipher {
 
-  pub fn new(key: ModModulus, m: ModModulus) -> Self {
+  type P = ModValue;
+  type C = ModValue;
+  type K = ModNum;
+
+  fn new(mn: &ModNum) -> Self {
+    let key = mn.v() as u64;
+    let m   = mn.m();
     if key >= m || key == 0 || m == 0 {
       panic!("ShiftCipher::new -> key {} >= m {}", key, m);
     }
@@ -36,7 +43,7 @@ impl ShiftCipher {
     }
   }
 
-  pub fn encrypt(self, plaintext: Vec<ModValue>) -> Vec<ModValue> {
+  fn encrypt(&self, plaintext: Vec<ModValue>) -> Vec<ModValue> {
     let v: Vec<ModValue> =
       plaintext
       .into_iter()
@@ -45,21 +52,13 @@ impl ShiftCipher {
     v
   }
 
-  pub fn decrypt(self, ciphertext: Vec<ModValue>) -> Vec<ModValue> {
+  fn decrypt(&self, ciphertext: Vec<ModValue>) -> Vec<ModValue> {
     let v: Vec<ModValue> =
       ciphertext
       .into_iter()
       .map(|x| (ModNum::new(x.clone(), self.m) - ModNum::new(self.key.clone() as ModValue, self.m)).v())
       .collect();
     v
-  }
-
-  pub fn encrypt_broken(self, plaintext: &[ModValue]) -> &[ModValue] {
-    plaintext
-  }
-
-  pub fn decrypt_broken(self, ciphertext: &[ModValue]) -> &[ModValue] {
-    ciphertext
   }
 }
 
@@ -68,15 +67,15 @@ impl ShiftCipher {
 #[test]
 #[should_panic]
 fn test_shift_cipher_should_panic() {
-  let _ = ShiftCipher::new(1, 0);
-  let _ = ShiftCipher::new(0, 1);
-  let _ = ShiftCipher::new(10, 9);
+  let _ = ShiftCipher::new(&ModNum::new(1, 0));
+  let _ = ShiftCipher::new(&ModNum::new(0, 1));
+  let _ = ShiftCipher::new(&ModNum::new(10, 9));
 }
 
 #[test]
 fn test_shift_cipher_1() {
 
-  let shift = ShiftCipher::new(1, 26);
+  let shift = ShiftCipher::new(&ModNum::new(1, 26));
   let p = vec![00,05,10,15,20,25];
   let c = vec![01,06,11,16,21,00];
 
@@ -92,7 +91,7 @@ fn test_shift_cipher_1() {
 #[test]
 fn test_shift_cipher_2() {
 
-  let shift = ShiftCipher::new(11, 26);
+  let shift = ShiftCipher::new(&ModNum::new(11, 26));
 
   // WEWILLMEETATMIDNIGHT
   let mut p = vec![22,04,22,08,11,11,12,04,04,19];
