@@ -2,7 +2,9 @@ use std::char;
 
 
 
-fn string_to_vec_of_char(s: &str) -> Vec<char> {
+/// convert a string to a Vec<char>
+///
+pub fn string_to_vec_of_char(s: &str) -> Vec<char> {
   s
   .as_bytes()
   .into_iter()

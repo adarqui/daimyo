@@ -4,6 +4,7 @@ use std::char;
 use math::mod_num::ModNum;
 use crypto::cipher::shift;
 use crypto::crypto_system::CryptoSystem;
+use util::vec;
 
 
 
@@ -69,8 +70,8 @@ impl CryptoSystem for ShiftCipherAlpha {
 fn test_shift_cipher_alpha_1() {
   let shift_alpha = ShiftCipherAlpha::new(&base_to_char(11));
 
-  let p: Vec<char> = "wewillmeetatmidnight".as_bytes().into_iter().map(|x| char::from_u32(*x as u32).unwrap()).collect();
-  let c: Vec<char> = "hphtwwxppelextoytrse".as_bytes().into_iter().map(|x| char::from_u32(*x as u32).unwrap()).collect();
+  let p: Vec<char> = vec::string_to_vec_of_char("wewillmeetatmidnight");
+  let c: Vec<char> = vec::string_to_vec_of_char("hphtwwxppelextoytrse");
 
   let encrypted = shift_alpha.encrypt(p.to_owned());
   let decrypted = shift_alpha.decrypt(encrypted.to_owned());
@@ -83,6 +84,6 @@ fn test_shift_cipher_alpha_1() {
 fn test_shift_cipher_alpha_exhaustive() {
   let shift_alpha = ShiftCipherAlpha::new(&base_to_char(11));
 
-  let p: Vec<char> = "wewillmeetatmidnight".as_bytes().into_iter().map(|x| char::from_u32(*x as u32).unwrap()).collect();
-  let c: Vec<char> = "hphtwwxppelextoytrse".as_bytes().into_iter().map(|x| char::from_u32(*x as u32).unwrap()).collect();
+  let p: Vec<char> = vec::string_to_vec_of_char("wewillmeetatmidnight");
+  let c: Vec<char> = vec::string_to_vec_of_char("hphtwwxppelextoytrse");
 }
