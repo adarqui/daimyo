@@ -6,13 +6,13 @@
 /// 4. For each K IN _KS_, there is an encryption rule e_K in E and a corresponding decryption rule d_K in D. Each e_K : P -> C and d_K : C -> P are functions such that d_K(e_K(x)) = x for every plaintext element x IN P
 ///
 /// ok!
-trait CryptoSystem {
+pub trait CryptoSystem {
   type P; // plaintext
   type C; // ciphertext
   type K; // key
   fn new(&Self::K) -> Self;
-  fn encipher(&self, &Self::P) -> &Self::C;
-  fn decipher(&self, &Self::C) -> &Self::P;
+  fn encrypt(&self, Vec<Self::P>) -> Vec<Self::C>;
+  fn decrypt(&self, Vec<Self::C>) -> Vec<Self::P>;
 }
 
 pub fn crypto_system() {
