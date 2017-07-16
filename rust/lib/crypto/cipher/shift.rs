@@ -98,13 +98,14 @@ fn test_shift_cipher_2() {
   let mut p2 = vec![00,19,12,08,03,13,08,06,07,19];
   p.append(&mut p2);
 
-  let encrypted = shift.encrypt(p.to_owned());
-
   let mut c = vec![07,15,07,19,22,22,23,15,15,04];
   let mut c2 = vec![11,04,23,19,14,24,19,17,18,04];
   c.append(&mut c2);
 
-  assert_eq!(encrypted, c.to_owned());
+  let encrypted = shift.encrypt(p.to_owned());
+  let decrypted = shift.decrypt(c.to_owned());
 
+  assert_eq!(encrypted, c.to_owned());
+  assert_eq!(decrypted
   assert_eq!(shift.decrypt(shift.encrypt(p.to_owned())), p);
 }
