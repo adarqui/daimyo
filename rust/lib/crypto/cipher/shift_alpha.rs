@@ -5,6 +5,7 @@ use math::mod_num::ModNum;
 use crypto::cipher::shift;
 use crypto::crypto_system::CryptoSystem;
 use util::vec;
+use std::io::Write;
 
 
 
@@ -82,8 +83,19 @@ fn test_shift_cipher_alpha_1() {
 
 #[test]
 fn test_shift_cipher_alpha_exhaustive() {
-  let shift_alpha = ShiftCipherAlpha::new(&base_to_char(11));
 
-  let p: Vec<char> = vec::string_to_vec_of_char("wewillmeetatmidnight");
-  let c: Vec<char> = vec::string_to_vec_of_char("hphtwwxppelextoytrse");
+  let p: Vec<char> = vec::string_to_vec_of_char("astitchintimesavesnine");
+  let c: Vec<char> = vec::string_to_vec_of_char("jbcrclqrwcrvnbjenbwrwn");
+
+  let mut matched_i = 0;
+
+  for i in 1..25 {
+    let shift_alpha = ShiftCipherAlpha::new(&base_to_char(i));
+    let decrypted = shift_alpha.decrypt(c.to_owned());
+    if decrypted == p {
+      matched_i = i
+    }
+  }
+
+  assert_eq!(matched_i, 9);
 }
