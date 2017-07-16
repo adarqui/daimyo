@@ -106,6 +106,7 @@ fn test_shift_cipher_2() {
   let decrypted = shift.decrypt(c.to_owned());
 
   assert_eq!(encrypted, c.to_owned());
-  assert_eq!(decrypted
+  assert_eq!(decrypted, p.to_owned());
+
   assert_eq!(shift.decrypt(shift.encrypt(p.to_owned())), p);
 }

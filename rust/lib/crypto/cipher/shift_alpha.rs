@@ -8,8 +8,18 @@ use crypto::crypto_system::CryptoSystem;
 
 
 pub struct ShiftCipherAlpha {
-  s: shift::ShiftCipher,
-  k: char,
+  s: shift::ShiftCipher
+}
+
+
+fn char_to_base(c: char) -> u32 {
+  (c.to_ascii_lowercase() as u32 - 97)
+}
+
+
+
+fn base_to_char(x: u32) -> char {
+  char::from_u32(x as u32 + 97).unwrap()
 }
 
 
@@ -26,10 +36,9 @@ impl CryptoSystem for ShiftCipherAlpha {
       panic!("key {} is not an alphabet character", key);
     }
 
-    let s = shift::ShiftCipher::new(&ModNum::new(key_ as i64, 26));
+    let s = shift::ShiftCipher::new(&ModNum::new(char_to_base(key_) as i64, 26));
     ShiftCipherAlpha {
-      s: s,
-      k: key_
+      s: s
     }
   }
 
@@ -37,25 +46,35 @@ impl CryptoSystem for ShiftCipherAlpha {
    let p64 = 
      plaintext
       .into_iter()
-      .map(|x| x.to_ascii_lowercase() as i64)
+      .map(|x| char_to_base(x) as i64)
       .collect();
     let c64 = self.s.encrypt(p64);
-    c64.into_iter().map(|x| char::from_u32(x as u32).unwrap()).collect()
+    c64.into_iter().map(|x| base_to_char(x as u32)).collect()
   }
 
   fn decrypt(&self, ciphertext: Vec<char>) -> Vec<char> {
-    ciphertext
+   let p64 = 
+     ciphertext 
+      .into_iter()
+      .map(|x| char_to_base(x) as i64)
+      .collect();
+    let c64 = self.s.decrypt(p64);
+    c64.into_iter().map(|x| base_to_char(x as u32)).collect()
   }
-
-
 }
 
 
 
 #[test]
 fn test_shift_cipher_alpha_1() {
-  let shift_alpha = ShiftCipherAlpha::new(&'d');
+  let shift_alpha = ShiftCipherAlpha::new(&base_to_char(11));
 
   let p: Vec<char> = "wewillmeetatmidnight".as_bytes().into_iter().map(|x| char::from_u32(*x as u32).unwrap()).collect();
+  let c: Vec<char> = "hphtwwxppelextoytrse".as_bytes().into_iter().map(|x| char::from_u32(*x as u32).unwrap()).collect();
+
   let encrypted = shift_alpha.encrypt(p.to_owned());
+  let decrypted = shift_alpha.decrypt(encrypted.to_owned());
+
+  assert_eq!(encrypted, c);
+  assert_eq!(decrypted, p);
 }
