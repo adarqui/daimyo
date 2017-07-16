@@ -78,3 +78,11 @@ fn test_shift_cipher_alpha_1() {
   assert_eq!(encrypted, c);
   assert_eq!(decrypted, p);
 }
+
+#[test]
+fn test_shift_cipher_alpha_exhaustive() {
+  let shift_alpha = ShiftCipherAlpha::new(&base_to_char(11));
+
+  let p: Vec<char> = "wewillmeetatmidnight".as_bytes().into_iter().map(|x| char::from_u32(*x as u32).unwrap()).collect();
+  let c: Vec<char> = "hphtwwxppelextoytrse".as_bytes().into_iter().map(|x| char::from_u32(*x as u32).unwrap()).collect();
+}
