@@ -1,3 +1,4 @@
+#[allow(unused_imports)]
 use num::integer;
 use num::Integer;
 
@@ -25,7 +26,7 @@ fn test_euclidean_algorithm() {
 
 /// ripped: https://rosettacode.org/wiki/Modular_inverse#Rust
 ///
-fn mod_inv(a: isize, module: isize) -> isize {
+pub fn mod_inv(a: isize, module: isize) -> isize {
   let mut mn = (module, a);
   let mut xy = (0, 1);
  
