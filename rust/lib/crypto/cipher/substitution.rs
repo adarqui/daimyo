@@ -98,3 +98,9 @@ fn test_substitution_cipher() {
   let decrypted = sub.decrypt(encrypted);
   assert_eq!(decrypted, p.to_owned());
 }
+
+#[test]
+fn test_substitution_cipher_2() {
+  // TODO
+  // mgzvyzlghcmhjmyxssfmnhahycdlmha
+}
