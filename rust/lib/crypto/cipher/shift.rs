@@ -19,11 +19,11 @@ pub struct ShiftCipher {
 
 /// Shift Cipher
 ///
-/// Let P = C = _KS_ = Z_26; For 0 <= K <= 25, define
-///   e_K(x) = (x + K) mod 26
+/// Let P = C = _KS_ = Z_m; For 0 <= K <= m, define
+///   e_K(x) = (x + K) mod m
 ///  and
-///   d_K(y) = (y - K) mod 26
-///  (x, y IN Z_26)
+///   d_K(y) = (y - K) mod m
+///  (x, y IN Z_m)
 ///
 impl CryptoSystem for ShiftCipher {
 

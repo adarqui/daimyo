@@ -15,5 +15,14 @@ pub trait CryptoSystem {
   fn decrypt(&self, Vec<Self::C>) -> Vec<Self::P>;
 }
 
+
+
+pub trait KeySpace {
+  type K;
+  fn key_space(&Self::K) -> u64;
+}
+
+
+
 pub fn crypto_system() {
 }

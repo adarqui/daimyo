@@ -26,6 +26,14 @@ fn base_to_char(x: u32) -> char {
 
 
 
+/// Shift Cipher (mod 26)
+///
+/// Let P = C = _KS_ = Z_26; For 0 <= K <= 25, define
+///   e_K(x) = (x + K) mod 26
+///  and
+///   d_K(y) = (y - K) mod 26
+///  (x, y IN Z_26)
+///
 impl CryptoSystem for ShiftCipherAlpha {
   type P = char;
   type C = char;
@@ -83,6 +91,8 @@ fn test_shift_cipher_alpha_1() {
 
 #[test]
 fn test_shift_cipher_alpha_exhaustive() {
+
+  // a necessary condition for a crypto system to be secure is that an exhaustive key search should be infeasable
 
   let p: Vec<char> = vec::string_to_vec_of_char("astitchintimesavesnine");
   let c: Vec<char> = vec::string_to_vec_of_char("jbcrclqrwcrvnbjenbwrwn");
