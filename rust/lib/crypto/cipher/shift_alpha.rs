@@ -1,27 +1,16 @@
 #![allow(unused_imports)]
 use std::ascii::AsciiExt;
-use std::char;
+use std::io::Write;
 use math::mod_num::ModNum;
 use crypto::cipher::shift;
 use crypto::crypto_system::CryptoSystem;
+use crypto::char;
 use util::vec;
-use std::io::Write;
 
 
 
 pub struct ShiftCipherAlpha {
   s: shift::ShiftCipher
-}
-
-
-fn char_to_base(c: char) -> u32 {
-  (c.to_ascii_lowercase() as u32 - 97)
-}
-
-
-
-fn base_to_char(x: u32) -> char {
-  char::from_u32(x as u32 + 97).unwrap()
 }
 
 
@@ -46,7 +35,7 @@ impl CryptoSystem for ShiftCipherAlpha {
       panic!("key {} is not an alphabet character", key);
     }
 
-    let s = shift::ShiftCipher::new(&ModNum::new(char_to_base(key_) as i64, 26));
+    let s = shift::ShiftCipher::new(&ModNum::new(char::char_to_base(key_) as i64, 26));
     ShiftCipherAlpha {
       s: s
     }
@@ -56,20 +45,20 @@ impl CryptoSystem for ShiftCipherAlpha {
    let p64 = 
      plaintext
       .into_iter()
-      .map(|x| char_to_base(x) as i64)
+      .map(|x| char::char_to_base(x) as i64)
       .collect();
     let c64 = self.s.encrypt(p64);
-    c64.into_iter().map(|x| base_to_char(x as u32)).collect()
+    c64.into_iter().map(|x| char::base_to_char(x as u32)).collect()
   }
 
   fn decrypt(&self, ciphertext: Vec<char>) -> Vec<char> {
    let p64 = 
      ciphertext 
       .into_iter()
-      .map(|x| char_to_base(x) as i64)
+      .map(|x| char::char_to_base(x) as i64)
       .collect();
     let c64 = self.s.decrypt(p64);
-    c64.into_iter().map(|x| base_to_char(x as u32)).collect()
+    c64.into_iter().map(|x| char::base_to_char(x as u32)).collect()
   }
 }
 
@@ -77,7 +66,7 @@ impl CryptoSystem for ShiftCipherAlpha {
 
 #[test]
 fn test_shift_cipher_alpha_1() {
-  let shift_alpha = ShiftCipherAlpha::new(&base_to_char(11));
+  let shift_alpha = ShiftCipherAlpha::new(&char::base_to_char(11));
 
   let p: Vec<char> = vec::string_to_vec_of_char("wewillmeetatmidnight");
   let c: Vec<char> = vec::string_to_vec_of_char("hphtwwxppelextoytrse");
@@ -100,7 +89,7 @@ fn test_shift_cipher_alpha_exhaustive() {
   let mut matched_i = 0;
 
   for i in 1..25 {
-    let shift_alpha = ShiftCipherAlpha::new(&base_to_char(i));
+    let shift_alpha = ShiftCipherAlpha::new(&char::base_to_char(i));
     let decrypted = shift_alpha.decrypt(c.to_owned());
     if decrypted == p {
       matched_i = i
