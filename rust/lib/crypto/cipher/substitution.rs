@@ -70,6 +70,8 @@ impl KeySpace for SubstitutionCipher {
     s
   }
   fn key_space(&self) -> u64 {
+    // factorial(length of map)
+    // ie: 26 keys in map, 26!
     0
   }
   fn min_bound(&self) -> Option<&Self::K> {
