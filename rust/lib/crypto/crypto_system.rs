@@ -19,9 +19,12 @@ pub trait CryptoSystem {
 
 pub trait KeySpace {
   type K;
-  fn key_space(&Self::K) -> u64;
+  // TODO FIXME: Turn into iterator
+  fn new(Self) -> Self;
+  fn key_space(&self) -> u64;
+  fn min_bound(&self) -> Option<&Self::K>;
+  fn max_bound(&self) -> Option<&Self::K>;
 }
-
 
 
 pub fn crypto_system() {
