@@ -305,3 +305,18 @@ fn test_matrix_multiplication_associativity() {
   // TODO FIXME: how to get borrowed impl working? i'm clueless
   assert_eq!((ma.to_owned()*mb.to_owned())*mc.to_owned(), ma*(mb*mc));
 }
+
+#[test]
+fn test_matrix_left_distributivity() {
+  let ma = Matrix::new(2, 3, vec![
+    2, 3, 4,
+    1, 0, 0]);
+  let mb = Matrix::new(3, 2, vec![
+    0, 1000,
+    1, 100,
+    0, 10]);
+  let mc = Matrix::new(2, 3, vec![
+    5, 6, 7,
+    1, 0, 0]);
+  assert_eq!(mc*(ma+mb), (mc*ma) + (mc*mb));
+}
