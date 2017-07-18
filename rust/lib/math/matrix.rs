@@ -192,27 +192,6 @@ impl Mul for Matrix {
 
 
 
-/*
- * borrow impl?
- */
-impl<'a> Mul for &'a Matrix {
-  type Output = Matrix;
-  fn mul(self, rhs: &'a Matrix) -> Matrix {
-    // TODO FIXME: lol.
-    // makes my life easier for now though..
-    self.to_owned() * rhs.to_owned()
-  }
-}
-
-impl<'a> Add for &'a Matrix {
-  type Output = Matrix;
-  fn add(self, rhs: &'a Matrix) -> Matrix {
-    self.to_owned() + rhs.to_owned()
-  }
-}
-
-
-
 /// Matrix Addition
 ///
 /// A = 01|02   B = 05|06
@@ -236,6 +215,52 @@ impl Add for Matrix {
       }
     }
     Matrix::new(ar, ac, entries)
+  }
+}
+
+
+
+/*
+ * borrow impl?
+ */
+impl<'a> Mul for &'a Matrix {
+  type Output = Matrix;
+  fn mul(self, rhs: &'a Matrix) -> Matrix {
+    // TODO FIXME: lol.
+    // makes my life easier for now though..
+    self.to_owned() * rhs.to_owned()
+  }
+}
+
+impl<'a> Add for &'a Matrix {
+  type Output = Matrix;
+  fn add(self, rhs: &'a Matrix) -> Matrix {
+    self.to_owned() + rhs.to_owned()
+  }
+}
+
+/*
+ * Scalar multiplication for a Matrix
+ */
+impl Mul<isize> for Matrix {
+  type Output = Matrix;
+  fn mul(self, scalar: isize) -> Matrix {
+    let v: Vec<isize> = self.entries.into_iter().map(|x| scalar * x).collect();
+    Matrix::new(self.rows, self.cols, v)
+  }
+}
+
+/*
+ * TODO FIXME: Why do I have to do this twice (for both sides)? WTF?
+ *
+ * Scalar multiplication for a Matrix
+ */
+impl Mul<Matrix> for isize {
+  type Output = Matrix;
+  fn mul(self, matrix: Matrix) -> Matrix {
+    let scalar = self;
+    let v: Vec<isize> = matrix.entries.into_iter().map(|x| scalar * x).collect();
+    Matrix::new(matrix.rows, matrix.cols, v)
   }
 }
 
@@ -361,6 +386,15 @@ fn test_matrix_multiplication_associativity_borrow_impl() {
   // 2x3 * (3x2 * 2x3) = 2x3 * 3x3 = 2x3
   // assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
   assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
+}
+
+#[test]
+fn test_matrix_scalar_multiplication() {
+  let ma = Matrix::new(2, 2, vec![1, 1, 1, 1]);
+  assert_eq!((ma*2).entries, vec![2, 2, 2, 2]);
+
+  let ma = Matrix::new(2, 2, vec![1, 1, 1, 1]);
+  assert_eq!((2*ma).entries, vec![2, 2, 2, 2]);
 }
 
 #[test]
