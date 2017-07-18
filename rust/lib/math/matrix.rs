@@ -274,3 +274,18 @@ fn test_matrix_multiplication() {
   let mc = ma * mb;
   assert_eq!(mc.entries, vec![3, 2340, 0, 1000]);
 }
+
+#[test]
+fn test_matrix_multiplication_associativity() {
+  let ma = Matrix::new(2, 3, vec![
+    2, 3, 4,
+    1, 0, 0]);
+  let mb = Matrix::new(3, 2, vec![
+    0, 1000,
+    1, 100,
+    0, 10]);
+  let mc = Matrix::new(2, 3, vec![
+    5, 6, 7,
+    1, 0, 0]);
+  assert_eq!((ma*mb)*mc, ma*(mb*mc));
+}
