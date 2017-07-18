@@ -15,3 +15,6 @@ test-affine-cipher:
 	cargo test affine_cipher
 test-vigenere-cipher:
 	cargo test vigenere_cipher
+
+test-matrix:
+	cargo test matrix
