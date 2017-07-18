@@ -3,7 +3,9 @@
 
 
 use std::ops::Mul;
+#[allow(unused_imports)]
 use std::io::Write;
+use util::range;
 
 
 
@@ -67,10 +69,11 @@ impl Matrix {
   ///
   fn col(&self, col: usize) -> Vec<isize> {
     assert!(col > 0, "col > 0");
-    let start = (col-1) * self.cols;
-    let end = start + self.cols;
     let mut v = Vec::new();
-    v.extend_from_slice(&self.entries[start .. end]);
+    for i in range::SimpleStepRange((col - 1) as isize, self.size as isize, self.cols as isize) {
+      let e = self.entries.get(i as usize).unwrap();
+      v.push(e.to_owned());
+    }
     v
   }
 
@@ -108,6 +111,14 @@ impl Matrix {
 /// (C_11 C_12) = (A_11 A_12) * (B_11 B_12) = (A_11*B_11+A12*B_21 A_11*B_12+A_12+B_22)
 /// (C_21 C_22) = (A_21 A_22)   (B_21 B_22)   (A_21*B_11+A22*B_21 A_21*B_12+A_22+B_22)
 ///
+/// 
+/// A = 2|3|4   B = 0|1000
+///     1|0|0       1|100
+///                 0|10
+///
+/// C = 2*0+3*1+4*0 | 2*1000+3*100+4*10
+///     1*0+0*1+0*0 | 1*1000+0*100+0*10
+///
 impl Mul for Matrix {
   type Output = Self;
   fn mul(self, rhs:Self) -> Self {
@@ -119,18 +130,13 @@ impl Mul for Matrix {
     let mut entries: Vec<isize> = Vec::with_capacity(c_size);
     for ci in 1 .. (cr+1) {
       for cj in 1 .. (cc+1) {
-        for i in 1 .. (ar+1) {
-          for j in 1 .. (bc+1) {
-          }
-        }
+        let row = self.row(ci);
+        let col = rhs.col(cj);
+        let value = row.iter().zip(col.iter()).map(|(x,y)| x*y).sum();
+        entries.push(value);
       }
     }
-    /*for i in 1 .. (ar+1) {
-      for j in 1 .. (br+1) {
-      }
-    }
-    */
-    self
+    Matrix::new(cr, cc, entries)
   }
 }
 
@@ -158,6 +164,30 @@ fn test_identity_matrix() {
 }
 
 #[test]
+fn test_row_matrix() {
+  let mat = Matrix::new(2, 2, vec![
+    01, 02,
+    03, 04]);
+  let row = mat.row(1);
+  assert_eq!(row, vec![01, 02]);
+
+  let row = mat.row(2);
+  assert_eq!(row, vec![03, 04]);
+}
+
+#[test]
+fn test_col_matrix() {
+  let mat = Matrix::new(2, 2, vec![
+    01, 02,
+    03, 04]);
+  let col = mat.col(1);
+  assert_eq!(col, vec![01, 03]);
+
+  let col = mat.col(2);
+  assert_eq!(col, vec![02, 04]);
+}
+
+#[test]
 fn test_matrix_multiply() {
   let ma = Matrix::new(2, 3, vec![
     2, 3, 4,
@@ -167,5 +197,5 @@ fn test_matrix_multiply() {
     1, 100,
     0, 10]);
   let mc = ma * mb;
-  assert_eq!(mc.entries, vec![02, 2340, 0, 1000]);
+  assert_eq!(mc.entries, vec![3, 2340, 0, 1000]);
 }
