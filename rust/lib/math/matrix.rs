@@ -252,7 +252,7 @@ fn test_matrix() {
 }
 
 #[test]
-fn test_identity_matrix() {
+fn test_identity_matrix_1() {
   let mat = Matrix::new(2, 2, vec![
     01, 02,
     03, 04]);
@@ -262,6 +262,17 @@ fn test_identity_matrix() {
   assert_eq!(mat.identity().entries, vec![
     01, 00,
     00, 01]);
+}
+
+fn test_identity_matrix_2() {
+  let mat = Matrix::new(3, 3, vec![
+    01, 02, 05,
+    03, 04, 06,
+    07, 08, 09]);
+  assert_eq!(mat.identity().entries, vec![
+    01, 00, 00,
+    00, 01, 00,
+    00, 00, 01]);
 }
 
 #[test]
@@ -322,6 +333,15 @@ fn test_matrix_multiplication() {
     0, 10]);
   let mc = ma * mb;
   assert_eq!(mc.entries, vec![3, 2340, 0, 1000]);
+}
+
+#[test]
+fn test_matrix_multiplication_of_identity() {
+  let ma = Matrix::new(3, 3, vec![
+    2, 3, 4,
+    9, 0, 2,
+    1, 1, 0]);
+  assert_eq!(ma.identity() * ma.to_owned(), ma);
 }
 
 #[test]
