@@ -1,5 +1,6 @@
 pub mod divisibility;
 pub mod prime;
+pub mod matrix;
 pub mod mod_num;
 pub mod mod_vec;
 pub mod mod_shared;

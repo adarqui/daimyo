@@ -26,6 +26,9 @@ pub struct VigenereCipher {
 ///   d_k(y_1, y_2, ... y_n) = (y_1 - k_1, y_2 - k_2, ... y_n - k_n)
 /// where all operations are performed in Z_m
 ///
+/// Additional notes:
+/// - polyalphabetic crypto system
+///
 impl CryptoSystem for VigenereCipher {
   type P = ModValue;
   type C = ModValue;
