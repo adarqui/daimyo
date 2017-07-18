@@ -165,13 +165,23 @@ impl Mul for Matrix {
 
 
 /*
+ * borrow impl?
+ */
 impl<'a> Mul for &'a Matrix {
   type Output = Matrix;
   fn mul(self, rhs: &'a Matrix) -> Matrix {
-    self * rhs
+    // TODO FIXME: lol.
+    // makes my life easier for now though..
+    self.to_owned() * rhs.to_owned()
   }
 }
-*/
+
+impl<'a> Add for &'a Matrix {
+  type Output = Matrix;
+  fn add(self, rhs: &'a Matrix) -> Matrix {
+    self.to_owned() + rhs.to_owned()
+  }
+}
 
 
 
@@ -287,6 +297,25 @@ fn test_matrix_multiplication() {
 }
 
 #[test]
+fn test_matrix_multiplication_associativity_borrow_impl() {
+  let ma = Matrix::new(2, 3, vec![
+    2, 3, 4,
+    1, 0, 0]);
+  let mb = Matrix::new(3, 2, vec![
+    0, 1000,
+    1, 100,
+    0, 10]);
+  let mc = Matrix::new(2, 3, vec![
+    5, 6, 7,
+    1, 0, 0]);
+  // 2x3 * 3x2 * 2x3
+  // (2x3 * 3x2) = (2x2 * 2x3) = 2x3
+  // 2x3 * (3x2 * 2x3) = 2x3 * 3x3 = 2x3
+  // assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
+  assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
+}
+
+#[test]
 fn test_matrix_multiplication_associativity() {
   let ma = Matrix::new(2, 3, vec![
     2, 3, 4,
@@ -302,7 +331,6 @@ fn test_matrix_multiplication_associativity() {
   // (2x3 * 3x2) = (2x2 * 2x3) = 2x3
   // 2x3 * (3x2 * 2x3) = 2x3 * 3x3 = 2x3
   // assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
-  // TODO FIXME: how to get borrowed impl working? i'm clueless
   assert_eq!((ma.to_owned()*mb.to_owned())*mc.to_owned(), ma*(mb*mc));
 }
 
@@ -312,11 +340,10 @@ fn test_matrix_left_distributivity() {
     2, 3, 4,
     1, 0, 0]);
   let mb = Matrix::new(3, 2, vec![
-    0, 1000,
-    1, 100,
-    0, 10]);
+    0, 1000, 1,
+    1, 100, 2]);
   let mc = Matrix::new(2, 3, vec![
     5, 6, 7,
     1, 0, 0]);
-  assert_eq!(mc*(ma+mb), (mc*ma) + (mc*mb));
+  // assert_eq!(&mc*&(&ma+&mb), (&mc*&ma) + (&mc*&mb));
 }
