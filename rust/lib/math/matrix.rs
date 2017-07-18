@@ -22,6 +22,8 @@ pub struct Matrix {
 #[allow(dead_code)]
 impl Matrix {
 
+  /// new()
+  ///
   fn new(rows: usize, cols: usize, entries: Vec<isize>) -> Self {
     assert_eq!(rows * cols, entries.len());
     Matrix {
@@ -32,7 +34,7 @@ impl Matrix {
     }
   }
 
-  /// nth:
+  /// nth():
   ///
   /// 01 02 03 04
   ///
@@ -66,7 +68,7 @@ impl Matrix {
     self.entries.get(offset).unwrap()
   }
 
-  /// row:
+  /// row():
   ///
   /// 01 02 03 04
   ///
@@ -82,7 +84,7 @@ impl Matrix {
     v
   }
 
-  /// col:
+  /// col():
   ///
   /// 01 02 03 04
   ///
@@ -99,7 +101,7 @@ impl Matrix {
     v
   }
 
-  /// identity:
+  /// identity():
   ///
   /// 01 00
   /// 00 01
@@ -125,6 +127,12 @@ impl Matrix {
       size: self.size,
       entries: entries
     }
+  }
+
+  /// is_square()
+  ///
+  fn is_square(self) -> bool {
+    self.rows == self.cols
   }
 }
 
@@ -346,4 +354,15 @@ fn test_matrix_left_distributivity() {
     5, 6, 7,
     1, 0, 0]);
   // assert_eq!(&mc*&(&ma+&mb), (&mc*&ma) + (&mc*&mb));
+}
+
+#[test]
+fn test_matrix_is_square() {
+  let ma = Matrix::new(2, 3, vec![
+    2, 3, 4,
+    1, 0, 0]);
+  assert_eq!(ma.is_square(), false);
+
+  let mb = Matrix::new(2, 2, vec![0, 1, 2, 3]);
+  assert_eq!(mb.is_square(), true);
 }
