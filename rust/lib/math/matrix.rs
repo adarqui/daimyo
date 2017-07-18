@@ -164,6 +164,17 @@ impl Mul for Matrix {
 
 
 
+/*
+impl<'a> Mul for &'a Matrix {
+  type Output = Matrix;
+  fn mul(self, rhs: &'a Matrix) -> Matrix {
+    self * rhs
+  }
+}
+*/
+
+
+
 /// Matrix Addition
 ///
 /// A = 01|02   B = 05|06
@@ -287,5 +298,10 @@ fn test_matrix_multiplication_associativity() {
   let mc = Matrix::new(2, 3, vec![
     5, 6, 7,
     1, 0, 0]);
-  assert_eq!((ma*mb)*mc, ma*(mb*mc));
+  // 2x3 * 3x2 * 2x3
+  // (2x3 * 3x2) = (2x2 * 2x3) = 2x3
+  // 2x3 * (3x2 * 2x3) = 2x3 * 3x3 = 2x3
+  // assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
+  // TODO FIXME: how to get borrowed impl working? i'm clueless
+  assert_eq!((ma.to_owned()*mb.to_owned())*mc.to_owned(), ma*(mb*mc));
 }
