@@ -2,9 +2,10 @@
 
 
 
-use std::ops::Mul;
 #[allow(unused_imports)]
 use std::io::Write;
+use std::ops::Add;
+use std::ops::Mul;
 use util::range;
 
 
@@ -33,15 +34,36 @@ impl Matrix {
 
   /// nth:
   ///
-  /// 01 00 00 01
+  /// 01 02 03 04
   ///
-  /// row = 2, col = 2
-  /// nth = row * col
+  /// (1,1) = 01 = 0
+  /// (1,2) = 02 = 1
+  /// (2,1) = 03 = 2
+  /// (2,2) = 04 = 3
+  ///
+  /// nth = (((row-1) * cols) + col) - 1
+  ///
+  /// (1,1) (((1  -1) * 2) + 1) - 1
+  ///       (((0) * 2) + 1) - 1
+  ///       1 - 1
+  ///       0
+  /// (1,2) (((1  -1) * 2) + 2) - 1
+  ///       (((0) * 2) + 2) - 1
+  ///       2 - 1
+  ///       1
+  /// (2,1) (((2  -1) * 2) + 1) - 1
+  ///       (((1) * 2) + 1) - 1
+  ///       3 - 1
+  ///       2
+  /// (2,2) (((2  -1) * 2) + 2) - 1
+  ///       (((1) * 2) + 2) - 1
+  ///       4 - 1
+  ///       3
   ///
   fn nth(&self, row: usize, col: usize) -> &isize {
     assert!(row > 0 && col > 0, "row > 0 && col > 0");
-    assert_eq!(row, col);
-    self.entries.get(row * col).unwrap()
+    let offset = (((row-1) * self.cols) + col) - 1;
+    self.entries.get(offset).unwrap()
   }
 
   /// row:
@@ -140,6 +162,36 @@ impl Mul for Matrix {
   }
 }
 
+
+
+/// Matrix Addition
+///
+/// A = 01|02   B = 05|06
+///     03|04       07|08
+///
+/// C = 01+05 | 02+06
+///     03+07 | 04+08
+///
+impl Add for Matrix {
+  type Output = Self;
+  fn add(self, rhs:Self) -> Self {
+    let (ar, ac, br, bc) = (self.rows, self.cols, rhs.rows, rhs.cols);
+    assert_eq!(ar, br);
+    assert_eq!(ac, bc);
+    let mut entries: Vec<isize> = Vec::with_capacity(self.size);
+    for ci in 1 .. (ar+1) {
+      for cj in 1 .. (ac+1) {
+        let a = self.nth(ci, cj);
+        let b = rhs.nth(ci, cj);
+        entries.push(a + b);
+      }
+    }
+    Matrix::new(ar, ac, entries)
+  }
+}
+
+
+
 #[test]
 fn test_matrix() {
   let mat = Matrix::new(2, 2, vec![
@@ -188,7 +240,30 @@ fn test_col_matrix() {
 }
 
 #[test]
-fn test_matrix_multiply() {
+fn test_nth_matrix() {
+  let mat = Matrix::new(2, 2, vec![
+    01, 02,
+    03, 04]);
+  assert_eq!(mat.nth(1,1), &1);
+  assert_eq!(mat.nth(1,2), &2);
+  assert_eq!(mat.nth(2,1), &3);
+  assert_eq!(mat.nth(2,2), &4);
+}
+
+#[test]
+fn test_matrix_addition() {
+  let ma = Matrix::new(2, 2, vec![
+    1, 2,
+    3, 4]);
+  let mb = Matrix::new(2, 2, vec![
+    5, 6,
+    7, 8]);
+  let mc = ma + mb;
+  assert_eq!(mc.entries, vec![6, 8, 10, 12]);
+}
+
+#[test]
+fn test_matrix_multiplication() {
   let ma = Matrix::new(2, 3, vec![
     2, 3, 4,
     1, 0, 0]);
