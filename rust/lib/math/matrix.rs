@@ -7,16 +7,16 @@ use std::ops::Mul;
 
 
 #[allow(dead_code)]
-pub struct Matrix<T> {
+pub struct Matrix {
   rows: usize,
   cols: usize,
   size: usize,
-  v: Vec<T>
+  v: Vec<isize>
 }
 
 #[allow(dead_code)]
-impl<T> Matrix<T> {
-  fn new(rows: usize, cols: usize, v: Vec<T>) -> Self {
+impl Matrix {
+  fn new(rows: usize, cols: usize, v: Vec<isize>) -> Self {
     assert_eq!(rows * cols, v.len());
     Matrix {
       rows: rows,
