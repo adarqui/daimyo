@@ -34,7 +34,7 @@ impl Matrix {
     }
   }
 
-  /// nth():
+  /// nth()
   ///
   /// 01 02 03 04
   ///
@@ -68,7 +68,7 @@ impl Matrix {
     self.entries.get(offset).unwrap()
   }
 
-  /// row():
+  /// row()
   ///
   /// 01 02 03 04
   ///
@@ -84,7 +84,7 @@ impl Matrix {
     v
   }
 
-  /// col():
+  /// col()
   ///
   /// 01 02 03 04
   ///
@@ -101,7 +101,7 @@ impl Matrix {
     v
   }
 
-  /// identity():
+  /// identity()
   ///
   /// 01 00
   /// 00 01
@@ -134,6 +134,26 @@ impl Matrix {
   fn is_square(self) -> bool {
     self.rows == self.cols
   }
+
+  /// transpose()
+  ///
+  /// 1 2 3 = 1 4 = 1 4 2 5 3 6
+  /// 4 5 6   2 5
+  ///         3 6
+  ///
+  /// (1,1),(2,1),(1,2),(2,2),(1,3),(2,3)
+  ///
+  fn transpose(self) -> Matrix {
+    let mut entries = Vec::with_capacity(self.size);
+    for j in 1 .. self.cols+1 {
+      for i in 1 .. self.rows+1 {
+        let e = self.nth(i,j);
+        entries.push(e.to_owned());
+      }
+    }
+    Matrix::new(self.cols, self.rows, entries)
+  }
+
 }
 
 /// Matrix Multiplication
@@ -365,4 +385,20 @@ fn test_matrix_is_square() {
 
   let mb = Matrix::new(2, 2, vec![0, 1, 2, 3]);
   assert_eq!(mb.is_square(), true);
+}
+
+#[test]
+fn test_transpose_matrix() {
+  /// 1 2 3 = 1 4
+  /// 4 5 6   2 5
+  ///         3 6
+  let ma = Matrix::new(2, 3, vec![
+    1, 2, 3,
+    4, 5, 6]);
+  let mb = Matrix::new(3, 2, vec![
+    1, 4,
+    2, 5,
+    3, 6]);
+  assert_eq!(ma.to_owned().transpose(), mb);
+  assert_eq!(mb.to_owned().transpose(), ma);
 }
