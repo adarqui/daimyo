@@ -613,6 +613,7 @@ fn test_identity_matrix_1() {
     00, 01]);
 }
 
+#[test]
 fn test_identity_matrix_2() {
   let mat = Matrix::new(3, 3, vec![
     01, 02, 05,
