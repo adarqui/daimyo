@@ -892,3 +892,8 @@ fn test_fill_matrix() {
   assert_eq!(zero_fill_matrix(2, 2), Matrix::new(2, 2, vec![0,0,0,0]));
   assert_eq!(one_fill_matrix(2, 2), Matrix::new(2, 2, vec![1,1,1,1]));
 }
+
+#[test]
+fn test_submatrix() {
+  assert!(false, "");
+}
