@@ -1197,6 +1197,24 @@ fn test_adjugate_matrix_law_multiplication() {
 }
 
 #[test]
+fn test_inverse_matrix() {
+  let m = Matrix::new(2, 2, vec![
+    11,08,
+    03,07]);
+  assert_eq!(m.minors().entries, vec![
+    07,03,
+    08,11]);
+  assert_eq!(m.cofactors().entries, vec![
+    07,-3,
+    -8,11]);
+  assert_eq!(m.adjugate().entries, vec![
+    07,-8,
+    -3,11]);
+  assert_eq!(m.inverse_unsafe().entries, vec![
+    07/53,-8/53,
+    -3/53,11/53]);
+}
+#[test]
 fn test_inverse_mod_matrix() {
   let m = Matrix::new(2, 2, vec![
     11,08,
