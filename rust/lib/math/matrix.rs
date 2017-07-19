@@ -927,6 +927,21 @@ fn test_det_matrix() {
 }
 
 #[test]
+fn test_det_matrix_multiplication_rule() {
+  let m_2x2 = Matrix::new(3, 3, vec![
+    11,8,9,
+     3,7,5,
+     2,5,8]);
+
+  let m_3x2 = Matrix::new(3, 3, vec![
+    1,3,6,
+    4,1,1,
+    2,5,7]);
+
+  assert_eq!(m_3x2.det()*m_2x2.det(), (m_3x2*m_2x2).det());
+}
+
+#[test]
 fn test_fill_matrix() {
   assert_eq!(fill_matrix(2, 2, 0), Matrix::new(2, 2, vec![0,0,0,0]));
   assert_eq!(zero_fill_matrix(2, 2), Matrix::new(2, 2, vec![0,0,0,0]));
