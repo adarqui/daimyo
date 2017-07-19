@@ -391,13 +391,13 @@ impl Matrix {
 
   /// remove_row()
   ///
-  fn remove_row(&self, row: usize) -> Matrix {
+  fn remove_row(&self, _: usize) -> Matrix {
     Matrix::new(1,1,vec![1])
   }
 
   /// remove_col()
   ///
-  fn remove_col(&self, col: usize) -> Matrix {
+  fn remove_col(&self, _: usize) -> Matrix {
     Matrix::new(1,1,vec![1])
   }
 
@@ -406,13 +406,13 @@ impl Matrix {
 
   /// filter()
   ///
-  fn filter<F>(&self, f: F) -> Matrix where F: FnOnce() {
+  fn filter<F>(&self, _: F) -> Matrix where F: FnOnce() {
     Matrix::new(1,1,vec![0])
   }
 
   /// map()
   ///
-  fn map<F>(&self, f: F) -> Matrix where F: FnOnce() {
+  fn map<F>(&self, _: F) -> Matrix where F: FnOnce() {
     Matrix::new(1,1,vec![0])
   }
 
