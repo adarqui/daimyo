@@ -166,8 +166,7 @@ impl Matrix {
   /// is_invertible()
   ///
   fn is_invertible(&self) -> bool {
-    // TODO
-    false
+    self.det() != 0
   }
 
   /// transpose()
@@ -849,6 +848,15 @@ fn test_matrix_is_square() {
 
   let mb = Matrix::new(2, 2, vec![0, 1, 2, 3]);
   assert_eq!(mb.is_square(), true);
+}
+
+#[test]
+fn test_matrix_is_invertible() {
+  let m = Matrix::new(3, 3, vec![
+    1,3,2,
+    4,1,3,
+    2,5,2]);
+  assert_eq!(m.is_invertible(), true);
 }
 
 #[test]
