@@ -322,6 +322,12 @@ impl Matrix {
     Matrix::new(1,1,vec![1])
   }
 
+  /// remove_col()
+  ///
+  fn remove_col(&self, col: usize) -> Matrix {
+    Matrix::new(1,1,vec![1])
+  }
+
   // TODO FIXME: These should probably be in another trait
   // filter, map, .. etc
 
