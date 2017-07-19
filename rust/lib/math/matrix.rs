@@ -20,6 +20,8 @@ pub struct Matrix {
   entries: Vec<isize>
 }
 
+
+
 #[allow(dead_code)]
 impl Matrix {
 
@@ -355,6 +357,40 @@ impl Mul<Matrix> for isize {
 
 
 
+/*
+ * Helpers
+ */
+
+/// fill_matrix
+///
+fn fill_matrix(rows: usize, cols: usize, value: isize) -> Matrix {
+  let mut entries: Vec<isize> = Vec::with_capacity(rows * cols);
+  for r in 1 .. rows+1 {
+    for c in 1 .. cols+1 {
+      entries.push(value);
+    }
+  }
+  Matrix::new(rows, cols, entries)
+}
+
+
+
+/// zero_fill_matrix
+///
+fn zero_fill_matrix(rows: usize, cols:usize) -> Matrix {
+  fill_matrix(rows, cols, 0)
+}
+
+
+
+/// one_fill_matrix
+///
+fn one_fill_matrix(rows: usize, cols:usize) -> Matrix {
+  fill_matrix(rows, cols, 1)
+}
+
+
+
 #[test]
 fn test_matrix() {
   let mat = Matrix::new(2, 2, vec![
@@ -610,4 +646,11 @@ fn test_left_diagonal_matrix() {
     7,0,0]);
   assert_eq!(m.left_diagonal().entries, m.left_diagonal().entries);
   assert_eq!(m.left_diagonal(), m.left_diagonal());
+}
+
+#[test]
+fn test_fill_matrix() {
+  assert_eq!(fill_matrix(2, 2, 0), Matrix::new(2, 2, vec![0,0,0,0]));
+  assert_eq!(zero_fill_matrix(2, 2), Matrix::new(2, 2, vec![0,0,0,0]));
+  assert_eq!(one_fill_matrix(2, 2), Matrix::new(2, 2, vec![1,1,1,1]));
 }
