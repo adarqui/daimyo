@@ -472,6 +472,18 @@ impl Matrix {
     Matrix::new(self.rows, self.cols, entries)
   }
 
+  /// adjugate()
+  ///
+  fn adjugate(&self) -> Matrix {
+    self.cofactors().transpose()
+  }
+
+  /// adjoint()
+  ///
+  fn adjoint(&self) -> Matrix {
+    self.adjugate()
+  }
+
   /// remove_row()
   ///
   fn remove_row(&self, _: usize) -> Matrix {
@@ -1073,6 +1085,18 @@ fn test_cofactors_matrix() {
     -13,-2,18,
     4,-2,1,
     7,5,-11]);
+}
+
+#[test]
+fn test_adjugate_matrix() {
+  let m = Matrix::new(3, 3, vec![
+    1,3,2,
+    4,1,3,
+    2,5,2]);
+  assert_eq!(m.adjugate().entries, vec![
+    -13,4,7,
+    -2,-2,5,
+    18,1,-11]);
 }
 
 #[test]
