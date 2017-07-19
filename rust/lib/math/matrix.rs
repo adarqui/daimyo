@@ -7,6 +7,8 @@ use std::io::Write;
 use std::ops::Add;
 use std::ops::Sub;
 use std::ops::Mul;
+#[allow(unused_imports)]
+use num::PrimInt;
 use util::range;
 
 
@@ -245,11 +247,11 @@ impl Matrix {
   ///
   /// determinant - TODO: extend to arbitrary sized matrix
   ///
-  fn det(&self) -> Option<isize> {
+  fn det(&self) -> isize {
     assert!(self.is_square(), "must be a square matrix");
     match (self.rows, self.cols) {
-      (1,1) => Some(self.det_1x1()),
-      (2,2) => Some(self.det_2x2()),
+      (1,1) => self.det_1x1(),
+      (2,2) => self.det_2x2(),
       _     => self.det_NxN()
     }
   }
@@ -291,8 +293,16 @@ impl Matrix {
   ///     where i is any fixed integer between 1 and m.
   ///
   #[allow(non_snake_case)]
-  fn det_NxN(&self) -> Option<isize> {
-    None
+  fn det_NxN(&self) -> isize {
+    self.det_NxN_helper(1, 1)
+  }
+
+  #[allow(non_snake_case)]
+  fn det_NxN_helper(&self, i: usize, j: usize) -> isize {
+    if j > self.cols {
+      return 0
+    }
+    ((-1).pow((i+j) as u32)) * self.nth(i, j) * self.det_NxN_helper(i, j+1)
   }
 
   /// zeroes()
@@ -891,12 +901,18 @@ fn test_left_diagonal_matrix() {
 #[test]
 fn test_det_matrix() {
   let m_1x1 = Matrix::new(1, 1, vec![1]);
-  assert_eq!(m_1x1.det(), Some(1));
+  assert_eq!(m_1x1.det(), 1);
 
   let m_2x2 = Matrix::new(2, 2, vec![
     11,8,
      3,7]);
-  assert_eq!(m_2x2.det(), Some(53));
+  assert_eq!(m_2x2.det(), 53);
+
+  let m_3x3 = Matrix::new(3, 3, vec![
+    1,3,2,
+    4,1,3,
+    2,5,2]);
+  assert_eq!(m_3x3.det(), 17);
 }
 
 #[test]
@@ -916,4 +932,23 @@ fn test_submatrix() {
     1,3,4,
     5,7,8]);
   assert_eq!(m.submatrix(3, 2), sub);
+}
+
+#[test]
+fn test_matrix_misc_pow() {
+  assert_eq!((-1).pow(1), -1);
+  assert_eq!((-1).pow(2), 1);
+  assert_eq!((-1).pow(3), -1);
+  assert_eq!((-1).pow(4), 1);
+
+  let i: isize = 2;
+  assert_eq!((-1).pow(i as u32), 1);
+}
+
+#[test]
+fn test_matrix_misc_isize_coerce() {
+  let i: isize = 1;
+  let j: isize = 1;
+  assert_eq!(i as u32, 1);
+  assert_eq!((i + j) as u32, 2);
 }
