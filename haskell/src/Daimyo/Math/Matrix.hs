@@ -12,7 +12,7 @@ import Data.List
 
 
 
-data Matrix = forall a. (Eq a, Ord a, Num a) => Matrix {
+data Matrix a = Num a => Matrix {
   rows :: Int,
   cols :: Int,
   size :: Int,
@@ -21,7 +21,7 @@ data Matrix = forall a. (Eq a, Ord a, Num a) => Matrix {
 
 
 
-new :: Int -> Int -> [Int] -> Matrix
+new :: Num a => Int -> Int -> [a] -> Matrix a
 new rows cols entries = Matrix {
   rows = rows,
   cols = cols,
@@ -31,12 +31,12 @@ new rows cols entries = Matrix {
 
 
 
-nth_offset :: Matrix -> Int -> Int -> Int
+nth_offset :: Matrix a -> Int -> Int -> Int
 nth_offset Matrix{..} row col = (((row-1) * cols) + col) - 1
 
 
 
--- nth :: forall a. Matrix -> Int -> Int -> a
+nth :: Num a => Matrix a -> Int -> Int -> a
 nth m@Matrix{..} row col =
   entries !! offset
   where
