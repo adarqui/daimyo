@@ -539,6 +539,13 @@ impl Matrix {
     Matrix::new(1,1,vec![1])
   }
 
+  /// map()
+  ///
+  fn map<F>(&self, f: F) -> Matrix where F: Fn(isize) -> isize {
+    let entries: Vec<isize> = self.to_owned().entries.into_iter().map(f).collect();
+    Matrix::new(self.rows, self.cols, entries)
+  }
+
 }
 
 /// Matrix Multiplication
@@ -681,6 +688,7 @@ impl Mul<Matrix> for isize {
 
 /// Iterator for Matrix
 ///
+/*
 impl Iterator for Matrix {
   type Item = usize;
 
@@ -694,6 +702,7 @@ impl Iterator for Matrix {
     }
   }
 }
+*/
 
 
 
@@ -1263,8 +1272,10 @@ fn test_inverse_mod_matrix_identity_inverse_law() {
     261,286,
     182,131]));
 
-  let v: Vec<isize> = (m * m_inv).entries.into_iter().map(|x| x.modulo(26)).collect();
+  let v: Vec<isize> = (&m * &m_inv).entries.into_iter().map(|x| x.modulo(26)).collect();
   assert_eq!(v, identity_matrix(2, 2).entries);
+
+  assert_eq!((&m * &m_inv).map(|x| x.modulo(26)), identity_matrix(2, 2));
 }
 
 #[test]
