@@ -234,6 +234,27 @@ impl Matrix {
     Matrix::new(self.rows, self.cols, entries)
   }
 
+  /// det()
+  ///
+  /// determinant - TODO: extend to arbitrary sized matrix
+  ///
+  fn det(&self) -> Option<isize> {
+    assert!(self.is_square(), "must be a square matrix");
+    match (self.rows, self.cols) {
+      (2,2) => Some(self.det_2x2()),
+      _     => None
+    }
+  }
+
+  /// det_2x2()
+  ///
+  /// det a b = ad - bc
+  ///     c d
+  ///
+  fn det_2x2(&self) -> isize {
+    let (a, b, c, d) = (self.nth(1,1), self.nth(1,2), self.nth(2,1), self.nth(2,2));
+    a*d - b*c
+  }
 
   /// swap_rows()
   ///
@@ -293,6 +314,12 @@ impl Matrix {
   ///
   fn mul_col_by(&mut self, col_a: usize, scalar: isize) -> &Self {
     self
+  }
+
+  /// remove_row()
+  ///
+  fn remove_row(&self, row: usize) -> Matrix {
+    Matrix::new(1,1,vec![1])
   }
 
   // TODO FIXME: These should probably be in another trait
@@ -747,6 +774,14 @@ fn test_left_diagonal_matrix() {
     7,0,0]);
   assert_eq!(m.left_diagonal().entries, m.left_diagonal().entries);
   assert_eq!(m.left_diagonal(), m.left_diagonal());
+}
+
+#[test]
+fn test_det_matrix() {
+  let m = Matrix::new(2, 2, vec![
+    11,8,
+     3,7]);
+  assert_eq!(m.det(), Some(53));
 }
 
 #[test]
