@@ -476,8 +476,8 @@ impl Sub for Matrix {
     assert_eq!(ar, br);
     assert_eq!(ac, bc);
     let mut entries: Vec<isize> = Vec::with_capacity(self.size);
-    for ci in 1 .. (ar-1) {
-      for cj in 1 .. (ac-1) {
+    for ci in 1 .. ar+1 {
+      for cj in 1 .. ac+1 {
         let a = self.nth(ci, cj);
         let b = rhs.nth(ci, cj);
         entries.push(a - b);
@@ -696,7 +696,17 @@ fn test_matrix_additive_identity() {
   assert_eq!(m.to_owned() + m.zeroes(), m);
 }
 
+#[test]
+fn test_matrix_additive_inverse() {
+  let m = Matrix::new(2, 2, vec![
+    1,2,
+    3,4]);
+  let inv_m = m.negate();
+  let zero_m = zero_fill_matrix(2, 2);
+  assert_eq!(m.to_owned() + inv_m, zero_m);
+}
 
+#[test]
 fn test_matrix_subtraction() {
   let ma = Matrix::new(2, 2, vec![
     1, 2,
