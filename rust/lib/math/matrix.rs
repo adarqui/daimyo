@@ -1,4 +1,6 @@
 // https://en.wikipedia.org/wiki/Matrix_(mathematics)
+// https://en.wikipedia.org/wiki/Minor_(linear_algebra)
+// https://en.wikipedia.org/wiki/Adjugate_matrix
 
 
 
