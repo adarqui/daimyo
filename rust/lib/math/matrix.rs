@@ -250,7 +250,7 @@ impl Matrix {
     match (self.rows, self.cols) {
       (1,1) => Some(self.det_1x1()),
       (2,2) => Some(self.det_2x2()),
-      _     => None
+      _     => self.det_NxN()
     }
   }
 
@@ -271,6 +271,31 @@ impl Matrix {
     let (a, b, c, d) = (self.nth(1,1), self.nth(1,2), self.nth(2,1), self.nth(2,2));
     a*d - b*c
   }
+
+  /// det_NxN()
+  ///
+  /// Definition 1.5 of Cryptography Theory & Practice:
+  ///
+  /// Suppose that A = (a_ij) is an m x m matrix.
+  ///  For
+  ///   1 <= i <= m,
+  ///   1 <= j <= m,
+  ///  Define A_ij to be the matrix obtained from A by:
+  ///   deleting the ith row
+  ///   deleting the jth column
+  ///
+  ///  The determinant of A, denoted det_A, is:
+  ///   the value a_1,1 if m = 1.
+  ///   if m > 1, then det_A is computed recursively from the formula:
+  ///    det A = SUM(j=1 to m) of ((-1)^i+j)a_i,j(det A_ij),
+  ///     where i is any fixed integer between 1 and m.
+  ///
+  fn det_NxN(&self) -> Option<isize> {
+    None
+  }
+
+  ///
+  ///
 
   /// swap_rows()
   ///
