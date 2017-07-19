@@ -391,6 +391,19 @@ fn test_matrix_associative_addition() {
   assert_eq!((&(&ma + &mb) + &mc).entries, vec![7, 9, 11, 13]);
 }
 
+#[test]
+fn test_matrix_commutative_addition() {
+  let ma = Matrix::new(2, 2, vec![
+    1, 2,
+    3, 4]);
+  let mb = Matrix::new(2, 2, vec![
+    5, 6,
+    7, 8]);
+  assert_eq!((&ma + &mb).entries, vec![6, 8, 10, 12]);
+  assert_eq!((&mb + &ma).entries, vec![6, 8, 10, 12]);
+  assert_eq!(&ma + &mb, &mb + &ma);
+}
+
 
 fn test_matrix_subtraction() {
   let ma = Matrix::new(2, 2, vec![
