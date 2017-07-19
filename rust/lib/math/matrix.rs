@@ -192,8 +192,28 @@ impl Matrix {
 
   /// left_diagonal()
   ///
+  /// 1,2,3 = 0,0,3
+  /// 4,5,6   0,5,0
+  /// 7,8,9   7,0,0
+  ///
   fn left_diagonal(&self) -> Matrix {
-    Matrix::new(1, 1, vec![0])
+    assert!(self.is_square() == true, "must be a square matrix");
+    let mut entries: Vec<isize> = Vec::with_capacity(self.size);
+    let mut i_r = 1;
+    let mut i_c = self.cols;
+    for r in 1 .. self.rows+1 {
+      for c in 1 .. self.cols+1 {
+        if r == i_r && c == i_c {
+          let e = self.nth(r, c);
+          entries.push(e.to_owned());
+          i_r += 1;
+          i_c -= 1;
+        } else {
+          entries.push(0)
+        }
+      }
+    }
+    Matrix::new(self.rows, self.cols, entries)
   }
 }
 
@@ -261,7 +281,7 @@ impl Add for Matrix {
 
 
 
-/// Matrix Subition
+/// Matrix Subtraction
 ///
 /// A = 01|02   B = 05|06
 ///     03|04       07|08
@@ -576,4 +596,18 @@ fn test_diagonal_matrix() {
     0,0,9]);
   assert_eq!(m.diagonal().entries, m.right_diagonal().entries);
   assert_eq!(m.diagonal(), m.diagonal());
+}
+
+#[test]
+fn test_left_diagonal_matrix() {
+  let m = Matrix::new(3, 3, vec![
+    1,2,3,
+    4,5,6,
+    7,8,9]);
+  assert_eq!(m.left_diagonal().entries, vec![
+    0,0,3,
+    0,5,0,
+    7,0,0]);
+  assert_eq!(m.left_diagonal().entries, m.left_diagonal().entries);
+  assert_eq!(m.left_diagonal(), m.left_diagonal());
 }
