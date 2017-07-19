@@ -380,8 +380,8 @@ impl Matrix {
     let col_count = if col > 0 { 1 } else { 0 };
     let new_size = (self.rows - row_count) * (self.cols - col_count);
     let mut entries: Vec<isize> = Vec::with_capacity(new_size);
-    for i in (1 .. self.rows+1).filter(|r| r.to_owned() == row) {
-      for j in (1 .. self.cols+1).filter(|c| c.to_owned() == col) {
+    for i in (1 .. self.rows+1).filter(|r| r.to_owned() != row) {
+      for j in (1 .. self.cols+1).filter(|c| c.to_owned() != col) {
         let e = self.nth(i, j);
         entries.push(e);
       }
@@ -895,5 +895,12 @@ fn test_fill_matrix() {
 
 #[test]
 fn test_submatrix() {
-  assert!(false, "");
+  let m = Matrix::new(3, 4, vec![
+    1,2, 3, 4,
+    5,6, 7, 8,
+    9,10,11,12]);
+  let sub = Matrix::new(2, 3, vec![
+    1,3,4,
+    5,7,8]);
+  assert_eq!(m.submatrix(3, 2), sub);
 }
