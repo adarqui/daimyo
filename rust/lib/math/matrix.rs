@@ -294,12 +294,7 @@ impl Matrix {
   ///
   #[allow(non_snake_case)]
   fn det_NxN(&self) -> isize {
-    let mut tot: isize = 0;
-    for j in 1 .. self.cols+1 {
-      let t = self.det_NxN_helper(1, j);
-      tot += t
-    }
-    tot
+    (1 .. self.cols+1).map(|j| self.det_NxN_helper(1, j)).sum()
   }
 
   #[allow(non_snake_case)]
