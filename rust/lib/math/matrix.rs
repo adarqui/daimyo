@@ -44,6 +44,10 @@ impl Matrix {
     }
   }
 
+  fn nth_offset(&self, row: usize, col: usize) -> usize {
+    (((row-1) * self.cols) + col) - 1
+  }
+
   /// nth()
   ///
   /// 01 02 03 04
@@ -74,8 +78,20 @@ impl Matrix {
   ///
   fn nth(&self, row: usize, col: usize) -> &isize {
     assert!(row > 0 && col > 0, "row > 0 && col > 0");
-    let offset = (((row-1) * self.cols) + col) - 1;
+    let offset = self.nth_offset(row, col);
     self.entries.get(offset).unwrap()
+  }
+
+  /// set_nth()
+  ///
+  /// set_nth(1, 2, v):
+  /// 0 0 = 0 v
+  /// 0 0   0 0
+  ///
+  fn set_nth(&mut self, row: usize, col: usize, value: isize) -> &Self {
+    let offset = self.nth_offset(row, col);
+    self.entries[offset] = value;
+    self
   }
 
   /// row()
@@ -458,6 +474,14 @@ fn test_nth_matrix() {
   assert_eq!(mat.nth(1,2), &2);
   assert_eq!(mat.nth(2,1), &3);
   assert_eq!(mat.nth(2,2), &4);
+}
+
+#[test]
+fn test_set_nth_matrix() {
+  let mut m = Matrix::new(2, 2, vec![
+    0,0,
+    0,0]);
+  assert_eq!(m.set_nth(1, 2, 1).entries, vec![0,1,0,0]);
 }
 
 #[test]
