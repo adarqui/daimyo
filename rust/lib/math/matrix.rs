@@ -420,6 +420,17 @@ impl Matrix {
     self.submatrix(row, col).det()
   }
 
+  /// cofactor()
+  ///
+  /// cofactor of a minor of a submatrix
+  ///
+  ///  1 4 7 -> M_2,3 = det 1 4 _ = det 1 4 = (9 - (-4)) = 13 = C_2,3 = (-1)^(2+3)(13) = -13
+  ///  3 0 5                _ _ _      -1 9
+  /// -1 9 11              -1 9 _
+  fn cofactor(&self, row: usize, col: usize) -> isize {
+    (-1).pow((row+col) as u32) * self.submatrix(row, col).det()
+  }
+
   /// remove_row()
   ///
   fn remove_row(&self, _: usize) -> Matrix {
@@ -979,6 +990,15 @@ fn test_submatrix() {
     1,3,4,
     5,7,8]);
   assert_eq!(m.submatrix(3, 2), sub);
+}
+
+#[test]
+fn test_minor() {
+  let m = Matrix::new(3, 3, vec![
+    1, 4, 7,
+    3, 0, 5,
+   -1, 9, 11]);
+  assert_eq!(m.minor(2, 3), 13);
 }
 
 #[test]
