@@ -294,8 +294,19 @@ impl Matrix {
     None
   }
 
+  /// zeroes()
   ///
+  fn zereos(&self) -> Matrix {
+    zero_fill_matrix(self.rows, self.cols)
+  }
+
+  /// negate()
   ///
+  fn negate(&self) -> Matrix {
+    // let entries: Vec<isize> = self.entries.to_owned().into_iter().map(|x| x * (-1)).collect();
+    // Matrix::new(self.rows, self.cols, entries)
+    (-1) * self.to_owned()
+  }
 
   /// swap_rows()
   ///

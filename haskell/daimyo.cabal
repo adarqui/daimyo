@@ -251,9 +251,9 @@ Library
                      Daimyo.Application.Todo.Simple
                      Daimyo.Network.IPGen
                      Daimyo.Wreq.Todo
-                     Daimyo.Servant.Shared
-                     Daimyo.Servant.API
-                     Daimyo.Servant.API.Ping
+                     -- Daimyo.Servant.Shared
+                     -- Daimyo.Servant.API
+                     -- Daimyo.Servant.API.Ping
  Build-Depends:      base == 4.*,
                      AC-Angle,
                      attoparsec,
@@ -273,9 +273,6 @@ Library
                      numbers,
                      parsec,
                      random,
-                     servant == 0.5.*,
-                     servant-server == 0.5.*,
-                     servant-client == 0.5.*,
                      statistics,
                      stm >= 2.4.2,
                      time,
