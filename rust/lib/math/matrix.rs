@@ -409,6 +409,17 @@ impl Matrix {
     Matrix::new(self.rows - row_count, self.cols - col_count, entries)
   }
 
+  /// minor()
+  ///
+  /// minor of a submatrix
+  ///
+  ///  1 4 7 -> M_2,3 = det 1 4 _ = det 1 4 = (9 - (-4)) = 13
+  ///  3 0 5                _ _ _      -1 9
+  /// -1 9 11              -1 9 _
+  fn minor(&self, row: usize, col: usize) -> isize {
+    self.submatrix(row, col).det()
+  }
+
   /// remove_row()
   ///
   fn remove_row(&self, _: usize) -> Matrix {
