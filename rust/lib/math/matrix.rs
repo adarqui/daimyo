@@ -294,11 +294,11 @@ impl Matrix {
   ///
   #[allow(non_snake_case)]
   fn det_NxN(&self) -> isize {
-    self.det_NxN_helper(1, 1)
+    self.det_NxN_helper(1 as isize, 1 as isize)
   }
 
   #[allow(non_snake_case)]
-  fn det_NxN_helper(&self, i: usize, j: usize) -> isize {
+  fn det_NxN_helper(&self, i: isize, j: isize) -> isize {
     if j > self.cols {
       return 0
     }
