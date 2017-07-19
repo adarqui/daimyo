@@ -1109,6 +1109,15 @@ fn test_adjugate_matrix_law_1() {
 }
 
 #[test]
+fn test_adjugate_matrix_law_identity() {
+  let m = Matrix::new(3, 3, vec![
+    1,3,2,
+    4,1,3,
+    2,5,2]);
+  assert_eq!(m.identity().adjugate(), m.identity());
+}
+
+#[test]
 fn test_matrix_misc_pow() {
   assert_eq!((-1).pow(1), -1);
   assert_eq!((-1).pow(2), 1);
