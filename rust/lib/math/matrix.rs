@@ -509,20 +509,21 @@ impl Matrix {
   /// 11 08 -> inverse_mod 26 = 07 18
   /// 03 07                     23 11
   ///
-  fn inverse_mod(&self, m: &usize) -> Option<Matrix> {
+  fn inverse_mod(&self, m: usize) -> Option<Matrix> {
     if !self.is_invertible() {
       None
     } else {
       let adj = self.adjugate();
       // TODO FIXME: Get rid of count()? Warnings say it might not be consumed..
-      let _ = adj.to_owned().map(|x| x.modulo(m.clone())).count();
-      Some(adj)
+      // let _ = adj.to_owned().map(|x| x.modulo(m.clone())).count();
+      let entries: Vec<isize> = adj.entries.into_iter().map(|x| x.modulo(m.clone() as isize)).collect();
+      Some(Matrix::new(adj.rows, adj.cols, entries))
     }
   }
 
   /// inverse_mod_unsafe()
   ///
-  fn inverse_mod_unsafe(&self, m: &usize) -> Matrix {
+  fn inverse_mod_unsafe(&self, m: usize) -> Matrix {
     self.inverse_mod(m).unwrap()
   }
 
@@ -1074,6 +1075,13 @@ fn test_det_matrix() {
     03,14,21,
     08,09,11]);
   assert_eq!(m_3x3.det().modulo(26), 7);
+
+  let m_4x4 = Matrix::new(4, 4, vec![
+    3,2,0,1,
+    4,0,1,2,
+    3,0,2,1,
+    9,2,3,1]);
+  assert_eq!(m_4x4.det(), 24);
 }
 
 #[test]
@@ -1214,6 +1222,7 @@ fn test_inverse_matrix() {
     07/53,-8/53,
     -3/53,11/53]);
 }
+
 #[test]
 fn test_inverse_mod_matrix() {
   let m = Matrix::new(2, 2, vec![
@@ -1228,9 +1237,13 @@ fn test_inverse_mod_matrix() {
   assert_eq!(m.adjugate().entries, vec![
     07,-8,
     -3,11]);
-  assert_eq!(m.inverse_mod_unsafe(&26).entries, vec![
+  assert_eq!(m.inverse_mod_unsafe(26).entries, vec![
     07,18,
     23,11]);
+}
+
+#[test]
+fn test_inverse_mod_matrix_laws() {
 }
 
 #[test]
