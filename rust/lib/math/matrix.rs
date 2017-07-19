@@ -1118,6 +1118,20 @@ fn test_adjugate_matrix_law_identity() {
 }
 
 #[test]
+fn test_adjugate_matrix_law_multiplication() {
+  let ma = Matrix::new(3, 3, vec![
+    9,1,5,
+    4,6,4,
+    1,2,3]);
+  let mb = Matrix::new(3, 3, vec![
+    1,3,2,
+    4,1,3,
+    2,5,2]);
+  // adj(AB) = adj(B)*adj(A) -- NOT adj(A)*adj(B)
+  assert_eq!((&ma * &mb).adjugate(), mb.adjugate() * ma.adjugate());
+}
+
+#[test]
 fn test_matrix_misc_pow() {
   assert_eq!((-1).pow(1), -1);
   assert_eq!((-1).pow(2), 1);
