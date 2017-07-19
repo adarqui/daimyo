@@ -1,6 +1,7 @@
 // https://en.wikipedia.org/wiki/Matrix_(mathematics)
 // https://en.wikipedia.org/wiki/Minor_(linear_algebra)
 // https://en.wikipedia.org/wiki/Adjugate_matrix
+// verify inverse: http://matrix.reshish.com/inverCalculation.php
 
 
 
@@ -16,6 +17,7 @@ use std::io::Write;
 use std::ops::Add;
 use std::ops::Sub;
 use std::ops::Mul;
+use std::iter::Iterator;
 #[allow(unused_imports)]
 use num::PrimInt;
 use util::range;
@@ -30,6 +32,7 @@ pub struct Matrix {
   rows: usize,
   cols: usize,
   size: usize,
+  iter_index: usize,
   entries: Vec<isize>
 }
 
@@ -53,6 +56,7 @@ impl Matrix {
       rows: rows,
       cols: cols,
       size: rows * cols,
+      iter_index: 1,
       entries: entries
     }
   }
@@ -160,12 +164,7 @@ impl Matrix {
         }
       }
     }
-    Matrix {
-      rows: self.rows,
-      cols: self.cols,
-      size: self.size,
-      entries: entries
-    }
+    Matrix::new(self.rows, self.cols, entries)
   }
 
   /// is_square()
@@ -495,9 +494,7 @@ impl Matrix {
     } else {
       let d = self.det();
       let m = self.adjugate();
-      println_stderr!("{:?}", m);
-      None
-      // TODO FIXME: ideal:  Some((1/d) * m)
+      Some((1/d) * m)
     }
   }
 
@@ -505,6 +502,28 @@ impl Matrix {
   ///
   fn inverse_unsafe(&self) -> Matrix {
     self.inverse().unwrap()
+  }
+
+  /// inverse_mod()
+  ///
+  /// 11 08 -> inverse_mod 26 = 07 18
+  /// 03 07                     23 11
+  ///
+  fn inverse_mod(&self, m: &usize) -> Option<Matrix> {
+    if !self.is_invertible() {
+      None
+    } else {
+      let adj = self.adjugate();
+      // TODO FIXME: Get rid of count()? Warnings say it might not be consumed..
+      let _ = adj.to_owned().map(|x| x.modulo(m.clone())).count();
+      Some(adj)
+    }
+  }
+
+  /// inverse_mod_unsafe()
+  ///
+  fn inverse_mod_unsafe(&self, m: &usize) -> Matrix {
+    self.inverse_mod(m).unwrap()
   }
 
   /// remove_row()
@@ -517,21 +536,6 @@ impl Matrix {
   ///
   fn remove_col(&self, _: usize) -> Matrix {
     Matrix::new(1,1,vec![1])
-  }
-
-  // TODO FIXME: These should probably be in another trait
-  // filter, map, .. etc
-
-  /// filter()
-  ///
-  fn filter<F>(&self, _: F) -> Matrix where F: FnOnce() {
-    Matrix::new(1,1,vec![0])
-  }
-
-  /// map()
-  ///
-  fn map<F>(&self, _: F) -> Matrix where F: FnOnce() {
-    Matrix::new(1,1,vec![0])
   }
 
 }
@@ -671,6 +675,44 @@ impl Mul<Matrix> for isize {
     Matrix::new(matrix.rows, matrix.cols, v)
   }
 }
+
+
+
+/// Iterator for Matrix
+///
+impl Iterator for Matrix {
+  type Item = usize;
+
+  fn next(&mut self) -> Option<usize> {
+    if self.iter_index > self.size {
+      self.iter_index = 1;
+      None
+    } else {
+      self.iter_index += 1;
+      Some(self.iter_index)
+    }
+  }
+}
+
+
+
+/// FromIterator for Matrix
+///
+/*
+impl FromIterator for Matrix {
+  type Item = isize;
+
+  fn next(&mut self) -> Option<usize> {
+    if self.iter_index > self.size {
+      self.iter_index = 1;
+      None
+    } else {
+      self.iter_index += 1;
+      Some(self.iter_index)
+    }
+  }
+}
+*/
 
 
 
@@ -1155,7 +1197,7 @@ fn test_adjugate_matrix_law_multiplication() {
 }
 
 #[test]
-fn test_inverse_matrix() {
+fn test_inverse_mod_matrix() {
   let m = Matrix::new(2, 2, vec![
     11,08,
     03,07]);
@@ -1168,7 +1210,7 @@ fn test_inverse_matrix() {
   assert_eq!(m.adjugate().entries, vec![
     07,-8,
     -3,11]);
-  assert_eq!(m.inverse_unsafe().entries, vec![
+  assert_eq!(m.inverse_mod_unsafe(&26).entries, vec![
     07,18,
     23,11]);
 }
