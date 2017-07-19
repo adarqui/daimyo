@@ -80,6 +80,7 @@ Library
                      Daimyo.Math.Table.NthRoot
                      Daimyo.Math.Factorial
                      Daimyo.Math.Base
+                     Daimyo.Math.Matrix
                      Daimyo.Math.Mean.Arithmetic
                      Daimyo.Math.Mean.Harmonic
                      Daimyo.Math.Mean.Geometric

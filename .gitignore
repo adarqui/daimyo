@@ -15,6 +15,7 @@
 *.pyc
 *.DS_Store
 *.private
+*.swo
 *~
 *.Plo
 *.lai
