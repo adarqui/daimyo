@@ -7,7 +7,6 @@ use std::io::Write;
 use std::ops::Add;
 use std::ops::Sub;
 use std::ops::Mul;
-use std::cmp::PartialEq;
 use util::range;
 
 
@@ -291,6 +290,7 @@ impl Matrix {
   ///    det A = SUM(j=1 to m) of ((-1)^i+j)a_i,j(det A_ij),
   ///     where i is any fixed integer between 1 and m.
   ///
+  #[allow(non_snake_case)]
   fn det_NxN(&self) -> Option<isize> {
     None
   }
@@ -311,60 +311,70 @@ impl Matrix {
 
   /// swap_rows()
   ///
+  #[allow(unused_variables)]
   fn swap_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
     self
   }
 
   /// add_rows()
   ///
+  #[allow(unused_variables)]
   fn add_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
     self
   }
 
   /// add_row_by()
   ///
+  #[allow(unused_variables)]
   fn add_row_by(&mut self, row: usize, scalar: isize) -> &Self {
     self
   }
 
   /// mul_rows()
   ///
+  #[allow(unused_variables)]
   fn mul_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
     self
   }
 
   /// mul_row_by()
   ///
+  #[allow(unused_variables)]
   fn mul_row_by(&mut self, row_a: usize, scalar: isize) -> &Self {
     self
   }
 
   /// swap_cols()
   ///
+  #[allow(unused_variables)]
   fn swap_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
     self
   }
 
   /// add_cols()
   ///
+  #[allow(unused_variables)]
   fn add_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
     self
   }
 
   /// add_col_by()
   ///
+  #[allow(unused_variables)]
   fn add_col_by(&mut self, col: usize, scalar: isize) -> &Self {
     self
   }
 
   /// mul_cols()
   ///
+  #[allow(unused_variables)]
   fn mul_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
     self
   }
 
   /// mul_col_by()
   ///
+  #[allow(unused_variables)]
   fn mul_col_by(&mut self, col_a: usize, scalar: isize) -> &Self {
     self
   }
@@ -574,6 +584,7 @@ fn fill_matrix(rows: usize, cols: usize, value: isize) -> Matrix {
 
 /// zero_fill_matrix
 ///
+#[allow(dead_code)]
 fn zero_fill_matrix(rows: usize, cols:usize) -> Matrix {
   fill_matrix(rows, cols, 0)
 }
@@ -582,6 +593,7 @@ fn zero_fill_matrix(rows: usize, cols:usize) -> Matrix {
 
 /// one_fill_matrix
 ///
+#[allow(dead_code)]
 fn one_fill_matrix(rows: usize, cols:usize) -> Matrix {
   fill_matrix(rows, cols, 1)
 }
