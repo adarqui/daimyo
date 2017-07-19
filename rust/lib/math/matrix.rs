@@ -10,6 +10,8 @@ use std::ops::Mul;
 #[allow(unused_imports)]
 use num::PrimInt;
 use util::range;
+#[allow(unused_imports)]
+use math::mod_num::{ModuloSignedExt};
 
 
 
@@ -924,6 +926,12 @@ fn test_det_matrix() {
     4, -2, 5,
     2,  8, 7]);
   assert_eq!(m_3x3.det(), -306);
+
+  let m_3x3 = Matrix::new(3, 3, vec![
+    10,05,12,
+    03,14,21,
+    08,09,11]);
+  assert_eq!(m_3x3.det().modulo(26), 7);
 }
 
 #[test]

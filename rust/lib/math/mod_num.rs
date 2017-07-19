@@ -114,7 +114,7 @@ macro_rules! modulo_signed_ext_impl {
       }
   )*)
 }
-modulo_signed_ext_impl! { i8 i16 i32 i64 u8 u16 u32 u64 }
+modulo_signed_ext_impl! { i8 i16 i32 i64 isize u8 u16 u32 u64 usize }
 
 
 
