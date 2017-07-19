@@ -25,6 +25,13 @@ impl Matrix {
 
   /// new()
   ///
+  /// new rows x cols sized matrix with a flat representation of entries
+  ///
+  /// new(2, 2, vec![1, 2, 3, 4])
+  ///
+  /// 1 2
+  /// 3 4
+  ///
   fn new(rows: usize, cols: usize, entries: Vec<isize>) -> Self {
     assert_eq!(rows * cols, entries.len());
     Matrix {
@@ -132,7 +139,7 @@ impl Matrix {
 
   /// is_square()
   ///
-  fn is_square(self) -> bool {
+  fn is_square(&self) -> bool {
     self.rows == self.cols
   }
 
@@ -144,7 +151,7 @@ impl Matrix {
   ///
   /// (1,1),(2,1),(1,2),(2,2),(1,3),(2,3)
   ///
-  fn transpose(self) -> Matrix {
+  fn transpose(&self) -> Matrix {
     let mut entries = Vec::with_capacity(self.size);
     for j in 1 .. self.cols+1 {
       for i in 1 .. self.rows+1 {
@@ -155,6 +162,39 @@ impl Matrix {
     Matrix::new(self.cols, self.rows, entries)
   }
 
+  /// diagonal()
+  ///
+  /// 1 2 3 = 1 0 0
+  /// 4 5 6   0 5 0
+  /// 7 8 9   0 0 9
+  ///
+  fn diagonal(&self) -> Matrix {
+    assert!(self.is_square() == true, "must be a square matrix");
+    let mut entries: Vec<isize> = Vec::with_capacity(self.size);
+    for r in 1 .. self.rows+1 {
+      for c in 1 .. self.cols+1 {
+        if r == c {
+          let e = self.nth(r, c);
+          entries.push(e.to_owned())
+        } else {
+          entries.push(0)
+        }
+      }
+    }
+    Matrix::new(self.rows, self.cols, entries)
+  }
+
+  /// right_diagonal()
+  ///
+  fn right_diagona(&self) -> Matrix {
+    self.diagonal()
+  }
+
+  /// left_diagonal()
+  ///
+  fn left_diagonal(&self) -> Matrix {
+    Matrix::new(1, 1, vec![0])
+  }
 }
 
 /// Matrix Multiplication
@@ -522,4 +562,16 @@ fn test_transpose_matrix() {
     3, 6]);
   assert_eq!(ma.to_owned().transpose(), mb);
   assert_eq!(mb.to_owned().transpose(), ma);
+}
+
+#[test]
+fn test_diagonal_matrix() {
+  let m = Matrix::new(3, 3, vec![
+    1,2,3,
+    4,5,6,
+    7,8,9]);
+  assert_eq!(m.diagonal().entries, vec![
+    1,0,0,
+    0,5,0,
+    0,0,9]);
 }
