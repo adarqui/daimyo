@@ -5,6 +5,7 @@
 #[allow(unused_imports)]
 use std::io::Write;
 use std::ops::Add;
+use std::ops::Sub;
 use std::ops::Mul;
 use util::range;
 
@@ -220,6 +221,34 @@ impl Add for Matrix {
 
 
 
+/// Matrix Subition
+///
+/// A = 01|02   B = 05|06
+///     03|04       07|08
+///
+/// C = 01-05 | 02-06
+///     03-07 | 04-08
+///
+impl Sub for Matrix {
+  type Output = Self;
+  fn sub(self, rhs:Self) -> Self {
+    let (ar, ac, br, bc) = (self.rows, self.cols, rhs.rows, rhs.cols);
+    assert_eq!(ar, br);
+    assert_eq!(ac, bc);
+    let mut entries: Vec<isize> = Vec::with_capacity(self.size);
+    for ci in 1 .. (ar-1) {
+      for cj in 1 .. (ac-1) {
+        let a = self.nth(ci, cj);
+        let b = rhs.nth(ci, cj);
+        entries.push(a - b);
+      }
+    }
+    Matrix::new(ar, ac, entries)
+  }
+}
+
+
+
 /*
  * borrow impl?
  */
@@ -345,6 +374,17 @@ fn test_matrix_addition() {
     7, 8]);
   let mc = ma + mb;
   assert_eq!(mc.entries, vec![6, 8, 10, 12]);
+}
+
+fn test_matrix_subtraction() {
+  let ma = Matrix::new(2, 2, vec![
+    1, 2,
+    3, 4]);
+  let mb = Matrix::new(2, 2, vec![
+    5, 6,
+    7, 8]);
+  let mc = ma - mb;
+  assert_eq!(mc.entries, vec![-4, -4, -4, -4]);
 }
 
 #[test]
