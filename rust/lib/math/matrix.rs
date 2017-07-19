@@ -448,6 +448,23 @@ impl Matrix {
     (-1).pow((row+col) as u32) * self.submatrix(row, col).det()
   }
 
+  /// cofactors()
+  ///
+  /// 1 3 2 -> cofactors = -13 -2 18
+  /// 4 1 3                  4 -2  1
+  /// 2 5 2                  7  5 -11
+  ///
+  fn cofactors(&self) -> Matrix {
+    let mut entries: Vec<isize> = Vec::with_capacity(self.size);
+    for i in 1 .. self.rows+1 {
+      for j in 1 .. self.cols+1 {
+        let cofactor = self.cofactor(i, j);
+        entries.push(cofactor);
+      }
+    }
+    Matrix::new(self.rows, self.cols, entries)
+  }
+
   /// remove_row()
   ///
   fn remove_row(&self, _: usize) -> Matrix {
@@ -1037,6 +1054,18 @@ fn test_minors_matrix() {
     -13,2,18,
     -4,-2,-1,
     7,-5,-11]);
+}
+
+#[test]
+fn test_cofactors_matrix() {
+  let m = Matrix::new(3, 3, vec![
+    1,3,2,
+    4,1,3,
+    2,5,2]);
+  assert_eq!(m.cofactors().entries, vec![
+    -13,-2,18,
+    4,-2,1,
+    7,5,-11]);
 }
 
 #[test]
