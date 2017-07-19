@@ -733,7 +733,7 @@ fn fill_matrix(rows: usize, cols: usize, value: isize) -> Matrix {
 
 
 
-/// zero_fill_matrix
+/// zero_fill_matrix()
 ///
 #[allow(dead_code)]
 fn zero_fill_matrix(rows: usize, cols:usize) -> Matrix {
@@ -742,11 +742,20 @@ fn zero_fill_matrix(rows: usize, cols:usize) -> Matrix {
 
 
 
-/// one_fill_matrix
+/// one_fill_matrix()
 ///
 #[allow(dead_code)]
 fn one_fill_matrix(rows: usize, cols:usize) -> Matrix {
   fill_matrix(rows, cols, 1)
+}
+
+
+
+/// identity_matrix()
+///
+#[allow(dead_code)]
+fn identity_matrix(rows: usize, cols: usize) -> Matrix {
+  zero_fill_matrix(rows, cols).identity()
 }
 
 
@@ -1243,7 +1252,19 @@ fn test_inverse_mod_matrix() {
 }
 
 #[test]
-fn test_inverse_mod_matrix_laws() {
+fn test_inverse_mod_matrix_identity_inverse_law() {
+  let m = Matrix::new(2, 2, vec![
+    11,08,
+    03,07]);
+  let m_inv = Matrix::new(2, 2, vec![
+    7,18,
+    23,11]);
+  assert_eq!(&m * &m_inv, Matrix::new(2, 2, vec![
+    261,286,
+    182,131]));
+
+  let v: Vec<isize> = (m * m_inv).entries.into_iter().map(|x| x.modulo(26)).collect();
+  assert_eq!(v, identity_matrix(2, 2).entries);
 }
 
 #[test]
