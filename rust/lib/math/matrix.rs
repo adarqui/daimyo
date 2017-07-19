@@ -7,6 +7,7 @@ use std::io::Write;
 use std::ops::Add;
 use std::ops::Sub;
 use std::ops::Mul;
+use std::cmp::PartialEq;
 use util::range;
 
 
@@ -366,6 +367,26 @@ impl Matrix {
   ///
   fn mul_col_by(&mut self, col_a: usize, scalar: isize) -> &Self {
     self
+  }
+
+  /// submatrix()
+  ///
+  /// submatrix(3, 2)
+  /// 1 2  3  4  = 1 3 4
+  /// 5 6  7  8    5 7 8
+  /// 9 10 11 12
+  fn submatrix(&self, row: usize, col: usize) -> Matrix {
+    let row_count = if row > 0 { 1 } else { 0 };
+    let col_count = if col > 0 { 1 } else { 0 };
+    let new_size = (self.rows - row_count) * (self.cols - col_count);
+    let mut entries: Vec<isize> = Vec::with_capacity(new_size);
+    for i in (1 .. self.rows+1).filter(|r| r.to_owned() == row) {
+      for j in (1 .. self.cols+1).filter(|c| c.to_owned() == col) {
+        let e = self.nth(i, j);
+        entries.push(e);
+      }
+    }
+    Matrix::new(self.rows - row_count, self.cols - col_count, entries)
   }
 
   /// remove_row()
