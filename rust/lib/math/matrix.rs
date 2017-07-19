@@ -161,6 +161,13 @@ impl Matrix {
     self.rows == self.cols
   }
 
+  /// is_invertible()
+  ///
+  fn is_invertible(&self) -> bool {
+    // TODO
+    false
+  }
+
   /// transpose()
   ///
   /// 1 2 3 = 1 4 = 1 4 2 5 3 6
