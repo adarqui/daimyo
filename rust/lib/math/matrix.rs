@@ -294,15 +294,17 @@ impl Matrix {
   ///
   #[allow(non_snake_case)]
   fn det_NxN(&self) -> isize {
-    self.det_NxN_helper(1 as isize, 1 as isize)
+    let mut tot: isize = 0;
+    for j in 1 .. self.cols+1 {
+      let t = self.det_NxN_helper(1, j);
+      tot += t
+    }
+    tot
   }
 
   #[allow(non_snake_case)]
-  fn det_NxN_helper(&self, i: isize, j: isize) -> isize {
-    if j > self.cols {
-      return 0
-    }
-    ((-1).pow((i+j) as u32)) * self.nth(i, j) * self.det_NxN_helper(i, j+1)
+  fn det_NxN_helper(&self, i: usize, j: usize) -> isize {
+    ((-1).pow((i+j) as u32)) * self.nth(i, j) * self.submatrix(i,j).det()
   }
 
   /// zeroes()
@@ -913,6 +915,12 @@ fn test_det_matrix() {
     4,1,3,
     2,5,2]);
   assert_eq!(m_3x3.det(), 17);
+
+  let m_3x3 = Matrix::new(3, 3, vec![
+    6,  1, 1, 
+    4, -2, 5,
+    2,  8, 7]);
+  assert_eq!(m_3x3.det(), -306);
 }
 
 #[test]
