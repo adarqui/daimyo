@@ -186,7 +186,7 @@ impl Matrix {
 
   /// right_diagonal()
   ///
-  fn right_diagona(&self) -> Matrix {
+  fn right_diagonal(&self) -> Matrix {
     self.diagonal()
   }
 
@@ -574,4 +574,6 @@ fn test_diagonal_matrix() {
     1,0,0,
     0,5,0,
     0,0,9]);
+  assert_eq!(m.diagonal().entries, m.right_diagonal().entries);
+  assert_eq!(m.diagonal(), m.diagonal());
 }
