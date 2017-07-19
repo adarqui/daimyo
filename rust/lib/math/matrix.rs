@@ -233,6 +233,83 @@ impl Matrix {
     }
     Matrix::new(self.rows, self.cols, entries)
   }
+
+
+  /// swap_rows()
+  ///
+  fn swap_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
+    self
+  }
+
+  /// add_rows()
+  ///
+  fn add_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
+    self
+  }
+
+  /// add_row_by()
+  ///
+  fn add_row_by(&mut self, row: usize, scalar: isize) -> &Self {
+    self
+  }
+
+  /// mul_rows()
+  ///
+  fn mul_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
+    self
+  }
+
+  /// mul_row_by()
+  ///
+  fn mul_row_by(&mut self, row_a: usize, scalar: isize) -> &Self {
+    self
+  }
+
+  /// swap_cols()
+  ///
+  fn swap_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
+    self
+  }
+
+  /// add_cols()
+  ///
+  fn add_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
+    self
+  }
+
+  /// add_col_by()
+  ///
+  fn add_col_by(&mut self, col: usize, scalar: isize) -> &Self {
+    self
+  }
+
+  /// mul_cols()
+  ///
+  fn mul_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
+    self
+  }
+
+  /// mul_col_by()
+  ///
+  fn mul_col_by(&mut self, col_a: usize, scalar: isize) -> &Self {
+    self
+  }
+
+  // TODO FIXME: These should probably be in another trait
+  // filter, map, .. etc
+
+  /// filter()
+  ///
+  fn filter<F>(&self, f: F) -> Matrix where F: FnOnce() {
+    Matrix::new(1,1,vec![0])
+  }
+
+  /// map()
+  ///
+  fn map<F>(&self, f: F) -> Matrix where F: FnOnce() {
+    Matrix::new(1,1,vec![0])
+  }
+
 }
 
 /// Matrix Multiplication
