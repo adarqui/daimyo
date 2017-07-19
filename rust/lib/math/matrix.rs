@@ -76,10 +76,10 @@ impl Matrix {
   ///       4 - 1
   ///       3
   ///
-  fn nth(&self, row: usize, col: usize) -> &isize {
+  fn nth(&self, row: usize, col: usize) -> isize {
     assert!(row > 0 && col > 0, "row > 0 && col > 0");
     let offset = self.nth_offset(row, col);
-    self.entries.get(offset).unwrap()
+    self.entries.get(offset).unwrap().to_owned()
   }
 
   /// set_nth()
@@ -241,9 +241,18 @@ impl Matrix {
   fn det(&self) -> Option<isize> {
     assert!(self.is_square(), "must be a square matrix");
     match (self.rows, self.cols) {
+      (1,1) => Some(self.det_1x1()),
       (2,2) => Some(self.det_2x2()),
       _     => None
     }
+  }
+
+  /// det_1x1()
+  ///
+  /// det a = a
+  ///
+  fn det_1x1(&self) -> isize {
+    self.nth(1,1)
   }
 
   /// det_2x2()
@@ -580,10 +589,10 @@ fn test_nth_matrix() {
   let mat = Matrix::new(2, 2, vec![
     01, 02,
     03, 04]);
-  assert_eq!(mat.nth(1,1), &1);
-  assert_eq!(mat.nth(1,2), &2);
-  assert_eq!(mat.nth(2,1), &3);
-  assert_eq!(mat.nth(2,2), &4);
+  assert_eq!(mat.nth(1,1), 1);
+  assert_eq!(mat.nth(1,2), 2);
+  assert_eq!(mat.nth(2,1), 3);
+  assert_eq!(mat.nth(2,2), 4);
 }
 
 #[test]
@@ -784,10 +793,13 @@ fn test_left_diagonal_matrix() {
 
 #[test]
 fn test_det_matrix() {
-  let m = Matrix::new(2, 2, vec![
+  let m_1x1 = Matrix::new(1, 1, vec![1]);
+  assert_eq!(m_1x1.det(), Some(1));
+
+  let m_2x2 = Matrix::new(2, 2, vec![
     11,8,
      3,7]);
-  assert_eq!(m.det(), Some(53));
+  assert_eq!(m_2x2.det(), Some(53));
 }
 
 #[test]
