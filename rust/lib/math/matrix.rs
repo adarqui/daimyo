@@ -564,10 +564,8 @@ impl Mul<Matrix> for isize {
 ///
 fn fill_matrix(rows: usize, cols: usize, value: isize) -> Matrix {
   let mut entries: Vec<isize> = Vec::with_capacity(rows * cols);
-  for r in 1 .. rows+1 {
-    for c in 1 .. cols+1 {
-      entries.push(value);
-    }
+  for _ in 1 .. (rows * cols)+1 {
+    entries.push(value);
   }
   Matrix::new(rows, cols, entries)
 }
@@ -809,6 +807,7 @@ fn test_matrix_multiplication_associativity() {
 
 #[test]
 fn test_matrix_left_distributivity() {
+  /*
   let ma = Matrix::new(2, 3, vec![
     2, 3, 4,
     1, 0, 0]);
@@ -818,7 +817,8 @@ fn test_matrix_left_distributivity() {
   let mc = Matrix::new(2, 3, vec![
     5, 6, 7,
     1, 0, 0]);
-  // assert_eq!(&mc*&(&ma+&mb), (&mc*&ma) + (&mc*&mb));
+  assert_eq!(&mc*&(&ma+&mb), (&mc*&ma) + (&mc*&mb));
+  */
 }
 
 #[test]
