@@ -296,7 +296,7 @@ impl Matrix {
 
   /// zeroes()
   ///
-  fn zereos(&self) -> Matrix {
+  fn zeroes(&self) -> Matrix {
     zero_fill_matrix(self.rows, self.cols)
   }
 
@@ -684,6 +684,16 @@ fn test_matrix_commutative_addition() {
   assert_eq!((&ma + &mb).entries, vec![6, 8, 10, 12]);
   assert_eq!((&mb + &ma).entries, vec![6, 8, 10, 12]);
   assert_eq!(&ma + &mb, &mb + &ma);
+}
+
+#[test]
+fn test_matrix_additive_identity() {
+  let m = Matrix::new(2, 2, vec![
+    1,2,
+    3,4]);
+  let zero_m = zero_fill_matrix(2, 2);
+  assert_eq!(m.to_owned() + zero_m, m);
+  assert_eq!(m.to_owned() + m.zeroes(), m);
 }
 
 
