@@ -4,6 +4,13 @@
 
 
 
+// TODO FIXME:
+// split code & tests out
+// put tests in cfg/mod test block
+
+
+
+
 #[allow(unused_imports)]
 use std::io::Write;
 use std::ops::Add;
