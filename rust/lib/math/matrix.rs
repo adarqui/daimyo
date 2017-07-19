@@ -420,6 +420,19 @@ impl Matrix {
     self.submatrix(row, col).det()
   }
 
+  /// minors()
+  ///
+  /// 1 3 2 -> minors = -13 2 18
+  /// 4 1 3              -4 -2 -1
+  /// 2 5 2               7 -5 -11
+  ///
+  fn minors(&self) -> Matrix {
+    for i in 1 .. self.rows+1 {
+      for j in 1 .. self.cols+1 {
+      }
+    }
+  }
+
   /// cofactor()
   ///
   /// cofactor of a minor of a submatrix
@@ -993,12 +1006,21 @@ fn test_submatrix() {
 }
 
 #[test]
-fn test_minor() {
+fn test_minor_matrix() {
   let m = Matrix::new(3, 3, vec![
     1, 4, 7,
     3, 0, 5,
    -1, 9, 11]);
   assert_eq!(m.minor(2, 3), 13);
+}
+
+#[test]
+fn test_cofactor_matrix() {
+  let m = Matrix::new(3, 3, vec![
+    1, 4, 7,
+    3, 0, 5,
+   -1, 9, 11]);
+  assert_eq!(m.cofactor(2, 3), -13);
 }
 
 #[test]
