@@ -376,6 +376,22 @@ fn test_matrix_addition() {
   assert_eq!(mc.entries, vec![6, 8, 10, 12]);
 }
 
+#[test]
+fn test_matrix_associative_addition() {
+  let ma = Matrix::new(2, 2, vec![
+    1, 2,
+    3, 4]);
+  let mb = Matrix::new(2, 2, vec![
+    5, 6,
+    7, 8]);
+  let mc = Matrix::new(2, 2, vec![
+    1, 1,
+    1, 1]);
+  assert_eq!((&ma + &(&mb + &mc)).entries, vec![7, 9, 11, 13]);
+  assert_eq!((&(&ma + &mb) + &mc).entries, vec![7, 9, 11, 13]);
+}
+
+
 fn test_matrix_subtraction() {
   let ma = Matrix::new(2, 2, vec![
     1, 2,
@@ -424,7 +440,6 @@ fn test_matrix_multiplication_associativity_borrow_impl() {
   // 2x3 * 3x2 * 2x3
   // (2x3 * 3x2) = (2x2 * 2x3) = 2x3
   // 2x3 * (3x2 * 2x3) = 2x3 * 3x3 = 2x3
-  // assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
   assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
 }
 
@@ -452,7 +467,6 @@ fn test_matrix_multiplication_associativity() {
   // 2x3 * 3x2 * 2x3
   // (2x3 * 3x2) = (2x2 * 2x3) = 2x3
   // 2x3 * (3x2 * 2x3) = 2x3 * 3x3 = 2x3
-  // assert_eq!(&(&ma*&mb)*&mc, &ma*&(&mb*&mc));
   assert_eq!((ma.to_owned()*mb.to_owned())*mc.to_owned(), ma*(mb*mc));
 }
 
