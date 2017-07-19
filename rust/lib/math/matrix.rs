@@ -427,10 +427,14 @@ impl Matrix {
   /// 2 5 2               7 -5 -11
   ///
   fn minors(&self) -> Matrix {
+    let mut entries: Vec<isize> = Vec::with_capacity(self.size);
     for i in 1 .. self.rows+1 {
       for j in 1 .. self.cols+1 {
+        let minor = self.minor(i, j);
+        entries.push(minor);
       }
     }
+    Matrix::new(self.rows, self.cols, entries)
   }
 
   /// cofactor()
@@ -1021,6 +1025,18 @@ fn test_cofactor_matrix() {
     3, 0, 5,
    -1, 9, 11]);
   assert_eq!(m.cofactor(2, 3), -13);
+}
+
+#[test]
+fn test_minors_matrix() {
+  let m = Matrix::new(3, 3, vec![
+    1,3,2,
+    4,1,3,
+    2,5,2]);
+  assert_eq!(m.minors().entries, vec![
+    -13,2,18,
+    -4,-2,-1,
+    7,-5,-11]);
 }
 
 #[test]
