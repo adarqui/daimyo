@@ -484,6 +484,29 @@ impl Matrix {
     self.adjugate()
   }
 
+  /// inverse()
+  ///
+  /// 11 08 -> inverse = 07/53 -3/53
+  /// 03 07              -8/53 11/53
+  ///
+  fn inverse(&self) -> Option<Matrix> {
+    if !self.is_invertible() {
+      None
+    } else {
+      let d = self.det();
+      let m = self.adjugate();
+      println_stderr!("{:?}", m);
+      None
+      // TODO FIXME: ideal:  Some((1/d) * m)
+    }
+  }
+
+  /// inverse_unsafe()
+  ///
+  fn inverse_unsafe(&self) -> Matrix {
+    self.inverse().unwrap()
+  }
+
   /// remove_row()
   ///
   fn remove_row(&self, _: usize) -> Matrix {
@@ -1129,6 +1152,25 @@ fn test_adjugate_matrix_law_multiplication() {
     2,5,2]);
   // adj(AB) = adj(B)*adj(A) -- NOT adj(A)*adj(B)
   assert_eq!((&ma * &mb).adjugate(), mb.adjugate() * ma.adjugate());
+}
+
+#[test]
+fn test_inverse_matrix() {
+  let m = Matrix::new(2, 2, vec![
+    11,08,
+    03,07]);
+  assert_eq!(m.minors().entries, vec![
+    07,03,
+    08,11]);
+  assert_eq!(m.cofactors().entries, vec![
+    07,-3,
+    -8,11]);
+  assert_eq!(m.adjugate().entries, vec![
+    07,-8,
+    -3,11]);
+  assert_eq!(m.inverse_unsafe().entries, vec![
+    07,18,
+    23,11]);
 }
 
 #[test]
