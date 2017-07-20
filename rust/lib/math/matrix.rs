@@ -20,6 +20,7 @@ use std::ops::Mul;
 use std::iter::Iterator;
 #[allow(unused_imports)]
 use num::PrimInt;
+use num::Integer;
 use util::range;
 #[allow(unused_imports)]
 use math::mod_num::{ModuloSignedExt};
@@ -209,8 +210,8 @@ impl Matrix {
 
   /// is_invertible_mod()
   ///
-  pub fn is_invertible(&self, mod_m: usize) -> bool {
-    num::gcd(self.det(), mod_m)
+  pub fn is_invertible_mod(&self, mod_m: usize) -> bool {
+    self.det().gcd(&(mod_m as isize)) == 1
   }
 
   /// transpose()
@@ -543,14 +544,14 @@ impl Matrix {
   /// 11 08 -> inverse_mod 26 = 07 18
   /// 03 07                     23 11
   ///
-  pub fn inverse_mod(&self, m: usize) -> Option<Matrix> {
-    if !self.is_invertible() {
+  pub fn inverse_mod(&self, mod_m: usize) -> Option<Matrix> {
+    if !self.is_invertible_mod(mod_m) {
       None
     } else {
       let adj = self.adjugate();
       // TODO FIXME: Get rid of count()? Warnings say it might not be consumed..
       // let _ = adj.to_owned().map(|x| x.modulo(m.clone())).count();
-      let entries: Vec<isize> = adj.entries.into_iter().map(|x| x.modulo(m.clone() as isize)).collect();
+      let entries: Vec<isize> = adj.entries.into_iter().map(|x| x.modulo(mod_m.clone() as isize)).collect();
       Some(Matrix::new(adj.rows, adj.cols, entries))
     }
   }
