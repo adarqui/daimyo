@@ -18,7 +18,8 @@ module Daimyo.Algebra.Divisibility (
   divisionAlgorithmShow,
   euclideanAlgorithm,
   divisors,
-  properDivisors
+  properDivisors,
+  modulo
 ) where
 
 import           Daimyo.NumberTheory.Prime
@@ -209,3 +210,10 @@ divisors n
 --
 properDivisors :: Integer -> [Integer]
 properDivisors = init . divisors
+
+
+
+-- | modulo
+--
+modulo :: Integral a => a -> a -> a
+modulo a b = (a `mod` b + b) `mod` b

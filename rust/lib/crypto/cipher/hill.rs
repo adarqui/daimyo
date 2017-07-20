@@ -109,3 +109,23 @@ fn test_hill_cipher() {
   let decrypted = hill.decrypt(encrypted);
   assert_eq!(decrypted, p);
 }
+
+#[test]
+fn test_hill_cipher() {
+
+  let m_v: Vec<isize> = vec![
+    10,05,12,
+    03,14,21,
+    08,09,11];,
+
+  let hill = HillCipher::new(&(matrix::Matrix::new(3, 3, m_v), 26));
+
+  let p = vec![9,20,11,24];
+  let c = vec![3,4,11,22];
+
+  let encrypted = hill.encrypt(p.to_owned());
+  assert_eq!(encrypted, c);
+
+  let decrypted = hill.decrypt(encrypted);
+  assert_eq!(decrypted, p);
+}
