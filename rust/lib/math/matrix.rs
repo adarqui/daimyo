@@ -50,7 +50,7 @@ impl Matrix {
   /// 1 2
   /// 3 4
   ///
-  fn new(rows: usize, cols: usize, entries: Vec<isize>) -> Self {
+  pub fn new(rows: usize, cols: usize, entries: Vec<isize>) -> Self {
     assert_eq!(rows * cols, entries.len());
     Matrix {
       rows: rows,
@@ -61,7 +61,7 @@ impl Matrix {
     }
   }
 
-  fn nth_offset(&self, row: usize, col: usize) -> usize {
+  pub fn nth_offset(&self, row: usize, col: usize) -> usize {
     (((row-1) * self.cols) + col) - 1
   }
 
@@ -93,7 +93,7 @@ impl Matrix {
   ///       4 - 1
   ///       3
   ///
-  fn nth(&self, row: usize, col: usize) -> isize {
+  pub fn nth(&self, row: usize, col: usize) -> isize {
     assert!(row > 0 && col > 0, "row > 0 && col > 0");
     let offset = self.nth_offset(row, col);
     self.entries.get(offset).unwrap().to_owned()
@@ -105,7 +105,7 @@ impl Matrix {
   /// 0 0 = 0 v
   /// 0 0   0 0
   ///
-  fn set_nth(&mut self, row: usize, col: usize, value: isize) -> &Self {
+  pub fn set_nth(&mut self, row: usize, col: usize, value: isize) -> &Self {
     let offset = self.nth_offset(row, col);
     self.entries[offset] = value;
     self
@@ -118,7 +118,7 @@ impl Matrix {
   /// row 1: 01 02
   /// row 2: 03 04
   ///
-  fn row(&self, row: usize) -> Vec<isize> {
+  pub fn row(&self, row: usize) -> Vec<isize> {
     assert!(row > 0, "row > 0");
     let start = (row-1) * self.cols;
     let end = start + self.cols;
@@ -134,7 +134,7 @@ impl Matrix {
   /// row 1: 01 03
   /// row 2: 02 04
   ///
-  fn col(&self, col: usize) -> Vec<isize> {
+  pub fn col(&self, col: usize) -> Vec<isize> {
     assert!(col > 0, "col > 0");
     let mut v = Vec::new();
     for i in range::SimpleStepRange((col - 1) as isize, self.size as isize, self.cols as isize) {
@@ -153,7 +153,7 @@ impl Matrix {
   ///
   /// a_ij = 1
   ///
-  fn identity(&self) -> Self {
+  pub fn identity(&self) -> Self {
     let mut entries: Vec<isize> = Vec::with_capacity(self.size);
     for row in 1 .. (self.rows+1) {
       for col in 1 .. (self.cols+1) {
@@ -169,13 +169,13 @@ impl Matrix {
 
   /// is_square()
   ///
-  fn is_square(&self) -> bool {
+  pub fn is_square(&self) -> bool {
     self.rows == self.cols
   }
 
   /// is_invertible()
   ///
-  fn is_invertible(&self) -> bool {
+  pub fn is_invertible(&self) -> bool {
     self.det() != 0
   }
 
@@ -187,7 +187,7 @@ impl Matrix {
   ///
   /// (1,1),(2,1),(1,2),(2,2),(1,3),(2,3)
   ///
-  fn transpose(&self) -> Matrix {
+  pub fn transpose(&self) -> Matrix {
     let mut entries = Vec::with_capacity(self.size);
     for j in 1 .. self.cols+1 {
       for i in 1 .. self.rows+1 {
@@ -204,7 +204,7 @@ impl Matrix {
   /// 4 5 6   0 5 0
   /// 7 8 9   0 0 9
   ///
-  fn diagonal(&self) -> Matrix {
+  pub fn diagonal(&self) -> Matrix {
     assert!(self.is_square() == true, "must be a square matrix");
     let mut entries: Vec<isize> = Vec::with_capacity(self.size);
     for r in 1 .. self.rows+1 {
@@ -222,7 +222,7 @@ impl Matrix {
 
   /// right_diagonal()
   ///
-  fn right_diagonal(&self) -> Matrix {
+  pub fn right_diagonal(&self) -> Matrix {
     self.diagonal()
   }
 
@@ -232,7 +232,7 @@ impl Matrix {
   /// 4,5,6   0,5,0
   /// 7,8,9   7,0,0
   ///
-  fn left_diagonal(&self) -> Matrix {
+  pub fn left_diagonal(&self) -> Matrix {
     assert!(self.is_square() == true, "must be a square matrix");
     let mut entries: Vec<isize> = Vec::with_capacity(self.size);
     let mut i_r = 1;
@@ -256,7 +256,7 @@ impl Matrix {
   ///
   /// determinant - TODO: extend to arbitrary sized matrix
   ///
-  fn det(&self) -> isize {
+  pub fn det(&self) -> isize {
     assert!(self.is_square(), "must be a square matrix");
     match (self.rows, self.cols) {
       (1,1) => self.det_1x1(),
@@ -269,7 +269,7 @@ impl Matrix {
   ///
   /// det a = a
   ///
-  fn det_1x1(&self) -> isize {
+  pub fn det_1x1(&self) -> isize {
     self.nth(1,1)
   }
 
@@ -278,7 +278,7 @@ impl Matrix {
   /// det a b = ad - bc
   ///     c d
   ///
-  fn det_2x2(&self) -> isize {
+  pub fn det_2x2(&self) -> isize {
     let (a, b, c, d) = (self.nth(1,1), self.nth(1,2), self.nth(2,1), self.nth(2,2));
     a*d - b*c
   }
@@ -302,24 +302,24 @@ impl Matrix {
   ///     where i is any fixed integer between 1 and m.
   ///
   #[allow(non_snake_case)]
-  fn det_NxN(&self) -> isize {
+  pub fn det_NxN(&self) -> isize {
     (1 .. self.cols+1).map(|j| self.det_NxN_helper(1, j)).sum()
   }
 
   #[allow(non_snake_case)]
-  fn det_NxN_helper(&self, i: usize, j: usize) -> isize {
+  pub fn det_NxN_helper(&self, i: usize, j: usize) -> isize {
     ((-1).pow((i+j) as u32)) * self.nth(i, j) * self.submatrix(i,j).det()
   }
 
   /// zeroes()
   ///
-  fn zeroes(&self) -> Matrix {
+  pub fn zeroes(&self) -> Matrix {
     zero_fill_matrix(self.rows, self.cols)
   }
 
   /// negate()
   ///
-  fn negate(&self) -> Matrix {
+  pub fn negate(&self) -> Matrix {
     // let entries: Vec<isize> = self.entries.to_owned().into_iter().map(|x| x * (-1)).collect();
     // Matrix::new(self.rows, self.cols, entries)
     (-1) * self.to_owned()
@@ -328,70 +328,70 @@ impl Matrix {
   /// swap_rows()
   ///
   #[allow(unused_variables)]
-  fn swap_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
+  pub fn swap_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
     self
   }
 
   /// add_rows()
   ///
   #[allow(unused_variables)]
-  fn add_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
+  pub fn add_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
     self
   }
 
   /// add_row_by()
   ///
   #[allow(unused_variables)]
-  fn add_row_by(&mut self, row: usize, scalar: isize) -> &Self {
+  pub fn add_row_by(&mut self, row: usize, scalar: isize) -> &Self {
     self
   }
 
   /// mul_rows()
   ///
   #[allow(unused_variables)]
-  fn mul_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
+  pub fn mul_rows(&mut self, row_a: usize, row_b: usize) -> &Self {
     self
   }
 
   /// mul_row_by()
   ///
   #[allow(unused_variables)]
-  fn mul_row_by(&mut self, row_a: usize, scalar: isize) -> &Self {
+  pub fn mul_row_by(&mut self, row_a: usize, scalar: isize) -> &Self {
     self
   }
 
   /// swap_cols()
   ///
   #[allow(unused_variables)]
-  fn swap_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
+  pub fn swap_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
     self
   }
 
   /// add_cols()
   ///
   #[allow(unused_variables)]
-  fn add_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
+  pub fn add_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
     self
   }
 
   /// add_col_by()
   ///
   #[allow(unused_variables)]
-  fn add_col_by(&mut self, col: usize, scalar: isize) -> &Self {
+  pub fn add_col_by(&mut self, col: usize, scalar: isize) -> &Self {
     self
   }
 
   /// mul_cols()
   ///
   #[allow(unused_variables)]
-  fn mul_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
+  pub fn mul_cols(&mut self, col_a: usize, col_b: usize) -> &Self {
     self
   }
 
   /// mul_col_by()
   ///
   #[allow(unused_variables)]
-  fn mul_col_by(&mut self, col_a: usize, scalar: isize) -> &Self {
+  pub fn mul_col_by(&mut self, col_a: usize, scalar: isize) -> &Self {
     self
   }
 
@@ -401,7 +401,7 @@ impl Matrix {
   /// 1 2  3  4  = 1 3 4
   /// 5 6  7  8    5 7 8
   /// 9 10 11 12
-  fn submatrix(&self, row: usize, col: usize) -> Matrix {
+  pub fn submatrix(&self, row: usize, col: usize) -> Matrix {
     let row_count = if row > 0 { 1 } else { 0 };
     let col_count = if col > 0 { 1 } else { 0 };
     let new_size = (self.rows - row_count) * (self.cols - col_count);
@@ -422,7 +422,7 @@ impl Matrix {
   ///  1 4 7 -> M_2,3 = det 1 4 _ = det 1 4 = (9 - (-4)) = 13
   ///  3 0 5                _ _ _      -1 9
   /// -1 9 11              -1 9 _
-  fn minor(&self, row: usize, col: usize) -> isize {
+  pub fn minor(&self, row: usize, col: usize) -> isize {
     self.submatrix(row, col).det()
   }
 
@@ -432,7 +432,7 @@ impl Matrix {
   /// 4 1 3              -4 -2 -1
   /// 2 5 2               7 -5 -11
   ///
-  fn minors(&self) -> Matrix {
+  pub fn minors(&self) -> Matrix {
     let mut entries: Vec<isize> = Vec::with_capacity(self.size);
     for i in 1 .. self.rows+1 {
       for j in 1 .. self.cols+1 {
@@ -450,7 +450,7 @@ impl Matrix {
   ///  1 4 7 -> M_2,3 = det 1 4 _ = det 1 4 = (9 - (-4)) = 13 = C_2,3 = (-1)^(2+3)(13) = -13
   ///  3 0 5                _ _ _      -1 9
   /// -1 9 11              -1 9 _
-  fn cofactor(&self, row: usize, col: usize) -> isize {
+  pub fn cofactor(&self, row: usize, col: usize) -> isize {
     (-1).pow((row+col) as u32) * self.submatrix(row, col).det()
   }
 
@@ -460,7 +460,7 @@ impl Matrix {
   /// 4 1 3                  4 -2  1
   /// 2 5 2                  7  5 -11
   ///
-  fn cofactors(&self) -> Matrix {
+  pub fn cofactors(&self) -> Matrix {
     let mut entries: Vec<isize> = Vec::with_capacity(self.size);
     for i in 1 .. self.rows+1 {
       for j in 1 .. self.cols+1 {
@@ -473,13 +473,13 @@ impl Matrix {
 
   /// adjugate()
   ///
-  fn adjugate(&self) -> Matrix {
+  pub fn adjugate(&self) -> Matrix {
     self.cofactors().transpose()
   }
 
   /// adjoint()
   ///
-  fn adjoint(&self) -> Matrix {
+  pub fn adjoint(&self) -> Matrix {
     self.adjugate()
   }
 
@@ -488,7 +488,7 @@ impl Matrix {
   /// 11 08 -> inverse = 07/53 -3/53
   /// 03 07              -8/53 11/53
   ///
-  fn inverse(&self) -> Option<Matrix> {
+  pub fn inverse(&self) -> Option<Matrix> {
     if !self.is_invertible() {
       None
     } else {
@@ -500,7 +500,7 @@ impl Matrix {
 
   /// inverse_unsafe()
   ///
-  fn inverse_unsafe(&self) -> Matrix {
+  pub fn inverse_unsafe(&self) -> Matrix {
     self.inverse().unwrap()
   }
 
@@ -509,7 +509,7 @@ impl Matrix {
   /// 11 08 -> inverse_mod 26 = 07 18
   /// 03 07                     23 11
   ///
-  fn inverse_mod(&self, m: usize) -> Option<Matrix> {
+  pub fn inverse_mod(&self, m: usize) -> Option<Matrix> {
     if !self.is_invertible() {
       None
     } else {
@@ -523,25 +523,25 @@ impl Matrix {
 
   /// inverse_mod_unsafe()
   ///
-  fn inverse_mod_unsafe(&self, m: usize) -> Matrix {
+  pub fn inverse_mod_unsafe(&self, m: usize) -> Matrix {
     self.inverse_mod(m).unwrap()
   }
 
   /// remove_row()
   ///
-  fn remove_row(&self, _: usize) -> Matrix {
+  pub fn remove_row(&self, _: usize) -> Matrix {
     Matrix::new(1,1,vec![1])
   }
 
   /// remove_col()
   ///
-  fn remove_col(&self, _: usize) -> Matrix {
+  pub fn remove_col(&self, _: usize) -> Matrix {
     Matrix::new(1,1,vec![1])
   }
 
   /// map()
   ///
-  fn map<F>(&self, f: F) -> Matrix where F: Fn(isize) -> isize {
+  pub fn map<F>(&self, f: F) -> Matrix where F: Fn(isize) -> isize {
     let entries: Vec<isize> = self.to_owned().entries.into_iter().map(f).collect();
     Matrix::new(self.rows, self.cols, entries)
   }
@@ -732,7 +732,7 @@ impl FromIterator for Matrix {
 
 /// fill_matrix
 ///
-fn fill_matrix(rows: usize, cols: usize, value: isize) -> Matrix {
+pub fn fill_matrix(rows: usize, cols: usize, value: isize) -> Matrix {
   let mut entries: Vec<isize> = Vec::with_capacity(rows * cols);
   for _ in 1 .. (rows * cols)+1 {
     entries.push(value);
@@ -745,7 +745,7 @@ fn fill_matrix(rows: usize, cols: usize, value: isize) -> Matrix {
 /// zero_fill_matrix()
 ///
 #[allow(dead_code)]
-fn zero_fill_matrix(rows: usize, cols:usize) -> Matrix {
+pub fn zero_fill_matrix(rows: usize, cols:usize) -> Matrix {
   fill_matrix(rows, cols, 0)
 }
 
@@ -754,7 +754,7 @@ fn zero_fill_matrix(rows: usize, cols:usize) -> Matrix {
 /// one_fill_matrix()
 ///
 #[allow(dead_code)]
-fn one_fill_matrix(rows: usize, cols:usize) -> Matrix {
+pub fn one_fill_matrix(rows: usize, cols:usize) -> Matrix {
   fill_matrix(rows, cols, 1)
 }
 
@@ -763,7 +763,7 @@ fn one_fill_matrix(rows: usize, cols:usize) -> Matrix {
 /// identity_matrix()
 ///
 #[allow(dead_code)]
-fn identity_matrix(rows: usize, cols: usize) -> Matrix {
+pub fn identity_matrix(rows: usize, cols: usize) -> Matrix {
   zero_fill_matrix(rows, cols).identity()
 }
 

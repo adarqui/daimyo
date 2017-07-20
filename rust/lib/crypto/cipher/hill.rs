@@ -46,13 +46,23 @@ impl CryptoSystem for HillCipher {
   }
 }
 
+
+
 #[test]
 fn test_hill_cipher() {
+
   let m_v: Vec<isize> = vec![
     11,8,
     3,7];
-  let hill = HillCipher::new(&(Matrix::new(rows, cols, m_v), 26));
+
+  let hill = HillCipher::new(&(matrix::Matrix::new(2, 2, m_v), 26));
 
   let p = vec![9,20,11,24];
   let c = vec![3,4,11,22];
+
+  let encrypted = hill.encrypt(p.to_owned());
+  assert_eq!(encrypted, c);
+
+  let decrypted = hill.decrypt(encrypted);
+  assert_eq!(decrypted, p);
 }
