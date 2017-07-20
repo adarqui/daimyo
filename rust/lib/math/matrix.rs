@@ -508,6 +508,8 @@ impl Matrix {
 
   /// adjugate()
   ///
+  /// often denoted A*, B* etc
+  ///
   pub fn adjugate(&self) -> Matrix {
     self.cofactors().transpose()
   }
