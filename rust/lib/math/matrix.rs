@@ -699,6 +699,17 @@ impl Mul<isize> for Matrix {
 }
 
 /*
+ * Scalar multiplication for a Matrix
+ */
+impl<'a> Mul<&'a isize> for Matrix {
+  type Output = Matrix;
+  fn mul(self, scalar: &isize) -> Matrix {
+    let v: Vec<isize> = self.entries.into_iter().map(|x| scalar * x).collect();
+    Matrix::new(self.rows, self.cols, v)
+  }
+}
+
+/*
  * TODO FIXME: Why do I have to do this twice (for both sides)? WTF?
  *
  * Scalar multiplication for a Matrix
@@ -1143,6 +1154,15 @@ fn test_det_matrix_multiplication_rule() {
     2,5,7]);
 
   assert_eq!(m_3x2.det()*m_2x2.det(), (m_3x2*m_2x2).det());
+}
+
+#[test]
+fn test_det_of_identity_matrix() {
+  let m = Matrix::new(3, 3, vec![
+    1,3,6,
+    4,1,1,
+    2,5,7]);
+  assert_eq!(m.identity().det(), 1);
 }
 
 #[test]
