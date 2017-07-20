@@ -207,6 +207,12 @@ impl Matrix {
     self.det() != 0
   }
 
+  /// is_invertible_mod()
+  ///
+  pub fn is_invertible(&self, mod_m: usize) -> bool {
+    num::gcd(self.det(), mod_m)
+  }
+
   /// transpose()
   ///
   /// 1 2 3 = 1 4 = 1 4 2 5 3 6
