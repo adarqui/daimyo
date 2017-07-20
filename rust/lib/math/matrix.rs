@@ -60,7 +60,35 @@ impl Matrix {
       entries: entries
     }
   }
+  
+  /// accessor: rows()
+  ///
+  pub fn rows(&self) -> usize {
+    self.rows
+  }
 
+  /// accessor: cols()
+  ///
+  pub fn cols(&self) -> usize {
+    self.cols
+  }
+
+  /// accessor: size()
+  ///
+  pub fn size(&self) -> usize {
+    self.size
+  }
+
+  /// accessors: entries()
+  ///
+  pub fn entries(&self) -> Vec<isize> {
+    self.entries.to_owned()
+  }
+
+  /// nth_offset()
+  ///
+  /// point directly into a flat vector
+  ///
   pub fn nth_offset(&self, row: usize, col: usize) -> usize {
     (((row-1) * self.cols) + col) - 1
   }

@@ -1,5 +1,6 @@
 #[allow(unused_imports)]
 use num::Integer;
+// use std::io::Write;
 use math::mod_shared::{ModValue, ModModulus};
 use math::mod_num::{ModuloSignedExt};
 use math::matrix;
@@ -38,11 +39,53 @@ impl CryptoSystem for HillCipher {
   }
 
   fn encrypt(&self, plaintext: Vec<ModValue>) -> Vec<ModValue> {
-    plaintext
+    assert_eq!(plaintext.len().modulo(self.key.cols()), 0); 
+    let pcopy = plaintext.to_owned();
+    let mut ciphertext: Vec<ModValue> = Vec::with_capacity(plaintext.len());
+
+    let mut iter = pcopy.chunks(self.key.cols());
+    loop {
+      match iter.next() {
+        Some(e) => {
+          let mut v: Vec<i64> = Vec::with_capacity(self.key.cols());
+          v.extend_from_slice(e);
+          let v: Vec<isize> = v.iter().map(|x| x.to_owned() as isize).collect();
+          let m = &matrix::Matrix::new(1, self.key.cols(), v) * &self.key;
+
+          for i in m.entries() {
+            ciphertext.push(i.modulo(self.m as isize) as ModValue)
+          }
+
+        }
+        _       => break
+      }
+    }
+    ciphertext
   }
 
   fn decrypt(&self, ciphertext: Vec<ModValue>) -> Vec<ModValue> {
-    ciphertext
+    assert_eq!(ciphertext.len().modulo(self.key.cols()), 0); 
+    let pcopy = ciphertext.to_owned();
+    let mut plaintext: Vec<ModValue> = Vec::with_capacity(ciphertext.len());
+
+    let mut iter = pcopy.chunks(self.key.cols());
+    loop {
+      match iter.next() {
+        Some(e) => {
+          let mut v: Vec<i64> = Vec::with_capacity(self.key.cols());
+          v.extend_from_slice(e);
+          let v: Vec<isize> = v.iter().map(|x| x.to_owned() as isize).collect();
+          let m = &matrix::Matrix::new(1, self.key.cols(), v) * &self.key.inverse_mod_unsafe(self.m as usize);
+
+          for i in m.entries() {
+            plaintext.push(i.modulo(self.m as isize) as ModValue)
+          }
+
+        }
+        _       => break
+      }
+    }
+    plaintext
   }
 }
 
