@@ -17,6 +17,8 @@ test-vigenere-cipher:
 	cargo test vigenere_cipher
 test-hill-cipher:
 	cargo test hill_cipher
+test-permutation-cipher:
+	cargo test permutation_cipher
 
 test-matrix:
 	cargo test matrix
