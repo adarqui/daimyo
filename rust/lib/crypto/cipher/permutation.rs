@@ -107,10 +107,10 @@ fn test_permutation_cipher() {
   let permut = PermutationCipher::new(&(key, 1));
 
   let p = vec::string_to_vec_of_i64_m26("shesellsseashellsbytheseashore");
-  let e = vec::string_to_vec_of_i64_m26("eeslshsalseslshblehsyeethraeos");
+  let c = vec::string_to_vec_of_i64_m26("eeslshsalseslshblehsyeethraeos");
 
   let encrypted = permut.encrypt(p.to_owned());
-  assert_eq!(encrypted, e);
+  assert_eq!(encrypted, c);
 
   let decrypted = permut.decrypt(encrypted);
   assert_eq!(decrypted, p);
