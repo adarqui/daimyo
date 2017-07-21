@@ -42,11 +42,12 @@ impl CryptoSystem for PermutationCipher {
 
     let range: Vec<u64> = (0 .. key.len()).map(|x| x as u64).collect();
 
-    let e_key: Vec<(u64,u64)> = range.into_iter().zip(key.iter()).map(|(r,k)| (r, k - start_at)).collect();
+    let mut e_key: Vec<(u64,u64)> = key.iter().zip(range.into_iter()).map(|(k,r)| (k - start_at, r)).collect();
+    e_key.sort_by(|&(k1,_),&(k2,_)| k1.cmp(&k2));
     
     // inverse key
     let mut d_key: Vec<(u64,u64)> = e_key.to_owned();
-    d_key.sort_by(|&(_,k1),&(_,k2)| k1.cmp(&k2));
+    d_key.sort_by(|&(_,r1),&(_,r2)| r1.cmp(&r2));
 
     PermutationCipher {
       d: d_key,
@@ -106,41 +107,11 @@ fn test_permutation_cipher() {
   let permut = PermutationCipher::new(&(key, 1));
 
   let p = vec::string_to_vec_of_i64_m26("shesellsseashellsbytheseashore");
-  // bug/error in Cryptography - Theory and Practice: 1.6 ??
-  let e = vec![4, 11, 18, 4, 7, 18, 18, 18, 11, 0, 18, 4, 11, 1, 7, 18, 4, 11, 7, 4, 24, 18, 19, 4, 7, 4, 0, 17, 18, 14];
-
-  // 012345
-  // 351642
-  // 240531
-  // shesel
-  // ______
-  // __s___
-  // __s_h_
-  // e_s_h_
-  // e_s_hs
-  // e_sehs
-  // elsehs
-  //
-  // book: eeslsh??
-  //
-  // 012345
-  // 361524
-  // 250413
-  // elsehs
-  // ______
-  // __e___
-  // __e__l
-  // s_e__l
-  // s_e_el
-  // she_el
-  // shesel
+  let e = vec::string_to_vec_of_i64_m26("eeslshsalseslshblehsyeethraeos");
 
   let encrypted = permut.encrypt(p.to_owned());
-  // assert_eq!(encrypted, e);
-  println_stderr!("{:?}", vec::vec_of_i64_m26_to_string(encrypted.to_owned()));
-  assert_eq!(encrypted, vec::string_to_vec_of_i64("elsehssslaselbhselheystehearso"));
+  assert_eq!(encrypted, e);
 
   let decrypted = permut.decrypt(encrypted);
-  println_stderr!("{}", vec::vec_of_i64_m26_to_string(decrypted.to_owned()));
   assert_eq!(decrypted, p);
 }
