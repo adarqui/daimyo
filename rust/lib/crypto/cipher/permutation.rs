@@ -136,8 +136,9 @@ fn test_permutation_cipher() {
   // shesel
 
   let encrypted = permut.encrypt(p.to_owned());
-  assert_eq!(encrypted, e);
-  // elsehssslaselbhselheystehearso
+  // assert_eq!(encrypted, e);
+  println_stderr!("{:?}", vec::vec_of_i64_m26_to_string(encrypted.to_owned()));
+  assert_eq!(encrypted, vec::string_to_vec_of_i64("elsehssslaselbhselheystehearso"));
 
   let decrypted = permut.decrypt(encrypted);
   println_stderr!("{}", vec::vec_of_i64_m26_to_string(decrypted.to_owned()));
