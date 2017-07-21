@@ -26,9 +26,9 @@ pub struct SubstitutionCipher {
 impl CryptoSystem for SubstitutionCipher {
   type P = ModValue;
   type C = ModValue;
-  type K = Vec<(i64,i64)>;
+  type K = Vec<(ModValue,ModValue)>;
 
-  fn new(key_map: &Vec<(i64, i64)>) -> Self {
+  fn new(key_map: &Vec<(ModValue, ModValue)>) -> Self {
     let mut d_map = BTreeMap::new();
     let mut e_map = BTreeMap::new();
     for x in key_map.into_iter() {
@@ -42,7 +42,7 @@ impl CryptoSystem for SubstitutionCipher {
   }
 
   fn encrypt(&self, plaintext: Vec<ModValue>) -> Vec<ModValue> {
-    let v: Vec<i64> =
+    let v: Vec<ModValue> =
       plaintext
       .into_iter()
       .map(|x| self.e.get(&x).unwrap().to_owned())
@@ -51,7 +51,7 @@ impl CryptoSystem for SubstitutionCipher {
   }
 
   fn decrypt(&self, ciphertext: Vec<ModValue>) -> Vec<ModValue> {
-    let v: Vec<i64> =
+    let v: Vec<ModValue> =
       ciphertext
       .into_iter()
       .map(|x| self.d.get(&x).unwrap().to_owned())
@@ -64,7 +64,7 @@ impl CryptoSystem for SubstitutionCipher {
 
 
 impl KeySpace for SubstitutionCipher {
-  type K = Vec<(i64,i64)>;
+  type K = Vec<(ModValue,ModValue)>;
 
   fn new(s: SubstitutionCipher) -> Self {
     s
@@ -89,8 +89,8 @@ fn test_substitution_cipher() {
   let key_map = vec![(0,9),(1,8),(2,7),(3,6),(4,5)];
   let sub = <SubstitutionCipher as CryptoSystem>::new(&key_map);
 
-  let p: Vec<i64> = key_map.to_owned().into_iter().map(|x|x.0).collect();
-  let c: Vec<i64> = key_map.to_owned().into_iter().map(|x|x.1).collect();
+  let p: Vec<ModValue> = key_map.to_owned().into_iter().map(|x|x.0).collect();
+  let c: Vec<ModValue> = key_map.to_owned().into_iter().map(|x|x.1).collect();
 
   let encrypted = sub.encrypt(p.to_owned());
   assert_eq!(encrypted, c);
