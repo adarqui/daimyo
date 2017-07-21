@@ -111,17 +111,17 @@ fn test_hill_cipher() {
 }
 
 #[test]
-fn test_hill_cipher() {
+fn test_hill_cipher_2() {
 
   let m_v: Vec<isize> = vec![
     10,05,12,
     03,14,21,
-    08,09,11];,
+    08,09,11];
 
   let hill = HillCipher::new(&(matrix::Matrix::new(3, 3, m_v), 26));
 
-  let p = vec![9,20,11,24];
-  let c = vec![3,4,11,22];
+  let p = vec![09,20,11,24,01,05];
+  let c = vec![04,08,25,23,23,00];
 
   let encrypted = hill.encrypt(p.to_owned());
   assert_eq!(encrypted, c);
