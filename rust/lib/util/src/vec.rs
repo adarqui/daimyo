@@ -1,5 +1,5 @@
 use std::char;
-use crypto::char as crypto_char;
+use char as util_char;
 
 
 
@@ -44,7 +44,7 @@ pub fn string_to_vec_of_i64_m26(s: &str) -> Vec<i64> {
   s
   .as_bytes()
   .into_iter()
-  .map(|x| (crypto_char::char_to_base(char::from_u32(*x as u32).unwrap())).clone() as i64)
+  .map(|x| (util_char::char_to_base(char::from_u32(*x as u32).unwrap())).clone() as i64)
   .collect()
 }
 
