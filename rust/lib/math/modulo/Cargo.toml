@@ -1,0 +1,7 @@
+[package]
+name = "modulo"
+version = "0.1.0"
+authors = ["x <x>"]
+
+[dependencies]
+num = "0.1.39"
