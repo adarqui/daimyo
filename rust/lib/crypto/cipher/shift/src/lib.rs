@@ -1,10 +1,11 @@
 extern crate modulo;
-extern crate crypto_system;
-
-use std::vec::Vec;
 use modulo::mod_num::{ModNum};
 use modulo::mod_shared::{ModValue,ModModulus};
+
+extern crate crypto_system;
 use crypto_system::CryptoSystem;
+
+use std::vec::Vec;
 
 
 
