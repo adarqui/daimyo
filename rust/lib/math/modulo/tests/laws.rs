@@ -1,5 +1,8 @@
-#[allow(unused_imports)]
-use mod_num;
+#[cfg(test)]
+
+extern crate modulo;
+
+use modulo::mod_num;
 
 #[test]
 fn test_p1_mod_num_closed_addition() {
