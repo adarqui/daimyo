@@ -1,5 +1,5 @@
-#[allow(unused_imports)]
-use crypto::crypto_system::CryptoSystem;
+extern crate crypto_system;
+use crypto_system::CryptoSystem;
 
 
 
@@ -49,14 +49,4 @@ impl CryptoSystem for IdentityCipher {
   fn decrypt(&self, c: Vec<i64>) -> Vec<i64> {
     c.clone()
   }
-}
-
-
-
-#[test]
-fn test_identity_cipher() {
-  let identity = IdentityCipher::new(&());
-  assert_eq!(identity.encrypt(vec![01,02,03]), vec![01,02,03]);
-  assert_eq!(identity.decrypt(vec![01,02,03]), vec![01,02,03]);
-  assert_eq!(identity.decrypt(identity.encrypt(vec![01,02,03])), vec![01,02,03]);
 }
