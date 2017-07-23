@@ -1,17 +1,15 @@
 #[cfg(test)]
 
 extern crate num;
-
-extern crate util;
-extern crate matrix;
-extern crate modulo;
-
 use num::PrimInt;
 
+extern crate util;
+
+extern crate modulo;
 use modulo::mod_num::ModuloSignedExt;
 
-use matrix::matrix::Matrix;
-use matrix::matrix::*;
+extern crate matrix;
+use matrix::*;
 
 #[test]
 fn test_matrix() {
