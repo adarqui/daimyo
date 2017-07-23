@@ -1,0 +1,12 @@
+[package]
+name = "shift_alpha"
+version = "0.1.0"
+authors = ["x <x>"]
+
+[dependencies]
+modulo = { path = "../../../math/modulo" }
+crypto_system = { path = "../../system" }
+shift = { path = "../shift" }
+util = { path = "../../../util" }
+
+[lib]
