@@ -7,8 +7,3 @@ authors = ["x <x>"]
 num = "0.1.39"
 modulo = { pqth = "../../math/modulo" }
 util = { path = "../../util" }
-
-[lib]
-name = "matrix"
-path = "lib/lib.rs"
-test = true
