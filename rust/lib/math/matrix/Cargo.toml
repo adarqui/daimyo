@@ -5,5 +5,5 @@ authors = ["x <x>"]
 
 [dependencies]
 num = "0.1.39"
-modulo = { pqth = "../../math/modulo" }
+modulo = { path = "../../math/modulo" }
 util = { path = "../../util" }
