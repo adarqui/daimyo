@@ -1,3 +1,4 @@
+extern crate num;
 use num::integer;
 
 

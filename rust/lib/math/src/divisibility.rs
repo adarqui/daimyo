@@ -1,5 +1,4 @@
-#[allow(unused_imports)]
-use num::integer;
+extern crate num;
 use num::Integer;
 
 
