@@ -1,0 +1,10 @@
+[package]
+name = "hill"
+version = "0.1.0"
+authors = ["x <x>"]
+
+[dependencies]
+matrix = { path = "../../../math/matrix" }
+modulo = { path = "../../../math/modulo" }
+util = { path = "../../../util" }
+crypto_system = { path = "../../system" }
