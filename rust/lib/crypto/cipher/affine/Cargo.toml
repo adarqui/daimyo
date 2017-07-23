@@ -1,0 +1,9 @@
+[package]
+name = "affine"
+version = "0.1.0"
+authors = ["x <x>"]
+
+[dependencies]
+math = { path = "../../../math" }
+modulo = { path = "../../../math/modulo" }
+crypto_system = { path = "../../system" }
