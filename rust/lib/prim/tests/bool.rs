@@ -1,14 +1,8 @@
-pub fn prim_true() -> bool {
-  true
-}
+#[cfg(test)]
 
+extern crate prim;
 
-
-pub fn prim_false() -> bool {
-  false
-}
-
-
+use prim::bool::*;
 
 #[test]
 fn test_prim_true() {
