@@ -3,6 +3,11 @@
 
 
 
+// extern crate util;
+// use std::io::Write;
+
+
+
 /// LFSR - Linear Feedback Shift Register
 ///
 /// Shift register with m stages.
@@ -41,13 +46,16 @@ impl Iterator for LFSRKeyStream {
   fn next(&mut self) -> Option<usize> {
 
     let k_1 = self.register.get(0).unwrap().to_owned();
-    for i in 1..self.m {
-      self.register[i-1] = self.register[i];
-    }
 
     let mut k_m = 0;
-    for j in 0..self.m-1 {
-      k_m += self.constants.get(j).unwrap() * self.register.get(j).unwrap(); 
+    for j in 0..self.m {
+      let c_j = self.constants.get(j).unwrap();
+      let k_j = self.register.get(j).unwrap();
+      k_m += c_j * k_j;
+    }
+
+    for i in 1..self.m {
+      self.register[i-1] = self.register[i];
     }
 
     self.register[self.m-1] = k_m % 2;
