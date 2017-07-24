@@ -1,1 +1,2 @@
 http://fit.mta.edu.vn/files/DanhSach/Prentice%20Hall%20-%20Modern%20Cryptography.pdf
+http://crypto.cs.mcgill.ca/~simonpie/webdav/ipad/EBook/Crypto/Modern%20Cryptography%20%20Theory%20And%20Practice%20-%20Wenbo%20Mao.pdf
