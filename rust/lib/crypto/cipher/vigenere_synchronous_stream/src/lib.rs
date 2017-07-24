@@ -28,7 +28,8 @@ pub struct VigenereSynchronousStreamCipher {
 ///
 /// Additional notes:
 /// - polyalphabetic crypto system
-///
+/// - The Vigenere Cipher with key length n, as described above, can be thought of as a periodic stream cipher with period n.
+/// 
 impl SynchronousStreamCipher for VigenereSynchronousStreamCipher {
   type P = ModValue;
   type C = ModValue;

@@ -32,7 +32,18 @@ pub trait CryptoSystem {
 /// We can think of a block cipher as a special case of a stream cipher where the keystream is constant:
 /// z_i = K for all i >= 1
 ///
-// pub trait SynchronousStreamCipher : CryptoSystem {
+/// A stream cipher is a periodic stream cipher with period d if z_i+d = z_i for all integers i >= 1.
+///
+/// Stream ciphers are often described in terms of binary alphabets, i.e., P = C = L = Z_2. In this situation, encryption and decryption operations are just addition modulo 2:
+///
+///   e_z(x) = (x + z) mod 2
+///   d_z(y) = (y + z) mod 2
+///
+///   If we tink of 0 as false and 1 as true, then addition modulo 2 corresponds to the exclusive or (XOR) operation.
+///
+/// TODO FIXME:
+/// - would be nice to extend CryptoSystem
+/// - pub trait SynchronousStreamCipher : CryptoSystem {
 pub trait SynchronousStreamCipher {
   type P; // plaintext
   type C; // ciphertext
