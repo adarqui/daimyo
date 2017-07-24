@@ -57,6 +57,22 @@ pub trait SynchronousStreamCipher {
 
 
 
+/// A non-synchronous strea cipher is a stream cipher in which,
+/// each keystream element z_i depends on previous plaintext or ciphertext
+/// elements (x_1,...,x_i-1 and/or y_1,...y_i-1) as well as the key K.
+///
+pub trait NonSynchronousStreamCipher {
+  type P; // plaintext
+  type C; // ciphertext
+  type K; // key
+  type L; // keystream alphabet
+  fn new(&Self::K) -> Self;
+  fn encrypt(&mut self, Vec<Self::P>) -> Vec<Self::C>;
+  fn decrypt(&mut self, Vec<Self::C>) -> Vec<Self::P>;
+  fn g(&mut self) -> Self::L;
+}
+
+
 
 pub trait KeySpace {
   type K;
