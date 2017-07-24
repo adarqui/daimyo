@@ -1,0 +1,6 @@
+[package]
+name = "keystream"
+version = "0.1.0"
+authors = ["x <x>"]
+
+[dependencies]
