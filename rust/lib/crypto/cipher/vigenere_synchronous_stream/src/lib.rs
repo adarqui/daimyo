@@ -17,7 +17,7 @@ pub struct VigenereSynchronousStreamCipher {
 
 
 
-/// Vigenere Cipher
+/// Vigenere Synchronous Stream Cipher
 ///
 /// Let n be a positive integer. Define P = C = _KS_ = (Z_m)^n.
 /// For a key K = (k_1, k_2, ... k_n), we defined:
