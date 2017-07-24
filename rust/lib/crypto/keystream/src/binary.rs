@@ -1,5 +1,4 @@
-extern crate util;
-use std::io::Write;
+#![allow(dead_code)]
 
 
 

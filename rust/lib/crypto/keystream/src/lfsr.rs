@@ -6,6 +6,12 @@
 // extern crate util;
 // use std::io::Write;
 
+extern crate num;
+use self::num::PrimInt;
+
+// extern crate core;
+// use core::slice::SliceExt;
+
 
 
 /// LFSR - Linear Feedback Shift Register
@@ -21,8 +27,10 @@
 /// At any given point in time, the shift egister contains m consecutive keystream elemts, say z_1,...,z_(i+m-1).
 /// After each time unit, the shift register contains z_(i+1),...,z_(i+m).
 ///
+#[derive(Eq, PartialEq, Clone)]
 pub struct LFSRKeyStream {
   constants: Vec<usize>,
+  iv: Vec<usize>,
   register: Vec<usize>,
   m: usize
 }
@@ -33,9 +41,35 @@ impl LFSRKeyStream {
   pub fn new(constants: &Vec<usize>, iv: &Vec<usize>) -> LFSRKeyStream {
     LFSRKeyStream {
       constants: constants.to_owned().into_iter().map(|x| x % 2).collect(),
+      iv: iv.to_owned().into_iter().map(|x| x % 2).collect(),
       register: iv.to_owned().into_iter().map(|x| x % 2).collect(),
       m: iv.len()
     }
+  }
+
+  pub fn period(&self) -> Option<usize> {
+    let mut lfsr = LFSRKeyStream::new(&self.constants, &self.iv);
+    let top_limit = 2.pow(16);
+    let mut i = 0;
+
+    // first value
+    lfsr.next(); i+= 1;
+
+    loop {
+
+      lfsr.next(); i += 1;
+
+      if i > top_limit {
+        break
+      }
+
+      if lfsr.register == self.iv {
+        return Some(i);
+      }
+
+    }
+
+    None
   }
 }
 
